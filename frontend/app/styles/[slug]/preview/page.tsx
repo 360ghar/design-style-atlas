@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { getStyle, getStyleSlugs } from "../../../lib/styles";
 import { getStyleDefinition } from "../../../lib/style-definitions";
@@ -33,5 +34,9 @@ export default async function StylePreviewPage({
 
   const def = getStyleDefinition(slug);
 
-  return <FullscreenPreviewViewer style={style} baseDef={def} />;
+  return (
+    <Suspense fallback={null}>
+      <FullscreenPreviewViewer style={style} baseDef={def} />
+    </Suspense>
+  );
 }

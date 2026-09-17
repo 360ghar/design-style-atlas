@@ -6,6 +6,7 @@ import type { StyleMeta } from "../lib/styles";
 import { getStyleDefinition } from "../lib/style-definitions";
 import type { PreviewThemeMode } from "../lib/preview-theme";
 import { StyleLandingPage } from "./previews/StyleLandingPage";
+import { BespokePreview, hasBespoke } from "./previews";
 import { StyleComponentKit } from "./previews/StyleComponentKit";
 import {
   TokenPlayground,
@@ -16,7 +17,8 @@ import {
   type TokenOverrides,
 } from "./TokenPlayground";
 
-type Tab = "landing" | "kit" | "tokens" | "mix" | "export" | "spec";
+type Tab = "bespoke" | "generic" | "kit" | "tokens" | "mix" | "export" | "spec";
+export type PreviewVariant = "bespoke" | "generic";
 
 export function StylePreviewStudio({
   style,
@@ -25,7 +27,8 @@ export function StylePreviewStudio({
   style: StyleMeta;
   renderedMarkdown?: ReactNode;
 }) {
-  const [activeTab, setActiveTab] = useState<Tab>("landing");
+  const bespokeAvailable = hasBespoke(style.slug);
+  const [activeTab, setActiveTab] = useState<Tab>(bespokeAvailable ? "bespoke" : "generic");
   const [viewport, setViewport] = useState<"desktop" | "tablet" | "mobile">("desktop");
   const [previewTheme, setPreviewTheme] = useState<PreviewThemeMode>("default");
   const [overrides, setOverrides] = useState<TokenOverrides>({});
@@ -74,7 +77,8 @@ export function StylePreviewStudio({
         {/* Left: View Mode Tabs */}
         <div className="flex flex-wrap items-center gap-2">
           <div className="flex flex-wrap items-center rounded border border-[#111110]/20 dark:border-white/20 bg-[#fafaf8] dark:bg-[#141416] p-0.5 text-[12px] font-mono">
-            {tabBtn("landing", "🖥️", "Landing")}
+            {bespokeAvailable && tabBtn("bespoke", "◈", "Bespoke")}
+            {tabBtn("generic", "🖥️", "Generic")}
             {tabBtn("kit", "🧩", "Kit")}
             {tabBtn("tokens", "🎨", "Tokens")}
             {tabBtn("mix", "🌀", "Mix")}
@@ -83,7 +87,7 @@ export function StylePreviewStudio({
           </div>
 
           {/* Viewport Width Controls (Active only in landing mode) */}
-          {activeTab === "landing" && (
+          {(activeTab === "bespoke" || activeTab === "generic") && (
             <div className="hidden sm:flex items-center rounded border border-[#111110]/20 dark:border-white/20 bg-[#fafaf8] dark:bg-[#141416] p-0.5 text-[11px] font-mono">
               <button
                 type="button"
@@ -119,6 +123,11 @@ export function StylePreviewStudio({
                 Mobile (375px)
               </button>
             </div>
+          )}
+          {!bespokeAvailable && (
+            <span className="border border-dashed border-[#111110]/40 dark:border-white/40 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-[#111110]/60 dark:text-white/60">
+              Generic only
+            </span>
           )}
           {isRemixed && (
             <span className="border border-[#111110] dark:border-white/40 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.12em]">
@@ -194,7 +203,23 @@ export function StylePreviewStudio({
 
       {/* ---------- PREVIEW STAGE ---------- */}
       <div className="relative w-full overflow-x-auto bg-[#EBEAE6] dark:bg-[#09090b] p-3 sm:p-6 flex justify-center items-start min-h-[640px] transition-colors">
-        {activeTab === "landing" && (
+        {activeTab === "bespoke" && bespokeAvailable && (
+          <div
+            className="transition-all duration-200 shadow-xl border border-black/15 dark:border-white/15 overflow-hidden w-full"
+            style={{
+              maxWidth:
+                viewport === "desktop"
+                  ? "100%"
+                  : viewport === "tablet"
+                  ? "768px"
+                  : "375px",
+            }}
+          >
+            <BespokePreview meta={style} large previewTheme={previewTheme} />
+          </div>
+        )}
+
+        {activeTab === "generic" && (
           <div
             className="transition-all duration-200 shadow-xl border border-black/15 dark:border-white/15 overflow-hidden w-full"
             style={{

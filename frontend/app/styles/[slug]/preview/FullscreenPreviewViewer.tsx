@@ -2,21 +2,51 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import type { StyleMeta } from "../../../lib/styles";
 import type { StyleDefinition } from "../../../lib/style-definitions";
 import type { PreviewThemeMode } from "../../../lib/preview-theme";
 import { resolvePreviewTheme } from "../../../lib/preview-theme";
 import { StyleLandingPage } from "../../../components/previews/StyleLandingPage";
+import { BespokePreview, hasBespoke } from "../../../components/previews";
+import type { PreviewVariant } from "../../../components/previews";
 
 export function FullscreenPreviewViewer({
   style,
   baseDef,
+  initialVariant,
 }: {
   style: StyleMeta;
   baseDef: StyleDefinition;
+  initialVariant?: PreviewVariant;
 }) {
+  const searchParams = useSearchParams();
   const [themeMode, setThemeMode] = useState<PreviewThemeMode>("default");
+  const [variant, setVariant] = useState<PreviewVariant>(() => {
+    if (initialVariant) return initialVariant;
+    const param = searchParams?.get("variant");
+    if (param === "generic" || param === "bespoke") return param;
+    return hasBespoke(style.slug) ? "bespoke" : "generic";
+  });
   const def = resolvePreviewTheme(baseDef, themeMode);
+
+  const variantBtn = (v: PreviewVariant, label: string) => (
+    <button
+      key={v}
+      type="button"
+      onClick={() => setVariant(v)}
+      aria-pressed={variant === v}
+      className={`px-2.5 py-1 rounded cursor-pointer transition-colors flex items-center gap-1 ${
+        variant === v ? "font-bold shadow-sm" : "opacity-60 hover:opacity-100"
+      }`}
+      style={{
+        background: variant === v ? def.preview.ink : "transparent",
+        color: variant === v ? def.preview.surface : def.preview.ink,
+      }}
+    >
+      <span>{label}</span>
+    </button>
+  );
 
   return (
     <div
@@ -48,6 +78,22 @@ export function FullscreenPreviewViewer({
         </div>
 
         <div className="flex items-center gap-3">
+          {/* Preview Variant Toggle */}
+          {hasBespoke(style.slug) && (
+            <div
+              className="flex items-center rounded border p-0.5 font-mono text-[11px]"
+              style={{
+                borderColor: `${def.preview.ink}30`,
+                background: def.preview.bg,
+              }}
+              role="group"
+              aria-label="Preview variant"
+            >
+              {variantBtn("bespoke", "◈ Bespoke")}
+              {variantBtn("generic", "🖥️ Generic")}
+            </div>
+          )}
+
           {/* Theme Mode Toggle */}
           <div
             className="flex items-center rounded border p-0.5 font-mono text-[11px]"
@@ -132,7 +178,11 @@ export function FullscreenPreviewViewer({
             boxShadow: def.cardShadow !== "none" ? def.cardShadow : "0 20px 50px rgba(0,0,0,0.15)",
           }}
         >
-          <StyleLandingPage def={def} large previewTheme={themeMode} />
+          {variant === "bespoke" && hasBespoke(style.slug) ? (
+            <BespokePreview meta={style} large previewTheme={themeMode} />
+          ) : (
+            <StyleLandingPage def={def} large previewTheme={themeMode} />
+          )}
         </div>
       </main>
     </div>

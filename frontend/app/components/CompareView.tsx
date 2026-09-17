@@ -1,10 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { getStyleDefinition } from "../lib/style-definitions";
-import { StyleLandingPage } from "./previews/StyleLandingPage";
+import { BespokePreview, StyleLandingPage, hasBespoke } from "./previews";
+import type { PreviewVariant } from "./previews";
 
 export function CompareView({ a, b }: { a: string; b: string }) {
+  const [variant, setVariant] = useState<PreviewVariant>("bespoke");
   let defA = null;
   let defB = null;
   try { defA = getStyleDefinition(a); } catch { defA = null; }
@@ -30,8 +33,39 @@ export function CompareView({ a, b }: { a: string; b: string }) {
     { def: defB, slug: b },
   ];
 
+  const variantBtn = (v: PreviewVariant, label: string) => (
+    <button
+      key={v}
+      type="button"
+      onClick={() => setVariant(v)}
+      aria-pressed={variant === v}
+      className={`px-3 py-1.5 rounded cursor-pointer transition-colors font-mono text-[11px] ${
+        variant === v
+          ? "bg-[#111110] text-white dark:bg-white dark:text-[#0c0c0e] font-bold"
+          : "text-[#111110]/60 dark:text-white/60 hover:text-[#111110] dark:hover:text-white"
+      }`}
+    >
+      {label}
+    </button>
+  );
+
   return (
     <div>
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <div
+          className="flex items-center rounded border border-[#111110]/20 dark:border-white/20 bg-white dark:bg-[#141416] p-0.5"
+          role="group"
+          aria-label="Preview variant"
+        >
+          {variantBtn("bespoke", "◈ Bespoke")}
+          {variantBtn("generic", "🖥️ Generic")}
+        </div>
+        <p className="font-mono text-[11px] text-[#111110]/50 dark:text-white/50">
+          {variant === "bespoke"
+            ? "Hand-crafted specimen per style"
+            : "Same layout, different tokens"}
+        </p>
+      </div>
       <div className="grid gap-4 lg:grid-cols-2">
         {cols.map(({ def, slug }) => (
           <div key={slug} className="border border-[#111110]/20 dark:border-white/15 bg-white dark:bg-[#141416]">
@@ -50,7 +84,22 @@ export function CompareView({ a, b }: { a: string; b: string }) {
               </Link>
             </div>
             <div className="max-h-[560px] overflow-hidden">
-              <StyleLandingPage def={def} large />
+              {variant === "bespoke" && hasBespoke(slug) ? (
+                <BespokePreview
+                  meta={{
+                    slug: def.slug,
+                    name: def.name,
+                    description: def.description,
+                    category: def.category,
+                    tags: def.tags,
+                    related: [],
+                    preview: def.preview,
+                  }}
+                  large
+                />
+              ) : (
+                <StyleLandingPage def={def} large />
+              )}
             </div>
             <div className="grid grid-cols-3 gap-px border-t border-[#111110]/15 dark:border-white/15 bg-[#111110]/15 dark:bg-white/10">
               {(
