@@ -162,4 +162,4 @@ Durations: micro instant–150ms, standard 200ms ticker fades at most; no ceremo
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/newspaper/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/newspaper/DESIGN.md`.*

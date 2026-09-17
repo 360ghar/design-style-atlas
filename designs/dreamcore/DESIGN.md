@@ -166,4 +166,4 @@ Durations: micro 250–400ms, standard 600–1000ms slow loops. Easings: sleepy 
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/dreamcore/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/dreamcore/DESIGN.md`.*

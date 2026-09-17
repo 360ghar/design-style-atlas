@@ -162,4 +162,4 @@ Durations: micro 100–200ms, standard 250ms. Easing: ease-out (sharp, confident
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/post-brutalism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/post-brutalism/DESIGN.md`.*

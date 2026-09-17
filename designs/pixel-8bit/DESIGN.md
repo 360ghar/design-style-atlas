@@ -162,4 +162,4 @@ Durations: instant–200ms frame flips. Easings: steps(2–4) frame animation; s
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/pixel-8bit/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/pixel-8bit/DESIGN.md`.*

@@ -162,4 +162,4 @@ Durations: marquee loops 15–25s linear infinite, scramble decodes 600–900ms,
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/kinetic-typography/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/kinetic-typography/DESIGN.md`.*

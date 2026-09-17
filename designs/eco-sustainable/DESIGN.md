@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 400–600ms grow-in reveals. Easings: org
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/eco-sustainable/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/eco-sustainable/DESIGN.md`.*

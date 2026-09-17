@@ -162,4 +162,4 @@ Durations: micro 150–250ms neon flickers, standard 500–900ms grid-cruise loo
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/synthwave/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/synthwave/DESIGN.md`.*

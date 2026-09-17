@@ -162,4 +162,4 @@ Durations: micro 100–200ms ⌘K snaps, standard 300ms glow reveals. Easings: c
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/linear-inspired/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/linear-inspired/DESIGN.md`.*

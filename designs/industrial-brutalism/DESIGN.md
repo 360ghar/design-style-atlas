@@ -164,4 +164,4 @@ Durations: instant–150ms mechanical snaps. Easings: linear or steps(2); machin
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/industrial-brutalism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/industrial-brutalism/DESIGN.md`.*

@@ -126,7 +126,15 @@ function resolveSignatureType(slug) {
   if (slug === "bauhaus") return "bauhaus";
   if (slug === "memphis") return "memphis";
   if (["quiet-luxury", "luxury-minimalism", "luxury-maximalism"].includes(slug)) return "quietluxury";
-  if (["art-deco", "art-nouveau"].includes(slug)) return "artdeco";
+  if (["art-deco", "art-nouveau", "gothic-victorian"].includes(slug)) return "artdeco";
+  if (["apple-liquid-glass", "frutiger-aero"].includes(slug)) return "glassmorphism";
+  if (["material-expressive", "web3-crypto"].includes(slug)) return "stripe";
+  if (slug === "fintech-neobank") return "linear";
+  if (slug === "kawaii-pop") return "claymorphism";
+  if (slug === "mcbling") return "y2k";
+  if (slug === "dark-academia") return "newspaper";
+  if (slug === "ai-conversational") return "notion";
+  if (slug === "dataviz-terminal") return "terminal";
   return "bento";
 }
 
@@ -386,7 +394,7 @@ for (const slug of slugs) {
 }
 
 const fileContent = `/**
- * Generated Design Style Definitions for all 100 Styles.
+ * Generated Design Style Definitions for every style in designs/.
  * Provides concrete visual rules, tokens, typography, and copy
  * for high-fidelity landing page previews and component specimen kits.
  */

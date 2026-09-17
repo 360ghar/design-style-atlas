@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { statSync } from "node:fs";
 import { join } from "node:path";
-import { getAllStyles } from "./lib/styles";
+import { getAllStyles, getCategories } from "./lib/styles";
 import { SITE_URL } from "./lib/site";
+import { AGENT_GUIDES, categorySlug, getComparePairs } from "./lib/seo";
 
 export const dynamic = "force-static";
 
@@ -46,5 +47,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...entries,
+    // Category hubs: one indexable landing page per DESIGN.md category.
+    ...getCategories(styles).map((c) => ({
+      url: `${SITE_URL}/categories/${categorySlug(c.name)}`,
+      lastModified: homeModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.9,
+    })),
+    // Agent setup guides: capture "DESIGN.md for <agent>" intent.
+    ...AGENT_GUIDES.map((g) => ({
+      url: `${SITE_URL}/guides/${g.slug}`,
+      lastModified: FALLBACK_DATE,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
+    {
+      url: `${SITE_URL}/what-is-design-md`,
+      lastModified: FALLBACK_DATE,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    // Pre-rendered compare pairs for "X vs Y" searches.
+    ...getComparePairs(styles).map(([a, b]) => ({
+      url: `${SITE_URL}/compare/${a}-vs-${b}`,
+      lastModified: homeModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
   ];
 }

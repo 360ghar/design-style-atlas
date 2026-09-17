@@ -162,4 +162,4 @@ Durations: micro 100–200ms tile hovers, standard 300ms tile lifts. Easings: cr
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/bento-grid/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/bento-grid/DESIGN.md`.*

@@ -1,5 +1,5 @@
 /**
- * Generated Design Style Definitions for all 100 Styles.
+ * Generated Design Style Definitions for every style in designs/.
  * Provides concrete visual rules, tokens, typography, and copy
  * for high-fidelity landing page previews and component specimen kits.
  */
@@ -223,6 +223,96 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "Commercial License"
     ]
   },
+  "afrofuturism": {
+    "slug": "afrofuturism",
+    "name": "Afrofuturism",
+    "category": "Cultural",
+    "description": "Cosmic gold, ancestral pattern, and interstellar Black imagination.",
+    "tags": [
+      "cosmic",
+      "gold",
+      "bold"
+    ],
+    "preview": {
+      "bg": "#120D1E",
+      "surface": "#1E1533",
+      "ink": "#F5EDD8",
+      "muted": "#A89BC0",
+      "accent": "#E8B33D",
+      "accent2": "#00C2A8",
+      "display": "Marcellus, Georgia, serif",
+      "body": "Inter, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "2px solid #F5EDD8",
+    "cardShadow": "0 0 20px #E8B33D55",
+    "cardRadius": "16px",
+    "btnRadius": "8px",
+    "badgeRadius": "9999px",
+    "signatureType": "bento",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Afrofuturism",
+    "subhead": "Cosmic gold, ancestral pattern, and interstellar Black imagination.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
+  "ai-conversational": {
+    "slug": "ai-conversational",
+    "name": "Conversational AI",
+    "category": "Product",
+    "description": "Chat-first bubbles, streaming answers, and calm Claude-grade intelligence.",
+    "tags": [
+      "minimal",
+      "calm",
+      "conversational"
+    ],
+    "preview": {
+      "bg": "#FAF9F5",
+      "surface": "#FFFFFF",
+      "ink": "#1F1E1D",
+      "muted": "#6F6E69",
+      "accent": "#D97757",
+      "accent2": "#5D8AA8",
+      "display": "Georgia, Times New Roman, serif",
+      "body": "Inter, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "2px solid #1F1E1D",
+    "cardShadow": "none",
+    "cardRadius": "16px",
+    "btnRadius": "9999px",
+    "badgeRadius": "9999px",
+    "signatureType": "notion",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Conversational AI",
+    "subhead": "Chat-first bubbles, streaming answers, and calm Claude-grade intelligence.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
   "anti-design": {
     "slug": "anti-design",
     "name": "Anti-Design",
@@ -252,6 +342,51 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
     "eyebrow": "01 / SPECIMEN",
     "headline": "Anti-Design",
     "subhead": "Deliberate wrongness: clashing type, broken grids and hostile charm.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
+  "apple-liquid-glass": {
+    "slug": "apple-liquid-glass",
+    "name": "Apple Liquid Glass",
+    "category": "Design System",
+    "description": "Translucent specular layers, floating glass bars, and fluid Apple-grade restraint.",
+    "tags": [
+      "glass",
+      "premium",
+      "minimal"
+    ],
+    "preview": {
+      "bg": "#F5F7FA",
+      "surface": "#FFFFFF",
+      "ink": "#1D1D1F",
+      "muted": "#6E6E73",
+      "accent": "#0071E3",
+      "accent2": "#A259FF",
+      "display": "SF Pro Display, Inter, Helvetica Neue, sans-serif",
+      "body": "SF Pro Text, Inter, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "1px solid #1D1D1F22",
+    "cardShadow": "0 2px 8px rgba(0,0,0,0.05)",
+    "cardRadius": "16px",
+    "btnRadius": "9999px",
+    "badgeRadius": "9999px",
+    "signatureType": "glassmorphism",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Apple Liquid Glass",
+    "subhead": "Translucent specular layers, floating glass bars, and fluid Apple-grade restraint.",
     "navCta": "Get Started",
     "primaryCta": "Explore Specimen",
     "secondaryCta": "Read Spec",
@@ -522,6 +657,51 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
     "eyebrow": "01 / SPECIMEN",
     "headline": "Brutalism",
     "subhead": "Raw concrete honesty: system type, exposed structure and zero decoration.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
+  "carbon-enterprise": {
+    "slug": "carbon-enterprise",
+    "name": "Carbon Enterprise",
+    "category": "Design System",
+    "description": "Dense data tables, strict IBM-grade grids, and no-nonsense enterprise precision.",
+    "tags": [
+      "enterprise",
+      "data",
+      "functional"
+    ],
+    "preview": {
+      "bg": "#FFFFFF",
+      "surface": "#F4F4F4",
+      "ink": "#161616",
+      "muted": "#525252",
+      "accent": "#0F62FE",
+      "accent2": "#002D9C",
+      "display": "IBM Plex Sans, Inter, Helvetica Neue, sans-serif",
+      "body": "IBM Plex Sans, Inter, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "1px solid #16161622",
+    "cardShadow": "0 2px 8px rgba(0,0,0,0.05)",
+    "cardRadius": "0px",
+    "btnRadius": "0px",
+    "badgeRadius": "0px",
+    "signatureType": "bento",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Carbon Enterprise",
+    "subhead": "Dense data tables, strict IBM-grade grids, and no-nonsense enterprise precision.",
     "navCta": "Get Started",
     "primaryCta": "Explore Specimen",
     "secondaryCta": "Read Spec",
@@ -988,6 +1168,51 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "Commercial License"
     ]
   },
+  "cottagecore": {
+    "slug": "cottagecore",
+    "name": "Cottagecore",
+    "category": "Cultural",
+    "description": "Gingham warmth, wildflower palettes, and slow romantic rural craft.",
+    "tags": [
+      "rustic",
+      "romantic",
+      "soft"
+    ],
+    "preview": {
+      "bg": "#FAF6EE",
+      "surface": "#FFFFFF",
+      "ink": "#3E3A2E",
+      "muted": "#8A8171",
+      "accent": "#C26D4B",
+      "accent2": "#7A9B6D",
+      "display": "Cormorant Garamond, Georgia, serif",
+      "body": "Georgia, Times New Roman, serif"
+    },
+    "cardBorder": "2px solid #3E3A2E",
+    "cardShadow": "none",
+    "cardRadius": "0px",
+    "btnRadius": "0px",
+    "badgeRadius": "0px",
+    "signatureType": "bento",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Cottagecore",
+    "subhead": "Gingham warmth, wildflower palettes, and slow romantic rural craft.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
   "cyberpunk": {
     "slug": "cyberpunk",
     "name": "Cyberpunk",
@@ -1031,6 +1256,96 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "Cyan/Magenta dual neon glows",
       "Angled chamfer corner clips",
       "Audio frequency visualizer"
+    ]
+  },
+  "dark-academia": {
+    "slug": "dark-academia",
+    "name": "Dark Academia",
+    "category": "Cultural",
+    "description": "Oxford libraries, oxblood leather, and candlelit scholarly romance.",
+    "tags": [
+      "moody",
+      "serif",
+      "literary"
+    ],
+    "preview": {
+      "bg": "#1E1A16",
+      "surface": "#2A241E",
+      "ink": "#EDE6D6",
+      "muted": "#A89C86",
+      "accent": "#B08D57",
+      "accent2": "#7A1F2B",
+      "display": "EB Garamond, Georgia, Times New Roman, serif",
+      "body": "Georgia, Times New Roman, serif"
+    },
+    "cardBorder": "1px solid #EDE6D622",
+    "cardShadow": "0 2px 8px rgba(0,0,0,0.05)",
+    "cardRadius": "8px",
+    "btnRadius": "6px",
+    "badgeRadius": "6px",
+    "signatureType": "newspaper",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Dark Academia",
+    "subhead": "Oxford libraries, oxblood leather, and candlelit scholarly romance.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
+  "dataviz-terminal": {
+    "slug": "dataviz-terminal",
+    "name": "Dataviz Terminal",
+    "category": "Data",
+    "description": "Bloomberg-grade dense tables, sparklines, and monospace market precision.",
+    "tags": [
+      "data",
+      "dense",
+      "mono"
+    ],
+    "preview": {
+      "bg": "#0A0E14",
+      "surface": "#11161F",
+      "ink": "#E6E9EF",
+      "muted": "#8A93A6",
+      "accent": "#FF9F0A",
+      "accent2": "#30D158",
+      "display": "JetBrains Mono, SF Mono, Menlo, monospace",
+      "body": "Inter, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "1px solid #E6E9EF22",
+    "cardShadow": "none",
+    "cardRadius": "16px",
+    "btnRadius": "9999px",
+    "badgeRadius": "9999px",
+    "signatureType": "terminal",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Dataviz Terminal",
+    "subhead": "Bloomberg-grade dense tables, sparklines, and monospace market precision.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
     ]
   },
   "desktop-ui": {
@@ -1152,6 +1467,51 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
     "eyebrow": "01 / SPECIMEN",
     "headline": "Dreamcore",
     "subhead": "Liminal nostalgia: familiar places, hazy memory and VHS softness.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
+  "e-ink-paper": {
+    "slug": "e-ink-paper",
+    "name": "E-Ink Paper",
+    "category": "Minimalist",
+    "description": "Warm paper grounds, book serif, and distraction-free reading calm.",
+    "tags": [
+      "reading",
+      "serif",
+      "calm"
+    ],
+    "preview": {
+      "bg": "#F4F1EA",
+      "surface": "#FBFAF7",
+      "ink": "#1A1A18",
+      "muted": "#6B675E",
+      "accent": "#8C3B1B",
+      "accent2": "#2F5D50",
+      "display": "Charter, Georgia, Times New Roman, serif",
+      "body": "Georgia, Charter, Times New Roman, serif"
+    },
+    "cardBorder": "1px solid #1A1A1822",
+    "cardShadow": "none",
+    "cardRadius": "0px",
+    "btnRadius": "0px",
+    "badgeRadius": "0px",
+    "signatureType": "bento",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "E-Ink Paper",
+    "subhead": "Warm paper grounds, book serif, and distraction-free reading calm.",
     "navCta": "Get Started",
     "primaryCta": "Explore Specimen",
     "secondaryCta": "Read Spec",
@@ -1438,6 +1798,186 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "Generous editorial whitespace"
     ]
   },
+  "fintech-neobank": {
+    "slug": "fintech-neobank",
+    "name": "Neobank Fintech",
+    "category": "Fintech",
+    "description": "Dark money dashboards, lime-on-black balances, and Revolut-grade premium edge.",
+    "tags": [
+      "dark",
+      "premium",
+      "bold"
+    ],
+    "preview": {
+      "bg": "#0B0D0E",
+      "surface": "#15181A",
+      "ink": "#EDEFF0",
+      "muted": "#9BA1A6",
+      "accent": "#D4FF4F",
+      "accent2": "#7C5CFF",
+      "display": "Inter Tight, Inter, Helvetica Neue, sans-serif",
+      "body": "Inter, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "1px solid #EDEFF022",
+    "cardShadow": "0 0 20px #D4FF4F55",
+    "cardRadius": "16px",
+    "btnRadius": "9999px",
+    "badgeRadius": "9999px",
+    "signatureType": "linear",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Neobank Fintech",
+    "subhead": "Dark money dashboards, lime-on-black balances, and Revolut-grade premium edge.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
+  "flat-design": {
+    "slug": "flat-design",
+    "name": "Flat Design",
+    "category": "Minimalist",
+    "description": "Bold color blocks, zero shadows, and honest two-dimensional clarity.",
+    "tags": [
+      "flat",
+      "bold",
+      "clean"
+    ],
+    "preview": {
+      "bg": "#FFFFFF",
+      "surface": "#F5F5F5",
+      "ink": "#2D2D2D",
+      "muted": "#757575",
+      "accent": "#3498DB",
+      "accent2": "#E74C3C",
+      "display": "Open Sans, Helvetica Neue, Arial, sans-serif",
+      "body": "Open Sans, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "none",
+    "cardShadow": "none",
+    "cardRadius": "0px",
+    "btnRadius": "0px",
+    "badgeRadius": "0px",
+    "signatureType": "bento",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Flat Design",
+    "subhead": "Bold color blocks, zero shadows, and honest two-dimensional clarity.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
+  "fluent-design": {
+    "slug": "fluent-design",
+    "name": "Fluent Design",
+    "category": "Design System",
+    "description": "Acrylic depth, soft light, and calm Microsoft-grade enterprise clarity.",
+    "tags": [
+      "enterprise",
+      "clean",
+      "subtle"
+    ],
+    "preview": {
+      "bg": "#F3F2F1",
+      "surface": "#FFFFFF",
+      "ink": "#201F1E",
+      "muted": "#605E5C",
+      "accent": "#0078D4",
+      "accent2": "#8764B8",
+      "display": "Segoe UI, Inter, Helvetica Neue, sans-serif",
+      "body": "Segoe UI, Inter, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "1px solid #201F1E22",
+    "cardShadow": "0 2px 8px rgba(0,0,0,0.05)",
+    "cardRadius": "0px",
+    "btnRadius": "0px",
+    "badgeRadius": "0px",
+    "signatureType": "bento",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Fluent Design",
+    "subhead": "Acrylic depth, soft light, and calm Microsoft-grade enterprise clarity.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
+  "frutiger-aero": {
+    "slug": "frutiger-aero",
+    "name": "Frutiger Aero",
+    "category": "Nostalgic",
+    "description": "Glossy aqua bubbles, dewy nature-tech, and optimistic 2000s glass futurism.",
+    "tags": [
+      "glossy",
+      "nostalgic",
+      "optimistic"
+    ],
+    "preview": {
+      "bg": "#E8F7F1",
+      "surface": "#FFFFFF",
+      "ink": "#0B3B39",
+      "muted": "#4A6B68",
+      "accent": "#00A67E",
+      "accent2": "#2D9CDB",
+      "display": "Frutiger, Segoe UI, Helvetica Neue, sans-serif",
+      "body": "Segoe UI, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "1px solid #0B3B3922",
+    "cardShadow": "0 0 20px #00A67E55",
+    "cardRadius": "0px",
+    "btnRadius": "0px",
+    "badgeRadius": "0px",
+    "signatureType": "glassmorphism",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Frutiger Aero",
+    "subhead": "Glossy aqua bubbles, dewy nature-tech, and optimistic 2000s glass futurism.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
   "functional-minimalism": {
     "slug": "functional-minimalism",
     "name": "Functional Minimalism",
@@ -1573,6 +2113,51 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "Commercial License"
     ]
   },
+  "geist-minimal": {
+    "slug": "geist-minimal",
+    "name": "Geist Minimal",
+    "category": "Minimalist",
+    "description": "Razor-thin developer minimalism with Vercel-grade restraint and mono precision.",
+    "tags": [
+      "minimal",
+      "developer",
+      "monochrome"
+    ],
+    "preview": {
+      "bg": "#FFFFFF",
+      "surface": "#FAFAFA",
+      "ink": "#171717",
+      "muted": "#666666",
+      "accent": "#0070F3",
+      "accent2": "#7928CA",
+      "display": "Geist Sans, Inter, Helvetica Neue, sans-serif",
+      "body": "Geist Sans, Inter, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "1px solid #17171722",
+    "cardShadow": "none",
+    "cardRadius": "16px",
+    "btnRadius": "9999px",
+    "badgeRadius": "9999px",
+    "signatureType": "bento",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Geist Minimal",
+    "subhead": "Razor-thin developer minimalism with Vercel-grade restraint and mono precision.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
   "generative-algorithmic": {
     "slug": "generative-algorithmic",
     "name": "Generative / Algorithmic",
@@ -1661,6 +2246,51 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "16px backdrop-filter blur",
       "1px translucent specular borders",
       "Vibrant ambient color orbs"
+    ]
+  },
+  "gothic-victorian": {
+    "slug": "gothic-victorian",
+    "name": "Gothic Victorian",
+    "category": "Historical",
+    "description": "Baroque blackletter, candlelit burgundy, and haunted high-luxury drama.",
+    "tags": [
+      "dark",
+      "ornate",
+      "luxury"
+    ],
+    "preview": {
+      "bg": "#0F0D12",
+      "surface": "#17141C",
+      "ink": "#E8E0D0",
+      "muted": "#97889B",
+      "accent": "#8E1E2F",
+      "accent2": "#C9A227",
+      "display": "Cinzel Decorative, Georgia, serif",
+      "body": "EB Garamond, Georgia, serif"
+    },
+    "cardBorder": "1px solid #E8E0D022",
+    "cardShadow": "0 0 20px #8E1E2F55",
+    "cardRadius": "8px",
+    "btnRadius": "6px",
+    "badgeRadius": "9999px",
+    "signatureType": "artdeco",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Gothic Victorian",
+    "subhead": "Baroque blackletter, candlelit burgundy, and haunted high-luxury drama.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
     ]
   },
   "gradient-design": {
@@ -2248,6 +2878,51 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "Commercial License"
     ]
   },
+  "kawaii-pop": {
+    "slug": "kawaii-pop",
+    "name": "Kawaii Pop",
+    "category": "Playful",
+    "description": "Pastel Harajuku stickers, chunky rounded type, and cute overload.",
+    "tags": [
+      "cute",
+      "pastel",
+      "playful"
+    ],
+    "preview": {
+      "bg": "#FFF5FA",
+      "surface": "#FFFFFF",
+      "ink": "#5C2D52",
+      "muted": "#A87B9C",
+      "accent": "#FF6FB5",
+      "accent2": "#7ED6FF",
+      "display": "Baloo 2, Quicksand, Helvetica Neue, sans-serif",
+      "body": "Quicksand, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "2.5px solid #5C2D52",
+    "cardShadow": "0 2px 8px rgba(0,0,0,0.05)",
+    "cardRadius": "16px",
+    "btnRadius": "9999px",
+    "badgeRadius": "9999px",
+    "signatureType": "claymorphism",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Kawaii Pop",
+    "subhead": "Pastel Harajuku stickers, chunky rounded type, and cute overload.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
   "kinetic-typography": {
     "slug": "kinetic-typography",
     "name": "Kinetic Typography",
@@ -2563,6 +3238,51 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "Aqua drop reflection"
     ]
   },
+  "material-expressive": {
+    "slug": "material-expressive",
+    "name": "Material Expressive",
+    "category": "Design System",
+    "description": "Springy rounded shapes, bold tonal color, and playful Google-grade motion.",
+    "tags": [
+      "colorful",
+      "playful",
+      "rounded"
+    ],
+    "preview": {
+      "bg": "#FEF7FF",
+      "surface": "#F3EDF7",
+      "ink": "#1D1B20",
+      "muted": "#49454F",
+      "accent": "#6750A4",
+      "accent2": "#EFB8C8",
+      "display": "Google Sans, Roboto, Helvetica Neue, sans-serif",
+      "body": "Roboto, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "none",
+    "cardShadow": "0 2px 8px rgba(0,0,0,0.05)",
+    "cardRadius": "16px",
+    "btnRadius": "9999px",
+    "badgeRadius": "9999px",
+    "signatureType": "stripe",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Material Expressive",
+    "subhead": "Springy rounded shapes, bold tonal color, and playful Google-grade motion.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
   "maximalism": {
     "slug": "maximalism",
     "name": "Maximalism",
@@ -2592,6 +3312,51 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
     "eyebrow": "01 / SPECIMEN",
     "headline": "Maximalism",
     "subhead": "More is more: layered color, pattern and ornament in joyful overload.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
+  "mcbling": {
+    "slug": "mcbling",
+    "name": "McBling",
+    "category": "Maximalist",
+    "description": "Rhinestone pink luxe, celebrity glamour, and Y2K maximalist sparkle.",
+    "tags": [
+      "glam",
+      "pink",
+      "maximal"
+    ],
+    "preview": {
+      "bg": "#FFF0F6",
+      "surface": "#FFFFFF",
+      "ink": "#57102E",
+      "muted": "#A05C7E",
+      "accent": "#FF2E93",
+      "accent2": "#FFD700",
+      "display": "Didot, Bodoni MT, Playfair Display, Georgia, serif",
+      "body": "Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "2px solid #57102E",
+    "cardShadow": "0 0 20px #FF2E9355",
+    "cardRadius": "16px",
+    "btnRadius": "9999px",
+    "badgeRadius": "9999px",
+    "signatureType": "y2k",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "McBling",
+    "subhead": "Rhinestone pink luxe, celebrity glamour, and Y2K maximalist sparkle.",
     "navCta": "Get Started",
     "primaryCta": "Explore Specimen",
     "secondaryCta": "Read Spec",
@@ -3283,6 +4048,51 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "Commercial License"
     ]
   },
+  "polaris-commerce": {
+    "slug": "polaris-commerce",
+    "name": "Polaris Commerce",
+    "category": "E-commerce",
+    "description": "Trust-building product grids, honest pricing, and Shopify-grade checkout polish.",
+    "tags": [
+      "commerce",
+      "clean",
+      "trustworthy"
+    ],
+    "preview": {
+      "bg": "#FFFFFF",
+      "surface": "#F6F6F7",
+      "ink": "#202223",
+      "muted": "#6D7175",
+      "accent": "#008060",
+      "accent2": "#FFC453",
+      "display": "Shopify Sans, Inter, Helvetica Neue, sans-serif",
+      "body": "Inter, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "2px solid #202223",
+    "cardShadow": "0 2px 8px rgba(0,0,0,0.05)",
+    "cardRadius": "16px",
+    "btnRadius": "9999px",
+    "badgeRadius": "9999px",
+    "signatureType": "bento",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Polaris Commerce",
+    "subhead": "Trust-building product grids, honest pricing, and Shopify-grade checkout polish.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
   "post-brutalism": {
     "slug": "post-brutalism",
     "name": "Post-Brutalism",
@@ -3823,6 +4633,51 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "Commercial License"
     ]
   },
+  "solarpunk": {
+    "slug": "solarpunk",
+    "name": "Solarpunk",
+    "category": "Futurist",
+    "description": "Sunlit eco-futurism, leafy greens, and optimistic post-carbon abundance.",
+    "tags": [
+      "eco",
+      "optimistic",
+      "organic"
+    ],
+    "preview": {
+      "bg": "#F2F7E9",
+      "surface": "#FFFFFF",
+      "ink": "#1E3A24",
+      "muted": "#5A7261",
+      "accent": "#3E9B4F",
+      "accent2": "#F2B705",
+      "display": "Fraunces, Georgia, serif",
+      "body": "Inter, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "2px solid #1E3A24",
+    "cardShadow": "0 2px 8px rgba(0,0,0,0.05)",
+    "cardRadius": "16px",
+    "btnRadius": "9999px",
+    "badgeRadius": "9999px",
+    "signatureType": "bento",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Solarpunk",
+    "subhead": "Sunlit eco-futurism, leafy greens, and optimistic post-carbon abundance.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
   "stripe-inspired": {
     "slug": "stripe-inspired",
     "name": "Stripe-Inspired",
@@ -4347,6 +5202,51 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
     "eyebrow": "01 / SPECIMEN",
     "headline": "Wabi-Sabi",
     "subhead": "Perfect imperfection: asymmetry, cracks and weathered beauty, honored.",
+    "navCta": "Get Started",
+    "primaryCta": "Explore Specimen",
+    "secondaryCta": "Read Spec",
+    "featureTitle": "Core Principle",
+    "featureDesc": "Disciplined design tokens executed with deliberate craft.",
+    "metricValue": "100%",
+    "metricLabel": "Style Fidelity",
+    "metricDelta": "▲ Active",
+    "planName": "Pro Edition",
+    "planPrice": "$49",
+    "planFeatures": [
+      "Complete DESIGN.md Spec",
+      "Full Component Tokens",
+      "Commercial License"
+    ]
+  },
+  "web3-crypto": {
+    "slug": "web3-crypto",
+    "name": "Web3 Crypto",
+    "category": "Fintech",
+    "description": "Wallet-first glassy dark surfaces with gradient balances and exchange-grade glow.",
+    "tags": [
+      "dark",
+      "gradient",
+      "glow"
+    ],
+    "preview": {
+      "bg": "#060A14",
+      "surface": "#0D1424",
+      "ink": "#F2F5FF",
+      "muted": "#8B94AD",
+      "accent": "#00E5A0",
+      "accent2": "#6C5CFF",
+      "display": "Space Grotesk, Inter, Helvetica Neue, sans-serif",
+      "body": "Inter, Helvetica Neue, Arial, sans-serif"
+    },
+    "cardBorder": "1px solid #F2F5FF22",
+    "cardShadow": "0 0 20px #00E5A055",
+    "cardRadius": "0px",
+    "btnRadius": "0px",
+    "badgeRadius": "0px",
+    "signatureType": "stripe",
+    "eyebrow": "01 / SPECIMEN",
+    "headline": "Web3 Crypto",
+    "subhead": "Wallet-first glassy dark surfaces with gradient balances and exchange-grade glow.",
     "navCta": "Get Started",
     "primaryCta": "Explore Specimen",
     "secondaryCta": "Read Spec",

@@ -162,4 +162,4 @@ Durations: scroll-linked multi-speed drifts; micro 150ms layer ticks. Easings: l
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/parallax/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/parallax/DESIGN.md`.*

@@ -162,4 +162,4 @@ Durations: micro 200–300ms, standard 500–700ms still-air fades. Easings: eas
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/japandi/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/japandi/DESIGN.md`.*

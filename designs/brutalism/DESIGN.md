@@ -159,4 +159,4 @@ Durations: effectively none — instant hover states up to 100ms; no ceremonial 
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/brutalism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/brutalism/DESIGN.md`.*

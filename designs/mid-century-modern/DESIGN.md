@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 350–550ms starburst pops. Easings: cris
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/mid-century-modern/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/mid-century-modern/DESIGN.md`.*

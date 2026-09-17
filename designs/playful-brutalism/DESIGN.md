@@ -162,4 +162,4 @@ Durations: 150–350ms sticker pops. Easings: snappy cubic-bezier(0.34,1.56,0.64
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/playful-brutalism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/playful-brutalism/DESIGN.md`.*

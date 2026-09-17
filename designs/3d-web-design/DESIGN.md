@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 400–700ms parallax orbits, ceremonial 1
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/3d-web-design/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/3d-web-design/DESIGN.md`.*

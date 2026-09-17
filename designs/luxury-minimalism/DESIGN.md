@@ -162,4 +162,4 @@ Durations: micro 200–300ms, standard 600–900ms glacial fades. Easings: ease-
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/luxury-minimalism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/luxury-minimalism/DESIGN.md`.*

@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 400–700ms mesh-drift loops. Easings: sl
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/gradient-design/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/gradient-design/DESIGN.md`.*

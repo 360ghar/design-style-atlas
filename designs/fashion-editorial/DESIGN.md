@@ -162,4 +162,4 @@ Durations: micro 200–300ms, standard 500–700ms runway fades, ceremonial 1000
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/fashion-editorial/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/fashion-editorial/DESIGN.md`.*

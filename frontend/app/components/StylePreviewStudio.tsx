@@ -1,12 +1,22 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
 import type { StyleMeta } from "../lib/styles";
 import { getStyleDefinition } from "../lib/style-definitions";
 import type { PreviewThemeMode } from "../lib/preview-theme";
 import { StyleLandingPage } from "./previews/StyleLandingPage";
 import { StyleComponentKit } from "./previews/StyleComponentKit";
+import {
+  TokenPlayground,
+  MixControls,
+  RemixExport,
+  applyOverrides,
+  mixDefs,
+  type TokenOverrides,
+} from "./TokenPlayground";
+
+type Tab = "landing" | "kit" | "tokens" | "mix" | "export" | "spec";
 
 export function StylePreviewStudio({
   style,
@@ -15,11 +25,47 @@ export function StylePreviewStudio({
   style: StyleMeta;
   renderedMarkdown?: ReactNode;
 }) {
-  const [activeTab, setActiveTab] = useState<"landing" | "kit" | "spec">("landing");
+  const [activeTab, setActiveTab] = useState<Tab>("landing");
   const [viewport, setViewport] = useState<"desktop" | "tablet" | "mobile">("desktop");
   const [previewTheme, setPreviewTheme] = useState<PreviewThemeMode>("default");
+  const [overrides, setOverrides] = useState<TokenOverrides>({});
+  const [mixSlug, setMixSlug] = useState<string | null>(null);
+  const [mixT, setMixT] = useState(50);
 
-  const def = getStyleDefinition(style.slug);
+  const baseDef = getStyleDefinition(style.slug);
+
+  const effectiveDef = useMemo(() => {
+    let def = baseDef;
+    if (mixSlug) {
+      try {
+        const other = getStyleDefinition(mixSlug);
+        def = mixDefs(baseDef, other, mixT / 100);
+      } catch {
+        def = baseDef;
+      }
+    }
+    if (Object.keys(overrides).length > 0) def = applyOverrides(def, overrides);
+    return def;
+  }, [baseDef, mixSlug, mixT, overrides]);
+
+  const isRemixed = mixSlug !== null || Object.keys(overrides).length > 0;
+  const sources = mixSlug ? [style.slug, mixSlug] : [style.slug];
+
+  const tabBtn = (tab: Tab, icon: string, label: string) => (
+    <button
+      key={tab}
+      type="button"
+      onClick={() => setActiveTab(tab)}
+      className={`flex items-center gap-1.5 px-3 py-1.5 rounded transition-colors cursor-pointer ${
+        activeTab === tab
+          ? "bg-[#111110] text-white dark:bg-white dark:text-[#111110] font-semibold shadow-sm"
+          : "text-[#111110]/70 dark:text-white/70 hover:text-[#111110] dark:hover:text-white"
+      }`}
+    >
+      <span>{icon}</span>
+      <span>{label}</span>
+    </button>
+  );
 
   return (
     <div className="w-full flex flex-col border border-[#111110] dark:border-white/20 bg-[#fafaf8] dark:bg-[#141416] transition-colors">
@@ -27,47 +73,13 @@ export function StylePreviewStudio({
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#111110] dark:border-white/15 bg-white dark:bg-[#18181b] px-4 py-2.5">
         {/* Left: View Mode Tabs */}
         <div className="flex flex-wrap items-center gap-2">
-          <div className="flex items-center rounded border border-[#111110]/20 dark:border-white/20 bg-[#fafaf8] dark:bg-[#141416] p-0.5 text-[12px] font-mono">
-            <button
-              type="button"
-              onClick={() => setActiveTab("landing")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded transition-colors cursor-pointer ${
-                activeTab === "landing"
-                  ? "bg-[#111110] text-white dark:bg-white dark:text-[#111110] font-semibold shadow-sm"
-                  : "text-[#111110]/70 dark:text-white/70 hover:text-[#111110] dark:hover:text-white"
-              }`}
-            >
-              <span>🖥️</span>
-              <span>Live Landing Page</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setActiveTab("kit")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded transition-colors cursor-pointer ${
-                activeTab === "kit"
-                  ? "bg-[#111110] text-white dark:bg-white dark:text-[#111110] font-semibold shadow-sm"
-                  : "text-[#111110]/70 dark:text-white/70 hover:text-[#111110] dark:hover:text-white"
-              }`}
-            >
-              <span>🧩</span>
-              <span>UI Component Kit</span>
-            </button>
-
-            {renderedMarkdown && (
-              <button
-                type="button"
-                onClick={() => setActiveTab("spec")}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded transition-colors cursor-pointer ${
-                  activeTab === "spec"
-                    ? "bg-[#111110] text-white dark:bg-white dark:text-[#111110] font-semibold shadow-sm"
-                    : "text-[#111110]/70 dark:text-white/70 hover:text-[#111110] dark:hover:text-white"
-                }`}
-              >
-                <span>📄</span>
-                <span>DESIGN.md Spec</span>
-              </button>
-            )}
+          <div className="flex flex-wrap items-center rounded border border-[#111110]/20 dark:border-white/20 bg-[#fafaf8] dark:bg-[#141416] p-0.5 text-[12px] font-mono">
+            {tabBtn("landing", "🖥️", "Landing")}
+            {tabBtn("kit", "🧩", "Kit")}
+            {tabBtn("tokens", "🎨", "Tokens")}
+            {tabBtn("mix", "🌀", "Mix")}
+            {tabBtn("export", "⤓", "Export")}
+            {renderedMarkdown && tabBtn("spec", "📄", "Spec")}
           </div>
 
           {/* Viewport Width Controls (Active only in landing mode) */}
@@ -107,6 +119,11 @@ export function StylePreviewStudio({
                 Mobile (375px)
               </button>
             </div>
+          )}
+          {isRemixed && (
+            <span className="border border-[#111110] dark:border-white/40 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.12em]">
+              ✦ Remix active
+            </span>
           )}
         </div>
 
@@ -189,13 +206,42 @@ export function StylePreviewStudio({
                   : "375px",
             }}
           >
-            <StyleLandingPage def={def} large previewTheme={previewTheme} />
+            <StyleLandingPage def={effectiveDef} large previewTheme={previewTheme} />
           </div>
         )}
 
         {activeTab === "kit" && (
           <div className="w-full max-w-5xl shadow-xl border border-black/15 dark:border-white/15 overflow-hidden">
-            <StyleComponentKit def={def} previewTheme={previewTheme} />
+            <StyleComponentKit def={effectiveDef} previewTheme={previewTheme} />
+          </div>
+        )}
+
+        {activeTab === "tokens" && (
+          <div className="w-full max-w-5xl bg-white dark:bg-[#141416] border border-black/15 dark:border-white/15 shadow-xl">
+            <TokenPlayground
+              base={mixSlug ? effectiveDef : baseDef}
+              overrides={overrides}
+              onChange={setOverrides}
+              onReset={() => setOverrides({})}
+            />
+          </div>
+        )}
+
+        {activeTab === "mix" && (
+          <div className="w-full max-w-5xl bg-white dark:bg-[#141416] border border-black/15 dark:border-white/15 shadow-xl">
+            <MixControls
+              baseSlug={style.slug}
+              mixSlug={mixSlug}
+              mixT={mixT}
+              onMixSlug={setMixSlug}
+              onMixT={setMixT}
+            />
+          </div>
+        )}
+
+        {activeTab === "export" && (
+          <div className="w-full max-w-5xl bg-white dark:bg-[#141416] border border-black/15 dark:border-white/15 shadow-xl">
+            <RemixExport def={effectiveDef} sources={sources} />
           </div>
         )}
 

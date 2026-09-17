@@ -1,20 +1,63 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getAllStyles, getCategories } from "./lib/styles";
 import { SearchCatalog } from "./components/SearchCatalog";
-import { GITHUB_URL } from "./lib/site";
+import { GITHUB_URL, SITE_URL } from "./lib/site";
+import { AGENT_GUIDES, categorySlug, faqJsonLd, itemListJsonLd } from "./lib/seo";
 
-export const metadata: Metadata = {
-  title: "Design Styles — 100 design styles for AI coding agents",
-  description:
-    "100 ready-to-use DESIGN.md files for AI coding agents. Browse a visual style, preview it, copy its complete instructions into Codex, Claude Code, Cursor, or Windsurf.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const count = getAllStyles().length;
+  return {
+    title: `${count} DESIGN.md Files for AI Coding Agents`,
+    description: `${count} ready-to-use DESIGN.md files for AI coding agents. Browse a visual style, preview it, copy its complete instructions into Codex, Claude Code, Cursor, Windsurf, v0, or Lovable.`,
+    alternates: { canonical: SITE_URL },
+  };
+}
 
 export default function Home() {
   const styles = getAllStyles();
   const categories = getCategories(styles);
+  const itemList = itemListJsonLd(styles);
+  const faq = faqJsonLd([
+    {
+      q: "What is a DESIGN.md file?",
+      a: "A DESIGN.md is a Markdown design-system spec your AI coding agent reads before generating UI: colors, typography, spacing, components, motion, and what to avoid. Copy one into your repo and point your agent at it.",
+    },
+    {
+      q: "How do I use a style with Claude Code, Cursor, or Codex?",
+      a: "Copy the style's DESIGN.md into your project, then tell your agent to follow it: Claude Code via @DESIGN.md in CLAUDE.md, Cursor via .cursor/rules, Codex via AGENTS.md. Per-agent steps live under Guides below.",
+    },
+    {
+      q: "Are these styles free to use?",
+      a: "Yes. Every style is MIT licensed. Use them in anything, attribute if you're kind.",
+    },
+  ]);
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Design Styles",
+    url: SITE_URL,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${SITE_URL}/?q={query}`,
+      "query-input": "required name=query",
+    },
+  };
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }}
+      />
       {/* ---------- Hero ---------- */}
       <section className="border-b border-[#111110] dark:border-white/15 transition-colors">
         <div className="mx-auto max-w-6xl px-4 pb-10 pt-14 sm:px-6 sm:pt-20">
@@ -22,12 +65,13 @@ export default function Home() {
             An open-source design archive
           </p>
           <h1 className="mt-5 max-w-3xl text-[42px] font-extrabold leading-[1.02] tracking-[-0.02em] sm:text-[64px]">
-            100 design styles for AI coding agents
+            {styles.length} DESIGN.md files for AI coding agents
           </h1>
           <p className="mt-5 max-w-2xl font-serif text-[19px] italic leading-relaxed text-[#111110]/75 dark:text-white/75 sm:text-[21px]">
-            Give your coding agent a reusable visual direction covering
-            typography, colors, spacing, layout, components, effects, motion,
-            and design principles.
+            Stop shipping generic AI-generated UI. Give Codex, Claude Code,
+            Cursor, Windsurf, v0, or Lovable a reusable visual direction
+            covering typography, colors, spacing, layout, components, effects,
+            motion, and design principles — then copy its DESIGN.md and build.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a
@@ -47,7 +91,7 @@ export default function Home() {
           </div>
           <dl className="mt-9 grid grid-cols-1 gap-px border border-[#111110]/20 dark:border-white/15 bg-[#111110]/20 dark:bg-white/10 sm:grid-cols-3">
             {[
-              ["100", "production-ready styles"],
+              [String(styles.length), "production-ready styles"],
               ["Codex · Claude Code · Cursor", "works with your agent"],
               ["MIT", "open source, forever"],
             ].map(([k, v]) => (
@@ -65,6 +109,101 @@ export default function Home() {
       {/* ---------- Catalog ---------- */}
       <section id="catalog" className="scroll-mt-14">
         <SearchCatalog styles={styles} categories={categories} />
+      </section>
+
+      {/* ---------- Browse hubs (server-rendered for crawlers) ---------- */}
+      <section
+        aria-label="Browse by category and agent"
+        className="border-t border-[#111110]/15 dark:border-white/15"
+      >
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 md:grid-cols-2">
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#111110]/50 dark:text-white/50">
+              Browse by category
+            </p>
+            <h2 className="mt-2 text-2xl font-extrabold tracking-tight">
+              Every category has its own index page.
+            </h2>
+            <ul className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
+              {categories.map((c) => (
+                <li key={c.name}>
+                  <Link
+                    href={`/categories/${categorySlug(c.name)}`}
+                    className="flex items-baseline justify-between gap-2 border border-[#111110]/15 dark:border-white/15 px-3 py-2 text-sm hover:underline hover:underline-offset-4"
+                  >
+                    <span className="font-semibold">{c.name}</span>
+                    <span className="font-mono text-[11px] text-[#111110]/55 dark:text-white/55">
+                      {c.count}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#111110]/50 dark:text-white/50">
+              Setup guides
+            </p>
+            <h2 className="mt-2 text-2xl font-extrabold tracking-tight">
+              Use DESIGN.md with your agent.
+            </h2>
+            <ul className="mt-5 space-y-2">
+              {AGENT_GUIDES.map((g) => (
+                <li key={g.slug}>
+                  <Link
+                    href={`/guides/${g.slug}`}
+                    className="block border border-[#111110]/15 dark:border-white/15 px-3 py-2 text-sm hover:underline hover:underline-offset-4"
+                  >
+                    <span className="font-semibold">
+                      How to use DESIGN.md with {g.name}
+                    </span>{" "}
+                    <span className="text-[#111110]/60 dark:text-white/60">
+                      · {g.configFile}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/what-is-design-md"
+                  className="block border border-[#111110] dark:border-white/30 bg-[#111110] dark:bg-white px-3 py-2 text-sm font-semibold text-white dark:text-[#0c0c0e] hover:underline hover:underline-offset-4"
+                >
+                  What is DESIGN.md? →
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- Crawlable A–Z index (all styles link without JS) ---------- */}
+      <section
+        aria-label="All styles A to Z"
+        className="border-t border-[#111110]/15 dark:border-white/15"
+      >
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+          <h2 className="text-2xl font-extrabold tracking-tight">
+            All styles A to Z
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#111110]/65 dark:text-white/65">
+            Every style below links to its full DESIGN.md spec page. Use this
+            index when search or filters hide what you need.
+          </p>
+          <ul className="mt-6 columns-2 gap-6 sm:columns-3 lg:columns-4">
+            {[...styles]
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((s) => (
+                <li key={s.slug} className="break-inside-avoid py-1">
+                  <Link
+                    href={`/styles/${s.slug}`}
+                    className="text-sm underline underline-offset-4 hover:opacity-80"
+                  >
+                    {s.name} DESIGN.md
+                  </Link>
+                </li>
+              ))}
+          </ul>
+        </div>
       </section>
 
       {/* ---------- Usage ---------- */}

@@ -164,4 +164,4 @@ Durations: micro 150–250ms, standard 300–450ms geometric slides. Easings: cr
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/bauhaus/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/bauhaus/DESIGN.md`.*

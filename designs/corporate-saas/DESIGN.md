@@ -162,4 +162,4 @@ Durations: micro 100–200ms, standard 250–350ms confident reveals. Easings: c
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/corporate-saas/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/corporate-saas/DESIGN.md`.*

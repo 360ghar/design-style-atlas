@@ -159,4 +159,4 @@ Durations: 200ms opacity fades at most; content feels printed, not animated. Eas
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/ultra-minimalism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/ultra-minimalism/DESIGN.md`.*

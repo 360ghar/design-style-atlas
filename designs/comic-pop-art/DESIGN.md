@@ -162,4 +162,4 @@ Durations: instant–250ms POW slams with shake. Easings: springy slam cubic-bez
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/comic-pop-art/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/comic-pop-art/DESIGN.md`.*

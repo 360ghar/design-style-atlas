@@ -162,4 +162,4 @@ Durations: instant–250ms Xerox slams. Easings: none or steps(2); smooth premiu
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/zine-punk/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/zine-punk/DESIGN.md`.*

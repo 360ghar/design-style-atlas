@@ -161,4 +161,4 @@ Durations: micro 150–250ms, standard 350–500ms ink-settle fades. Easings: so
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/typography-first/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/typography-first/DESIGN.md`.*

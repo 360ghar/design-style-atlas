@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { GITHUB_URL } from "../lib/site";
+import { getStyleCount } from "../lib/styles";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
@@ -11,7 +12,7 @@ export function Header() {
             Design&nbsp;Styles
           </span>
           <span className="hidden font-mono text-[11px] text-[#111110]/50 dark:text-white/50 sm:inline">
-            / 100
+            / {getStyleCount()}
           </span>
         </Link>
         <div className="flex items-center gap-2 sm:gap-3">
@@ -21,6 +22,18 @@ export function Header() {
               className="border border-transparent px-2.5 sm:px-3 py-1.5 hover:border-[#111110] hover:bg-[#111110] hover:text-[#fafaf8] dark:hover:border-white dark:hover:bg-white dark:hover:text-[#0c0c0e] transition-colors"
             >
               Catalog
+            </Link>
+            <Link
+              href="/categories/minimal"
+              className="hidden px-3 py-1.5 hover:underline md:inline"
+            >
+              Categories
+            </Link>
+            <Link
+              href="/guides/claude-code"
+              className="hidden px-3 py-1.5 hover:underline md:inline"
+            >
+              Guides
             </Link>
             <Link
               href="/#usage"

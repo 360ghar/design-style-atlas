@@ -162,4 +162,4 @@ Durations: micro instant–150ms, standard 200ms log-stream ticks. Easings: line
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/hacker-aesthetic/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/hacker-aesthetic/DESIGN.md`.*

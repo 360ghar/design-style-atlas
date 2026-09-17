@@ -162,4 +162,4 @@ Durations: live axis interpolation 200–500ms; micro 100–200ms. Easings: smoo
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/variable-fonts/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/variable-fonts/DESIGN.md`.*

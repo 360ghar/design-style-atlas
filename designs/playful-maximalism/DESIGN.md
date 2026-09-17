@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 350–500ms wobbles, ceremonial 800ms con
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/playful-maximalism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/playful-maximalism/DESIGN.md`.*

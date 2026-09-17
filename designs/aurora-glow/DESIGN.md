@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 500–900ms aurora-curtain drifts. Easing
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/aurora-glow/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/aurora-glow/DESIGN.md`.*

@@ -8,10 +8,14 @@ function StyleCardInner({
   style,
   index,
   previewTheme = "default",
+  compareActive = false,
+  onToggleCompare,
 }: {
   style: StyleMeta;
   index: number;
   previewTheme?: PreviewThemeMode;
+  compareActive?: boolean;
+  onToggleCompare?: (slug: string) => void;
 }) {
   return (
     <article className="group flex flex-col border border-[#111110]/15 dark:border-white/15 bg-white dark:bg-[#141416] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_#111110] dark:hover:shadow-[4px_4px_0_rgba(255,255,255,0.85)]">
@@ -46,12 +50,29 @@ function StyleCardInner({
             </span>
           ))}
         </div>
-        <Link
-          href={`/styles/${style.slug}`}
-          className="mt-4 inline-flex items-center gap-1 border-t border-[#111110]/15 dark:border-white/15 pt-3 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--ink)] hover:gap-2 transition-all"
-        >
-          View DESIGN.md <span aria-hidden="true">→</span>
-        </Link>
+        <div className="mt-4 flex items-center justify-between gap-2 border-t border-[#111110]/15 dark:border-white/15 pt-3">
+          <Link
+            href={`/styles/${style.slug}`}
+            className="inline-flex items-center gap-1 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--ink)] hover:gap-2 transition-all"
+          >
+            View DESIGN.md <span aria-hidden="true">→</span>
+          </Link>
+          {onToggleCompare && (
+            <button
+              type="button"
+              onClick={() => onToggleCompare(style.slug)}
+              aria-pressed={compareActive}
+              title={compareActive ? "Remove from comparison" : "Add to comparison (max 2)"}
+              className={`shrink-0 border px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] transition-colors cursor-pointer ${
+                compareActive
+                  ? "border-[#111110] bg-[#111110] text-white dark:border-white dark:bg-white dark:text-[#0c0c0e]"
+                  : "border-[#111110]/20 dark:border-white/20 text-[#111110]/60 dark:text-white/60 hover:border-[#111110] dark:hover:border-white hover:text-[#111110] dark:hover:text-white"
+              }`}
+            >
+              {compareActive ? "✓ vs" : "+ vs"}
+            </button>
+          )}
+        </div>
       </div>
     </article>
   );

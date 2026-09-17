@@ -160,4 +160,4 @@ Durations: micro 150–250ms UI, standard 300–500ms damped line reveals, cerem
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/oversized-typography/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/oversized-typography/DESIGN.md`.*

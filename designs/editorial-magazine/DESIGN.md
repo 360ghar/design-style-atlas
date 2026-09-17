@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 350–550ms page-turn fades. Easings: sof
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/editorial-magazine/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/editorial-magazine/DESIGN.md`.*

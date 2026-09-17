@@ -168,4 +168,4 @@ Durations: micro 100–200ms HUD blips, standard 300ms scans. Easings: linear an
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/sci-fi-ui/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/sci-fi-ui/DESIGN.md`.*

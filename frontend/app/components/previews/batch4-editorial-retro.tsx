@@ -268,7 +268,7 @@ export function TerminalPreview({ meta, large }: { meta: StyleMeta; large?: bool
       <div className="h-full p-[6%] font-mono" style={{ fontSize: large ? 11 : 7.5, lineHeight: 1.7 }}>
         <div><span style={{ color: "#6A9955" }}>visitor@design</span>:<span style={{ color: "#4DD8FF" }}>~</span>$ ./browse --style brutalism</div>
         <div>▸ loading specimens… <span style={{ color: "#FFB000" }}>██████</span>░░ 78%</div>
-        <div>✓ 100 styles indexed in 0.04s</div>
+        <div>✓ archive indexed in 0.04s</div>
         <div><span style={{ color: "#6A9955" }}>visitor@design</span>:<span style={{ color: "#4DD8FF" }}>~</span>$ <span className="pv-blink">▊</span></div>
       </div>
       <Meta meta={meta} large={large} />

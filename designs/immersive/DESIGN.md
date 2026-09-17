@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 500–800ms scroll-chapter dissolves. Eas
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/immersive/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/immersive/DESIGN.md`.*

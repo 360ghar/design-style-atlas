@@ -162,4 +162,4 @@ Durations: micro 200–300ms, standard 500–900ms slow levitation loops. Easing
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/surrealism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/surrealism/DESIGN.md`.*

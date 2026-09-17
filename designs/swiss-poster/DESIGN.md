@@ -162,4 +162,4 @@ Durations: micro 100–200ms. Easings: linear only; no springs, no softness.
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/swiss-poster/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/swiss-poster/DESIGN.md`.*

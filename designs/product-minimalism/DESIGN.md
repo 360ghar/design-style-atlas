@@ -162,4 +162,4 @@ Durations: micro 100–150ms, standard 150–200ms crisp fades. Easings: ease-ou
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/product-minimalism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/product-minimalism/DESIGN.md`.*

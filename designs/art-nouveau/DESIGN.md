@@ -162,4 +162,4 @@ Durations: micro 200–300ms, standard 500–750ms vine-unfurl reveals. Easings:
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/art-nouveau/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/art-nouveau/DESIGN.md`.*

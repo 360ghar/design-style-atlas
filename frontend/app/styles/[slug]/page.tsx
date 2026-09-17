@@ -3,9 +3,17 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getStyle, getAllStyles, getRelated, getStyleSlugs } from "../../lib/styles";
 import { SITE_URL } from "../../lib/site";
+import {
+  breadcrumbJsonLd,
+  categorySlug,
+  faqJsonLd,
+  getComparePairs,
+  softwareAppJsonLd,
+} from "../../lib/seo";
 import { StyleActions } from "../../components/StyleActions";
 import { StyleCard } from "../../components/StyleCard";
 import { StylePreviewStudio } from "../../components/StylePreviewStudio";
+import { DetailNav } from "../../components/DetailNav";
 
 export function generateStaticParams() {
   return getStyleSlugs().map((slug) => ({ slug }));
@@ -19,14 +27,43 @@ export async function generateMetadata({
   const { slug } = await params;
   const style = await getStyle(slug);
   if (!style) return {};
+  const pageUrl = `${SITE_URL}/styles/${slug}`;
+  const title = `${style.name} DESIGN.md — ${style.category} Style for AI Agents`;
+  const description = `${style.description} Copy the complete ${style.name} DESIGN.md for Codex, Claude Code, Cursor, Windsurf, v0 & Lovable.`;
   return {
-    title: `${style.name}`,
-    description: `${style.description} Copy the complete ${style.name} DESIGN.md for Codex, Claude Code, Cursor & Windsurf.`,
-    alternates: { canonical: `${SITE_URL}/styles/${slug}` },
+    title,
+    description,
+    keywords: [
+      `${style.name} DESIGN.md`,
+      `${style.name} design style`,
+      `${style.category} design`,
+      ...style.tags,
+      "DESIGN.md for AI agents",
+      "Codex",
+      "Claude Code",
+      "Cursor",
+    ],
+    alternates: { canonical: pageUrl },
     openGraph: {
-      title: `${style.name} — Design Styles`,
-      description: style.description,
-      url: `${SITE_URL}/styles/${slug}`,
+      type: "article",
+      title,
+      description,
+      url: pageUrl,
+      siteName: "Design Styles",
+      images: [
+        {
+          url: "/og.png",
+          width: 1200,
+          height: 630,
+          alt: `${style.name} DESIGN.md style preview`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/og.png"],
     },
   };
 }
@@ -43,35 +80,83 @@ export default async function StylePage({
   const related = getRelated(style, all, 4);
   const index = all.findIndex((s) => s.slug === slug);
   const p = style.preview;
+  const prev = index > 0 ? all[index - 1] : null;
+  const next = index < all.length - 1 ? all[index + 1] : null;
+  const categoryPath = `/categories/${categorySlug(style.category)}`;
+  const comparePairs = getComparePairs(all).filter(
+    ([x, y]) => x === slug || y === slug
+  );
+  const jsonLd = [
+    softwareAppJsonLd(style),
+    breadcrumbJsonLd([
+      { name: "Index", path: "/" },
+      { name: style.category, path: categoryPath },
+      { name: `${style.name} DESIGN.md`, path: `/styles/${slug}` },
+    ]),
+    faqJsonLd([
+      {
+        q: `How do I use the ${style.name} DESIGN.md with my AI agent?`,
+        a: `Copy the ${style.name} DESIGN.md into your repo and tell Codex, Claude Code, Cursor, or Windsurf to follow it for all UI work. The full spec covers tokens, typography, spacing, components, and motion.`,
+      },
+      {
+        q: `What does the ${style.name} style include?`,
+        a: `${style.description} Tags: ${style.tags.join(", ") || style.category}. Each spec ships 20 sections with concrete values, no guessing.`,
+      },
+    ]),
+  ];
 
   return (
     <div>
-      {/* ---------- breadcrumb + header ---------- */}
-      <div className="border-b border-[#111110]/15 dark:border-white/15 transition-colors">
+      {jsonLd.map((obj, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(obj) }}
+        />
+      ))}
+      {/* ---------- breadcrumb + header (morphs into the style's own chrome) ---------- */}
+      <div
+        className="border-b transition-colors"
+        style={{ background: p.bg, color: p.ink, borderColor: `${p.ink}26` }}
+      >
         <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
-          <nav aria-label="Breadcrumb" className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#111110]/50 dark:text-white/50">
+          <nav
+            aria-label="Breadcrumb"
+            className="font-mono text-[11px] uppercase tracking-[0.14em]"
+            style={{ color: p.muted }}
+          >
             <Link href="/" className="hover:underline">Index</Link>
             <span aria-hidden="true"> / </span>
-            <Link href="/#catalog" className="hover:underline">{style.category}</Link>
+            <Link href={categoryPath} className="hover:underline">{style.category}</Link>
             <span aria-hidden="true"> / </span>
-            <span className="text-[var(--ink)] font-semibold">{style.name}</span>
+            <span className="font-semibold" style={{ color: p.ink }}>{style.name}</span>
           </nav>
           <div className="mt-4 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#111110]/50 dark:text-white/50">
+              <p
+                className="inline-block font-mono text-[11px] uppercase tracking-[0.18em]"
+                style={{ background: p.accent, color: "#fff", padding: "3px 8px" }}
+              >
                 Nº {String(index + 1).padStart(3, "0")} — {style.category}
               </p>
-              <h1 className="mt-1 text-4xl font-extrabold tracking-tight text-[var(--ink)] sm:text-5xl">
+              <h1
+                className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl"
+                style={{ fontFamily: p.display, color: p.ink }}
+              >
                 {style.name}
               </h1>
-              <p className="mt-3 max-w-2xl font-serif text-[18px] italic leading-relaxed text-[#111110]/75 dark:text-white/75">
+              <p
+                className="mt-3 max-w-2xl font-serif text-[18px] italic leading-relaxed"
+                style={{ color: p.muted, fontFamily: p.body }}
+              >
                 {style.description}
               </p>
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {style.tags.map((t) => (
                   <span
                     key={t}
-                    className="border border-[#111110]/20 dark:border-white/20 px-2 py-0.5 font-mono text-[10.5px] text-[#111110]/65 dark:text-white/65"
+                    className="px-2 py-0.5 font-mono text-[10.5px]"
+                    style={{ border: `1px solid ${p.ink}44`, color: p.ink }}
                   >
                     {t}
                   </span>
@@ -79,7 +164,13 @@ export default async function StylePage({
               </div>
             </div>
           </div>
-          <div className="mt-6 border border-[#111110]/20 dark:border-white/15 bg-white dark:bg-[#141416] p-4 sm:p-5 transition-colors">
+          <DetailNav
+            prev={prev ? { slug: prev.slug, name: prev.name } : null}
+            next={next ? { slug: next.slug, name: next.name } : null}
+          />
+          <div
+            className="mt-6 border border-[#111110]/20 dark:border-white/15 bg-white dark:bg-[#141416] p-4 sm:p-5 transition-colors"
+          >
             <StyleActions slug={style.slug} />
           </div>
         </div>
@@ -162,7 +253,7 @@ export default async function StylePage({
             <div className="flex items-baseline justify-between">
               <h2 className="text-2xl font-extrabold tracking-tight">Related styles</h2>
               <Link href="/#catalog" className="font-mono text-[11px] uppercase tracking-[0.12em] underline underline-offset-4 hover:opacity-80">
-                All 100 →
+                Catalog →
               </Link>
             </div>
             <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -170,6 +261,23 @@ export default async function StylePage({
                 <StyleCard key={s.slug} style={s} index={all.findIndex((r) => r.slug === s.slug)} />
               ))}
             </div>
+            {comparePairs.length > 0 && (
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {comparePairs.map(([x, y]) => {
+                  const other = all.find((s) => s.slug === (x === slug ? y : x));
+                  return (
+                    <li key={`${x}-vs-${y}`}>
+                      <Link
+                        href={`/compare/${x}-vs-${y}`}
+                        className="inline-block border border-[#111110]/20 dark:border-white/20 px-2.5 py-1 font-mono text-[11px] hover:underline hover:underline-offset-4"
+                      >
+                        {style.name} vs {other?.name ?? "style"} →
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
           </div>
         </div>
       )}

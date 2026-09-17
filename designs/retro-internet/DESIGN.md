@@ -162,4 +162,4 @@ Durations: instant–200ms; marquees and blinking GIFs encouraged. Easings: none
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/retro-internet/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/retro-internet/DESIGN.md`.*

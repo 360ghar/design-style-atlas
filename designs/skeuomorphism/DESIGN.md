@@ -162,4 +162,4 @@ Durations: micro 150–250ms switch flicks, standard 350ms dial turns. Easings: 
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/skeuomorphism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/skeuomorphism/DESIGN.md`.*

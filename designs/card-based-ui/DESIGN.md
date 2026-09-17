@@ -166,4 +166,4 @@ Durations: micro 100–200ms card lifts, standard 300ms. Easings: crisp ease-out
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/card-based-ui/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/card-based-ui/DESIGN.md`.*

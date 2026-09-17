@@ -162,4 +162,4 @@ Durations: micro 200–400ms fluorescent hum flickers, standard 600ms. Easings: 
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/liminal-weirdcore/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/liminal-weirdcore/DESIGN.md`.*

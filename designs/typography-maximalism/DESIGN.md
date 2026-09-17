@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 400–600ms scroll-scrubbed line reveals.
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/typography-maximalism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/typography-maximalism/DESIGN.md`.*

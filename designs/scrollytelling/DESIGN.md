@@ -162,4 +162,4 @@ Durations: scroll-scrubbed chapter pins (no timed fades); micro 150ms progress t
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/scrollytelling/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/scrollytelling/DESIGN.md`.*

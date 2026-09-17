@@ -162,4 +162,4 @@ Durations: micro 150–250ms shine sweeps, standard 500–900ms molten drifts. E
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/liquid-chrome/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/liquid-chrome/DESIGN.md`.*

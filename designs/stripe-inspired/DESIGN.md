@@ -162,4 +162,4 @@ Durations: micro 100–200ms, standard 300–450ms gradient-drift reveals. Easin
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/stripe-inspired/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/stripe-inspired/DESIGN.md`.*

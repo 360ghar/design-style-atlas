@@ -162,4 +162,4 @@ Durations: micro 250–400ms, standard 600–900ms slow patina fades. Easings: b
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/wabi-sabi/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/wabi-sabi/DESIGN.md`.*

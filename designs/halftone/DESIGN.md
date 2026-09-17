@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 350–500ms dot-pop entrances. Easings: p
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/halftone/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/halftone/DESIGN.md`.*

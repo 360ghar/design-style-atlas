@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 300–450ms tonal fades. Easings: ease-ou
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/monochrome/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/monochrome/DESIGN.md`.*

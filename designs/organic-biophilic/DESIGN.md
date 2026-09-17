@@ -162,4 +162,4 @@ Durations: micro 200–300ms, standard 500–800ms leaf-sway loops. Easings: slo
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/organic-biophilic/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/organic-biophilic/DESIGN.md`.*

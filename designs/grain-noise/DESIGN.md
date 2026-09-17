@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 400–600ms grain-drift loops. Easings: c
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/grain-noise/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/grain-noise/DESIGN.md`.*

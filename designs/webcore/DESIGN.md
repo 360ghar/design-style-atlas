@@ -163,4 +163,4 @@ Durations: instant–200ms window pops. Easings: none or steps(2); smooth premiu
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/webcore/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/webcore/DESIGN.md`.*

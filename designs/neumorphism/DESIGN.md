@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 350ms. Easings: soft ease-out; springs an
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/neumorphism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/neumorphism/DESIGN.md`.*

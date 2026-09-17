@@ -1,71 +1,101 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { copyText, downloadText } from "../lib/clipboard";
+
+type CopyKind = "full" | "slim" | "tailwind" | "cssvars";
+
+const KIND_LABEL: Record<CopyKind, string> = {
+  full: "Full DESIGN.md",
+  slim: "Slim prompt",
+  tailwind: "Tailwind snippet",
+  cssvars: "CSS variables",
+};
 
 export function StyleActions({ slug }: { slug: string }) {
-  const [copied, setCopied] = useState(false);
-  const [success, setSuccess] = useState<string | null>(null);
+  const [copiedKind, setCopiedKind] = useState<CopyKind | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [busy, setBusy] = useState<CopyKind | null>(null);
+  const success = copiedKind ? `${KIND_LABEL[copiedKind]} copied to clipboard.` : null;
   const rawUrl = `/designs/${slug}/DESIGN.md`;
+  const apiUrl = `/api/${slug}.json`;
   const downloadName = `${slug}-DESIGN.md`;
+  const rawCache = useRef<{ slug: string; promise: Promise<string> } | null>(null);
+  const apiCache = useRef<{
+    slug: string;
+    promise: Promise<{
+      slim: string;
+      full: string;
+      tokens: { cssVars: string; tailwind: string };
+    }>;
+  } | null>(null);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    rawCache.current = null;
+    apiCache.current = null;
+  }, [slug]);
+
+  useEffect(() => {
+    return () => {
+      if (timer.current) clearTimeout(timer.current);
+    };
+  }, []);
 
   async function fetchRaw(): Promise<string> {
-    const res = await fetch(rawUrl);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return res.text();
+    if (rawCache.current?.slug === slug) return rawCache.current.promise;
+    const promise = fetch(rawUrl).then((res) => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.text();
+    });
+    rawCache.current = { slug, promise };
+    return promise;
   }
 
-  function legacyCopy(text: string): void {
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.readOnly = true;
-    ta.setAttribute("readonly", "");
-    ta.style.position = "fixed";
-    ta.style.top = "0";
-    ta.style.left = "0";
-    ta.style.opacity = "0";
-    ta.style.fontSize = "16px";
-    document.body.appendChild(ta);
-    ta.focus({ preventScroll: true });
-    ta.select();
-    ta.setSelectionRange(0, ta.value.length);
-    let ok = false;
-    try {
-      ok = document.execCommand("copy");
-    } finally {
-      document.body.removeChild(ta);
-    }
-    if (!ok) throw new Error("execCommand copy returned false");
+  async function fetchApi(): Promise<{
+    slim: string;
+    full: string;
+    tokens: { cssVars: string; tailwind: string };
+  }> {
+    if (apiCache.current?.slug === slug) return apiCache.current.promise;
+    const promise = fetch(apiUrl).then((res) => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
+    });
+    apiCache.current = { slug, promise };
+    return promise;
   }
 
-  function markCopied() {
-    setCopied(true);
-    setSuccess("DESIGN.md copied to clipboard.");
-    setTimeout(() => {
-      setCopied(false);
-      setSuccess(null);
-    }, 2000);
+  function markCopied(kind: CopyKind) {
+    setCopiedKind(kind);
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = setTimeout(() => {
+      setCopiedKind(null);
+    }, 2200);
   }
 
-  async function copy() {
+  async function copyKind(kind: CopyKind) {
     setError(null);
-    let text: string;
+    setBusy(kind);
     try {
-      text = await fetchRaw();
+      let text: string;
+      if (kind === "full") {
+        text = await fetchRaw();
+      } else {
+        const api = await fetchApi();
+        text =
+          kind === "slim"
+            ? api.slim
+            : kind === "tailwind"
+              ? api.tokens.tailwind
+              : api.tokens.cssVars;
+      }
+      await copyText(text);
+      markCopied(kind);
     } catch {
       setError("Copy failed — use Download or View raw instead.");
-      return;
-    }
-    try {
-      await navigator.clipboard.writeText(text);
-      markCopied();
-    } catch {
-      try {
-        legacyCopy(text);
-        markCopied();
-      } catch {
-        setError("Copy failed — use Download or View raw instead.");
-      }
+    } finally {
+      setBusy(null);
     }
   }
 
@@ -73,46 +103,66 @@ export function StyleActions({ slug }: { slug: string }) {
     setError(null);
     try {
       const text = await fetchRaw();
-      const blob = new Blob([text], { type: "text/markdown" });
-      const url = URL.createObjectURL(blob);
-      const isIOS =
-        /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = downloadName;
-      if (isIOS) {
-        a.target = "_blank";
-        a.rel = "noopener";
-      }
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 4000);
+      downloadText(text, downloadName);
     } catch {
       setError("Download failed — use View raw instead.");
     }
   }
 
   const btn =
-    "inline-flex items-center gap-1.5 border px-4 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors cursor-pointer";
+    "inline-flex items-center gap-1.5 border px-4 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors cursor-pointer disabled:opacity-60";
+
+  const copyBtn = (kind: CopyKind, primary = false) => (
+    <button
+      key={kind}
+      type="button"
+      disabled={busy !== null}
+      onClick={() => copyKind(kind)}
+      title={
+        kind === "slim"
+          ? "Under 1500 tokens — for tight context windows"
+          : kind === "full"
+            ? "Complete DESIGN.md"
+            : kind === "tailwind"
+              ? "theme.extend snippet"
+              : ":root CSS variables"
+      }
+      className={
+        primary
+          ? `${btn} border-[#111110] bg-[#111110] text-white hover:bg-transparent hover:text-[#111110] dark:border-white dark:bg-white dark:text-[#0c0c0e] dark:hover:bg-transparent dark:hover:text-white`
+          : `${btn} border-[#111110]/30 bg-transparent text-[#111110] hover:border-[#111110] dark:border-white/20 dark:text-white dark:hover:border-white`
+      }
+    >
+      {busy === kind
+        ? "…"
+        : copiedKind === kind
+          ? "✓ Copied!"
+          : kind === "full"
+            ? "⧉ Copy full"
+            : kind === "slim"
+              ? "⧉ Copy slim"
+              : kind === "tailwind"
+                ? "{ } Tailwind"
+                : ":root CSS vars"}
+    </button>
+  );
 
   return (
     <div>
+      <p className="mb-2 font-mono text-[10.5px] uppercase tracking-[0.16em] text-[#111110]/50 dark:text-white/50">
+        Copy as
+      </p>
       <div className="flex flex-wrap gap-2">
-        <button
-          type="button"
-          onClick={copy}
-          className={`${btn} border-[#111110] bg-[#111110] text-white hover:bg-transparent hover:text-[#111110] dark:border-white dark:bg-white dark:text-[#0c0c0e] dark:hover:bg-transparent dark:hover:text-white`}
-        >
-          {copied ? "✓ Copied!" : "⧉ Copy DESIGN.md"}
-        </button>
+        {copyBtn("full", true)}
+        {copyBtn("slim")}
+        {copyBtn("tailwind")}
+        {copyBtn("cssvars")}
         <button
           type="button"
           onClick={download}
           className={`${btn} border-[#111110] bg-white text-[#111110] hover:bg-[#111110] hover:text-white dark:border-white/30 dark:bg-[#141416] dark:text-white dark:hover:bg-white dark:hover:text-[#0c0c0e]`}
         >
-          ↓ Download DESIGN.md
+          ↓ Download
         </button>
         <a
           href={rawUrl}
@@ -121,6 +171,14 @@ export function StyleActions({ slug }: { slug: string }) {
           className={`${btn} border-[#111110]/30 bg-transparent text-[#111110] hover:border-[#111110] dark:border-white/20 dark:text-white dark:hover:border-white`}
         >
           View raw ↗
+        </a>
+        <a
+          href={apiUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${btn} border-[#111110]/30 bg-transparent text-[#111110] hover:border-[#111110] dark:border-white/20 dark:text-white dark:hover:border-white`}
+        >
+          JSON ↗
         </a>
       </div>
       {error && (
@@ -134,7 +192,7 @@ export function StyleActions({ slug }: { slug: string }) {
         {!success && <code className="bg-black/5 dark:bg-white/10 px-1 py-0.5 rounded text-[var(--ink)]">@DESIGN.md</code>}
         {!success && (
           <>
-            . File: <code className="bg-black/5 dark:bg-white/10 px-1 py-0.5 rounded text-[var(--ink)]">/designs/{slug}/DESIGN.md</code>
+            . Slim fits tight contexts. File: <code className="bg-black/5 dark:bg-white/10 px-1 py-0.5 rounded text-[var(--ink)]">/designs/{slug}/DESIGN.md</code>
           </>
         )}
       </p>

@@ -164,4 +164,4 @@ Durations: micro 150–250ms, standard 350–500ms saturated panel swaps, ceremo
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/color-maximalism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/color-maximalism/DESIGN.md`.*

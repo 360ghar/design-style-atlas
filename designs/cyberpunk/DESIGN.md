@@ -162,4 +162,4 @@ Durations: micro 250–400ms single glitch cuts (max 2 flashes, never looping), 
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/cyberpunk/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/cyberpunk/DESIGN.md`.*

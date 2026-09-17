@@ -1,9 +1,11 @@
+import { cache } from "react";
 import matter from "gray-matter";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { sortByPopularity } from "./popularity";
 
 export interface StylePreviewTokens {
   bg: string;
@@ -47,9 +49,18 @@ const fallbackDir = join(process.cwd(), "designs");
 
 const SENTINEL = join("neo-brutalism", "DESIGN.md");
 
+let cachedRoot: string | null = null;
+
 function rootDir(): string {
-  if (existsSync(join(designsDir, SENTINEL))) return designsDir;
-  if (existsSync(join(fallbackDir, SENTINEL))) return fallbackDir;
+  if (cachedRoot) return cachedRoot;
+  if (existsSync(join(designsDir, SENTINEL))) {
+    cachedRoot = designsDir;
+    return cachedRoot;
+  }
+  if (existsSync(join(fallbackDir, SENTINEL))) {
+    cachedRoot = fallbackDir;
+    return cachedRoot;
+  }
   throw new Error(
     `[styles] designs root not found: neither "${join(
       designsDir,
@@ -136,21 +147,29 @@ export function getAllStyles(): StyleMeta[] {
     void _h;
     metas.push(meta);
   }
-  if (metas.length === 0) {
+  // Default order: real-world popularity (popularity.json), slug as tiebreak.
+  // Search, category, and vibe filters preserve this order downstream.
+  const ordered = sortByPopularity(metas);
+  if (ordered.length === 0) {
     throw new Error(
       `[styles] no valid styles found in "${rootDir()}" — refusing to build an empty site. ` +
         `Expected directories each containing a DESIGN.md with valid frontmatter.`
     );
   }
-  metaCache = metas;
-  return metas;
+  metaCache = ordered;
+  return ordered;
 }
 
 export function getStyleSlugs(): string[] {
   return getAllStyles().map((s) => s.slug);
 }
 
-export async function getStyle(slug: string): Promise<StyleEntry | null> {
+/** Single source of truth for "how many styles": the designs/ directory. */
+export function getStyleCount(): number {
+  return getAllStyles().length;
+}
+
+async function getStyleInner(slug: string): Promise<StyleEntry | null> {
   const entry = parseFile(slug);
   if (!entry) return null;
   const processed = await remark()
@@ -160,6 +179,8 @@ export async function getStyle(slug: string): Promise<StyleEntry | null> {
   entry.html = sanitizeHtml(String(processed));
   return entry;
 }
+
+export const getStyle = cache(getStyleInner);
 
 export function getRelated(style: StyleMeta, all: StyleMeta[], count = 3): StyleMeta[] {
   const bySlug = new Map(all.map((s) => [s.slug, s]));

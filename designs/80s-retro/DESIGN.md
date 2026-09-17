@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 400–700ms grid-scroll loops. Easings: s
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/80s-retro/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/80s-retro/DESIGN.md`.*

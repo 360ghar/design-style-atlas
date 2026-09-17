@@ -162,4 +162,4 @@ Durations: instant–200ms with happy-mac playfulness. Easings: none or gentle e
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/mac-os/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/mac-os/DESIGN.md`.*

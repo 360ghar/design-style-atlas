@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 350–550ms print-slam reveals. Easings: 
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/poster-inspired/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/poster-inspired/DESIGN.md`.*

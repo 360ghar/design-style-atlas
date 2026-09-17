@@ -162,4 +162,4 @@ Durations: instant–150ms window snaps. Easings: none or linear; springs and fl
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/desktop-ui/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/desktop-ui/DESIGN.md`.*

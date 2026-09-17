@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { GITHUB_URL } from "../lib/site";
+import { getStyleCount } from "../lib/styles";
 
 export function Footer() {
   return (
@@ -10,7 +11,7 @@ export function Footer() {
             Design Styles
           </p>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-[#111110]/70 dark:text-white/70">
-            100 design styles for AI coding agents. Each style ships a
+            {getStyleCount()} design styles for AI coding agents. Each style ships a
             copy-paste-ready{" "}
             <code className="font-mono text-[12px] bg-black/5 dark:bg-white/10 px-1 py-0.5 rounded">
               DESIGN.md
@@ -33,7 +34,22 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm text-[#111110]/80 dark:text-white/80">
             <li>
               <Link href="/#catalog" className="underline underline-offset-4 hover:text-[#111110] dark:hover:text-white">
-                Browse all 100 styles
+                Browse the catalog
+              </Link>
+            </li>
+            <li>
+              <Link href="/what-is-design-md" className="underline underline-offset-4 hover:text-[#111110] dark:hover:text-white">
+                What is DESIGN.md?
+              </Link>
+            </li>
+            <li>
+              <Link href="/guides/claude-code" className="underline underline-offset-4 hover:text-[#111110] dark:hover:text-white">
+                DESIGN.md guides for every agent
+              </Link>
+            </li>
+            <li>
+              <Link href="/compare" className="underline underline-offset-4 hover:text-[#111110] dark:hover:text-white">
+                Compare two styles
               </Link>
             </li>
             <li>
@@ -60,6 +76,18 @@ export function Footer() {
           <p className="mt-4 font-mono text-[11px] text-[#111110]/50 dark:text-white/50">
             MIT licensed. Open source.
           </p>
+        </div>
+      </div>
+      <div className="border-t border-[#111110]/10 dark:border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-4 text-center sm:px-6">
+          <a
+            href="https://sakshammittal.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[11px] text-[#111110]/50 underline underline-offset-4 transition-colors hover:text-[#111110] dark:text-white/50 dark:hover:text-white"
+          >
+            Made by Saksham Mittal
+          </a>
         </div>
       </div>
     </footer>

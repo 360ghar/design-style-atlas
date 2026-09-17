@@ -162,4 +162,4 @@ Durations: instant–150ms bevel-pressed snaps. Easings: none (steps welcome); s
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/windows-95/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/windows-95/DESIGN.md`.*

@@ -162,4 +162,4 @@ Durations: micro 100ms, standard 150ms max. Easings: linear or ease-out; no spri
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/functional-minimalism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/functional-minimalism/DESIGN.md`.*

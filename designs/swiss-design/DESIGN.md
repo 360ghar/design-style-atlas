@@ -162,4 +162,4 @@ Durations: micro 100–180ms, standard 180ms restrained fades. Easings: linear o
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/swiss-design/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/swiss-design/DESIGN.md`.*

@@ -162,4 +162,4 @@ Durations: micro 100–200ms toggle opens, standard 250ms. Easings: plain ease-o
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/notion-inspired/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/notion-inspired/DESIGN.md`.*

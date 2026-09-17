@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 350–500ms friendly floats. Easings: gen
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/corporate-memphis/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/corporate-memphis/DESIGN.md`.*

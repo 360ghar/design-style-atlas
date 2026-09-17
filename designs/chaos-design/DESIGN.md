@@ -162,4 +162,4 @@ Durations: instant–250ms for jarring cuts and shakes; up to 300ms for settle/e
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/chaos-design/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/chaos-design/DESIGN.md`.*

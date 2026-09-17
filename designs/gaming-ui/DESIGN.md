@@ -162,4 +162,4 @@ Durations: micro 100–200ms hit-markers, standard 300–500ms level-up bursts. 
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/gaming-ui/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/gaming-ui/DESIGN.md`.*

@@ -162,4 +162,4 @@ Durations: micro 100–200ms widget pops, standard 300–500ms glow pulses, cere
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/digital-maximalism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/digital-maximalism/DESIGN.md`.*

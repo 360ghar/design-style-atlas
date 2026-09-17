@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/sync-designs.mjs && node scripts/build-style-definitions.mjs",
-    "prebuild": "node scripts/sync-designs.mjs && node scripts/validate.mjs && node scripts/build-style-definitions.mjs",
+    "predev": "node scripts/sync-designs.mjs && node scripts/build-style-definitions.mjs && node scripts/build-api.mjs",
+    "prebuild": "node scripts/sync-designs.mjs && node scripts/build-style-definitions.mjs && node scripts/build-api.mjs && node scripts/validate.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "validate": "node scripts/validate.mjs"
+    "validate": "node scripts/validate.mjs",
+    "mcp": "node ../mcp/server.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

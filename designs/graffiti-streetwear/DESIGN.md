@@ -162,4 +162,4 @@ Durations: instant–250ms spray hits and sticker slaps. Easings: none or hard s
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/graffiti-streetwear/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/graffiti-streetwear/DESIGN.md`.*

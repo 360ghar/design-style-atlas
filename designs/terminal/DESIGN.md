@@ -162,4 +162,4 @@ Durations: micro instant–100ms, standard 100–200ms, no ceremonial long fades
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/terminal/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/terminal/DESIGN.md`.*

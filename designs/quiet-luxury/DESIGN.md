@@ -162,4 +162,4 @@ Durations: micro 200–300ms, standard 400–600ms glacial fades, ceremonial up 
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/quiet-luxury/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/quiet-luxury/DESIGN.md`.*

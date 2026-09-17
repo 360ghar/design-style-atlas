@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 350–500ms shape-dance entrances. Easing
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/memphis/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/memphis/DESIGN.md`.*

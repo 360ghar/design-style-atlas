@@ -164,4 +164,4 @@ Durations: instant–150ms flat color swaps with shadow pops. Easings: none or s
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/colorful-brutalism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/colorful-brutalism/DESIGN.md`.*

@@ -163,4 +163,4 @@ Durations: micro 150–250ms sticker slaps, standard 350–500ms. Easings: sprin
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/90s-retro/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/90s-retro/DESIGN.md`.*

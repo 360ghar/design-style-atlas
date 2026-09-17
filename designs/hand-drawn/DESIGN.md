@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 400–600ms draw-on strokes. Easings: han
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/hand-drawn/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/hand-drawn/DESIGN.md`.*

@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 250–350ms; ambient blob morphs up to 20
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/glassmorphism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/glassmorphism/DESIGN.md`.*

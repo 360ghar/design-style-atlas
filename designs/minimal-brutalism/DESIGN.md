@@ -162,4 +162,4 @@ Durations: hovers instant–150ms; scroll fades 500ms max. Easings: linear only;
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/minimal-brutalism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/minimal-brutalism/DESIGN.md`.*

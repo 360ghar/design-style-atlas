@@ -180,4 +180,4 @@ Easings: soft spring cubic-bezier(0.34,1.56,0.64,1) for clay wobble; harsh linea
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/claymorphism/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/claymorphism/DESIGN.md`.*

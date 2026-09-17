@@ -162,4 +162,4 @@ Durations: micro 100–200ms, standard 400–700ms seeded redraws. Easings: line
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/generative-algorithmic/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/generative-algorithmic/DESIGN.md`.*

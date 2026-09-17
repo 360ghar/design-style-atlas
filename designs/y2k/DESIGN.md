@@ -162,4 +162,4 @@ Durations: micro 150–250ms, standard 400–700ms, drift loops 5–8s. Easings:
 
 ---
 
-*Source: Design Styles — 100 design styles for AI coding agents. File: `/designs/y2k/DESIGN.md`.*
+*Source: Design Styles — design styles for AI coding agents. File: `/designs/y2k/DESIGN.md`.*
