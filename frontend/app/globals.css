@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+:root {
+  --paper: #fafaf8;
+  --ink: #111110;
+  --rule: rgba(17, 17, 16, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- style preview frames ---------- */
+.style-preview {
+  container-type: inline-size;
+  user-select: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .style-preview * {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---------- preview animation utilities ---------- */
+@keyframes pv-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes pv-blink {
+  0%, 60% { opacity: 1; }
+  61%, 100% { opacity: 0; }
+}
+@keyframes pv-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4%); }
+}
+@keyframes pv-spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes pv-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(3%, -4%); }
+}
+@keyframes pv-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.6; }
+  94% { opacity: 1; }
+}
+.pv-marquee { animation: pv-marquee 14s linear infinite; }
+.pv-marquee-fast { animation: pv-marquee 7s linear infinite; }
+.pv-blink { animation: pv-blink 1.1s steps(1) infinite; }
+.pv-float { animation: pv-float 5s ease-in-out infinite; }
+.pv-spin-slow { animation: pv-spin-slow 14s linear infinite; }
+.pv-drift { animation: pv-drift 9s ease-in-out infinite; }
+.pv-flicker { animation: pv-flicker 4s linear infinite; }
+.pv-chrome-text {
+  background: linear-gradient(180deg, #fff 8%, #9fb3c8 38%, #e8eef4 50%, #5b6b7c 55%, #dfe7ee 75%, #fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.pv-outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1.5px currentColor;
+}
+.pv-pixelated { image-rendering: pixelated; }
+
+/* ---------- rendered DESIGN.md prose (restrained archive typography) ---------- */
+.md-prose {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #262624;
+  overflow-wrap: anywhere;
+}
+.md-prose > * + * { margin-top: 1.1em; }
+.md-prose h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-top: 2.4em;
+  padding-top: 0.9em;
+  border-top: 1px solid var(--ink);
+}
+.md-prose h3 {
+  font-weight: 650;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-top: 1.8em;
+}
+.md-prose p { max-width: 72ch; }
+.md-prose ul, .md-prose ol { padding-left: 1.4em; max-width: 72ch; }
+.md-prose ul { list-style: disc; }
+.md-prose ol { list-style: decimal; }
+.md-prose li + li { margin-top: 0.35em; }
+.md-prose li::marker { color: #8a877e; }
+.md-prose blockquote {
+  border-left: 2px solid var(--ink);
+  padding-left: 1em;
+  color: #4c4a45;
+  font-style: italic;
+}
+.md-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-top: 1.2em;
+  display: block;
+  overflow-x: auto;
+}
+.md-prose th, .md-prose td {
+  border: 1px solid var(--rule);
+  padding: 0.5em 0.75em;
+  text-align: left;
+  vertical-align: top;
+}
+.md-prose th {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(17, 17, 16, 0.04);
+}
+.md-prose code {
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+  background: rgba(17, 17, 16, 0.06);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.1em 0.35em;
+}
+.md-prose pre {
+  background: #141412;
+  color: #ece9e0;
+  border-radius: 4px;
+  padding: 1em 1.1em;
+  overflow-x: auto;
+  font-size: 0.8rem;
+  line-height: 1.65;
+}
+.md-prose pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+.md-prose hr {
+  border: none;
+  border-top: 1px solid var(--ink);
+  margin: 2.5em 0;
+}
+.md-prose strong { color: var(--ink); }
+.md-prose a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- render perf: skip offscreen preview work ---------- */
+.style-preview {
+  content-visibility: auto;
+}

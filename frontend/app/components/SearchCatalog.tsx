@@ -1,0 +1,237 @@
+"use client";
+
+import { Suspense, useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import type { StyleMeta } from "../lib/styles";
+import { StyleCard } from "./StyleCard";
+
+/** Debounce for the URL write-back so typing never blocks on navigation. */
+const URL_SYNC_DEBOUNCE_MS = 150;
+
+type CatalogProps = {
+  styles: StyleMeta[];
+  categories: { name: string; count: number }[];
+};
+
+/**
+ * Shareable catalog: `?q=` + `?cat=` are read on load and written back
+ * via debounced shallow router.replace (no reload, no scroll jump, no
+ * history spam — replace, not push).
+ *
+ * `useSearchParams` suspends during static prerender, so this wrapper
+ * renders a static snapshot (all 100 cards, read-only input) as the
+ * Suspense fallback. That keeps `out/index.html` fully crawlable while
+ * the hydrated tree takes over filtering + URL sync.
+ */
+export function SearchCatalog({ styles, categories }: CatalogProps) {
+  return (
+    <Suspense
+      fallback={
+        <CatalogUI
+          styles={styles}
+          categories={categories}
+          query=""
+          category={null}
+          onQuery={() => {}}
+          onCategory={() => {}}
+          onReset={() => {}}
+          readOnly
+        />
+      }
+    >
+      <SearchCatalogSynced styles={styles} categories={categories} />
+    </Suspense>
+  );
+}
+
+function SearchCatalogSynced({ styles, categories }: CatalogProps) {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Init from URL — deep links like /?q=neon&cat=Maximalist just work.
+  // Unknown ?cat= values fall back to null (show all) instead of zero-results.
+  const urlQuery = searchParams.get("q") ?? "";
+  const rawUrlCategory = searchParams.get("cat");
+  const urlCategory =
+    rawUrlCategory && categories.some((c) => c.name === rawUrlCategory)
+      ? rawUrlCategory
+      : null;
+
+  const [query, setQuery] = useState(urlQuery);
+  const [category, setCategory] = useState<string | null>(urlCategory);
+
+  // Back/forward buttons: adopt URL changes made outside this component.
+  // Render-time adjustment (documented "store previous render info" pattern):
+  // only fires when the URL actually changed, and converges immediately
+  // (state === URL) so our own debounced write-back never loops.
+  const [lastUrlQuery, setLastUrlQuery] = useState(urlQuery);
+  if (urlQuery !== lastUrlQuery) {
+    setLastUrlQuery(urlQuery);
+    setQuery(urlQuery);
+  }
+  const [lastUrlCategory, setLastUrlCategory] = useState(urlCategory);
+  if (urlCategory !== lastUrlCategory) {
+    setLastUrlCategory(urlCategory);
+    setCategory(urlCategory);
+  }
+
+  // Debounced write-back of ?q= + ?cat=.
+  useEffect(() => {
+    const handle = setTimeout(() => {
+      const params = new URLSearchParams();
+      if (query) params.set("q", query);
+      if (category) params.set("cat", category);
+      const next = params.toString();
+      if (next !== searchParams.toString()) {
+        router.replace(next ? `${pathname}?${next}` : pathname, {
+          scroll: false,
+        });
+      }
+    }, URL_SYNC_DEBOUNCE_MS);
+    return () => clearTimeout(handle);
+  }, [query, category, pathname, router, searchParams]);
+
+  return (
+    <CatalogUI
+      styles={styles}
+      categories={categories}
+      query={query}
+      category={category}
+      onQuery={setQuery}
+      onCategory={(name) =>
+        setCategory((prev) => (name === null ? null : prev === name ? null : name))
+      }
+      onReset={() => {
+        setQuery("");
+        setCategory(null);
+      }}
+    />
+  );
+}
+
+function CatalogUI({
+  styles,
+  categories,
+  query,
+  category,
+  onQuery,
+  onCategory,
+  onReset,
+  readOnly = false,
+}: CatalogProps & {
+  query: string;
+  category: string | null;
+  onQuery: (q: string) => void;
+  onCategory: (name: string | null) => void;
+  onReset: () => void;
+  readOnly?: boolean;
+}) {
+  // O(1) slug → catalog number (was styles.indexOf(s) inside map: O(n²)).
+  const slugToIndex = useMemo(
+    () => new Map(styles.map((s, i) => [s.slug, i] as const)),
+    [styles]
+  );
+
+  const results = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return styles.filter((s) => {
+      if (category && s.category !== category) return false;
+      if (!q) return true;
+      const hay =
+        `${s.name} ${s.description} ${s.category} ${s.tags.join(" ")} ${s.slug.replace(/-/g, " ")}`.toLowerCase();
+      // AND-token matching: every query word must appear somewhere.
+      return q.split(/\s+/).every((tok) => hay.includes(tok));
+    });
+  }, [styles, query, category]);
+
+  return (
+    <div>
+      <div className="sticky top-14 z-30 -mx-4 border-y border-[#111110]/15 bg-[#fafaf8]/95 px-4 py-3 backdrop-blur sm:-mx-6 sm:px-6">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2.5">
+          <label className="flex items-center gap-3 border border-[#111110] bg-white px-4 py-3 focus-within:shadow-[3px_3px_0_#111110]">
+            <span aria-hidden="true" className="font-mono text-sm text-[#111110]/50">⌕</span>
+            <input
+              type="search"
+              autoComplete="off"
+              enterKeyHint="search"
+              value={query}
+              onChange={(e) => onQuery(e.target.value)}
+              readOnly={readOnly}
+              placeholder="Search all design styles…  (try “brutal”, “neon”, “serif”)"
+              aria-label="Search all design styles"
+              className="w-full bg-transparent text-[15px] outline-none placeholder:text-[#111110]/40"
+            />
+            {query && (
+              <button
+                type="button"
+                onClick={() => onQuery("")}
+                className="font-mono text-[11px] uppercase tracking-widest text-[#111110]/50 hover:text-[#111110]"
+                aria-label="Clear search"
+              >
+                ✕
+              </button>
+            )}
+          </label>
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5" role="group" aria-label="Filter by category">
+            <FilterChip label={`All (${styles.length})`} active={!category} onClick={() => onCategory(null)} />
+            {categories.map((c) => (
+              <FilterChip
+                key={c.name}
+                label={`${c.name} (${c.count})`}
+                active={category === c.name}
+                onClick={() => onCategory(c.name)}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
+        <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#111110]/50" role="status" aria-live="polite">
+          {results.length === styles.length
+            ? `Showing all ${styles.length} styles`
+            : `${results.length} of ${styles.length} styles${query ? ` for “${query}”` : ""}${category ? ` in ${category}` : ""}`}
+        </p>
+        {results.length === 0 ? (
+          <div className="mt-6 border border-dashed border-[#111110]/30 p-10 text-center">
+            <p className="font-serif text-2xl italic">Nothing in the archive matches.</p>
+            <p className="mt-2 text-sm text-[#111110]/60">
+              Try “brutal”, “glass”, “retro”, or clear the filters.
+            </p>
+            <button
+              type="button"
+              onClick={onReset}
+              className="mt-4 border border-[#111110] bg-[#111110] px-4 py-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white hover:bg-transparent hover:text-[#111110]"
+            >
+              Reset filters
+            </button>
+          </div>
+        ) : (
+          <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {results.map((s) => (
+              <StyleCard key={s.slug} style={s} index={slugToIndex.get(s.slug) ?? 0} />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function FilterChip({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      className={`whitespace-nowrap border px-2.5 py-1 font-mono text-[10.5px] uppercase tracking-[0.08em] ${
+        active
+          ? "border-[#111110] bg-[#111110] text-white"
+          : "border-[#111110]/20 bg-white text-[#111110]/70 hover:border-[#111110] hover:text-[#111110]"
+      }`}
+    >
+      {label}
+    </button>
+  );
+}
