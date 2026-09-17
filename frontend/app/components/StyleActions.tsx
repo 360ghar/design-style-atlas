@@ -7,10 +7,6 @@ export function StyleActions({ slug }: { slug: string }) {
   const [success, setSuccess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const rawUrl = `/designs/${slug}/DESIGN.md`;
-  // NOTE: a bare `DESIGN.md` download name would lose the style identity
-  // when several files land in ~/Downloads (and collides on re-download).
-  // `<slug>-DESIGN.md` keeps the "@DESIGN.md" contract (substring match)
-  // while staying unique per style.
   const downloadName = `${slug}-DESIGN.md`;
 
   async function fetchRaw(): Promise<string> {
@@ -19,8 +15,6 @@ export function StyleActions({ slug }: { slug: string }) {
     return res.text();
   }
 
-  /** iOS-safe fallback: fixed + readonly + opacity-0 + 16px font avoids
-   *  zoom/focus jumps; setSelectionRange covers Safari selection quirks. */
   function legacyCopy(text: string): void {
     const ta = document.createElement("textarea");
     ta.value = text;
@@ -55,9 +49,6 @@ export function StyleActions({ slug }: { slug: string }) {
 
   async function copy() {
     setError(null);
-    // Fetch ONCE, then try modern clipboard → legacy fallback on the same text.
-    // (The old code re-fetched inside the catch: double network cost, and a
-    // second failure mode if the first fetch had actually succeeded.)
     let text: string;
     try {
       text = await fetchRaw();
@@ -84,8 +75,6 @@ export function StyleActions({ slug }: { slug: string }) {
       const text = await fetchRaw();
       const blob = new Blob([text], { type: "text/markdown" });
       const url = URL.createObjectURL(blob);
-      // iOS Safari ignores `a.download` for cross-origin/blob URLs, so open
-      // the blob in a new tab as a fallback target — the user can Share/Save.
       const isIOS =
         /iPad|iPhone|iPod/.test(navigator.userAgent) ||
         (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
@@ -106,7 +95,7 @@ export function StyleActions({ slug }: { slug: string }) {
   }
 
   const btn =
-    "inline-flex items-center gap-1.5 border px-4 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors";
+    "inline-flex items-center gap-1.5 border px-4 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors cursor-pointer";
 
   return (
     <div>
@@ -114,33 +103,38 @@ export function StyleActions({ slug }: { slug: string }) {
         <button
           type="button"
           onClick={copy}
-          className={`${btn} border-[#111110] bg-[#111110] text-white hover:bg-transparent hover:text-[#111110]`}
+          className={`${btn} border-[#111110] bg-[#111110] text-white hover:bg-transparent hover:text-[#111110] dark:border-white dark:bg-white dark:text-[#0c0c0e] dark:hover:bg-transparent dark:hover:text-white`}
         >
           {copied ? "✓ Copied!" : "⧉ Copy DESIGN.md"}
         </button>
         <button
           type="button"
           onClick={download}
-          className={`${btn} border-[#111110] bg-white hover:bg-[#111110] hover:text-white`}
+          className={`${btn} border-[#111110] bg-white text-[#111110] hover:bg-[#111110] hover:text-white dark:border-white/30 dark:bg-[#141416] dark:text-white dark:hover:bg-white dark:hover:text-[#0c0c0e]`}
         >
           ↓ Download DESIGN.md
         </button>
-        <a href={rawUrl} target="_blank" rel="noopener noreferrer" className={`${btn} border-[#111110]/30 bg-transparent hover:border-[#111110]`}>
+        <a
+          href={rawUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${btn} border-[#111110]/30 bg-transparent text-[#111110] hover:border-[#111110] dark:border-white/20 dark:text-white dark:hover:border-white`}
+        >
           View raw ↗
         </a>
       </div>
       {error && (
-        <p role="alert" className="mt-2 font-mono text-[11px] text-red-700">
+        <p role="alert" className="mt-2 font-mono text-[11px] text-red-600 dark:text-red-400">
           {error}
         </p>
       )}
-      <p aria-live="polite" className="mt-2 font-mono text-[11px] text-[#111110]/50">
+      <p aria-live="polite" className="mt-2 font-mono text-[11px] text-[#111110]/50 dark:text-white/50">
         {success ??
           "Paste into Codex, Claude Code, Cursor or Windsurf as "}
-        {!success && <code>@DESIGN.md</code>}
+        {!success && <code className="bg-black/5 dark:bg-white/10 px-1 py-0.5 rounded text-[var(--ink)]">@DESIGN.md</code>}
         {!success && (
           <>
-            . File: <code>/designs/{slug}/DESIGN.md</code>
+            . File: <code className="bg-black/5 dark:bg-white/10 px-1 py-0.5 rounded text-[var(--ink)]">/designs/{slug}/DESIGN.md</code>
           </>
         )}
       </p>

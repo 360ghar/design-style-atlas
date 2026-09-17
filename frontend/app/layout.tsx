@@ -73,6 +73,8 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+import { ThemeProvider } from "./components/ThemeProvider";
+
 export default function RootLayout({
   children,
 }: {
@@ -81,12 +83,37 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${inter.variable} ${newsreader.variable} ${plexMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var stored = localStorage.getItem('design-styles-theme');
+                  var supportDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  var theme = stored ? stored : (supportDark ? 'dark' : 'light');
+                  if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                    document.documentElement.setAttribute('data-theme', 'light');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="flex min-h-full flex-col bg-[var(--paper)] text-[var(--ink)]">
+        <ThemeProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

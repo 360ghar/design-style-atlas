@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/sync-designs.mjs",
-    "prebuild": "node scripts/sync-designs.mjs && node scripts/validate.mjs",
+    "predev": "node scripts/sync-designs.mjs && node scripts/build-style-definitions.mjs",
+    "prebuild": "node scripts/sync-designs.mjs && node scripts/validate.mjs && node scripts/build-style-definitions.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
