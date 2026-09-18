@@ -79,7 +79,7 @@ export function SwissDesignPreview({ meta, large }: { meta: StyleMeta; large?: b
         </div>
 
         {/* Asymmetric 3-Column Mathematical Grid */}
-        <div className="grid grid-cols-3" style={{ gap: 8 * s }}>
+        <div className="grid grid-cols-1 @sm:grid-cols-3" style={{ gap: 8 * s }}>
           <div style={{ borderTop: `1px solid ${p.ink}44`, paddingTop: 4 * s }}>
             <div style={{ fontSize: 9 * s, fontWeight: 700, color: p.ink }}>01</div>
             <div style={{ fontSize: 6.5 * s, fontWeight: 600, color: p.ink, marginTop: 2 * s }}>
@@ -113,7 +113,7 @@ export function SwissDesignPreview({ meta, large }: { meta: StyleMeta; large?: b
 
         {/* Technical Grid Footer */}
         <div
-          className="flex items-center justify-between"
+          className="flex flex-wrap items-center justify-between gap-2"
           style={{
             borderTop: `1px solid ${p.ink}22`,
             paddingTop: 4 * s,

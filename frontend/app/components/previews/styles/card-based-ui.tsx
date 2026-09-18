@@ -28,6 +28,7 @@ export function CardBasedUIPreview({ meta, large }: { meta: StyleMeta; large?: b
           <div
             style={{
               flex: 1,
+              minWidth: 0,
               background: p.surface,
               border: line,
               borderRadius: 999,

@@ -151,10 +151,10 @@ export function NotionInspiredPreview({ meta, large }: { meta: StyleMeta; large?
           </div>
 
           {/* table */}
-          <div style={{ marginTop: 7 * s, border: `1px solid ${BORDER}`, borderRadius: 6, overflow: "hidden" }}>
+          <div className="overflow-x-auto no-scrollbar" style={{ marginTop: 7 * s, border: `1px solid ${BORDER}`, borderRadius: 6 }}>
             <div
               className="grid"
-              style={{ gridTemplateColumns: "1fr 34px 62px", fontSize: 6 * s, fontWeight: 600, color: MUTED, background: SURFACE, borderBottom: `1px solid ${BORDER}`, padding: `${4 * s}px ${8 * s}px` }}
+              style={{ minWidth: 260, gridTemplateColumns: "1fr 40px 68px", fontSize: 6 * s, fontWeight: 600, color: MUTED, background: SURFACE, borderBottom: `1px solid ${BORDER}`, padding: `${4 * s}px ${8 * s}px` }}
             >
               <span>Task</span>
               <span>Owner</span>

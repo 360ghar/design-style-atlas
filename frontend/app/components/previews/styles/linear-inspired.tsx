@@ -46,7 +46,7 @@ export function LinearInspiredPreview({ meta, large }: { meta: StyleMeta; large?
             />
             <span style={{ fontSize: 8 * fs, fontWeight: 600, letterSpacing: "-0.01em" }}>Linear</span>
           </span>
-          <span style={{ fontSize: 6.5 * fs, color: MUTED, display: "flex", gap: 7 * fs }}>
+          <span className="hidden @sm:flex" style={{ fontSize: 6.5 * fs, color: MUTED, gap: 7 * fs }}>
             <span>Product</span>
             <span>Changelog</span>
             <span>Customers</span>
@@ -150,9 +150,8 @@ export function LinearInspiredPreview({ meta, large }: { meta: StyleMeta; large?
 
         {/* cycle cards */}
         <div
+          className="grid grid-cols-1 @sm:grid-cols-3"
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
             gap: 7 * fs,
             padding: `${8 * fs}px ${12 * fs}px 0`,
           }}

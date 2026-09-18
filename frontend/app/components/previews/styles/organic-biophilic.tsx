@@ -14,25 +14,25 @@ export function OrganicBiophilicPreview({ meta, large }: { meta: StyleMeta; larg
             <span style={{ fontFamily: p.display, fontWeight: 600, fontSize: large ? 13 : 8 }}>Fern & Field</span>
           </div>
           <div className="flex items-center" style={{ gap: large ? 12 : 7, color: p.muted, fontSize: large ? 9 : 6 }}>
-            <span>Grove</span>
-            <span>Rooms</span>
+            <span className="hidden @sm:inline">Grove</span>
+            <span className="hidden @sm:inline">Rooms</span>
             <span style={{ background: p.accent, color: p.surface, borderRadius: 999, padding: large ? "5px 12px" : "3px 8px", fontWeight: 600 }}>Visit</span>
           </div>
         </div>
         {/* earthy hero with arches */}
-        <div className="grid flex-1 grid-cols-[1.1fr_0.9fr]" style={{ gap: large ? 14 : 8, padding: `${large ? 16 : 9}px ${pad}px` }}>
+        <div className="grid flex-1 grid-cols-1 @md:grid-cols-[1.1fr_0.9fr]" style={{ gap: large ? 14 : 8, padding: `${large ? 16 : 9}px ${pad}px` }}>
           <div className="flex flex-col justify-center">
             <div style={{ fontSize: large ? 8 : 5.5, letterSpacing: "0.22em", fontWeight: 700, color: p.accent }}>GROW SLOW · EST. GROVE</div>
             <div style={{ fontFamily: p.display, fontWeight: 500, lineHeight: 1.05, fontSize: large ? 30 : 16, marginTop: large ? 8 : 4 }}>
               Rooms that<br />breathe<span style={{ color: p.accent2 }}>.</span>
             </div>
             <p style={{ color: p.muted, fontSize: large ? 10.5 : 6.5, lineHeight: 1.5, marginTop: large ? 8 : 4 }}>Arched light, moss keylines, and space to grow.</p>
-            <div className="flex" style={{ gap: large ? 8 : 5, marginTop: large ? 12 : 7 }}>
+            <div className="flex flex-wrap" style={{ gap: large ? 8 : 5, marginTop: large ? 12 : 7 }}>
               <span style={{ background: p.accent, color: p.surface, borderRadius: "4px 16px 4px 16px", padding: large ? "8px 16px" : "5px 10px", fontSize: large ? 9.5 : 6, fontWeight: 600 }}>Enter the grove →</span>
               <span style={{ border: `1.5px solid ${p.accent}`, color: p.accent, borderRadius: "4px 16px 4px 16px", padding: large ? "8px 16px" : "5px 10px", fontSize: large ? 9.5 : 6, fontWeight: 600 }}>Sun rooms</span>
             </div>
           </div>
-          <div className="flex items-end justify-center" style={{ gap: large ? 8 : 5 }}>
+          <div className="hidden @md:flex items-end justify-center" style={{ gap: large ? 8 : 5 }}>
             <div style={{ width: "46%", height: "100%", background: p.accent, borderRadius: `${large ? 60 : 36}px ${large ? 60 : 36}px 10px 10px`, position: "relative", overflow: "hidden" }}>
               <div style={{ position: "absolute", inset: 0, background: `linear-gradient(180deg, transparent 30%, ${p.ink}55)` }} />
               <div style={{ position: "absolute", bottom: large ? 10 : 6, left: large ? 10 : 6, right: large ? 10 : 6, background: p.surface, borderRadius: "4px 14px 4px 14px", padding: large ? 7 : 4 }}>
@@ -54,7 +54,7 @@ export function OrganicBiophilicPreview({ meta, large }: { meta: StyleMeta; larg
           </div>
         </div>
         {/* stat footer */}
-        <div className="flex items-center justify-between" style={{ margin: `0 ${pad}px ${large ? 12 : 7}px`, background: p.surface, border: `1px solid ${p.muted}44`, borderRadius: "4px 18px 4px 18px", padding: `${large ? 9 : 5}px ${large ? 14 : 8}px` }}>
+        <div className="flex flex-wrap items-center justify-between gap-2" style={{ margin: `0 ${pad}px ${large ? 12 : 7}px`, background: p.surface, border: `1px solid ${p.muted}44`, borderRadius: "4px 18px 4px 18px", padding: `${large ? 9 : 5}px ${large ? 14 : 8}px` }}>
           {[
             ["12k", "plants rooted"],
             ["98%", "daylight rooms"],

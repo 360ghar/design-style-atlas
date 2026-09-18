@@ -70,15 +70,15 @@ export function NewspaperPreview({ meta, large }: { meta: StyleMeta; large?: boo
             <span>WASHINGTON</span>
             <span>INTERNATIONAL</span>
             <span>BUSINESS</span>
-            <span>SCIENCE</span>
-            <span>ARTS</span>
+            <span className="hidden @sm:inline">SCIENCE</span>
+            <span className="hidden @sm:inline">ARTS</span>
           </div>
         </div>
 
         {/* Multi-Column Front Page Grid */}
-        <div className="my-auto grid grid-cols-3" style={{ gap: 8 * s }}>
+        <div className="my-auto grid grid-cols-1 @sm:grid-cols-3" style={{ gap: 8 * s }}>
           {/* Lead Headline Column (spans 2) */}
-          <div className="col-span-2">
+          <div className="col-span-1 @sm:col-span-2">
             <h2
               style={{
                 fontFamily: p.display,
@@ -116,10 +116,9 @@ export function NewspaperPreview({ meta, large }: { meta: StyleMeta; large?: boo
 
           {/* Side Column Briefing Well */}
           <div
-            className="border-l pl-3"
+            className="hidden @sm:flex border-l pl-3"
             style={{
               borderColor: `${p.ink}33`,
-              display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
             }}
@@ -166,7 +165,7 @@ export function NewspaperPreview({ meta, large }: { meta: StyleMeta; large?: boo
 
         {/* Newsprint Dateline Footer */}
         <div
-          className="flex items-center justify-between"
+          className="flex flex-wrap items-center justify-between gap-2"
           style={{
             borderTop: `1px solid ${p.ink}44`,
             paddingTop: 3 * s,
@@ -175,7 +174,7 @@ export function NewspaperPreview({ meta, large }: { meta: StyleMeta; large?: boo
           }}
         >
           <span>WEATHER: 64° CLEAR</span>
-          <span>ESTABLISHED 1851 · ALL RIGHTS RESERVED</span>
+          <span className="hidden @sm:inline">ESTABLISHED 1851 · ALL RIGHTS RESERVED</span>
           <span>PAGE A1</span>
         </div>
       </div>

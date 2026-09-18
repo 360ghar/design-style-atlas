@@ -54,13 +54,10 @@ export function ScrollytellingPreview({ meta, large }: { meta: StyleMeta; large?
 
         {/* Pinned hero + step stream */}
         <div
+          className="grid grid-cols-1 @md:grid-cols-[1.05fr_1fr] flex-1 min-h-0 overflow-y-auto no-scrollbar"
           style={{
-            flex: 1,
-            display: "grid",
-            gridTemplateColumns: "1.05fr 1fr",
             gap: s.gap,
             padding: s.pad,
-            minHeight: 0,
           }}
         >
           {/* Pinned graphic */}

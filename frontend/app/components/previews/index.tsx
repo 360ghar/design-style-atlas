@@ -279,16 +279,18 @@ export function BespokePreview({
   meta,
   large,
   previewTheme = "default",
+  viewport,
 }: {
   meta: StyleMeta;
   large?: boolean;
   previewTheme?: PreviewThemeMode;
+  viewport?: "desktop" | "tablet" | "mobile";
 }) {
   const Cmp = previews[meta.slug];
   if (!Cmp) {
     const p = meta.preview;
     return (
-      <Frame meta={meta} large={large} previewTheme={previewTheme}>
+      <Frame meta={meta} large={large} previewTheme={previewTheme} viewport={viewport}>
         <div className="flex h-full flex-col justify-center px-[8%]">
           <div style={{ fontFamily: p.display, fontSize: large ? 26 : 15 }}>{meta.name}</div>
           <div style={{ color: p.muted, fontSize: large ? 11 : 7.5 }}>{meta.description}</div>
@@ -297,7 +299,9 @@ export function BespokePreview({
       </Frame>
     );
   }
-  return <Cmp meta={meta} large={large} />;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Component = Cmp as ComponentType<any>;
+  return <Component meta={meta} large={large} previewTheme={previewTheme} viewport={viewport} />;
 }
 
 /** Generic data-driven landing page for one style. Falls back like bespoke when undefined. */
@@ -305,19 +309,21 @@ export function GenericPreview({
   meta,
   large,
   previewTheme = "default",
+  viewport,
 }: {
   meta: StyleMeta;
   large?: boolean;
   previewTheme?: PreviewThemeMode;
+  viewport?: "desktop" | "tablet" | "mobile";
 }) {
   const baseDef = STYLE_DEFINITIONS[meta.slug];
   if (!baseDef) {
-    return <BespokePreview meta={meta} large={large} previewTheme={previewTheme} />;
+    return <BespokePreview meta={meta} large={large} previewTheme={previewTheme} viewport={viewport} />;
   }
   const def = resolvePreviewTheme(baseDef, previewTheme);
   return (
-    <Frame meta={meta} large={large} previewTheme={previewTheme}>
-      <StyleLandingPage def={def} large={large} previewTheme={previewTheme} />
+    <Frame meta={meta} large={large} previewTheme={previewTheme} viewport={viewport}>
+      <StyleLandingPage def={def} large={large} previewTheme={previewTheme} viewport={viewport} />
       <Meta meta={meta} large={large} previewTheme={previewTheme} />
     </Frame>
   );
@@ -329,14 +335,16 @@ export function StylePreview({
   large,
   previewTheme = "default",
   variant = "bespoke",
+  viewport,
 }: {
   meta: StyleMeta;
   large?: boolean;
   previewTheme?: PreviewThemeMode;
   variant?: PreviewVariant;
+  viewport?: "desktop" | "tablet" | "mobile";
 }) {
   if (variant === "generic") {
-    return <GenericPreview meta={meta} large={large} previewTheme={previewTheme} />;
+    return <GenericPreview meta={meta} large={large} previewTheme={previewTheme} viewport={viewport} />;
   }
-  return <BespokePreview meta={meta} large={large} previewTheme={previewTheme} />;
+  return <BespokePreview meta={meta} large={large} previewTheme={previewTheme} viewport={viewport} />;
 }

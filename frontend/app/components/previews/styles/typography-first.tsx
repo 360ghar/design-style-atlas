@@ -37,9 +37,9 @@ export function TypographyFirstPreview({ meta, large }: { meta: StyleMeta; large
         <div style={{ borderTop: `1px solid ${p.ink}`, margin: `${large ? 10 : 6}px ${pad}px 0` }} />
 
         {/* Reading column + sidenote rail */}
-        <div className="grid grid-cols-12" style={{ flex: 1, minHeight: 0 }}>
+        <div className="grid grid-cols-1 @md:grid-cols-12" style={{ flex: 1, minHeight: 0 }}>
           <div
-            className="col-span-8 flex flex-col justify-center"
+            className="col-span-1 @md:col-span-8 flex flex-col justify-center"
             style={{ padding: `${large ? 18 : 8}px 0 ${large ? 18 : 8}px ${pad}px`, minWidth: 0 }}
           >
             <div style={{ ...label, color: p.muted }}>Chapter three — Scale &amp; hierarchy</div>
@@ -47,7 +47,7 @@ export function TypographyFirstPreview({ meta, large }: { meta: StyleMeta; large
               style={{
                 fontFamily: p.display,
                 fontWeight: 600,
-                fontSize: large ? 54 : 25,
+                fontSize: large ? "clamp(24px, 5.5cqi, 54px)" : 25,
                 lineHeight: 1.05,
                 letterSpacing: "-0.01em",
                 marginTop: large ? 10 : 5,
@@ -73,7 +73,7 @@ export function TypographyFirstPreview({ meta, large }: { meta: StyleMeta; large
               <sup style={{ color: p.accent2, fontSize: "0.75em" }}> 1</sup>{" "}
               <span style={{ color: p.accent2, textDecoration: "underline" }}>Read the rule →</span>
             </p>
-            <div className="flex items-center" style={{ gap: large ? 14 : 8, marginTop: large ? 16 : 8 }}>
+            <div className="flex flex-wrap items-center" style={{ gap: large ? 14 : 8, marginTop: large ? 16 : 8 }}>
               <span
                 style={{
                   background: p.accent,
@@ -109,7 +109,7 @@ export function TypographyFirstPreview({ meta, large }: { meta: StyleMeta; large
 
           {/* Sidenote rail: footnote block + pull-quote with rules */}
           <div
-            className="col-span-4 flex-col justify-center"
+            className="hidden @md:flex col-span-1 @md:col-span-4 flex-col justify-center"
             style={{
               display: "flex",
               borderLeft: `1px solid ${p.ink}44`,

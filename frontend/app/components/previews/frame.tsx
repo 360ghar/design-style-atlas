@@ -14,11 +14,13 @@ export function Frame({
   meta,
   large,
   previewTheme = "default",
+  viewport,
   children,
 }: {
   meta: StyleMeta;
   large?: boolean;
   previewTheme?: PreviewThemeMode;
+  viewport?: "desktop" | "tablet" | "mobile";
   children: ReactNode;
 }) {
   const baseDef = STYLE_DEFINITIONS[meta.slug];
@@ -27,14 +29,20 @@ export function Frame({
 
   return (
     <div
-      className="style-preview relative w-full overflow-hidden transition-colors duration-150"
+      className="style-preview relative w-full overflow-hidden transition-colors duration-150 flex flex-col justify-between"
       style={{
         background: p.bg,
         color: p.ink,
         aspectRatio: large ? undefined : "4 / 3",
-        minHeight: large ? 640 : undefined,
+        minHeight: large
+          ? viewport === "mobile"
+            ? 520
+            : "var(--preview-min-height, clamp(480px, 72vh, 640px))"
+          : undefined,
         fontFamily: p.body,
       }}
+      data-large={large ? "true" : "false"}
+      data-viewport={viewport || "responsive"}
       aria-hidden="true"
     >
       {children}

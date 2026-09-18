@@ -15,39 +15,42 @@ export function CorporateSaaSPreview({ meta, large }: { meta: StyleMeta; large?:
         style={{ background: p.bg, color: p.ink, fontFamily: p.body, overflow: "hidden", paddingBottom: large ? 22 : 15 }}
       >
         {/* SaaS topbar with trial CTA */}
-        <div style={{ display: "flex", alignItems: "center", gap: large ? 14 : 8, padding: large ? "12px 20px" : "7px 12px", borderBottom: `1px solid ${hairline}`, background: p.bg }}>
-          <div style={{ display: "flex", alignItems: "center", gap: large ? 7 : 4 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: large ? 14 : 8, padding: large ? "10px 18px" : "7px 12px", borderBottom: `1px solid ${hairline}`, background: p.bg }}>
+          <div style={{ display: "flex", alignItems: "center", gap: large ? 7 : 4, flexShrink: 0 }}>
             <span style={{ width: large ? 18 : 12, height: large ? 18 : 12, borderRadius: 5, background: p.accent, color: p.bg, fontSize: large ? 11 : 7, fontWeight: 800, display: "inline-flex", alignItems: "center", justifyContent: "center" }}>◍</span>
             <span style={{ fontFamily: p.display, fontWeight: 700, fontSize: large ? 12 : 7.5, letterSpacing: "-0.01em" }}>Acme</span>
           </div>
-          <div style={{ display: "flex", gap: large ? 12 : 6, fontSize: fs.nav, color: p.muted, fontWeight: 500 }}>
+          <div className="hidden @sm:flex" style={{ gap: large ? 12 : 6, fontSize: fs.nav, color: p.muted, fontWeight: 500 }}>
             <span>Product</span>
             <span>Solutions</span>
             <span>Pricing</span>
           </div>
-          <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: large ? 10 : 5 }}>
-            <span style={{ fontSize: fs.nav, color: p.muted, fontWeight: 500 }}>Sign in</span>
-            <span style={{ background: p.accent, color: p.bg, borderRadius: 8, padding: large ? "7px 14px" : "4px 9px", fontSize: fs.btn, fontWeight: 600, boxShadow: `0 2px 12px ${p.accent}40` }}>Start free →</span>
+          <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: large ? 8 : 5 }}>
+            <span className="hidden @sm:inline" style={{ fontSize: fs.nav, color: p.muted, fontWeight: 500 }}>Sign in</span>
+            <span style={{ background: p.accent, color: p.bg, borderRadius: 8, padding: large ? "6px 12px" : "4px 9px", fontSize: fs.btn, fontWeight: 600, boxShadow: `0 2px 12px ${p.accent}40`, whiteSpace: "nowrap" }}>Start free →</span>
           </div>
         </div>
 
         {/* metric hero + dashboard */}
-        <div style={{ position: "relative", display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: large ? 16 : 9, padding: large ? "14px 20px 12px" : `8px ${padX}px 7px`, background: `linear-gradient(135deg, ${p.accent}12 0%, ${p.accent2}12 55%, ${p.surface} 100%)` }}>
+        <div
+          className="grid grid-cols-1 @md:grid-cols-[1.05fr_0.95fr]"
+          style={{ position: "relative", gap: large ? 16 : 9, padding: large ? "14px 20px 12px" : `8px ${padX}px 7px`, background: `linear-gradient(135deg, ${p.accent}12 0%, ${p.accent2}12 55%, ${p.surface} 100%)` }}
+        >
           <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(${p.ink}0F 1px, transparent 1px), linear-gradient(90deg, ${p.ink}0F 1px, transparent 1px)`, backgroundSize: large ? "22px 22px" : "14px 14px" }} />
           <div style={{ position: "relative" }}>
-            <span style={{ display: "inline-block", background: p.bg, border: `1px solid ${hairline}`, color: p.accent, borderRadius: 999, fontSize: fs.badge, fontWeight: 600, padding: large ? "4px 10px" : "2px 7px" }}>● New · Q3 ROI report</span>
+            <span style={{ display: "inline-block", background: p.bg, border: `1px solid ${hairline}`, color: p.accent, borderRadius: 999, fontSize: fs.badge, fontWeight: 600, padding: large ? "3px 9px" : "2px 7px" }}>● New · Q3 ROI report</span>
             <div style={{ fontFamily: p.display, fontWeight: 700, fontSize: fs.hero, lineHeight: 1.08, letterSpacing: "-0.02em", marginTop: large ? 8 : 5 }}>
               Software that closes<br />the quarter for you.
             </div>
             <div style={{ color: p.muted, fontSize: fs.sub, lineHeight: 1.5, marginTop: large ? 7 : 4 }}>Close books 3× faster with live forecasts and audit trails.</div>
-            <div style={{ display: "flex", gap: large ? 8 : 5, marginTop: large ? 7 : 4, fontSize: fs.proof, color: p.muted, fontWeight: 500 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: large ? 8 : 5, marginTop: large ? 7 : 4, fontSize: fs.proof, color: p.muted, fontWeight: 500 }}>
               <span><span style={{ color: p.accent }}>★</span> 4.9 · 2,400 reviews</span>
               <span>◍ SOC 2</span>
               <span>✓ No card required</span>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: large ? 10 : 6, marginTop: large ? 10 : 6 }}>
-              <span style={{ background: p.accent, color: p.bg, borderRadius: 8, padding: large ? "8px 16px" : "4px 10px", fontSize: fs.btn, fontWeight: 600 }}>Start free trial →</span>
-              <span style={{ fontSize: fs.btn, fontWeight: 600, color: p.ink, border: `1px solid ${p.ink}22`, borderRadius: 8, padding: large ? "7px 14px" : "3px 9px", background: p.bg }}>View demo</span>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: large ? 8 : 5, marginTop: large ? 8 : 5 }}>
+              <span style={{ background: p.accent, color: p.bg, borderRadius: 8, padding: large ? "7px 14px" : "4px 10px", fontSize: fs.btn, fontWeight: 600 }}>Start free trial →</span>
+              <span style={{ fontSize: fs.btn, fontWeight: 600, color: p.ink, border: `1px solid ${p.ink}22`, borderRadius: 8, padding: large ? "6px 12px" : "3px 9px", background: p.bg }}>View demo</span>
             </div>
             <div style={{ display: "flex", gap: large ? 16 : 9, marginTop: large ? 10 : 6, borderTop: `1px solid ${p.ink}12`, paddingTop: large ? 8 : 5 }}>
               {[
@@ -62,7 +65,7 @@ export function CorporateSaaSPreview({ meta, large }: { meta: StyleMeta; large?:
               ))}
             </div>
           </div>
-          <div style={{ position: "relative", background: p.bg, border: `1px solid ${hairline}`, borderRadius: 12, boxShadow: `0 24px 80px ${p.accent}2E, 0 2px 12px ${p.ink}14`, overflow: "hidden", alignSelf: "center" }}>
+          <div style={{ position: "relative", background: p.bg, border: `1px solid ${hairline}`, borderRadius: 12, boxShadow: `0 24px 80px ${p.accent}2E, 0 2px 12px ${p.ink}14`, overflow: "hidden", alignSelf: "center", width: "100%" }}>
             <div style={{ display: "flex", alignItems: "center", gap: large ? 5 : 3, padding: large ? "8px 10px" : "5px 7px", borderBottom: `1px solid ${p.ink}12` }}>
               <span style={{ width: large ? 7 : 5, height: large ? 7 : 5, borderRadius: 99, background: p.muted, opacity: 0.5 }} />
               <span style={{ width: large ? 7 : 5, height: large ? 7 : 5, borderRadius: 99, background: p.muted, opacity: 0.35 }} />
@@ -81,7 +84,7 @@ export function CorporateSaaSPreview({ meta, large }: { meta: StyleMeta; large?:
                   <div style={{ fontWeight: 700, fontSize: fs.metric }}>3.1d <span style={{ color: p.accent, fontSize: fs.metricLabel }}>−42%</span></div>
                 </div>
               </div>
-              <div style={{ display: "flex", alignItems: "flex-end", gap: large ? 5 : 3, height: large ? 52 : 30, marginTop: large ? 8 : 5 }}>
+              <div style={{ display: "flex", alignItems: "flex-end", gap: large ? 5 : 3, height: large ? 48 : 30, marginTop: large ? 8 : 5 }}>
                 {[38, 56, 44, 68, 52, 92, 74].map((h, i) => (
                   <div key={i} style={{ flex: 1, height: `${h}%`, borderRadius: 3, background: i === 5 ? `linear-gradient(180deg, ${p.accent}, ${p.accent2})` : `${p.accent}26` }} />
                 ))}
@@ -94,15 +97,18 @@ export function CorporateSaaSPreview({ meta, large }: { meta: StyleMeta; large?:
         </div>
 
         {/* logo wall */}
-        <div style={{ display: "flex", alignItems: "center", gap: large ? 12 : 7, padding: large ? "8px 20px" : `5px ${padX}px`, borderTop: `1px solid ${p.ink}12`, background: p.bg }}>
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: large ? 10 : 6, padding: large ? "8px 20px" : `5px ${padX}px`, borderTop: `1px solid ${p.ink}12`, background: p.bg }}>
           <span style={{ fontSize: fs.metricLabel, fontWeight: 700, letterSpacing: "0.08em", color: p.muted }}>TRUSTED BY 12K TEAMS</span>
-          <div style={{ display: "flex", gap: large ? 12 : 7, fontSize: fs.logo, fontWeight: 800, letterSpacing: "0.04em", color: p.muted, opacity: 0.85 }}>
+          <div className="overflow-x-auto no-scrollbar" style={{ display: "flex", gap: large ? 12 : 7, fontSize: fs.logo, fontWeight: 800, letterSpacing: "0.04em", color: p.muted, opacity: 0.85 }}>
             <span>VERCEL</span><span>FIGMA</span><span>NOTION</span><span>LINEAR</span>
           </div>
         </div>
 
         {/* feature footer */}
-        <div style={{ marginTop: "auto", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: large ? 10 : 6, background: p.surface, borderTop: `1px solid ${p.ink}12`, padding: large ? "10px 20px" : `6px ${padX}px` }}>
+        <div
+          className="grid grid-cols-1 @sm:grid-cols-3"
+          style={{ marginTop: "auto", gap: large ? 10 : 6, background: p.surface, borderTop: `1px solid ${p.ink}12`, padding: large ? "10px 20px" : `6px ${padX}px` }}
+        >
           {[
             ["⚡", "Automate close", "Reconcile in seconds, not sprints."],
             ["☑", "Audit-ready", "SOC 2 trails on every action."],
@@ -120,3 +126,4 @@ export function CorporateSaaSPreview({ meta, large }: { meta: StyleMeta; large?:
     </Frame>
   );
 }
+

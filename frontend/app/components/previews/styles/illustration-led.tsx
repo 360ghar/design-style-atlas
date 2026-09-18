@@ -63,14 +63,11 @@ export function IllustrationLedPreview({ meta, large }: { meta: StyleMeta; large
 
         {/* hero scene */}
         <div
+          className="grid grid-cols-1 @md:grid-cols-[1.05fr_1fr] flex-1 min-h-0"
           style={{
-            flex: 1,
-            display: "grid",
-            gridTemplateColumns: "1.05fr 1fr",
             gap: 10 * s,
             alignItems: "center",
             padding: `0 ${14 * s}px`,
-            minHeight: 0,
           }}
         >
           <div style={{ minWidth: 0 }}>

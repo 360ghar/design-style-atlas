@@ -59,9 +59,9 @@ export function EditorialMaximalismPreview({ meta, large }: { meta: StyleMeta; l
         </div>
 
         {/* Central Asymmetric Collage Feature Block */}
-        <div className="my-auto grid grid-cols-5" style={{ gap: 8 * s, alignItems: "center" }}>
+        <div className="my-auto grid grid-cols-1 @sm:grid-cols-5" style={{ gap: 8 * s, alignItems: "center" }}>
           {/* Main Story Column */}
-          <div className="col-span-3">
+          <div className="col-span-1 @sm:col-span-3">
             <span
               style={{
                 background: p.accent,
@@ -102,7 +102,7 @@ export function EditorialMaximalismPreview({ meta, large }: { meta: StyleMeta; l
 
           {/* Hard-Offset Pullquote Block */}
           <div
-            className="col-span-2"
+            className="col-span-1 @sm:col-span-2"
             style={{
               background: p.surface,
               border: `2px solid ${p.ink}`,
@@ -137,7 +137,7 @@ export function EditorialMaximalismPreview({ meta, large }: { meta: StyleMeta; l
 
         {/* Editorial Footer Grid Rules */}
         <div
-          className="flex items-center justify-between"
+          className="flex flex-wrap items-center justify-between gap-2"
           style={{
             borderTop: `2px solid ${p.ink}`,
             paddingTop: 4 * s,

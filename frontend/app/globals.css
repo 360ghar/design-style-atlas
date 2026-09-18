@@ -63,6 +63,46 @@ body {
   container-type: inline-size;
   user-select: none;
 }
+.style-preview * {
+  box-sizing: border-box;
+}
+
+@container (max-width: 540px) {
+  .style-preview {
+    --preview-min-height: 520px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Clamp oversized large-mode bespoke typography so it never blows out on mobile */
+  .style-preview[data-large="true"] h1,
+  .style-preview[data-large="true"] .text-4xl,
+  .style-preview[data-large="true"] .text-3xl {
+    font-size: clamp(20px, 6cqi, 30px) !important;
+    line-height: 1.15 !important;
+  }
+
+  .style-preview[data-large="true"] h2,
+  .style-preview[data-large="true"] .text-2xl {
+    font-size: clamp(17px, 5cqi, 23px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .style-preview[data-large="true"] h3,
+  .style-preview[data-large="true"] .text-xl {
+    font-size: clamp(14px, 4.2cqi, 18px) !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Allow top/nav and footer bars to wrap gracefully if space is constricted */
+  .style-preview .preview-header,
+  .style-preview header,
+  .style-preview nav {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .style-preview * {
     animation: none !important;
@@ -70,6 +110,15 @@ body {
   html {
     scroll-behavior: auto;
   }
+}
+
+/* Utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* ---------- preview animation utilities ---------- */

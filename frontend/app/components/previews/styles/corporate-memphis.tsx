@@ -61,7 +61,7 @@ export function CorporateMemphisPreview({ meta, large }: { meta: StyleMeta; larg
               SynergyCloud
             </span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: large ? 16 : 6, color: p.muted, fontWeight: 600, fontSize: large ? 12 : 5.5 }}>
+          <div className="hidden @sm:flex items-center" style={{ gap: large ? 16 : 6, color: p.muted, fontWeight: 600, fontSize: large ? 12 : 5.5 }}>
             <span>Product</span>
             <span>Pricing</span>
             {!large ? null : <span>Customers</span>}
@@ -90,12 +90,11 @@ export function CorporateMemphisPreview({ meta, large }: { meta: StyleMeta; larg
 
         {/* hero */}
         <div
+          className="grid grid-cols-1 @md:grid-cols-[1.05fr_1fr]"
           style={{
-            display: "grid",
-            gridTemplateColumns: "1.05fr 1fr",
             gap: large ? 24 : 8,
             alignItems: "center",
-            padding: large ? "28px 28px 20px" : "8px 10px 6px",
+            padding: large ? "clamp(14px, 3cqi, 28px)" : "8px 10px 6px",
             backgroundImage: `radial-gradient(${p.muted}3D 1px, transparent 1.2px)`,
             backgroundSize: large ? "16px 16px" : "9px 9px",
           }}
@@ -264,18 +263,21 @@ export function CorporateMemphisPreview({ meta, large }: { meta: StyleMeta; larg
 
         {/* feature trio — large only keeps card clean */}
         {!large ? null : (
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 14, padding: "6px 28px 4px" }}>
+          <div
+            className="grid grid-cols-1 @sm:grid-cols-3"
+            style={{ gap: 12, padding: "6px clamp(14px, 3cqi, 28px) 4px" }}
+          >
             {[
               { t: "Hire in days", d: "Offer letters, docs, and hellos.", chip: p.accent },
               { t: "Pay globally", d: "Salaries in 40 currencies.", chip: p.accent2 },
               { t: "Cheer loudly", d: "Shout-outs every Friday.", chip: p.ink },
             ].map((c) => (
-              <div key={c.t} style={{ background: p.surface, borderRadius: 16, padding: 16, boxShadow: softShadow }}>
-                <span style={{ display: "inline-flex", width: 30, height: 30, borderRadius: 10, background: c.chip, color: p.bg, alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14 }}>
+              <div key={c.t} style={{ background: p.surface, borderRadius: 16, padding: 14, boxShadow: softShadow }}>
+                <span style={{ display: "inline-flex", width: 28, height: 28, borderRadius: 10, background: c.chip, color: p.bg, alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 13 }}>
                   ✓
                 </span>
-                <div style={{ fontFamily: p.display, fontWeight: 700, fontSize: 14, marginTop: 8 }}>{c.t}</div>
-                <div style={{ color: p.muted, fontSize: 12.5, marginTop: 4 }}>{c.d}</div>
+                <div style={{ fontFamily: p.display, fontWeight: 700, fontSize: 13, marginTop: 6 }}>{c.t}</div>
+                <div style={{ color: p.muted, fontSize: 11.5, marginTop: 3 }}>{c.d}</div>
               </div>
             ))}
           </div>

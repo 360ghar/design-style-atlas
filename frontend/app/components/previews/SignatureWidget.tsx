@@ -30,13 +30,13 @@ export function SignatureWidget({ def, large }: { def: StyleDefinition; large?: 
           <span>bash — 80×24</span>
           <span>● ONLINE</span>
         </div>
-        <div className="space-y-1">
-          <div><span style={{ color: isDark ? "#22C55E" : "#15803D" }}>$</span> git clone agent://system.git</div>
-          <div style={{ color: isDark ? "rgba(134, 239, 172, 0.6)" : "rgba(21, 128, 61, 0.7)" }}>
+        <div className="space-y-1 overflow-x-auto no-scrollbar text-pretty">
+          <div className="truncate"><span style={{ color: isDark ? "#22C55E" : "#15803D" }}>$</span> git clone agent://system.git</div>
+          <div className="truncate" style={{ color: isDark ? "rgba(134, 239, 172, 0.6)" : "rgba(21, 128, 61, 0.7)" }}>
             Cloning into &apos;system&apos;... remote: 100 objects
           </div>
-          <div><span style={{ color: isDark ? "#22C55E" : "#15803D" }}>$</span> ./agent --mode autonomous --style={def.slug}</div>
-          <div className="font-semibold flex items-center gap-1" style={{ color: isDark ? "#22C55E" : "#15803D" }}>
+          <div className="truncate"><span style={{ color: isDark ? "#22C55E" : "#15803D" }}>$</span> ./agent --mode autonomous --style={def.slug}</div>
+          <div className="font-semibold flex items-center gap-1 flex-wrap" style={{ color: isDark ? "#22C55E" : "#15803D" }}>
             <span>[READY] System listening on port 8080</span>
             <span
               className="inline-block w-2 h-3.5 pv-blink"

@@ -73,10 +73,10 @@ export function StylePreviewStudio({
   return (
     <div className="w-full flex flex-col border border-[#111110] dark:border-white/20 bg-[#fafaf8] dark:bg-[#141416] transition-colors">
       {/* ---------- STUDIO CONTROL BAR ---------- */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#111110] dark:border-white/15 bg-white dark:bg-[#18181b] px-4 py-2.5">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#111110] dark:border-white/15 bg-white dark:bg-[#18181b] px-3 sm:px-4 py-2.5">
         {/* Left: View Mode Tabs */}
-        <div className="flex flex-wrap items-center gap-2">
-          <div className="flex flex-wrap items-center rounded border border-[#111110]/20 dark:border-white/20 bg-[#fafaf8] dark:bg-[#141416] p-0.5 text-[12px] font-mono">
+        <div className="flex flex-wrap items-center gap-2 max-w-full">
+          <div className="flex items-center overflow-x-auto no-scrollbar rounded border border-[#111110]/20 dark:border-white/20 bg-[#fafaf8] dark:bg-[#141416] p-0.5 text-[12px] font-mono max-w-full">
             {bespokeAvailable && tabBtn("bespoke", "◈", "Bespoke")}
             {tabBtn("generic", "🖥️", "Generic")}
             {tabBtn("kit", "🧩", "Kit")}
@@ -86,8 +86,8 @@ export function StylePreviewStudio({
             {renderedMarkdown && tabBtn("spec", "📄", "Spec")}
           </div>
 
-          {/* Viewport Width Controls (Active only in landing mode) */}
-          {(activeTab === "bespoke" || activeTab === "generic") && (
+          {/* Viewport Width Controls (Active in bespoke, generic, and kit modes) */}
+          {(activeTab === "bespoke" || activeTab === "generic" || activeTab === "kit") && (
             <div className="hidden sm:flex items-center rounded border border-[#111110]/20 dark:border-white/20 bg-[#fafaf8] dark:bg-[#141416] p-0.5 text-[11px] font-mono">
               <button
                 type="button"
@@ -137,14 +137,14 @@ export function StylePreviewStudio({
         </div>
 
         {/* Right: Preview Theme Controls + Fullscreen */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
           {/* Preview Theme Selector */}
           <div
             className="flex items-center rounded border border-[#111110]/20 dark:border-white/20 bg-[#fafaf8] dark:bg-[#141416] p-0.5 text-[11px] font-mono"
             role="group"
             aria-label="Preview theme mode"
           >
-            <span className="px-2 text-[10px] uppercase tracking-wider text-[#111110]/50 dark:text-white/50 hidden md:inline">
+            <span className="px-2 text-[10px] uppercase tracking-wider text-[#111110]/50 dark:text-white/50 hidden lg:inline">
               Preview Theme:
             </span>
             <button
@@ -193,7 +193,7 @@ export function StylePreviewStudio({
             href={`/styles/${style.slug}/preview`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded border border-[#111110] dark:border-white/30 bg-white dark:bg-[#18181b] px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-[#111110] dark:text-white transition-colors hover:bg-[#111110] hover:text-white dark:hover:bg-white dark:hover:text-[#111110]"
+            className="inline-flex items-center gap-1.5 rounded border border-[#111110] dark:border-white/30 bg-white dark:bg-[#18181b] px-2.5 sm:px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-[#111110] dark:text-white transition-colors hover:bg-[#111110] hover:text-white dark:hover:bg-white dark:hover:text-[#111110]"
           >
             <span>Open Fullscreen</span>
             <span aria-hidden="true">↗</span>
@@ -215,7 +215,7 @@ export function StylePreviewStudio({
                   : "375px",
             }}
           >
-            <BespokePreview meta={style} large previewTheme={previewTheme} />
+            <BespokePreview meta={style} large previewTheme={previewTheme} viewport={viewport} />
           </div>
         )}
 
@@ -231,13 +231,23 @@ export function StylePreviewStudio({
                   : "375px",
             }}
           >
-            <StyleLandingPage def={effectiveDef} large previewTheme={previewTheme} />
+            <StyleLandingPage def={effectiveDef} large previewTheme={previewTheme} viewport={viewport} />
           </div>
         )}
 
         {activeTab === "kit" && (
-          <div className="w-full max-w-5xl shadow-xl border border-black/15 dark:border-white/15 overflow-hidden">
-            <StyleComponentKit def={effectiveDef} previewTheme={previewTheme} />
+          <div
+            className="transition-all duration-200 shadow-xl border border-black/15 dark:border-white/15 overflow-hidden w-full"
+            style={{
+              maxWidth:
+                viewport === "desktop"
+                  ? "100%"
+                  : viewport === "tablet"
+                  ? "768px"
+                  : "375px",
+            }}
+          >
+            <StyleComponentKit def={effectiveDef} previewTheme={previewTheme} viewport={viewport} />
           </div>
         )}
 
