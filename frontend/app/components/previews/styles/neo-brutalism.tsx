@@ -129,7 +129,7 @@ export function NeoBrutalismPreview({ meta, large }: { meta: StyleMeta; large?: 
 
           <div className="flex items-center justify-between">
             <span style={{ fontSize: 6 * s, fontWeight: 700, color: p.muted }}>
-              Includes 120 vector assets
+              Includes vector asset kit
             </span>
             <button
               type="button"

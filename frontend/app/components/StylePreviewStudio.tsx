@@ -54,10 +54,39 @@ export function StylePreviewStudio({
   const isRemixed = mixSlug !== null || Object.keys(overrides).length > 0;
   const sources = mixSlug ? [style.slug, mixSlug] : [style.slug];
 
+  const visibleTabs: Tab[] = [
+    ...(bespokeAvailable ? ["bespoke" as Tab] : []),
+    "generic",
+    "kit",
+    "tokens",
+    "mix",
+    "export",
+    ...(renderedMarkdown ? ["spec" as Tab] : []),
+  ];
+
+  const onTabKeyDown = (e: React.KeyboardEvent) => {
+    const i = visibleTabs.indexOf(activeTab);
+    if (i < 0) return;
+    let next: number | null = null;
+    if (e.key === "ArrowRight") next = (i + 1) % visibleTabs.length;
+    else if (e.key === "ArrowLeft") next = (i - 1 + visibleTabs.length) % visibleTabs.length;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = visibleTabs.length - 1;
+    if (next === null) return;
+    e.preventDefault();
+    setActiveTab(visibleTabs[next]!);
+    document.getElementById(`studio-tab-${visibleTabs[next]}`)?.focus();
+  };
+
   const tabBtn = (tab: Tab, icon: string, label: string) => (
     <button
       key={tab}
+      id={`studio-tab-${tab}`}
       type="button"
+      role="tab"
+      aria-selected={activeTab === tab}
+      aria-controls={`studio-panel-${tab}`}
+      tabIndex={activeTab === tab ? 0 : -1}
       onClick={() => setActiveTab(tab)}
       className={`flex items-center gap-1.5 px-3 py-1.5 rounded transition-colors cursor-pointer ${
         activeTab === tab
@@ -76,7 +105,12 @@ export function StylePreviewStudio({
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#111110] dark:border-white/15 bg-white dark:bg-[#18181b] px-3 sm:px-4 py-2.5">
         {/* Left: View Mode Tabs */}
         <div className="flex flex-wrap items-center gap-2 max-w-full">
-          <div className="flex items-center overflow-x-auto no-scrollbar rounded border border-[#111110]/20 dark:border-white/20 bg-[#fafaf8] dark:bg-[#141416] p-0.5 text-[12px] font-mono max-w-full">
+          <div
+            role="tablist"
+            aria-label="Preview modes"
+            onKeyDown={onTabKeyDown}
+            className="flex items-center overflow-x-auto no-scrollbar rounded border border-[#111110]/20 dark:border-white/20 bg-[#fafaf8] dark:bg-[#141416] p-0.5 text-[12px] font-mono max-w-full"
+          >
             {bespokeAvailable && tabBtn("bespoke", "◈", "Bespoke")}
             {tabBtn("generic", "🖥️", "Generic")}
             {tabBtn("kit", "🧩", "Kit")}
@@ -202,7 +236,12 @@ export function StylePreviewStudio({
       </div>
 
       {/* ---------- PREVIEW STAGE ---------- */}
-      <div className="relative w-full overflow-x-auto bg-[#EBEAE6] dark:bg-[#09090b] p-3 sm:p-6 flex justify-center items-start min-h-[640px] transition-colors">
+      <div
+        role="tabpanel"
+        id={`studio-panel-${activeTab}`}
+        aria-labelledby={`studio-tab-${activeTab}`}
+        className="relative w-full overflow-x-auto bg-[#EBEAE6] dark:bg-[#09090b] p-3 sm:p-6 flex justify-center items-start min-h-[640px] transition-colors"
+      >
         {activeTab === "bespoke" && bespokeAvailable && (
           <div
             className="transition-all duration-200 shadow-xl border border-black/15 dark:border-white/15 overflow-hidden w-full"

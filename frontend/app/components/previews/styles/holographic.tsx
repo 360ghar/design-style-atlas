@@ -3,7 +3,6 @@ import { Frame, Meta } from "../frame";
 
 export function HolographicPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const s = large ? 1.6 : 1;
   const bg = p.bg;
   const surface = p.surface;
   const ink = p.ink;

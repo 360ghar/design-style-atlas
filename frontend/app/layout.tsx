@@ -4,6 +4,7 @@ import { Inter, Newsreader, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { ThemeProvider } from "./components/ThemeProvider";
 import { SITE_URL } from "./lib/site";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
@@ -86,8 +87,6 @@ export async function generateMetadata(): Promise<Metadata> {
     robots: { index: true, follow: true },
   };
 }
-
-import { ThemeProvider } from "./components/ThemeProvider";
 
 export default function RootLayout({
   children,

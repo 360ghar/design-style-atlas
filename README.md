@@ -273,7 +273,7 @@ Frontmatter carries the machine-readable contract (`slug`, `category`, `tags`, `
 
 | Endpoint | Returns |
 |---|---|
-| `GET /api/styles.json` | Index of all 120 styles (meta, vibes, urls) |
+| `GET /api/styles.json` | Index of all styles (meta, vibes, urls) |
 | `GET /api/<slug>.json` | One style: `slim` (<1500 tokens), `full` spec, `tokens`, `vibes`, `urls` |
 | `GET /api/<slug>.contract.json` | Machine token contract (palette, fonts, radius, shadows, borders) — the audit target |
 | `GET /llms.txt` | Agent entry point listing every style + format |

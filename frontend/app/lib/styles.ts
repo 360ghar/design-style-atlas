@@ -46,6 +46,7 @@ const PREVIEW_KEYS = [
 
 const designsDir = join(process.cwd(), "..", "designs");
 const fallbackDir = join(process.cwd(), "designs");
+const publicDesignsDir = join(process.cwd(), "public", "designs");
 
 const SENTINEL = join("neo-brutalism", "DESIGN.md");
 
@@ -57,6 +58,10 @@ function rootDir(): string {
     cachedRoot = designsDir;
     return cachedRoot;
   }
+  if (existsSync(join(publicDesignsDir, SENTINEL))) {
+    cachedRoot = publicDesignsDir;
+    return cachedRoot;
+  }
   if (existsSync(join(fallbackDir, SENTINEL))) {
     cachedRoot = fallbackDir;
     return cachedRoot;
@@ -65,7 +70,7 @@ function rootDir(): string {
     `[styles] designs root not found: neither "${join(
       designsDir,
       SENTINEL
-    )}" nor "${join(fallbackDir, SENTINEL)}" exists. ` +
+    )}" nor "${join(publicDesignsDir, SENTINEL)}" nor "${join(fallbackDir, SENTINEL)}" exists. ` +
       `Expected a designs directory containing neo-brutalism/DESIGN.md.`
   );
 }

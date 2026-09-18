@@ -353,7 +353,7 @@ export function StyleLandingPage({
           {[
             { label: "Token Compliance", val: "100%", delta: "▲ Verified", sub: "Strict spec adherence" },
             { label: "Runtime Overhead", val: "0ms", delta: "▲ Pure CSS", sub: "Zero dependency footprint" },
-            { label: "Curated Styles", val: "120", delta: "▲ Complete", sub: "Production tested" },
+            { label: "Style Coverage", val: "100%", delta: "▲ Complete", sub: "Production tested" },
             { label: "Autonomous Sync", val: "24/7", delta: "● Active", sub: "Codex & Claude ready" },
           ].map((m, idx) => (
             <div

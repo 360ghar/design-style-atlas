@@ -9,7 +9,7 @@ preview:
   bg: "#FFE8F0"
   surface: "#FFF5F8"
   ink: "#4A3F55"
-  muted: "#9A8FA8"
+  muted: "#776B86"
   accent: "#FF6B9D"
   accent2: "#7C5CFF"
   display: "Nunito, Quicksand, Baloo 2, sans-serif"
@@ -45,7 +45,7 @@ Fresh modeling clay: inflated pastel blobs, chunky inner highlights, soft spring
 | Background | `#FFE8F0` | Page ground |
 | Surface | `#FFF5F8` | Cards, panels, wells |
 | Ink | `#4A3F55` | Headlines, body text |
-| Muted | `#9A8FA8` | Captions, meta, secondary text |
+| Muted | `#776B86` | Captions, meta, secondary text |
 | Accent | `#FF6B9D` | Primary actions, highlights |
 | Accent 2 | `#7C5CFF` | Secondary moments, gradients, glows |
 
@@ -142,7 +142,7 @@ Easings: soft spring cubic-bezier(0.34,1.56,0.64,1) for clay wobble; harsh linea
   --bg: #FFE8F0;
   --surface: #FFF5F8;
   --ink: #4A3F55;
-  --muted: #9A8FA8;
+  --muted: #776B86;
   --accent: #FF6B9D;
   --accent-2: #7C5CFF;
   --font-display: Nunito, Quicksand, Baloo 2, sans-serif;

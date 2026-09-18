@@ -3,7 +3,6 @@ import { Frame, Meta } from "../frame";
 
 export function StripeInspiredPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const s = large ? 1.6 : 1;
   const ff = "Sohne, Inter, Helvetica Neue, sans-serif";
   const mono = "ui-monospace, SFMono-Regular, Menlo, monospace";
   const fs = large

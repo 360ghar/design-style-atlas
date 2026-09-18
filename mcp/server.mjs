@@ -10,13 +10,17 @@
  *  - get_contract   { slug }
  * Prompts:
  *  - verify_style   { slug? } — self-verification checklist against the contract
+ * Resources (passive injection into agent context windows):
+ *  - design-style://<slug> — one Markdown resource per style (slim spec)
+ *
+ * Framing: buffered JSON parser (one object per write, pretty-printed
+ * multiline payloads included). readline-per-line is not used.
  *
  * Run: npm run mcp  (from frontend/) or: node mcp/server.mjs
  */
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import readline from "node:readline";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = join(here, "..");
@@ -162,6 +166,32 @@ function textResult(text) {
   return { content: [{ type: "text", text }] };
 }
 
+/** Passive style injection: one resource per style slug. */
+function listResources() {
+  return loadIndex().map((s) => ({
+    uri: `design-style://${s.slug}`,
+    name: s.name || s.slug,
+    description: s.description || "",
+    mimeType: "text/markdown",
+  }));
+}
+
+function readResource(uri) {
+  const slug = String(uri ?? "").replace(/^design-style:\/\//, "").trim();
+  if (!slug) throw Object.assign(new Error("Missing resource URI (expected design-style://<slug>)"), { code: -32602 });
+  const data = loadStyle(slug);
+  if (!data) throw Object.assign(new Error(`Unknown style slug: "${slug}"`), { code: -32602 });
+  return {
+    contents: [
+      {
+        uri: `design-style://${slug}`,
+        mimeType: "text/markdown",
+        text: data.slim ?? data.full?.slice(0, 4000) ?? "unavailable",
+      },
+    ],
+  };
+}
+
 function getContract(slug) {
   const p = join(apiDir, `${slug}.contract.json`);
   if (existsSync(p)) return JSON.parse(readFileSync(p, "utf8"));
@@ -224,27 +254,25 @@ function callTool(name, args = {}) {
   throw new Error(`Unknown tool: ${name}`);
 }
 
-const rl = readline.createInterface({ input: process.stdin, terminal: false });
-
-rl.on("line", (line) => {
-  const raw = line.trim();
-  if (!raw) return;
-  let msg;
-  try { msg = JSON.parse(raw); }
-  catch { return; }
+function handleMessage(msg) {
+  if (!msg || typeof msg !== "object") return;
   const { id, method, params } = msg;
-  const reply = (result, error) => {
+  const reply = (result, error, defaultCode = -32603) => {
     const out = { jsonrpc: "2.0", id };
-    if (error) out.error = { code: -32603, message: String(error?.message ?? error) };
-    else out.result = result ?? {};
+    if (error) {
+      const code = typeof error === "object" && error?.code ? error.code : defaultCode;
+      out.error = { code, message: String(error?.message ?? error) };
+    } else {
+      out.result = result ?? {};
+    }
     process.stdout.write(JSON.stringify(out) + "\n");
   };
   try {
     if (method === "initialize") {
       reply({
         protocolVersion: "2024-11-05",
-        capabilities: { tools: {}, prompts: {} },
-        serverInfo: { name: "design-styles", version: "1.1.0" },
+        capabilities: { tools: {}, prompts: {}, resources: {} },
+        serverInfo: { name: "design-styles", version: "1.2.0" },
       });
     } else if (method === "notifications/initialized" || method?.startsWith("notifications/")) {
       // no reply for notifications
@@ -254,12 +282,19 @@ rl.on("line", (line) => {
       reply({ tools: TOOLS });
     } else if (method === "tools/call") {
       const { name, arguments: args } = params ?? {};
-      reply(callTool(name, args ?? {}));
+      try {
+        reply(callTool(name, args ?? {}));
+      } catch (err) {
+        reply({
+          content: [{ type: "text", text: `Error: ${err?.message ?? err}` }],
+          isError: true,
+        });
+      }
     } else if (method === "prompts/list") {
       reply({ prompts: PROMPTS });
     } else if (method === "prompts/get") {
       const name = String(params?.name ?? "");
-      if (name !== "verify_style") return reply(null, `Unknown prompt: ${name}`);
+      if (name !== "verify_style") return reply(null, `Unknown prompt: ${name}`, -32602);
       const slug = String(params?.arguments?.slug ?? "").trim() || null;
       reply({
         description: "Self-verify UI output against a style token contract.",
@@ -270,10 +305,73 @@ rl.on("line", (line) => {
           },
         ],
       });
+    } else if (method === "resources/list") {
+      reply({ resources: listResources() });
+    } else if (method === "resources/read") {
+      try {
+        reply(readResource(params?.uri));
+      } catch (err) {
+        reply(null, err, -32602);
+      }
     } else {
-      if (id != null) reply(null, `Method not found: ${method}`);
+      if (id != null) reply(null, `Method not found: ${method}`, -32601);
     }
   } catch (err) {
     if (id != null) reply(null, err);
   }
+}
+
+// Buffered stdio framing: accumulate bytes and extract balanced top-level
+// JSON objects (strings and escapes respected), so pretty-printed multiline
+// payloads parse. Falls back to resyncing on the next "{" for stray bytes.
+let stdioBuffer = "";
+
+function pumpStdio(final = false) {
+  const buf = stdioBuffer;
+  const n = buf.length;
+  let i = 0;
+  while (i < n) {
+    while (i < n && /\s/.test(buf[i])) i++;
+    if (i >= n) break;
+    if (buf[i] !== "{") {
+      const nx = buf.indexOf("{", i + 1);
+      if (nx < 0) break;
+      i = nx;
+    }
+    let depth = 0;
+    let inStr = false;
+    let esc = false;
+    let j = i;
+    for (; j < n; j++) {
+      const c = buf[j];
+      if (inStr) {
+        if (esc) esc = false;
+        else if (c === "\\") esc = true;
+        else if (c === '"') inStr = false;
+      } else if (c === '"') inStr = true;
+      else if (c === "{") depth++;
+      else if (c === "}") {
+        depth--;
+        if (depth === 0) {
+          j++;
+          break;
+        }
+      }
+    }
+    if (depth !== 0) break; // incomplete object — wait for more data
+    try {
+      handleMessage(JSON.parse(buf.slice(i, j)));
+    } catch {
+      // Malformed object: skip it and keep the session alive.
+    }
+    i = j;
+  }
+  stdioBuffer = final ? "" : buf.slice(i);
+}
+
+process.stdin.setEncoding("utf8");
+process.stdin.on("data", (chunk) => {
+  stdioBuffer += chunk;
+  pumpStdio(false);
 });
+process.stdin.on("end", () => pumpStdio(true));

@@ -1,4 +1,4 @@
-// One-shot scaffolding: generates the 20 new DESIGN.md files (100 -> 120).
+// One-shot scaffolding: generated 20 DESIGN.md files (the 100 -> 120 batch).
 // Run: node scripts/generate-new-styles.mjs
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";

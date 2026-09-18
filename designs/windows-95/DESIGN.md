@@ -6,10 +6,10 @@ category: OS & Terminal
 tags: [windows95, retro, gray]
 related: [retro-internet, desktop-ui, mac-os]
 preview:
-  bg: "#008080"
+  bg: "#0A8F8F"
   surface: "#C3C7CB"
   ink: "#000000"
-  muted: "#555555"
+  muted: "#1F2E2E"
   accent: "#000080"
   accent2: "#FF0000"
   display: "Pixelated MS Sans Serif, Tahoma, sans-serif"
@@ -42,10 +42,10 @@ Chicago-era pixel truth: #C3C7CB faces, navy title gradients, dotted focus recta
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| Background | `#008080` | Page ground |
+| Background | `#0A8F8F` | Page ground |
 | Surface | `#C3C7CB` | Cards, panels, wells |
 | Ink | `#000000` | Headlines, body text |
-| Muted | `#555555` | Captions, meta, secondary text |
+| Muted | `#1F2E2E` | Captions, meta, secondary text |
 | Accent | `#000080` | Primary actions, highlights |
 | Accent 2 | `#FF0000` | Close glyphs, errors, destructive confirms only |
 
@@ -121,7 +121,7 @@ Durations: instant–150ms bevel-pressed snaps. Easings: none (steps welcome); s
 
 ## 18. Accessibility
 
-- Contrast: body text 4.5:1 minimum on Surface `#C3C7CB` (Ink `#000000` passes; Muted `#555555` is chrome-meta only — use Ink for body/small text). Teal Background `#008080` is a desktop field, not a text ground: only white bold title/task text with shadow sits on it. Never place Muted/Accent body copy on teal.
+- Contrast: body text 4.5:1 minimum on Surface `#C3C7CB` (Ink `#000000` passes; Muted `#1F2E2E` is chrome-meta only — use Ink for body/small text). Teal Background `#0A8F8F` is a desktop field, not a text ground: only white bold title/task text with shadow sits on it. Never place Muted/Accent body copy on teal.
 - Focus: always visible, never removed; skip-link to main content.
 - Motion: honor `prefers-reduced-motion` — replace loops, parallax, and scrubs with static final states plus manual steppers.
 - Touch: period chrome stays 23px+ with 8px gaps; 44px targets apply only under `(pointer: coarse)`.
@@ -139,10 +139,10 @@ Durations: instant–150ms bevel-pressed snaps. Easings: none (steps welcome); s
 
 ```css
 :root {
-  --bg: #008080;
+  --bg: #0A8F8F;
   --surface: #C3C7CB;
   --ink: #000000;
-  --muted: #555555;
+  --muted: #1F2E2E;
   --accent: #000080;
   --accent-2: #FF0000;
   --font-display: Pixelated MS Sans Serif, Tahoma, sans-serif;

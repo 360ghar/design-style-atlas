@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { statSync } from "node:fs";
+import { statSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { getAllStyles, getCategories } from "./lib/styles";
 import { SITE_URL } from "./lib/site";
@@ -13,7 +13,11 @@ export const dynamic = "force-static";
 const FALLBACK_DATE = new Date("2026-01-01T00:00:00.000Z");
 
 function designsRoot(): string {
-  return join(process.cwd(), "..", "designs");
+  const primary = join(process.cwd(), "..", "designs");
+  if (existsSync(join(primary, "neo-brutalism", "DESIGN.md"))) return primary;
+  const pub = join(process.cwd(), "public", "designs");
+  if (existsSync(join(pub, "neo-brutalism", "DESIGN.md"))) return pub;
+  return primary;
 }
 
 function designMtime(slug: string): Date {

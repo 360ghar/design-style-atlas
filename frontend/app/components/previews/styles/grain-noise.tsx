@@ -6,7 +6,6 @@ const GRAIN_URL =
 
 export function GrainNoisePreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const s = large ? 1.6 : 1;
   const pad = large ? 14 : 9;
   return (
     <Frame meta={meta} large={large}>

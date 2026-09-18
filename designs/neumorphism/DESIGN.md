@@ -9,7 +9,7 @@ preview:
   bg: "#E0E5EC"
   surface: "#E0E5EC"
   ink: "#4A5568"
-  muted: "#8A94A6"
+  muted: "#66707F"
   accent: "#4D7CFE"
   accent2: "#FF6B9D"
   display: "Inter, Nunito, sans-serif"
@@ -45,11 +45,11 @@ Controls extruded from smart-plastic: the background IS the material, light rake
 | Background | `#E0E5EC` | Page ground |
 | Surface | `#E0E5EC` | Cards, panels, wells |
 | Ink | `#4A5568` | Headlines, body text |
-| Muted | `#8A94A6` | Captions, meta, secondary text |
+| Muted | `#66707F` | Captions, meta, secondary text |
 | Accent | `#4D7CFE` | Primary actions, highlights |
 | Accent 2 | `#FF6B9D` | Secondary moments, gradients, glows |
 
-Keep contrast at 4.5:1 minimum for body text. Muted `#8A94A6` on `#E0E5EC` is ~2.9:1 — large labels/meta only; all body/small text must use Ink `#4A5568`. Accent is for action and emphasis, never for long paragraphs.
+Keep contrast at 4.5:1 minimum for body text. Muted `#66707F` on `#E0E5EC` is ~4:1 — labels and meta only; all body/small text must use Ink `#4A5568`. Accent is for action and emphasis, never for long paragraphs.
 
 ## 4. Spacing
 
@@ -142,7 +142,7 @@ Durations: micro 150–250ms, standard 350ms. Easings: soft ease-out; springs an
   --bg: #E0E5EC;
   --surface: #E0E5EC;
   --ink: #4A5568;
-  --muted: #8A94A6;
+  --muted: #66707F;
   --accent: #4D7CFE;
   --accent-2: #FF6B9D;
   --font-display: Inter, Nunito, sans-serif;

@@ -4,7 +4,6 @@ import { Frame, Meta } from "../frame";
 
 export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const s = large ? 1.6 : 1;
   const chromeText: CSSProperties = {
     background:
       "linear-gradient(180deg, ${p.ink} 0%, ${p.accent} 28%, ${p.muted} 45%, ${p.surface} 50%, ${p.accent} 54%, ${p.ink} 68%, ${p.accent2} 88%, ${p.accent} 100%)",

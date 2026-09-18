@@ -4,7 +4,7 @@ import { stylesC } from "./style-data-3.mjs";
 import { stylesD } from "./style-data-4.mjs";
 import { stylesE } from "./style-data-5.mjs";
 import { stylesF } from "./style-data-6.mjs";
-import { mkdirSync, writeFileSync, existsSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 

@@ -9,7 +9,7 @@ preview:
   bg: "#E8E4D8"
   surface: "#F2EEE2"
   ink: "#3B3830"
-  muted: "#8A8578"
+  muted: "#6E695E"
   accent: "#5B8DD9"
   accent2: "#E8A0BF"
   display: "Georgia, Times New Roman, serif"
@@ -45,7 +45,7 @@ A half-remembered afternoon: empty playgrounds, mall corridors, birthday-party p
 | Background | `#E8E4D8` | Page ground |
 | Surface | `#F2EEE2` | Cards, panels, wells |
 | Ink | `#3B3830` | Headlines, body text |
-| Muted | `#8A8578` | Captions, meta, secondary text |
+| Muted | `#6E695E` | Captions, meta, secondary text |
 | Accent | `#5B8DD9` | Primary actions, highlights |
 | Accent 2 | `#E8A0BF` | Secondary moments, gradients, glows |
 
@@ -146,7 +146,7 @@ Durations: micro 250–400ms, standard 600–1000ms slow loops. Easings: sleepy 
   --bg: #E8E4D8;
   --surface: #F2EEE2;
   --ink: #3B3830;
-  --muted: #8A8578;
+  --muted: #6E695E;
   --accent: #5B8DD9;
   --accent-2: #E8A0BF;
   --font-display: Georgia, Times New Roman, serif;

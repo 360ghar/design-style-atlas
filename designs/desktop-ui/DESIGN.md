@@ -6,10 +6,10 @@ category: OS & Terminal
 tags: [desktop, windows, skeuomorph]
 related: [windows-95, mac-os, terminal]
 preview:
-  bg: "#008080"
+  bg: "#0A8F8F"
   surface: "#C0C0C0"
   ink: "#111111"
-  muted: "#555555"
+  muted: "#1F2E2E"
   accent: "#000080"
   accent2: "#1084D0"
   display: "Tahoma, Verdana, sans-serif"
@@ -42,10 +42,10 @@ A beloved 1998 desktop, lovingly functional: teal wallpaper, bordered windows wi
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| Background | `#008080` | Page ground |
+| Background | `#0A8F8F` | Page ground |
 | Surface | `#C0C0C0` | Cards, panels, wells |
 | Ink | `#111111` | Headlines, body text |
-| Muted | `#555555` | Captions, meta, secondary text |
+| Muted | `#1F2E2E` | Captions, meta, secondary text |
 | Accent | `#000080` | Primary actions, highlights |
 | Accent 2 | `#1084D0` | Title-bar gradient end-stop, secondary highlights |
 
@@ -139,10 +139,10 @@ Durations: instant–150ms window snaps. Easings: none or linear; springs and fl
 
 ```css
 :root {
-  --bg: #008080;
+  --bg: #0A8F8F;
   --surface: #C0C0C0;
   --ink: #111111;
-  --muted: #555555;
+  --muted: #1F2E2E;
   --accent: #000080;
   --accent-2: #1084D0;
   --font-display: Tahoma, Verdana, sans-serif;

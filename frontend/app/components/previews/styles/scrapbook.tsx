@@ -3,7 +3,6 @@ import { Frame, Meta } from "../frame";
 
 export function ScrapbookPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const s = large ? 1.6 : 1;
   const pad = large ? 18 : 10;
   const fsXl = large ? 30 : 17;
   const fsMd = large ? 14 : 9;

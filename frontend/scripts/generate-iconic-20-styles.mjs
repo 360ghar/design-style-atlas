@@ -1,4 +1,4 @@
-// Generates the 20 new iconic / famous / premium DESIGN.md files (120 -> 140 styles).
+// Generates the 20 iconic / famous / premium DESIGN.md files (the 120 -> 140 batch).
 // Run: node scripts/generate-iconic-20-styles.mjs
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";

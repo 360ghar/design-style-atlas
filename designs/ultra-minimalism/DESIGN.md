@@ -9,7 +9,7 @@ preview:
   bg: "#FFFFFF"
   surface: "#FFFFFF"
   ink: "#111111"
-  muted: "#A3A3A3"
+  muted: "#767676"
   accent: "#111111"
   accent2: "#0000EE"
   display: "Helvetica Neue, Inter, Arial, sans-serif"
@@ -45,7 +45,7 @@ Ultra-minimalism is minimalism taken to its limit: 13px type floating in oceans 
 | Background | `#FFFFFF` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#111111` | Headlines, body text |
-| Muted | `#A3A3A3` | Captions, meta, secondary text |
+| Muted | `#767676` | Captions, meta, secondary text |
 | Accent | `#111111` | Primary actions, highlights |
 | Accent 2 | `#0000EE` | Text links only — sole color exception |
 
@@ -142,7 +142,7 @@ Durations: 200ms opacity fades at most; content feels printed, not animated. Eas
   --bg: #FFFFFF;
   --surface: #FFFFFF;
   --ink: #111111;
-  --muted: #A3A3A3;
+  --muted: #767676;
   --accent: #111111;
   --accent-2: #0000EE;
   --font-display: Helvetica Neue, Inter, Arial, sans-serif;

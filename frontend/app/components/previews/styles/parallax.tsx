@@ -3,7 +3,6 @@ import { Frame, Meta } from "../frame";
 
 export function ParallaxPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const s = large ? 1.6 : 1;
   const t = meta.preview;
   const pad = large ? 16 : 10;
   return (

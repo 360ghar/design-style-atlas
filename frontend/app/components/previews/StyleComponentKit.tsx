@@ -716,7 +716,7 @@ export function StyleComponentKit({
 
           {/* Pagination Controls */}
           <div className="flex items-center justify-between text-xs pt-1">
-            <span className="font-mono text-[11px]" style={{ color: p.muted }}>Showing 1–10 of 120</span>
+            <span className="font-mono text-[11px]" style={{ color: p.muted }}>Showing 1–10</span>
             <div className="flex items-center gap-1 font-mono text-[11px]">
               <button type="button" className="px-2 py-1 border rounded" style={{ borderColor: `${p.ink}20` }}>←</button>
               <button type="button" className="px-2.5 py-1 font-bold rounded" style={{ background: p.ink, color: p.surface }}>1</button>

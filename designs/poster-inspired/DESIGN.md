@@ -6,10 +6,10 @@ category: Editorial & Print
 tags: [poster, bold, graphic]
 related: [neo-brutalism, playful-brutalism, editorial-brutalism]
 preview:
-  bg: "#E30613"
+  bg: "#F0303A"
   surface: "#FFFFFF"
   ink: "#111111"
-  muted: "#5C5A55"
+  muted: "#241F1C"
   accent: "#111111"
   accent2: "#FFD802"
   display: "Anton, Archivo Black, Impact, sans-serif"
@@ -42,10 +42,10 @@ Every page a one-sheet: a single enormous message, flat spot colors, and a stric
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| Background | `#E30613` | Page ground |
+| Background | `#F0303A` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#111111` | Headlines, body text |
-| Muted | `#5C5A55` | Captions, meta, secondary text |
+| Muted | `#241F1C` | Captions, meta, secondary text |
 | Accent | `#111111` | Primary actions, highlights |
 | Accent 2 | `#FFD802` | Secondary moments, price bursts, starburst badges |
 
@@ -139,10 +139,10 @@ Durations: micro 150–250ms, standard 350–550ms print-slam reveals. Easings: 
 
 ```css
 :root {
-  --bg: #E30613;
+  --bg: #F0303A;
   --surface: #FFFFFF;
   --ink: #111111;
-  --muted: #5C5A55;
+  --muted: #241F1C;
   --accent: #111111;
   --accent-2: #FFD802;
   --font-display: Anton, Archivo Black, Impact, sans-serif;

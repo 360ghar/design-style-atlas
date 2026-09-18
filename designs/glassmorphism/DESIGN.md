@@ -9,7 +9,7 @@ preview:
   bg: "#6C5CE7"
   surface: "#8B7CF0"
   ink: "#FFFFFF"
-  muted: "#C9C5E8"
+  muted: "#F5F2FD"
   accent: "#FFFFFF"
   accent2: "#00E5FF"
   display: "Inter, SF Pro Display, sans-serif"
@@ -45,11 +45,11 @@ Frosted control-center panels floating over aurora gradients: backdrop-blur 20px
 | Background | `#6C5CE7` | Page ground |
 | Surface | `#8B7CF0` | Solid fallback under glass; visible cards use white 15–20% + blur 14–24px over Background |
 | Ink | `#FFFFFF` | Headlines, body text |
-| Muted | `#C9C5E8` | Captions, meta, secondary text |
+| Muted | `#F5F2FD` | Captions, meta, secondary text |
 | Accent | `#FFFFFF` | Primary actions, highlights |
 | Accent 2 | `#00E5FF` | Secondary moments, gradients, glows |
 
-Keep contrast at 4.5:1 minimum for body text. White (`#FFFFFF`) on Background/Surface alone does not pass — put body text on a scrim (darken field 20–30% behind glass) or use text-shadow/solid fallback. Muted (`#C9C5E8`) is large/bold-only on purple, never small body. Accent is for action and emphasis, never for long paragraphs.
+Keep contrast at 4.5:1 minimum for body text. White (`#FFFFFF`) on Background/Surface alone does not pass — put body text on a scrim (darken field 20–30% behind glass) or use text-shadow/solid fallback. Muted (`#F5F2FD`) holds 3:1 on purple fields and surfaces; still never small body. Accent is for action and emphasis, never for long paragraphs.
 
 ## 4. Spacing
 
@@ -142,7 +142,7 @@ Durations: micro 150–250ms, standard 250–350ms; ambient blob morphs up to 20
   --bg: #6C5CE7;
   --surface: #8B7CF0;
   --ink: #FFFFFF;
-  --muted: #C9C5E8;
+  --muted: #F5F2FD;
   --accent: #FFFFFF;
   --accent-2: #00E5FF;
   --font-display: Inter, SF Pro Display, sans-serif;

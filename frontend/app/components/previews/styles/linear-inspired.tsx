@@ -9,7 +9,6 @@ const CYCLES = [
 
 export function LinearInspiredPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const s = large ? 1.6 : 1;
   const fs = large ? 1.6 : 1;
   const BG = p.bg;
   const SURFACE = p.surface;

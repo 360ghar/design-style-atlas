@@ -103,7 +103,9 @@ export const AGENT_GUIDES: AgentGuide[] = [
 
 // ---------- Compare pairs ----------
 // 20 static /compare/<a>-vs-<b>/ pages from popularity + explicit related
-// links. Deterministic so sitemap and generateStaticParams agree.
+// links. Deterministic so sitemap and generateStaticParams agree. The cap is
+// intentional: all 9,730 pairs would explode build output for near-zero search
+// value, so only the most-linked pairs are pre-rendered.
 export function getComparePairs(all: StyleMeta[], count = 20): [string, string][] {
   const slugs = new Set(all.map((s) => s.slug));
   const seen = new Set<string>();

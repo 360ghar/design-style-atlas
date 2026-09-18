@@ -3,7 +3,6 @@ import { Frame, Meta } from "../frame";
 
 export function AuroraGlowPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const s = large ? 1.6 : 1;
   const pad = large ? 14 : 8;
   return (
     <Frame meta={meta} large={large}>

@@ -9,7 +9,7 @@ preview:
   bg: "#FFFFFF"
   surface: "#F7F7F5"
   ink: "#37352F"
-  muted: "#9B9A93"
+  muted: "#787672"
   accent: "#2383E2"
   accent2: "#D9730D"
   display: "Georgia, Lyon Text, serif"
@@ -45,7 +45,7 @@ A warm document that became software: serif page titles with emoji icons, toggle
 | Background | `#FFFFFF` | Page ground |
 | Surface | `#F7F7F5` | Cards, panels, wells |
 | Ink | `#37352F` | Headlines, body text |
-| Muted | `#9B9A93` | Captions, meta, secondary text |
+| Muted | `#787672` | Captions, meta, secondary text |
 | Accent | `#2383E2` | Primary actions, highlights |
 | Accent 2 | `#D9730D` | Orange callouts, warnings, secondary highlights |
 
@@ -142,7 +142,7 @@ Durations: micro 100–200ms toggle opens, standard 250ms. Easings: plain ease-o
   --bg: #FFFFFF;
   --surface: #F7F7F5;
   --ink: #37352F;
-  --muted: #9B9A93;
+  --muted: #787672;
   --accent: #2383E2;
   --accent-2: #D9730D;
   --font-display: Georgia, Lyon Text, serif;

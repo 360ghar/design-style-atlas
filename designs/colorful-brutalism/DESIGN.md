@@ -8,8 +8,8 @@ related: [brutalism, neo-brutalism, playful-brutalism]
 preview:
   bg: "#7C5CFF"
   surface: "#FFFFFF"
-  ink: "#111111"
-  muted: "#55504A"
+  ink: "#000000"
+  muted: "#26232E"
   accent: "#FFD802"
   accent2: "#FF4FA3"
   display: "Archivo Black, Arial Black, sans-serif"
@@ -44,8 +44,8 @@ Every section a different saturated ground — violet, yellow, pink, cyan — st
 |-------|-------|-------|
 | Background | `#7C5CFF` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
-| Ink | `#111111` | Headlines, body text |
-| Muted | `#55504A` | Captions, meta, secondary text |
+| Ink | `#000000` | Headlines, body text |
+| Muted | `#26232E` | Captions, meta, secondary text |
 | Accent | `#FFD802` | Primary actions, highlights |
 | Accent 2 | `#FF4FA3` | Secondary stickers, badges, alternating chapters |
 
@@ -143,8 +143,8 @@ Durations: instant–150ms flat color swaps with shadow pops. Easings: none or s
 :root {
   --bg: #7C5CFF;
   --surface: #FFFFFF;
-  --ink: #111111;
-  --muted: #55504A;
+  --ink: #000000;
+  --muted: #26232E;
   --accent: #FFD802;
   --accent-2: #FF4FA3;
   --font-display: Archivo Black, Arial Black, sans-serif;

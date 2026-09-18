@@ -15,7 +15,7 @@ function getSection(content, num) {
   return m ? m[1].trim() : "";
 }
 
-function resolveCardBorder(slug, bText, ink, muted, accent, bg) {
+function resolveCardBorder(slug, bText, ink, muted, accent) {
   const t = bText.toLowerCase();
   if (slug === "windows-95") return "2px outset #ffffff";
   if (slug === "claymorphism" || slug === "plasticine-clay" || slug === "papercut") return "none";
@@ -45,7 +45,7 @@ function resolveCardBorder(slug, bText, ink, muted, accent, bg) {
   return `1px solid ${ink}1a`;
 }
 
-function resolveCardShadow(slug, sText, ink, accent, accent2) {
+function resolveCardShadow(slug, sText, ink, accent) {
   const t = sText.toLowerCase();
   if (slug === "windows-95") return "2px 2px 0px #000000";
   if (slug === "neumorphism") return "6px 6px 14px rgba(163,177,198,0.6), -6px -6px 14px rgba(255,255,255,0.8)";
@@ -174,7 +174,6 @@ function resolveSignatureType(slug) {
 }
 
 function resolveCopy(slug, name, cat, desc) {
-  const c = cat.toLowerCase();
   let eyebrow = "01 / SPECIMEN";
   let headline = `${name}`;
   let subhead = desc;
@@ -402,11 +401,10 @@ for (const slug of slugs) {
   const bText = getSection(content, 6);
   const sText = getSection(content, 7);
   const rText = getSection(content, 8);
-  const btnText = getSection(content, 9);
 
   const p = data.preview;
-  const cardBorder = resolveCardBorder(slug, bText, p.ink, p.muted, p.accent, p.bg);
-  const cardShadow = resolveCardShadow(slug, sText, p.ink, p.accent, p.accent2);
+  const cardBorder = resolveCardBorder(slug, bText, p.ink, p.muted, p.accent);
+  const cardShadow = resolveCardShadow(slug, sText, p.ink, p.accent);
   const radius = resolveRadius(slug, rText);
   const sigType = resolveSignatureType(slug);
   const copy = resolveCopy(slug, data.name, data.category, data.description);

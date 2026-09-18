@@ -3,7 +3,6 @@ import { Frame, Meta } from "../frame";
 
 export function GradientDesignPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const s = large ? 1.6 : 1;
   const font = p.body;
   return (
     <Frame meta={meta} large={large}>

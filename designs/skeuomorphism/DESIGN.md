@@ -6,7 +6,7 @@ category: Soft & Dimensional
 tags: [realistic, materials, classic-ios]
 related: [glassmorphism, neumorphism, claymorphism]
 preview:
-  bg: "#2B2B2B"
+  bg: "#E8E4DC"
   surface: "#F5F1E8"
   ink: "#2B2B2B"
   muted: "#7A766E"
@@ -42,7 +42,7 @@ The 2012 camera roll come back as craft: brushed aluminum, stitched leather, gre
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| Background | `#2B2B2B` | Page ground |
+| Background | `#E8E4DC` | Page ground |
 | Surface | `#F5F1E8` | Cards, panels, wells |
 | Ink | `#2B2B2B` | Headlines, body text |
 | Muted | `#7A766E` | Captions, meta, secondary text |

@@ -59,5 +59,26 @@ const emptyDir = join(here, "fixtures", "shop", "components");
 const noStyle = run([emptyDir]);
 check("undeclared style exits 2 with guidance", noStyle.code === 2 && /DESIGN\.lock/.test(noStyle.err), `exit ${noStyle.code}: ${noStyle.err}`);
 
+// 5. Tailwind utilities: named color scale, radius, shadow, and border
+//    utilities flag violations; comment hexes and href hashes do not.
+const tailwindDir = join(here, "fixtures", "tailwind");
+const tailwindJson = run([tailwindDir, "--format", "json"]);
+let tailwind = null;
+try {
+  tailwind = JSON.parse(tailwindJson.out);
+} catch {
+  check("tailwind valid JSON output", false, tailwindJson.out.slice(0, 300));
+}
+if (tailwind) {
+  const byTailwind = {};
+  for (const v of tailwind.violations) byTailwind[v.check] = (byTailwind[v.check] ?? 0) + 1;
+  check("tailwind total violations = 4", tailwind.summary?.count === 4, `got ${tailwind.summary?.count}`);
+  check("tailwind palette flags bg-purple-500", byTailwind.palette === 1 && tailwind.violations.some((v) => v.found === "bg-purple-500"), JSON.stringify(byTailwind));
+  check("tailwind radius flags rounded-3xl", byTailwind.radius === 1 && tailwind.violations.some((v) => v.found === "rounded-3xl"), JSON.stringify(byTailwind));
+  check("tailwind shadow flags shadow-2xl", byTailwind["shadow-hard"] === 1 && tailwind.violations.some((v) => v.found === "shadow-2xl"), JSON.stringify(byTailwind));
+  check("tailwind border flags bare border", byTailwind["border-width"] === 1 && tailwind.violations.some((v) => v.found === "border"), JSON.stringify(byTailwind));
+  check("tailwind ignores comment hex and href hash", !tailwind.violations.some((v) => String(v.found).includes("222222") || String(v.found).includes("333333")), JSON.stringify(tailwind.violations.map((v) => v.found)));
+}
+
 console.log(failures === 0 ? "\nCLI tests: all passed." : `\nCLI tests: ${failures} failure(s).`);
 process.exit(failures === 0 ? 0 : 1);

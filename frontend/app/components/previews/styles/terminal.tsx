@@ -65,7 +65,7 @@ export function TerminalPreview({ meta, large }: { meta: StyleMeta; large?: bool
               <span style={{ color: p.ink }}>$</span> npm run test:perf
             </div>
             <div style={{ color: p.ink, fontWeight: 700 }}>
-              ✓ 120/120 bespoke specs verified (42ms)
+              ✓ All bespoke specs verified (42ms)
             </div>
             <div style={{ color: p.muted }}>
               [SYSTEM] All metrics nominal. Latency: 1.2ms.
