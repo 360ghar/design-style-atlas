@@ -3,217 +3,168 @@ import { Frame, Meta } from "../frame";
 
 export function ColorMaximalismPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const swatches = [p.bg, p.accent, p.accent2, p.surface];
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full flex-col" style={{ background: p.bg }}>
-        <div
-          style={{
-            background: p.surface,
-            borderBottom: `3px solid ${p.ink}`,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: large ? "10px 14px" : "6px 8px",
-            gap: large ? 10 : 6,
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: large ? 7 : 4 }}>
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Saturated Dopamine Top Bar */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center" style={{ gap: 5 * s }}>
             <span
               style={{
-                background: p.ink,
-                color: p.surface,
                 fontFamily: p.display,
-                fontSize: large ? 12 : 8,
-                padding: large ? "5px 10px" : "3px 7px",
-                border: `3px solid ${p.ink}`,
-                borderRadius: 10,
+                fontSize: 10 * s,
+                fontWeight: 900,
+                color: p.surface,
+                background: p.accent,
+                border: `2.5px solid ${p.ink}`,
+                boxShadow: `${2 * s}px ${2 * s}px 0 ${p.ink}`,
+                padding: `${1 * s}px ${8 * s}px`,
+                textTransform: "uppercase",
               }}
             >
-              MAX!
+              DOPAMINE★2000
             </span>
-            {[
-              { label: "YELLOW", bg: p.bg },
-              { label: "PINK", bg: p.accent },
-              { label: "BLUE", bg: p.accent2 },
-            ].map((chip) => (
-              <span
-                key={chip.label}
-                style={{
-                  background: chip.bg,
-                  color: p.ink,
-                  fontFamily: p.body,
-                  fontWeight: 800,
-                  fontSize: large ? 9 : 6,
-                  letterSpacing: "0.08em",
-                  padding: large ? "5px 11px" : "3px 7px",
-                  border: `3px solid ${p.ink}`,
-                  borderRadius: 999,
-                }}
-              >
-                {chip.label}
-              </span>
-            ))}
+            <span
+              style={{
+                background: p.accent2,
+                color: p.surface,
+                border: `2px solid ${p.ink}`,
+                borderRadius: 999,
+                fontSize: 6 * s,
+                fontWeight: 900,
+                padding: `${1 * s}px ${6 * s}px`,
+              }}
+            >
+              SATURATION 100%
+            </span>
           </div>
           <span
             style={{
-              background: p.accent,
-              color: p.surface,
-              fontFamily: p.body,
-              fontWeight: 800,
-              fontSize: large ? 10 : 6.5,
-              letterSpacing: "0.06em",
-              padding: large ? "6px 14px" : "4px 9px",
-              border: `3px solid ${p.ink}`,
-              borderRadius: 12,
-              boxShadow: `4px 4px 0 ${p.ink}`,
+              fontSize: 7 * s,
+              fontWeight: 900,
+              color: p.ink,
             }}
           >
-            GO →
+            NO PASTELS ALLOWED ⚡
           </span>
         </div>
+
+        {/* Central High-Intensity White Card with 6px Hard Black Shadow */}
         <div
-          style={{
-            flex: 1,
-            background: `linear-gradient(135deg, ${p.accent} 0%, ${p.accent2} 100%)`,
-            borderBottom: `3px solid ${p.ink}`,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: large ? "20px 16px" : "10px 10px",
-          }}
-        >
-          <div
-            style={{
-              background: p.surface,
-              color: p.ink,
-              border: `3px solid ${p.ink}`,
-              borderRadius: 18,
-              boxShadow: large ? `8px 8px 0 ${p.ink}` : `5px 5px 0 ${p.ink}`,
-              padding: large ? "16px 20px" : "8px 12px",
-              maxWidth: large ? 420 : 230,
-              width: "100%",
-              transform: "rotate(-1deg)",
-            }}
-          >
-            <div style={{ display: "flex", gap: large ? 6 : 4, marginBottom: large ? 8 : 5 }}>
-              <span
-                style={{
-                  background: p.bg,
-                  color: p.ink,
-                  fontFamily: p.body,
-                  fontWeight: 900,
-                  fontSize: large ? 9 : 6,
-                  letterSpacing: "0.1em",
-                  padding: large ? "4px 10px" : "2px 6px",
-                  border: `3px solid ${p.ink}`,
-                  borderRadius: 999,
-                }}
-              >
-                DOPAMINE UX
-              </span>
-              <span
-                style={{
-                  background: p.accent2,
-                  color: p.surface,
-                  fontFamily: p.body,
-                  fontWeight: 900,
-                  fontSize: large ? 9 : 6,
-                  letterSpacing: "0.1em",
-                  padding: large ? "4px 10px" : "2px 6px",
-                  border: `3px solid ${p.ink}`,
-                  borderRadius: 999,
-                }}
-              >
-                100% COLOR
-              </span>
-            </div>
-            <div
-              style={{
-                fontFamily: p.display,
-                fontSize: large ? 34 : 17,
-                lineHeight: 0.95,
-                letterSpacing: "-0.01em",
-              }}
-            >
-              TASTE THE RAINBOW
-            </div>
-            <div
-              style={{
-                fontFamily: p.body,
-                fontSize: large ? 12 : 7.5,
-                fontWeight: 500,
-                color: p.muted,
-                marginTop: large ? 6 : 4,
-              }}
-            >
-              One saturated field per chapter. White cards float on top.
-            </div>
-          </div>
-        </div>
-        <div style={{ display: "flex", borderBottom: `3px solid ${p.ink}` }}>
-          {[p.bg, p.accent, p.accent2, p.bg, p.accent, p.accent2].map((c, i) => (
-            <span key={i} style={{ flex: 1, background: c, height: large ? 10 : 6 }} />
-          ))}
-        </div>
-        <div
+          className="my-auto flex flex-col justify-between"
           style={{
             background: p.surface,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: large ? "10px 14px 20px" : "6px 8px 13px",
-            gap: large ? 10 : 6,
+            border: `3px solid ${p.ink}`,
+            borderRadius: 16 * s,
+            boxShadow: `${6 * s}px ${6 * s}px 0 ${p.ink}`,
+            padding: `${12 * s}px ${14 * s}px`,
           }}
         >
-          <div style={{ display: "flex", gap: large ? 7 : 4 }}>
-            {swatches.map((c) => (
-              <span
-                key={c}
+          <div className="flex items-start justify-between">
+            <div>
+              <div
                 style={{
-                  background: c,
-                  border: `3px solid ${p.ink}`,
-                  borderRadius: 10,
-                  width: large ? 34 : 20,
-                  height: large ? 34 : 20,
-                  boxShadow: `3px 3px 0 ${p.ink}`,
+                  fontSize: 6 * s,
+                  fontWeight: 900,
+                  color: p.accent,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
                 }}
-              />
-            ))}
-          </div>
-          <div style={{ display: "flex", gap: large ? 8 : 5 }}>
-            <span
+              >
+                Unapologetic Spectrum
+              </div>
+              <h3
+                style={{
+                  fontFamily: p.display,
+                  fontSize: 13 * s,
+                  fontWeight: 900,
+                  color: p.ink,
+                  lineHeight: 1.15,
+                  margin: `${3 * s}px 0 0 0`,
+                }}
+              >
+                Full-Spectrum Color Fields
+              </h3>
+            </div>
+            <div
               style={{
-                background: p.ink,
+                background: p.accent2,
                 color: p.surface,
-                fontFamily: p.body,
-                fontWeight: 800,
-                fontSize: large ? 10 : 6.5,
-                letterSpacing: "0.06em",
-                padding: large ? "7px 16px" : "4px 10px",
-                border: `3px solid ${p.ink}`,
-                borderRadius: 12,
+                border: `2px solid ${p.ink}`,
+                boxShadow: `${2 * s}px ${2 * s}px 0 ${p.ink}`,
+                fontFamily: p.display,
+                fontWeight: 900,
+                fontSize: 9 * s,
+                padding: `${2 * s}px ${6 * s}px`,
+                borderRadius: 6 * s,
+                transform: "rotate(3deg)",
               }}
             >
-              SHOP DROP
-            </span>
-            <span
-              style={{
-                background: p.bg,
-                color: p.ink,
-                fontFamily: p.body,
-                fontWeight: 800,
-                fontSize: large ? 10 : 6.5,
-                letterSpacing: "0.06em",
-                padding: large ? "7px 16px" : "4px 10px",
-                border: `3px solid ${p.ink}`,
-                borderRadius: 12,
-                boxShadow: `4px 4px 0 ${p.ink}`,
-              }}
-            >
-              LOOKBOOK
-            </span>
+              HOT!
+            </div>
           </div>
+
+          <p
+            style={{
+              fontSize: 7 * s,
+              fontWeight: 600,
+              color: p.muted,
+              lineHeight: 1.4,
+              margin: `${8 * s}px 0`,
+            }}
+          >
+            Vivid yellow ground colliding with electric magenta actions, cobalt headers, and thick cartoon ink boundaries.
+          </p>
+
+          <div className="flex items-center justify-between">
+            <span style={{ fontSize: 6.5 * s, fontWeight: 900, color: p.ink }}>
+              High-Energy Stimulation
+            </span>
+            <button
+              type="button"
+              style={{
+                background: p.accent,
+                color: p.surface,
+                border: `2.5px solid ${p.ink}`,
+                borderRadius: 8 * s,
+                boxShadow: `${3 * s}px ${3 * s}px 0 ${p.ink}`,
+                fontFamily: p.display,
+                fontWeight: 900,
+                fontSize: 7 * s,
+                padding: `${4 * s}px ${14 * s}px`,
+                cursor: "pointer",
+              }}
+            >
+              PUMP COLOR ⚡
+            </button>
+          </div>
+        </div>
+
+        {/* Footer Rainbow Strip */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `2.5px solid ${p.ink}`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            fontWeight: 900,
+            textTransform: "uppercase",
+            color: p.ink,
+          }}
+        >
+          <span>✦ SOLAR YELLOW GROUND</span>
+          <span>✦ NEON PINK ACCENT</span>
+          <span>✦ ELECTRIC COBALT</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

@@ -3,66 +3,130 @@ import { Frame, Meta } from "../frame";
 
 export function EditorialBrutalismPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const pad = large ? "18px 22px" : "10px 12px";
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full flex-col" style={{ background: p.bg, color: p.ink, fontFamily: p.body, paddingBottom: large ? 28 : 20 }}>
-        {/* masthead rule bar */}
-        <div
-          className="flex items-center justify-between uppercase"
-          style={{ background: p.ink, color: p.surface, fontSize: large ? 10 : 6, fontWeight: 800, letterSpacing: "0.18em", padding: large ? "7px 22px" : "4px 12px" }}
-        >
-          <span>Issue N° 482 ★ Breaking</span>
-          <span style={{ opacity: 0.75 }}>Tue 17 Sep 2026</span>
-        </div>
-
-        {/* wordmark */}
-        <div style={{ borderBottom: `4px solid ${p.ink}`, padding: large ? "12px 22px 10px" : "7px 12px 6px" }}>
-          <div style={{ fontFamily: p.display, fontWeight: 900, fontSize: large ? 30 : 15, lineHeight: 0.9, letterSpacing: "-0.01em", textTransform: "uppercase" }}>
-            The Daily Loud
-          </div>
-        </div>
-
-        {/* headline block */}
-        <div style={{ padding: pad }}>
-          <div className="flex items-center uppercase" style={{ gap: 8 }}>
-            <span style={{ display: "inline-block", width: large ? 28 : 16, height: large ? 8 : 5, background: p.accent }} />
-            <span style={{ color: p.accent, fontWeight: 900, fontSize: large ? 12 : 7, letterSpacing: "0.16em" }}>Front page — City Hall</span>
-          </div>
-          <h2 style={{ fontFamily: p.display, fontWeight: 900, textTransform: "uppercase", fontSize: large ? 76 : 32, lineHeight: 0.88, letterSpacing: "-0.02em", margin: large ? "12px 0 0" : "8px 0 0" }}>
-            City votes
-            <br />
-            to go{" "}
-            <span style={{ background: p.accent, color: p.surface, padding: "0 10px", boxDecorationBreak: "clone" }}>
-              loud
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${10 * s}px ${12 * s}px`,
+        }}
+      >
+        {/* Newsroom Urgent Masthead */}
+        <div>
+          <div className="flex items-center justify-between">
+            <span
+              style={{
+                fontFamily: p.display,
+                fontSize: 8 * s,
+                fontWeight: 900,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                background: p.ink,
+                color: p.bg,
+                padding: `${1 * s}px ${6 * s}px`,
+              }}
+            >
+              FRONT DISPATCH
             </span>
+            <span
+              style={{
+                fontSize: 6.5 * s,
+                fontWeight: 900,
+                color: p.accent,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+              }}
+            >
+              ● BREAKING NEWS · ED. 42
+            </span>
+            <span style={{ fontSize: 6 * s, fontWeight: 700, color: p.muted }}>
+              PRICE: 50 CENTS
+            </span>
+          </div>
+
+          <div
+            style={{
+              height: 4 * s,
+              background: p.ink,
+              margin: `${5 * s}px 0`,
+            }}
+          />
+        </div>
+
+        {/* Colossal Poster-Scale Protest Headline */}
+        <div className="my-auto">
+          <div
+            style={{
+              background: p.accent,
+              color: p.bg,
+              display: "inline-block",
+              fontFamily: p.display,
+              fontSize: 6.5 * s,
+              fontWeight: 900,
+              padding: `${1 * s}px ${6 * s}px`,
+              textTransform: "uppercase",
+              letterSpacing: "0.1em",
+              marginBottom: 4 * s,
+            }}
+          >
+            METROPOLITAN STRIKE
+          </div>
+
+          <h2
+            style={{
+              fontFamily: p.display,
+              fontSize: 19 * s,
+              fontWeight: 900,
+              lineHeight: 0.92,
+              letterSpacing: "-0.04em",
+              textTransform: "uppercase",
+              color: p.ink,
+              margin: 0,
+            }}
+          >
+            THE CITY
+            <br />
+            STOPS TODAY.
           </h2>
-          <div style={{ borderTop: `3px solid ${p.ink}`, marginTop: large ? 14 : 8, paddingTop: large ? 10 : 6, fontSize: large ? 14 : 7.5, fontWeight: 500, maxWidth: large ? 520 : undefined }}>
-            Council backs poster-scale headlines in 7–2 decision. Ink heavy, no whisper. <span style={{ fontWeight: 800 }}>→</span>
+
+          <div
+            style={{
+              borderTop: `2px solid ${p.ink}`,
+              borderBottom: `1px solid ${p.ink}`,
+              padding: `${4 * s}px 0`,
+              margin: `${6 * s}px 0`,
+              fontSize: 7 * s,
+              fontWeight: 700,
+              lineHeight: 1.35,
+              color: p.ink,
+            }}
+          >
+            Transit workers refuse contract terms; three million commuters stranded as rails freeze.
           </div>
         </div>
 
-        {/* pull-quote + column meta */}
+        {/* Raw Two-Column Story Teasers */}
         <div
+          className="grid grid-cols-2"
           style={{
-            display: "grid",
-            gridTemplateColumns: "1.15fr 1fr",
-            borderTop: `4px solid ${p.ink}`,
-            borderBottom: `4px solid ${p.ink}`,
-            marginTop: "auto",
+            gap: 8 * s,
+            borderTop: `3px solid ${p.ink}`,
+            paddingTop: 4 * s,
+            fontSize: 6 * s,
           }}
         >
-          <div style={{ borderRight: `3px solid ${p.ink}`, padding: large ? "14px 22px" : "8px 12px", background: p.surface }}>
-            <div style={{ fontSize: large ? 10 : 6, fontWeight: 900, letterSpacing: "0.16em", color: p.accent, textTransform: "uppercase" }}>№ 01 — Pull quote</div>
-            <p style={{ fontFamily: p.display, fontWeight: 900, fontSize: large ? 20 : 10, lineHeight: 1, textTransform: "uppercase", margin: large ? "8px 0 0" : "5px 0 0" }}>
-              “Set it big or don’t set it at all.”
-            </p>
+          <div>
+            <strong style={{ textTransform: "uppercase", color: p.accent }}>PAGE 02:</strong>{" "}
+            Union demands emergency cost-of-living adjustments.
           </div>
-          <div style={{ padding: large ? "14px 22px" : "8px 12px" }}>
-            <div style={{ fontSize: large ? 11 : 6.5, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.06em" }}>By M. Okafor ★ Newsroom</div>
-            <div style={{ color: p.muted, fontSize: large ? 11 : 6.5, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", marginTop: large ? 8 : 4, borderTop: `2px solid ${p.ink}`, paddingTop: large ? 8 : 4 }}>
-              P.01 — Rules / P.02 — Ticker
-            </div>
+          <div>
+            <strong style={{ textTransform: "uppercase", color: p.ink }}>PAGE 04:</strong>{" "}
+            Mayor summons emergency municipal council.
           </div>
         </div>
       </div>

@@ -3,9 +3,11 @@ import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
 
 export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
+  const p = meta.preview;
+  const s = large ? 1.6 : 1;
   const chromeText: CSSProperties = {
     background:
-      "linear-gradient(180deg, #F2F2F5 0%, #C0C0C8 28%, #8E8E99 45%, #121218 50%, #C0C0C8 54%, #F2F2F5 68%, #7DF9FF 88%, #C0C0C8 100%)",
+      "linear-gradient(180deg, ${p.ink} 0%, ${p.accent} 28%, ${p.muted} 45%, ${p.surface} 50%, ${p.accent} 54%, ${p.ink} 68%, ${p.accent2} 88%, ${p.accent} 100%)",
     WebkitBackgroundClip: "text",
     backgroundClip: "text",
     color: "transparent",
@@ -14,7 +16,7 @@ export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: 
     <Frame meta={meta} large={large}>
       <div
         className="relative flex h-full flex-col overflow-hidden"
-        style={{ background: "#0A0A0F", color: "#F2F2F5", fontFamily: "Outfit, Inter, sans-serif" }}
+        style={{ background: p.bg, color: p.ink, fontFamily: p.body }}
       >
         {/* dark voids + sparkles */}
         <div aria-hidden style={{ position: "absolute", inset: 0 }}>
@@ -27,7 +29,7 @@ export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: 
               height: large ? 200 : 92,
               transform: "translateX(-50%)",
               borderRadius: "40% 60% 60% 40% / 55% 45% 60% 40%",
-              background: "linear-gradient(120deg, #F2F2F5, #C0C0C8 35%, #8E8E99 55%, #121218 78%, #C0C0C8)",
+              background: "linear-gradient(120deg, ${p.ink}, ${p.accent} 35%, ${p.muted} 55%, ${p.surface} 78%, ${p.accent})",
               opacity: 0.9,
               boxShadow: "0 20px 80px rgba(192,192,200,0.2)",
               filter: "blur(0.5px)",
@@ -42,13 +44,13 @@ export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: 
               height: large ? 10 : 5,
               transform: "translateX(-50%) rotate(-8deg)",
               borderRadius: 999,
-              background: "linear-gradient(90deg, transparent, #F2F2F5, transparent)",
+              background: "linear-gradient(90deg, transparent, ${p.ink}, transparent)",
               opacity: 0.85,
             }}
           />
-          <div style={{ position: "absolute", top: large ? 64 : 30, left: large ? 72 : 28, width: 3, height: 3, borderRadius: 999, background: "#F2F2F5" }} />
-          <div style={{ position: "absolute", top: large ? 150 : 66, right: large ? 84 : 30, width: 4, height: 4, borderRadius: 999, background: "#7DF9FF" }} />
-          <div style={{ position: "absolute", top: large ? 210 : 96, left: large ? 120 : 44, width: 2, height: 2, borderRadius: 999, background: "#C0C0C8" }} />
+          <div style={{ position: "absolute", top: large ? 64 : 30, left: large ? 72 : 28, width: 3, height: 3, borderRadius: 999, background: p.ink }} />
+          <div style={{ position: "absolute", top: large ? 150 : 66, right: large ? 84 : 30, width: 4, height: 4, borderRadius: 999, background: p.accent2 }} />
+          <div style={{ position: "absolute", top: large ? 210 : 96, left: large ? 120 : 44, width: 2, height: 2, borderRadius: 999, background: p.accent }} />
         </div>
 
         {/* chrome nav pill */}
@@ -59,15 +61,15 @@ export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: 
                 width: large ? 18 : 10,
                 height: large ? 18 : 10,
                 borderRadius: "55% 45% 60% 40%",
-                background: "linear-gradient(135deg, #F2F2F5, #8E8E99 60%, #7DF9FF)",
+                background: "linear-gradient(135deg, ${p.ink}, ${p.muted} 60%, ${p.accent2})",
                 display: "inline-block",
               }}
             />
-            <span style={{ fontFamily: "Unbounded, Michroma, sans-serif", fontWeight: 800, fontSize: large ? 13 : 7.5, letterSpacing: "0.2em", ...chromeText }}>
+            <span style={{ fontFamily: p.display, fontWeight: 800, fontSize: large ? 13 : 7.5, letterSpacing: "0.2em", ...chromeText }}>
               MERCURY
             </span>
           </div>
-          <div style={{ display: "flex", gap: large ? 18 : 8, fontSize: large ? 10 : 5.5, letterSpacing: "0.22em", fontWeight: 700, color: "#8E8E99" }}>
+          <div style={{ display: "flex", gap: large ? 18 : 8, fontSize: large ? 10 : 5.5, letterSpacing: "0.22em", fontWeight: 700, color: p.muted }}>
             <span>ARCHIVE</span>
             {large ? <span>COLLECTION</span> : null}
             <span>STUDIO</span>
@@ -77,11 +79,11 @@ export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: 
               fontSize: large ? 11 : 6,
               fontWeight: 800,
               letterSpacing: "0.14em",
-              color: "#0A0A0F",
-              background: "linear-gradient(120deg, #F2F2F5, #C0C0C8 60%, #8E8E99)",
+              color: p.bg,
+              background: "linear-gradient(120deg, ${p.ink}, ${p.accent} 60%, ${p.muted})",
               borderRadius: 999,
               padding: large ? "10px 18px" : "5px 10px",
-              border: "1px solid #F2F2F5",
+              border: "1px solid ${p.ink}",
             }}
           >
             BOOKING
@@ -90,12 +92,12 @@ export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: 
 
         {/* molten hero type */}
         <div style={{ position: "relative", textAlign: "center", padding: large ? "40px 24px 0" : "14px 10px 0" }}>
-          <div style={{ fontSize: large ? 11 : 6, fontWeight: 700, letterSpacing: "0.34em", color: "#7DF9FF" }}>
+          <div style={{ fontSize: large ? 11 : 6, fontWeight: 700, letterSpacing: "0.34em", color: p.accent2 }}>
             MOLTEN METAL — Nº 7
           </div>
           <h1
             style={{
-              fontFamily: "Unbounded, Michroma, sans-serif",
+              fontFamily: p.display,
               fontWeight: 800,
               fontSize: large ? 68 : 30,
               lineHeight: 0.95,
@@ -113,7 +115,7 @@ export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: 
           <div
             aria-hidden
             style={{
-              fontFamily: "Unbounded, Michroma, sans-serif",
+              fontFamily: p.display,
               fontWeight: 800,
               fontSize: large ? 68 : 30,
               lineHeight: 0.95,
@@ -127,7 +129,7 @@ export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: 
           >
             CHROME
           </div>
-          <p style={{ color: "#8E8E99", fontSize: large ? 15 : 7.5, maxWidth: large ? 440 : 220, margin: large ? "12px auto 0" : "6px auto 0", lineHeight: 1.5 }}>
+          <p style={{ color: p.muted, fontSize: large ? 15 : 7.5, maxWidth: large ? 440 : 220, margin: large ? "12px auto 0" : "6px auto 0", lineHeight: 1.5 }}>
             Mirror-duplicate reflections over dark voids. One molten moment per page.
           </p>
         </div>
@@ -136,7 +138,7 @@ export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: 
         <div style={{ position: "relative", marginTop: "auto", padding: large ? "20px 28px 38px" : "10px 12px 22px" }}>
           <div
             style={{
-              background: "#121218",
+              background: p.surface,
               border: "1px solid rgba(192,192,200,0.35)",
               borderRadius: 20,
               padding: large ? "16px 18px" : "8px 10px",
@@ -148,10 +150,10 @@ export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: 
             }}
           >
             <div>
-              <div style={{ fontFamily: "Unbounded, Michroma, sans-serif", fontWeight: 700, fontSize: large ? 14 : 7.5, color: "#F2F2F5", letterSpacing: "0.06em" }}>
+              <div style={{ fontFamily: p.display, fontWeight: 700, fontSize: large ? 14 : 7.5, color: p.ink, letterSpacing: "0.06em" }}>
                 OWN THE REFLECTION
               </div>
-              <div style={{ fontSize: large ? 12 : 6.5, color: "#8E8E99", marginTop: 2 }}>
+              <div style={{ fontSize: large ? 12 : 6.5, color: p.muted, marginTop: 2 }}>
                 Silver + one ice-blue accent. Darkness to mirror.
               </div>
             </div>
@@ -161,8 +163,8 @@ export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: 
                   fontSize: large ? 11 : 6,
                   fontWeight: 800,
                   letterSpacing: "0.12em",
-                  color: "#0A0A0F",
-                  background: "linear-gradient(120deg, #F2F2F5, #C0C0C8 60%, #7DF9FF)",
+                  color: p.bg,
+                  background: "linear-gradient(120deg, ${p.ink}, ${p.accent} 60%, ${p.accent2})",
                   borderRadius: 999,
                   padding: large ? "12px 20px" : "6px 10px",
                 }}
@@ -175,7 +177,7 @@ export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: 
                     fontSize: 11,
                     fontWeight: 800,
                     letterSpacing: "0.12em",
-                    color: "#C0C0C8",
+                    color: p.accent,
                     border: "1px solid rgba(192,192,200,0.4)",
                     borderRadius: 999,
                     padding: "12px 20px",
@@ -195,7 +197,7 @@ export function LiquidChromePreview({ meta, large }: { meta: StyleMeta; large?: 
               transform: "scaleY(-1)",
               opacity: 0.18,
               filter: "blur(0.5px)",
-              background: "linear-gradient(to top, #C0C0C8, transparent)",
+              background: "linear-gradient(to top, ${p.accent}, transparent)",
               maskImage: "linear-gradient(to top, black, transparent)",
               WebkitMaskImage: "linear-gradient(to top, black, transparent)",
             }}

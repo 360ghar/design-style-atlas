@@ -3,145 +3,125 @@ import { Frame, Meta } from "../frame";
 
 export function FashionEditorialPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const tiny = large ? 10 : 6;
-  const pad = large ? 20 : 10;
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
       <div
+        className="flex h-full flex-col justify-between"
         style={{
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
           background: p.bg,
           color: p.ink,
           fontFamily: p.body,
+          padding: `${14 * s}px ${16 * s}px`,
         }}
       >
-        {/* VOGUE-style nav */}
+        {/* Runway Atelier Top Folio */}
         <div
+          className="flex items-center justify-between"
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: large ? "14px 20px" : "7px 10px",
-            borderBottom: `1px solid ${p.ink}26`,
-          }}
-        >
-          <span style={{ fontFamily: p.display, fontWeight: 700, fontSize: large ? 16 : 9, letterSpacing: "0.08em" }}>
-            MAISON
-          </span>
-          <span style={{ display: "flex", gap: large ? 18 : 8, fontSize: tiny, letterSpacing: "0.28em", color: p.muted, fontWeight: 600 }}>
-            <span>COLLECTION</span>
-            <span>RUNWAY</span>
-            <span>ATELIER</span>
-          </span>
-          <span style={{ display: "flex", gap: large ? 12 : 6, fontSize: large ? 13 : 8, color: p.ink }}>
-            <span>○</span>
-            <span>◇</span>
-          </span>
-        </div>
-
-        {/* Cover hero */}
-        <div style={{ display: "grid", gridTemplateColumns: "1.02fr 1fr", flex: 1, minHeight: 0 }}>
-          <div style={{ position: "relative", overflow: "hidden", background: `linear-gradient(178deg, ${p.muted} 0%, ${p.ink} 78%)` }}>
-            <div
-              style={{
-                position: "absolute",
-                top: large ? 16 : 8,
-                left: large ? 16 : 8,
-                fontSize: tiny,
-                letterSpacing: "0.3em",
-                color: p.surface,
-                opacity: 0.85,
-              }}
-            >
-              N°12
-            </div>
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontFamily: p.display,
-                fontStyle: "italic",
-                fontSize: large ? 150 : 64,
-                lineHeight: 1,
-                color: p.surface,
-                opacity: 0.92,
-              }}
-            >
-              12
-            </div>
-            <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: large ? "12px 16px" : "6px 8px" }}>
-              <div style={{ borderTop: `1px solid ${p.surface}55`, paddingTop: large ? 8 : 4, display: "flex", justifyContent: "space-between", color: p.surface, fontSize: tiny, letterSpacing: "0.22em" }}>
-                <span>LOOK 12 — WOOL, SILK</span>
-                <span style={{ color: p.surface, opacity: 0.8 }}>SS26</span>
-              </div>
-            </div>
-          </div>
-
-          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: pad, background: p.bg }}>
-            <div style={{ fontSize: tiny, letterSpacing: "0.32em", color: p.muted, fontWeight: 600 }}>
-              AUTUMN — ISSUE I
-            </div>
-            <div style={{ fontFamily: p.display, fontSize: large ? 62 : 27, lineHeight: 0.98, marginTop: large ? 12 : 6 }}>
-              Silence,
-              <br />
-              <span style={{ fontStyle: "italic", color: p.accent2 }}>tailored.</span>
-            </div>
-            <div style={{ width: large ? 48 : 24, borderTop: `1px solid ${p.ink}`, margin: large ? "16px 0 12px" : "8px 0 6px" }} />
-            <p style={{ margin: 0, fontSize: large ? 13 : 7, lineHeight: 1.55, color: p.muted, maxWidth: large ? 300 : 160 }}>
-              Forty-eight looks. One room. Shot on film in Paris.
-            </p>
-            <div style={{ display: "flex", gap: large ? 10 : 5, marginTop: large ? 18 : 9 }}>
-              <span
-                style={{
-                  background: p.accent,
-                  color: p.surface,
-                  fontSize: tiny,
-                  letterSpacing: "0.22em",
-                  fontWeight: 600,
-                  padding: large ? "11px 20px" : "6px 10px",
-                }}
-              >
-                BOOK FITTING
-              </span>
-              <span
-                style={{
-                  border: `1px solid ${p.ink}`,
-                  color: p.ink,
-                  fontSize: tiny,
-                  letterSpacing: "0.22em",
-                  fontWeight: 600,
-                  padding: large ? "10px 18px" : "5px 9px",
-                }}
-              >
-                VIEW LOOKS
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Credits + CTA footer */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: large ? "10px 20px 26px" : "6px 10px 20px",
-            borderTop: `1px solid ${p.ink}26`,
-            background: p.surface,
-            fontSize: tiny,
-            letterSpacing: "0.2em",
+            fontSize: 5.5 * s,
+            letterSpacing: "0.25em",
+            textTransform: "uppercase",
             color: p.muted,
           }}
         >
-          <span>PH. L. MERIDIAN — PARIS</span>
-          <span style={{ color: p.ink, fontWeight: 600 }}>
-            SS26 · 48 LOOKS <span style={{ color: p.accent2 }}>→</span>
-          </span>
+          <span>Collection Automne · Hiver</span>
+          <span>Look N° 04</span>
+          <span>Paris · Milan</span>
+        </div>
+
+        {/* Towering Didot Fashion Headline & Silent Plaque */}
+        <div
+          className="my-auto flex flex-col justify-between"
+          style={{
+            background: p.surface,
+            border: `1px solid ${p.ink}18`,
+            padding: `${16 * s}px ${18 * s}px`,
+            position: "relative",
+          }}
+        >
+          <div>
+            <div
+              style={{
+                fontSize: 6 * s,
+                letterSpacing: "0.3em",
+                textTransform: "uppercase",
+                color: p.accent2,
+                marginBottom: 3 * s,
+              }}
+            >
+              Silhouette &amp; Structure
+            </div>
+            <h1
+              style={{
+                fontFamily: p.display,
+                fontSize: 18 * s,
+                fontWeight: 400,
+                color: p.ink,
+                letterSpacing: "-0.01em",
+                lineHeight: 1.05,
+                margin: 0,
+              }}
+            >
+              L’Élégance Noire
+            </h1>
+            <div
+              style={{
+                fontSize: 6.5 * s,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: p.muted,
+                marginTop: 4 * s,
+              }}
+            >
+              Tailored Double-Breasted Wool Coat · Calibre 12
+            </div>
+          </div>
+
+          <div
+            className="flex items-center justify-between"
+            style={{
+              marginTop: 12 * s,
+              paddingTop: 8 * s,
+              borderTop: `1px solid ${p.ink}15`,
+            }}
+          >
+            <div style={{ fontSize: 6 * s, color: p.muted, letterSpacing: "0.1em" }}>
+              Maison de Couture · Atelier Vendôme
+            </div>
+            <button
+              type="button"
+              style={{
+                background: "transparent",
+                color: p.ink,
+                border: `1px solid ${p.ink}`,
+                borderRadius: 0,
+                fontSize: 5.5 * s,
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                padding: `${3 * s}px ${10 * s}px`,
+                cursor: "pointer",
+              }}
+            >
+              Découvrir la Silhouette
+            </button>
+          </div>
+        </div>
+
+        {/* Runway Footer Ticks */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            fontSize: 5.5 * s,
+            color: p.muted,
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+          }}
+        >
+          <span>Figure 04 / 32</span>
+          <span>Photographie de Studio</span>
+          <span>Édition Limitée</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

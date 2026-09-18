@@ -9,6 +9,7 @@
 }
 
 :root {
+  color-scheme: light;
   --paper: #fafaf8;
   --surface: #ffffff;
   --surface-raised: #f4f4f1;
@@ -24,6 +25,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --paper: #0c0c0e;
   --surface: #141416;
   --surface-raised: #1d1d21;
@@ -40,6 +42,12 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Native dropdown options follow the site theme (select popups ignore Tailwind). */
+.dark option {
+  background-color: #141416;
+  color: #f4f4f6;
 }
 
 body {

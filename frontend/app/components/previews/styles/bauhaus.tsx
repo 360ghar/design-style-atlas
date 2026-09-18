@@ -1,212 +1,146 @@
 import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
 
-const YELLOW = "#E8B90F";
-
 export function BauhausPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const pad = large ? 20 : 12;
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div style={{ background: p.bg, height: "100%", display: "flex", flexDirection: "column" }}>
-        <div style={{ display: "flex", height: large ? 6 : 4 }}>
-          <div style={{ flex: 1, background: p.accent }} />
-          <div style={{ flex: 1, background: YELLOW }} />
-          <div style={{ flex: 1, background: p.accent2 }} />
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: large ? "10px 20px" : "7px 10px",
-            background: p.surface,
-            borderBottom: `2px solid ${p.ink}`,
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: large ? 8 : 5 }}>
-            <span style={{ width: large ? 16 : 10, height: large ? 16 : 10, borderRadius: 999, background: p.accent }} />
-            <span
-              style={{
-                width: 0,
-                height: 0,
-                borderLeft: `${large ? 9 : 6}px solid transparent`,
-                borderRight: `${large ? 9 : 6}px solid transparent`,
-                borderBottom: `${large ? 15 : 10}px solid ${p.accent2}`,
-              }}
-            />
-            <span style={{ width: large ? 15 : 10, height: large ? 15 : 10, background: YELLOW }} />
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Staatliches Bauhaus Weimar Folio */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center" style={{ gap: 6 * s }}>
             <span
               style={{
                 fontFamily: p.display,
-                fontWeight: 800,
-                fontSize: large ? 13 : 8,
-                letterSpacing: "0.12em",
+                fontSize: 10 * s,
+                fontWeight: 900,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
                 color: p.ink,
-                marginLeft: large ? 4 : 2,
               }}
             >
               BAUHAUS
             </span>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: large ? 14 : 8 }}>
             <span
               style={{
-                fontFamily: p.body,
+                fontSize: 6 * s,
                 fontWeight: 700,
-                fontSize: large ? 10 : 6.5,
-                letterSpacing: "0.1em",
-                color: p.ink,
-                background: YELLOW,
-                padding: large ? "2px 6px" : "1px 4px",
-                borderRadius: 0,
-              }}
-            >
-              COURSES
-            </span>
-            <span
-              style={{
-                fontFamily: p.body,
-                fontWeight: 700,
-                fontSize: large ? 10 : 6.5,
-                letterSpacing: "0.1em",
                 color: p.muted,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
               }}
             >
-              VISIT
+              WEIMAR · DESSAU
             </span>
-            <span
-              style={{
-                width: large ? 10 : 7,
-                height: large ? 10 : 7,
-                borderRadius: 999,
-                background: p.accent2,
-              }}
-            />
           </div>
+          <span style={{ fontSize: 6.5 * s, fontWeight: 700, color: p.ink }}>
+            1919–1933
+          </span>
         </div>
+
+        {/* Primary Color Modernist Planes and Shapes */}
         <div
+          className="my-auto flex items-center justify-between"
           style={{
-            position: "relative",
-            flex: 1,
-            display: "flex",
-            alignItems: "center",
-            overflow: "hidden",
-            padding: large ? `20px ${pad}px` : `12px ${pad}px`,
+            background: p.surface,
+            border: `2px solid ${p.ink}`,
+            padding: `${12 * s}px ${14 * s}px`,
           }}
         >
-          <div style={{ position: "relative", zIndex: 2, flex: 1 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: large ? 8 : 5, marginBottom: large ? 10 : 6 }}>
-              <span style={{ width: large ? 28 : 16, height: large ? 6 : 4, background: p.accent }} />
-              <span
-                style={{
-                  fontFamily: p.body,
-                  fontWeight: 700,
-                  fontSize: large ? 10 : 6.5,
-                  letterSpacing: "0.15em",
-                  color: p.ink,
-                }}
-              >
-                DESSAU · 1925
-              </span>
-            </div>
+          {/* Asymmetric Typography Column */}
+          <div className="flex-1 pr-3">
             <div
               style={{
-                fontFamily: p.display,
+                fontSize: 6 * s,
                 fontWeight: 800,
-                fontSize: large ? 44 : 19,
-                lineHeight: 0.95,
-                letterSpacing: "-0.01em",
-                color: p.ink,
-                textAlign: "left",
+                color: p.accent,
+                textTransform: "uppercase",
+                letterSpacing: "0.12em",
+                marginBottom: 2 * s,
               }}
             >
-              FORM
-              <br />
-              FOLLOWS
-              <br />
-              FUNCTION.
+              KUNST UND TECHNIK
             </div>
-            <div style={{ width: large ? 120 : 64, height: 2, background: p.ink, margin: large ? "12px 0 8px" : "8px 0 5px" }} />
-            <div style={{ fontFamily: p.body, fontSize: large ? 13 : 8, color: p.muted, lineHeight: 1.4 }}>
-              Circle, triangle, square — the foundation course.
-            </div>
+            <h3
+              style={{
+                fontFamily: p.display,
+                fontSize: 13 * s,
+                fontWeight: 800,
+                lineHeight: 1.15,
+                color: p.ink,
+                letterSpacing: "-0.01em",
+                margin: 0,
+              }}
+            >
+              Eine Neue Einheit: Form Follows Function
+            </h3>
+            <p
+              style={{
+                fontSize: 6.5 * s,
+                color: p.muted,
+                lineHeight: 1.45,
+                margin: `${5 * s}px 0 0 0`,
+              }}
+            >
+              Geometric reduction to primary circle, square, and triangle across industrial materials.
+            </p>
           </div>
-          <div style={{ position: "relative", width: large ? 190 : 96, height: large ? 190 : 96, flexShrink: 0 }}>
+
+          {/* Iconic Bauhaus Primary Geometry Lockup */}
+          <div className="flex items-center" style={{ gap: 4 * s }}>
+            {/* Red Circle */}
             <div
               style={{
-                position: "absolute",
-                right: large ? 52 : 26,
-                top: large ? 6 : 4,
-                width: large ? 110 : 56,
-                height: large ? 110 : 56,
-                borderRadius: 999,
+                width: 22 * s,
+                height: 22 * s,
+                borderRadius: "50%",
                 background: p.accent,
               }}
             />
+            {/* Blue Square */}
             <div
               style={{
-                position: "absolute",
-                right: 0,
-                bottom: large ? 8 : 6,
-                width: 0,
-                height: 0,
-                borderLeft: `${large ? 52 : 27}px solid transparent`,
-                borderRight: `${large ? 52 : 27}px solid transparent`,
-                borderBottom: `${large ? 88 : 46}px solid ${p.accent2}`,
+                width: 20 * s,
+                height: 20 * s,
+                background: p.accent2,
               }}
             />
+            {/* Black Bar */}
             <div
               style={{
-                position: "absolute",
-                left: large ? 6 : 2,
-                bottom: large ? 22 : 12,
-                width: large ? 64 : 32,
-                height: large ? 64 : 32,
-                background: YELLOW,
-                border: `2px solid ${p.ink}`,
-                borderRadius: 0,
+                width: 5 * s,
+                height: 24 * s,
+                background: p.ink,
               }}
             />
           </div>
         </div>
+
+        {/* Strict Modernist Footer Rules */}
         <div
+          className="flex items-center justify-between"
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            background: p.ink,
-            padding: large ? "10px 20px" : "7px 10px",
+            borderTop: `2px solid ${p.ink}`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            fontWeight: 800,
+            textTransform: "uppercase",
+            letterSpacing: "0.08em",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: large ? 8 : 5 }}>
-            <span style={{ width: large ? 10 : 7, height: large ? 10 : 7, background: YELLOW }} />
-            <span
-              style={{
-                fontFamily: p.body,
-                fontWeight: 700,
-                fontSize: large ? 10 : 6.5,
-                letterSpacing: "0.12em",
-                color: p.surface,
-              }}
-            >
-              VORKURS — FALL 1925
-            </span>
-          </div>
-          <div
-            style={{
-              fontFamily: p.display,
-              fontWeight: 700,
-              fontSize: large ? 11 : 7,
-              letterSpacing: "0.08em",
-              color: p.surface,
-              background: p.accent,
-              padding: large ? "8px 16px" : "5px 10px",
-              borderRadius: 0,
-            }}
-          >
-            ENROLL →
-          </div>
+          <span>AUSSTELLUNG 1923</span>
+          <span>WALTER GROPIUS · LEITUNG</span>
+          <span style={{ color: p.accent }}>KATALOG NR. 01</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

@@ -4,28 +4,89 @@ import { Frame, Meta } from "../frame";
 export function JapandiPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="relative flex h-full flex-col overflow-hidden" style={{ background: p.bg, color: p.ink, fontFamily: p.body }}>
-        <div className="flex items-center justify-between" style={{ padding: `${7 * s}px ${12 * s}px`, fontSize: 7 * s, color: p.muted }}>
-          <span style={{ fontFamily: p.display, color: p.ink, fontSize: 8.5 * s }}>和北 WABI</span>
-          <span className="flex" style={{ gap: 9 * s }}><span>Rooms</span><span>Craft</span><span>Journal</span></span>
-          <span style={{ border: `1px solid ${p.accent}`, color: p.accent, borderRadius: 999, padding: `${2 * s}px ${8 * s}px` }}>Catalog</span>
-        </div>
-        <div className="relative flex flex-1 items-end overflow-hidden" style={{ padding: `0 ${12 * s}px ${8 * s}px` }}>
-          <div style={{ position: "absolute", top: 0, bottom: "22%", left: "8%", right: "8%", backgroundImage: `linear-gradient(90deg, ${p.ink}22 1px, transparent 1px)`, backgroundSize: "25% 100%", opacity: 0.5 }} />
-          <div style={{ position: "absolute", left: "8%", right: "8%", bottom: "30%", height: large ? 90 : 54, background: "#C9B79C", borderRadius: "6px 6px 0 0" }} />
-          <div style={{ position: "absolute", left: "14%", bottom: "30%", width: "10%", height: large ? 46 : 28, background: p.accent }} />
-          <div className="relative flex w-full items-end justify-between">
-            <div>
-              <div style={{ fontFamily: p.display, fontSize: large ? 24 : 14, lineHeight: 1.1 }}>Low. Oak.<br />Still.</div>
-              <div style={{ fontSize: 6 * s, color: p.muted, marginTop: 4 * s, letterSpacing: "0.14em" }}>THE LOUNGE COLLECTION →</div>
-            </div>
-            <div style={{ width: 22 * s, height: 34 * s, background: p.accent2, borderRadius: "50% 50% 4px 4px" }} />
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Shoji grid masthead */}
+        <div className="flex items-center justify-between" style={{ borderBottom: `1px solid ${p.ink}15`, paddingBottom: 4 * s }}>
+          <span style={{ fontFamily: p.display, fontSize: 9 * s, letterSpacing: "0.1em", fontWeight: 500 }}>
+            MOKU · 木
+          </span>
+          <div className="flex items-center" style={{ gap: 8 * s, fontSize: 6 * s, color: p.muted }}>
+            <span>Kyoto</span>
+            <span>·</span>
+            <span>Copenhagen</span>
           </div>
         </div>
-        <div className="flex items-center justify-between" style={{ padding: `${6 * s}px ${12 * s}px`, borderTop: `1px solid ${p.ink}22`, fontSize: 6 * s, color: p.muted }}>
-          <span>oiled oak · linen · stone</span><span>Kyoto — Stockholm</span>
+
+        {/* Warm Oak & Bouclé Showcase Card */}
+        <div
+          className="my-auto"
+          style={{
+            background: p.surface,
+            borderRadius: 12 * s,
+            border: `1px solid ${p.ink}10`,
+            boxShadow: `0 ${4 * s}px ${16 * s}px ${p.ink}06`,
+            padding: `${14 * s}px ${16 * s}px`,
+          }}
+        >
+          <div style={{ fontSize: 5.5 * s, color: p.accent, fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase" as const }}>
+            Kyoto Meets Copenhagen
+          </div>
+          <h3
+            style={{
+              fontFamily: p.display,
+              fontSize: 14 * s,
+              fontWeight: 500,
+              lineHeight: 1.2,
+              margin: `${3 * s}px 0 ${5 * s}px 0`,
+            }}
+          >
+            Quiet Warmth &amp; Shoji Rhythms
+          </h3>
+          <p style={{ fontSize: 6.5 * s, color: p.muted, lineHeight: 1.5 }}>
+            Low oak furniture, textured bouclé and clay ceramics, single botanical stems, and warm wabi-sabi restraint.
+          </p>
+          <div className="flex items-center" style={{ gap: 8 * s, marginTop: 8 * s }}>
+            <span
+              style={{
+                background: p.accent,
+                color: p.surface,
+                fontSize: 6 * s,
+                padding: `${4 * s}px ${12 * s}px`,
+                borderRadius: 6 * s,
+              }}
+            >
+              Explore Living
+            </span>
+            <span style={{ fontSize: 6 * s, color: p.muted }}>
+              Handcrafted in oak
+            </span>
+          </div>
+        </div>
+
+        {/* Shoji footer */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `1px solid ${p.ink}12`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            color: p.muted,
+          }}
+        >
+          <span>NATURAL OAK &amp; CLAY</span>
+          <span>SHOJI SCREEN GRID</span>
+          <span style={{ color: p.accent }}>SLOW INTERIORS</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

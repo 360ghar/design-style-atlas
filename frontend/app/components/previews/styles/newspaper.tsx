@@ -2,150 +2,181 @@ import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
 
 export function NewspaperPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
-  const display = `"Times New Roman", Times, serif`;
-  const body = `Georgia, "Times New Roman", serif`;
-  const bg = "#F7F4EC";
-  const surface = "#FFFFFF";
-  const ink = "#1A1A1A";
-  const muted = "#6E6A61";
-  const accent = "#A6192E";
-  const agate = large ? 7 : 5;
-  const cols = [
-    "The council voted 7–2 after a five-hour session. Crews start at the north pier in spring.",
-    "Merchants split on the levy. ‘Density is trust,’ the mayor said. Markets rose on the news.",
-    "Full text and ward maps on page A12. Jump to Metro, col. 4 for the dissent.",
-  ];
+  const p = meta.preview;
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
       <div
-        className="flex h-full flex-col px-[6%] py-[5%]"
-        style={{ backgroundColor: bg, color: ink, fontFamily: body }}
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${10 * s}px ${12 * s}px`,
+        }}
       >
-        <div
-          className="flex items-center justify-between"
-          style={{
-            fontSize: agate,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            fontWeight: 700,
-            color: muted,
-          }}
-        >
-          <span>Vol. CXII — No. 214</span>
-          <span style={{ color: ink }}>Thursday, Sept. 17, 2026</span>
-          <span>
-            Price <span style={{ color: accent }}>One Cent</span>
-          </span>
-        </div>
-        <div
-          style={{
-            textAlign: "center",
-            fontFamily: display,
-            fontWeight: 900,
-            fontSize: large ? 30 : 16,
-            letterSpacing: "-0.01em",
-            lineHeight: 1,
-            marginTop: large ? 6 : 4,
-          }}
-        >
-          The Daily Ledger
-        </div>
-        <div
-          className="flex items-center justify-between"
-          style={{
-            borderTop: `3px solid ${ink}`,
-            borderBottom: `1px solid ${ink}`,
-            marginTop: large ? 6 : 4,
-            padding: large ? "4px 0" : "3px 0",
-            fontSize: agate,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            fontWeight: 700,
-          }}
-        >
-          <span>World</span>
-          <span>Metro</span>
-          <span>Markets ▲</span>
-          <span>Sports</span>
-          <span style={{ color: muted }}>☀ 21°C</span>
-        </div>
-        <div
-          style={{
-            marginTop: large ? 8 : 5,
-            fontSize: agate,
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            fontWeight: 700,
-            color: accent,
-          }}
-        >
-          Lede story — Riverfront vote
-        </div>
-        <div
-          style={{
-            fontFamily: display,
-            fontWeight: 900,
-            fontSize: large ? 17 : 10,
-            lineHeight: 1.05,
-            letterSpacing: "-0.01em",
-            marginTop: 2,
-          }}
-        >
-          City Votes 7–2 to Rebuild the Riverfront
-        </div>
-        <div
-          className="grid grid-cols-3"
-          style={{ marginTop: large ? 6 : 4, flex: 1, minHeight: 0 }}
-        >
-          {cols.map((text, i) => (
-            <div
-              key={i}
-              style={{
-                borderLeft: i === 0 ? "none" : `1px solid ${ink}`,
-                paddingLeft: i === 0 ? 0 : large ? 8 : 5,
-                paddingRight: i === 2 ? 0 : large ? 8 : 5,
-                fontSize: large ? 8 : 5.5,
-                lineHeight: 1.5,
-                textAlign: "justify",
-                hyphens: "auto",
-              }}
-            >
-              {text}
-            </div>
-          ))}
-        </div>
-        <div style={{ borderTop: `3px solid ${ink}`, marginTop: large ? 8 : 5, paddingTop: large ? 5 : 4 }}>
+        {/* Newspaper Flag / Nameplate */}
+        <div>
           <div
+            className="flex items-center justify-between"
             style={{
-              fontSize: agate,
-              letterSpacing: "0.1em",
+              fontSize: 5.5 * s,
+              color: p.muted,
               textTransform: "uppercase",
-              fontWeight: 700,
+              letterSpacing: "0.08em",
+              borderBottom: `1px solid ${p.ink}44`,
+              paddingBottom: 2 * s,
             }}
           >
-            Classifieds <span style={{ color: muted }}>— agate type</span>
+            <span>“The Paper of Record”</span>
+            <span>VOL. CLXXIV · NO. 59,204</span>
+            <span>LATE CITY EDITION · $2.50</span>
           </div>
-          <div className="grid grid-cols-3" style={{ gap: large ? 6 : 4, marginTop: 4 }}>
-            {["For sale: press desk", "Help wanted: carriers", "Notices: folio A14"].map((c) => (
+
+          <div
+            style={{
+              textAlign: "center",
+              padding: `${3 * s}px 0`,
+            }}
+          >
+            <div
+              style={{
+                fontFamily: p.display,
+                fontSize: 16 * s,
+                fontWeight: 900,
+                letterSpacing: "0.04em",
+                color: p.ink,
+                lineHeight: 1,
+              }}
+            >
+              The Metropolitan Gazette
+            </div>
+          </div>
+
+          <div
+            style={{
+              borderTop: `3px solid ${p.ink}`,
+              borderBottom: `1px solid ${p.ink}`,
+              padding: `${2 * s}px 0`,
+              display: "flex",
+              justifyContent: "space-between",
+              fontSize: 5.5 * s,
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+            }}
+          >
+            <span>WASHINGTON</span>
+            <span>INTERNATIONAL</span>
+            <span>BUSINESS</span>
+            <span>SCIENCE</span>
+            <span>ARTS</span>
+          </div>
+        </div>
+
+        {/* Multi-Column Front Page Grid */}
+        <div className="my-auto grid grid-cols-3" style={{ gap: 8 * s }}>
+          {/* Lead Headline Column (spans 2) */}
+          <div className="col-span-2">
+            <h2
+              style={{
+                fontFamily: p.display,
+                fontSize: 13 * s,
+                fontWeight: 800,
+                lineHeight: 1.1,
+                color: p.ink,
+                margin: 0,
+              }}
+            >
+              SENATE APPROVES LANDMARK TRANSIT CORRIDOR ACCORD
+            </h2>
+            <div
+              style={{
+                fontSize: 5.5 * s,
+                fontWeight: 700,
+                color: p.muted,
+                margin: `${3 * s}px 0`,
+                textTransform: "uppercase",
+              }}
+            >
+              By Special Correspondent · Capitol Bureau
+            </div>
+            <p
+              style={{
+                fontSize: 6.5 * s,
+                lineHeight: 1.45,
+                color: p.ink,
+                margin: 0,
+              }}
+            >
+              Following thirty hours of floor debate, legislators passed the $48 billion infrastructure package connecting eastern maritime ports to inland rail hubs.
+            </p>
+          </div>
+
+          {/* Side Column Briefing Well */}
+          <div
+            className="border-l pl-3"
+            style={{
+              borderColor: `${p.ink}33`,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
+            <div>
               <div
-                key={c}
                 style={{
-                  backgroundColor: surface,
-                  border: `1px solid ${ink}`,
-                  padding: large ? "4px 5px" : "3px 4px",
-                  fontSize: large ? 6.5 : 4.5,
-                  fontWeight: 700,
+                  fontSize: 5.5 * s,
+                  fontWeight: 800,
+                  color: p.accent,
                   textTransform: "uppercase",
-                  letterSpacing: "0.06em",
-                  whiteSpace: "nowrap",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
+                  marginBottom: 2 * s,
                 }}
               >
-                {c}
+                NEWS SUMMARY
               </div>
-            ))}
+              <div style={{ fontSize: 6 * s, fontWeight: 700, lineHeight: 1.3 }}>
+                Markets Rally as Central Banks Hold Interest Rates Steady
+              </div>
+              <p
+                style={{
+                  fontSize: 5.5 * s,
+                  color: p.muted,
+                  margin: `${2 * s}px 0 0 0`,
+                  lineHeight: 1.4,
+                }}
+              >
+                European exchanges climbed 1.2% following morning releases.
+              </p>
+            </div>
+            <div
+              style={{
+                fontSize: 5.5 * s,
+                fontWeight: 700,
+                borderTop: `1px solid ${p.ink}22`,
+                paddingTop: 3 * s,
+                color: p.accent,
+              }}
+            >
+              INDEX ON PAGE A12 →
+            </div>
           </div>
+        </div>
+
+        {/* Newsprint Dateline Footer */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `1px solid ${p.ink}44`,
+            paddingTop: 3 * s,
+            fontSize: 5.5 * s,
+            color: p.muted,
+          }}
+        >
+          <span>WEATHER: 64° CLEAR</span>
+          <span>ESTABLISHED 1851 · ALL RIGHTS RESERVED</span>
+          <span>PAGE A1</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

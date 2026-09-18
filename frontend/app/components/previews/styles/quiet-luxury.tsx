@@ -4,22 +4,95 @@ import { Frame, Meta } from "../frame";
 export function QuietLuxuryPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full flex-col" style={{ background: p.bg, color: p.ink, fontFamily: p.body }}>
-        <div className="flex items-center justify-between" style={{ padding: `${8 * s}px ${14 * s}px`, fontSize: 7 * s, color: p.muted }}>
-          <span style={{ letterSpacing: "0.3em" }}>LORO</span>
-          <span>Collection · Atelier · Journal</span>
-          <span>Appointments</span>
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${14 * s}px ${16 * s}px`,
+        }}
+      >
+        {/* Stealth Luxury Header */}
+        <div className="flex items-center justify-between" style={{ borderBottom: `1px solid ${p.ink}10`, paddingBottom: 5 * s }}>
+          <span
+            style={{
+              fontFamily: p.display,
+              fontSize: 8 * s,
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              fontWeight: 400,
+            }}
+          >
+            VALMONT &amp; CIE
+          </span>
+          <span style={{ fontSize: 5.5 * s, letterSpacing: "0.2em", color: p.muted }}>
+            EST. 1892 · GENEVA
+          </span>
         </div>
-        <div className="flex flex-1 flex-col items-center justify-center text-center" style={{ padding: `0 ${14 * s}px` }}>
-          <div style={{ fontSize: 6 * s, letterSpacing: "0.4em", color: p.accent2 }}>AUTUMN — WINTER</div>
-          <div style={{ fontFamily: p.display, fontSize: large ? 32 : 18, marginTop: 6 * s }}>Cashmere, cut close.</div>
-          <div style={{ fontSize: 6.5 * s, color: p.muted, marginTop: 6 * s, maxWidth: large ? 380 : 220 }}>If you know, you know. Private appointments only.</div>
-          <div style={{ background: "#2B2926", color: "#F7F5F0", fontSize: 6 * s, letterSpacing: "0.25em", padding: `${7 * s}px ${20 * s}px`, marginTop: 12 * s }}>ENQUIRE</div>
+
+        {/* Restrained Cashmere Canvas */}
+        <div className="my-auto flex flex-col items-center text-center" style={{ padding: `${8 * s}px 0` }}>
+          <div
+            style={{
+              fontSize: 5.5 * s,
+              letterSpacing: "0.3em",
+              color: p.muted,
+              textTransform: "uppercase",
+              marginBottom: 4 * s,
+            }}
+          >
+            PRIVATE WEALTH ADVISORY
+          </div>
+          <h2
+            style={{
+              fontFamily: p.display,
+              fontSize: 18 * s,
+              fontWeight: 400,
+              fontStyle: "italic",
+              lineHeight: 1.15,
+              color: p.ink,
+              maxWidth: "88%",
+            }}
+          >
+            Quality legible only to those who know.
+          </h2>
+          <p style={{ fontSize: 6.5 * s, color: p.muted, lineHeight: 1.5, maxWidth: "75%", margin: `${6 * s}px 0 ${10 * s}px 0` }}>
+            Exquisite serif headlines, warm cashmere-beige ground, tiny tracked labels, and zero loud logos.
+          </p>
+
+          <span
+            style={{
+              border: `1px solid ${p.ink}33`,
+              color: p.ink,
+              fontSize: 5.5 * s,
+              letterSpacing: "0.25em",
+              textTransform: "uppercase",
+              padding: `${5 * s}px ${16 * s}px`,
+            }}
+          >
+            By Invitation Only
+          </span>
         </div>
-        <div className="flex items-center justify-between" style={{ padding: `${6 * s}px ${14 * s}px`, borderTop: `1px solid ${p.ink}22`, fontSize: 6 * s, color: p.muted }}>
-          <span>Milano · Paris · New York</span><span>№ 04</span>
+
+        {/* Footer */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `1px solid ${p.ink}10`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            letterSpacing: "0.15em",
+            color: p.muted,
+            textTransform: "uppercase",
+          }}
+        >
+          <span>STEALTH WEALTH</span>
+          <span>CASHMERE NEUTRALS</span>
+          <span>DISCRETION FIRST</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

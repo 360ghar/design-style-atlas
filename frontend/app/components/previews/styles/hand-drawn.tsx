@@ -2,12 +2,14 @@ import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
 
 export function HandDrawnPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
-  const bg = "#FFFDF5";
-  const surface = "#FFFFFF";
-  const ink = "#2E2A26";
-  const muted = "#8A8178";
-  const accent = "#E4572E";
-  const accent2 = "#2E86AB";
+  const p = meta.preview;
+  const s = large ? 1.6 : 1;
+  const bg = p.bg;
+  const surface = p.surface;
+  const ink = p.ink;
+  const muted = p.muted;
+  const accent = p.accent;
+  const accent2 = p.accent2;
   const display = "Caveat, Kalam, Comic Sans MS, sans-serif";
   const body = "Karla, Nunito, sans-serif";
   const pad = large ? 18 : 10;

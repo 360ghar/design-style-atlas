@@ -4,27 +4,114 @@ import { Frame, Meta } from "../frame";
 export function DarkAcademiaPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full" style={{ background: p.bg, color: p.ink, fontFamily: p.body }}>
-        <div style={{ width: 6 * s, background: p.accent2, flexShrink: 0 }} />
-        <div className="flex flex-1 flex-col">
-          <div className="flex items-center justify-between" style={{ padding: `${7 * s}px ${10 * s}px`, fontSize: 6.5 * s, letterSpacing: "0.25em", color: p.muted }}>
-            <span>ATHENÆUM</span><span>READING ROOM</span>
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Bodleian Library Header */}
+        <div className="flex items-center justify-between" style={{ borderBottom: `1px solid ${p.accent}44`, paddingBottom: 4 * s }}>
+          <div className="flex items-center" style={{ gap: 6 * s }}>
+            <span style={{ fontFamily: p.display, fontSize: 9 * s, fontStyle: "italic", color: p.accent }}>
+              The Bodleian · Tome IV
+            </span>
           </div>
-          <div className="flex flex-1 flex-col justify-center" style={{ padding: `0 ${10 * s}px` }}>
-            <div style={{ fontSize: 6.5 * s, letterSpacing: "0.3em", color: p.accent }}>VOL. IV · OXFORD · MDCCCXCII</div>
-            <div style={{ fontFamily: p.display, fontSize: large ? 32 : 19, lineHeight: 1.1, marginTop: 6 * s }}>Candlelit<br />scholarship.</div>
-            <div style={{ height: 1, background: p.accent, width: "30%", margin: `${8 * s}px 0 ${6 * s}px` }} />
-            <div style={{ color: p.muted, fontStyle: "italic", fontFamily: "Georgia, serif", fontSize: 7.5 * s }}>oxblood leather · oak · lamp smoke</div>
-            <div className="flex" style={{ gap: 6 * s, marginTop: 9 * s }}>
-              <span style={{ background: p.accent2, color: "#fff", fontSize: 6.5 * s, letterSpacing: "0.2em", padding: `${5 * s}px ${13 * s}px` }}>APPLY →</span>
-              <span style={{ border: `1px solid ${p.accent}`, color: p.accent, fontSize: 6.5 * s, letterSpacing: "0.2em", padding: `${5 * s}px ${13 * s}px` }}>STACKS</span>
-            </div>
+          <span style={{ fontSize: 5.5 * s, color: p.muted, letterSpacing: "0.15em", textTransform: "uppercase" as const }}>
+            ANNO DOMINI MCMXXIV
+          </span>
+        </div>
+
+        {/* Latin Epigraph & Leatherbound Card */}
+        <div
+          className="my-auto"
+          style={{
+            background: p.surface,
+            border: `1px solid ${p.accent}55`,
+            boxShadow: `0 ${6 * s}px ${24 * s}px ${p.ink}22`,
+            padding: `${14 * s}px ${16 * s}px`,
+            position: "relative",
+          }}
+        >
+          {/* Wax seal simulation */}
+          <div
+            style={{
+              position: "absolute",
+              top: 10 * s,
+              right: 12 * s,
+              width: 18 * s,
+              height: 18 * s,
+              borderRadius: "50%",
+              background: p.accent,
+              color: p.surface,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 8 * s,
+              fontFamily: p.display,
+              fontWeight: 700,
+              boxShadow: `0 2px 6px ${p.accent}66`,
+            }}
+          >
+            ✦
           </div>
-          <div className="flex items-center justify-between" style={{ padding: `${6 * s}px ${10 * s}px`, borderTop: `1px solid ${p.ink}22`, fontSize: 6 * s, color: p.muted, fontStyle: "italic", fontFamily: "Georgia, serif" }}>
-            <span>carrels · folio · port</span><span>micm · xxvi</span>
+          <div style={{ fontSize: 5.5 * s, color: p.accent2, letterSpacing: "0.2em", textTransform: "uppercase" as const }}>
+            EPISTULA AD DISCIPULUM
           </div>
+          <h3
+            style={{
+              fontFamily: p.display,
+              fontSize: 14 * s,
+              fontWeight: 400,
+              fontStyle: "italic",
+              lineHeight: 1.2,
+              margin: `${4 * s}px 0 ${6 * s}px 0`,
+              color: p.ink,
+            }}
+          >
+            Carpe Noctem, O Socii
+          </h3>
+          <p style={{ fontSize: 6.5 * s, color: p.muted, lineHeight: 1.5 }}>
+            Candlelit libraries, oxblood leather bindings, brass reading lamps, and Garamond verses penned in the dead of night.
+          </p>
+          <div className="flex items-center" style={{ gap: 8 * s, marginTop: 8 * s }}>
+            <span
+              style={{
+                border: `1px solid ${p.accent}`,
+                color: p.accent,
+                fontSize: 5.5 * s,
+                letterSpacing: "0.15em",
+                padding: `${4 * s}px ${12 * s}px`,
+                textTransform: "uppercase" as const,
+              }}
+            >
+              Inspect Folio
+            </span>
+            <span style={{ fontSize: 6 * s, color: p.muted, fontStyle: "italic" }}>
+              "Per aspera ad astra"
+            </span>
+          </div>
+        </div>
+
+        {/* Footer Latin strip */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `1px solid ${p.accent}33`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            color: p.muted,
+          }}
+        >
+          <span>OXBLOOD &amp; BRASS</span>
+          <span>MARGINALIA ANNOTATIONS</span>
+          <span style={{ color: p.accent }}>LUX IN TENEBRIS</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

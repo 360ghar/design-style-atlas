@@ -3,259 +3,174 @@ import { Frame, Meta } from "../frame";
 
 export function IndustrialBrutalismPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const mono = "ui-monospace, monospace";
-  const hazard = `repeating-linear-gradient(45deg, ${p.accent} 0 8px, #111 8px 16px)`;
-  const gauges: Array<[string, string, string, boolean]> = [
-    ["LOAD", "68%", "68%", false],
-    ["TEMP", "42C", "42%", true],
-    ["TORQ", "9.1K", "72%", false],
-  ];
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
       <div
-        className="flex h-full flex-col"
-        style={{ background: p.bg, color: p.ink, fontFamily: p.body }}
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
       >
-        {/* gantry bar — signature */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: large ? "8px 12px" : "5px 8px",
-            background: "#111",
-            borderBottom: "2px solid #555",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: p.display,
-              fontSize: large ? 15 : 9,
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-            }}
-          >
-            HEAVY<span style={{ color: p.accent }}>{"//"}</span>SYS
-          </span>
-          <span
-            style={{
-              fontFamily: mono,
-              fontSize: large ? 8 : 6,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "#7CFF6B",
-            }}
-          >
-            ● NOMINAL
-          </span>
-        </div>
+        {/* Safety-Yellow Hazard Header */}
+        <div>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center" style={{ gap: 6 * s }}>
+              <span
+                style={{
+                  fontFamily: p.display,
+                  fontSize: 11 * s,
+                  fontWeight: 900,
+                  color: p.bg,
+                  background: p.accent,
+                  padding: `${1 * s}px ${6 * s}px`,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                }}
+              >
+                TURBINE-04
+              </span>
+              <span
+                style={{
+                  fontSize: 6 * s,
+                  fontWeight: 700,
+                  color: p.accent,
+                  border: `1px solid ${p.accent}`,
+                  padding: `${1 * s}px ${5 * s}px`,
+                }}
+              >
+                SECTOR B
+              </span>
+            </div>
+            <span style={{ fontSize: 6 * s, fontWeight: 700, color: p.muted, fontFamily: "monospace" }}>
+              7,420 RPM · NOMINAL
+            </span>
+          </div>
 
-        {/* stencil/mono spec bar */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            padding: large ? "5px 12px" : "3px 8px",
-            borderBottom: "2px solid #555",
-            fontFamily: mono,
-            fontSize: large ? 8 : 5.5,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: p.muted,
-          }}
-        >
-          <span>EST.2019 — PLANT 07</span>
-          <span>40.71N / 74.00W</span>
-        </div>
-
-        {/* steel-panel hero */}
-        <div style={{ padding: large ? "10px 12px 8px" : "6px 8px 5px" }}>
+          {/* 45° Safety Hazard Stripe Divider */}
           <div
             style={{
-              position: "relative",
-              border: "2px solid #555",
-              background: `linear-gradient(180deg, ${p.surface} 0%, ${p.bg} 100%)`,
-              padding: large ? "12px 12px 10px" : "7px 8px 6px",
+              height: 6 * s,
+              margin: `${6 * s}px 0`,
+              backgroundImage: `repeating-linear-gradient(45deg, ${p.accent}, ${p.accent} ${8 * s}px, ${p.bg} ${8 * s}px, ${p.bg} ${16 * s}px)`,
+              border: `1px solid ${p.accent}`,
+            }}
+          />
+        </div>
+
+        {/* Heavy Steel Control Unit Panel */}
+        <div
+          className="my-auto flex flex-col justify-between"
+          style={{
+            background: p.surface,
+            border: `2px solid ${p.muted}44`,
+            padding: `${10 * s}px ${12 * s}px`,
+          }}
+        >
+          <div className="flex items-start justify-between">
+            <div>
+              <div
+                style={{
+                  fontSize: 5.5 * s,
+                  fontWeight: 700,
+                  color: p.accent2,
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                }}
+              >
+                CRITICAL WARNING SYS
+              </div>
+              <h3
+                style={{
+                  fontFamily: p.display,
+                  fontSize: 14 * s,
+                  fontWeight: 900,
+                  letterSpacing: "0.02em",
+                  textTransform: "uppercase",
+                  color: p.ink,
+                  lineHeight: 1.1,
+                  margin: `${3 * s}px 0 0 0`,
+                }}
+              >
+                High-Voltage Bus Primary Feed
+              </h3>
+            </div>
+            <div
+              style={{
+                background: p.bg,
+                border: `1px solid ${p.accent2}`,
+                color: p.accent2,
+                fontSize: 6 * s,
+                fontWeight: 900,
+                padding: `${2 * s}px ${6 * s}px`,
+                fontFamily: "monospace",
+              }}
+            >
+              480V / 3Φ
+            </div>
+          </div>
+
+          <p
+            style={{
+              fontSize: 6.5 * s,
+              color: p.muted,
+              lineHeight: 1.4,
+              margin: `${6 * s}px 0`,
             }}
           >
-            {large ? (
-              <>
-                {["top:5px;left:5px", "top:5px;right:5px", "bottom:5px;left:5px", "bottom:5px;right:5px"].map(
-                  (pos) => {
-                    const [v, h] = pos.split(";");
-                    const [vk, vv] = v.split(":");
-                    const [hk, hv] = h.split(":");
-                    return (
-                      <span
-                        key={pos}
-                        style={{
-                          position: "absolute",
-                          width: 5,
-                          height: 5,
-                          borderRadius: "50%",
-                          background: p.muted,
-                          border: "1px solid #111",
-                          [vk]: vv,
-                          [hk]: hv,
-                        }}
-                      />
-                    );
-                  }
-                )}
-              </>
-            ) : null}
-            <div
+            Machined steel borders, high-contrast caution striping, and condensed stencil instrumentation.
+          </p>
+
+          <div
+            className="flex items-center justify-between"
+            style={{
+              borderTop: `1px solid ${p.muted}33`,
+              paddingTop: 6 * s,
+            }}
+          >
+            <span style={{ fontSize: 6 * s, color: p.muted, fontFamily: "monospace" }}>
+              PRESS RELIEF VALVE: CLOSED
+            </span>
+            <button
+              type="button"
               style={{
-                fontFamily: mono,
-                fontSize: large ? 8 : 5.5,
-                letterSpacing: "0.12em",
+                background: p.accent,
+                color: p.bg,
+                border: "none",
+                borderRadius: 0,
+                fontSize: 6.5 * s,
+                fontWeight: 900,
                 textTransform: "uppercase",
-                color: p.accent,
+                letterSpacing: "0.05em",
+                padding: `${3 * s}px ${10 * s}px`,
+                cursor: "pointer",
               }}
             >
-              SPEC PLATE · UNIT 07
-            </div>
-            <div
-              style={{
-                fontFamily: p.display,
-                fontSize: large ? 30 : 16,
-                lineHeight: 1,
-                letterSpacing: "0.02em",
-                textTransform: "uppercase",
-                marginTop: large ? 5 : 3,
-              }}
-            >
-              BUILT TO <span style={{ color: p.accent }}>HAUL</span>
-            </div>
-            <div
-              style={{
-                fontSize: large ? 10 : 6.5,
-                color: p.muted,
-                marginTop: large ? 4 : 2,
-              }}
-            >
-              Rated steel system. 24/7 duty cycle.
-            </div>
-            <div style={{ display: "flex", gap: large ? 8 : 5, marginTop: large ? 8 : 5 }}>
-              <span
-                style={{
-                  background: p.accent,
-                  color: "#111",
-                  fontFamily: mono,
-                  fontWeight: 700,
-                  fontSize: large ? 8 : 5.5,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  padding: large ? "6px 10px" : "4px 7px",
-                  border: `2px solid ${p.ink}`,
-                }}
-              >
-                ENGAGE
-              </span>
-              <span
-                style={{
-                  color: p.accent,
-                  fontFamily: mono,
-                  fontWeight: 700,
-                  fontSize: large ? 8 : 5.5,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  padding: large ? "6px 10px" : "4px 7px",
-                  border: `2px solid ${p.accent}`,
-                }}
-              >
-                SPECS
-              </span>
-            </div>
+              MANUAL INTERLOCK
+            </button>
           </div>
         </div>
 
-        {/* spec table — signature gauges */}
+        {/* Industrial Metal Stamped Footer */}
         <div
-          className="grid flex-1 grid-cols-3"
-          style={{ gap: large ? 8 : 5, padding: large ? "0 12px" : "0 8px" }}
-        >
-          {gauges.map((g) => (
-            <div
-              key={g[0]}
-              style={{
-                border: "2px solid #555",
-                background: p.surface,
-                padding: large ? 8 : 5,
-              }}
-            >
-              <div
-                style={{
-                  fontSize: large ? 7 : 5,
-                  fontFamily: mono,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: p.muted,
-                }}
-              >
-                SPEC · {g[0]}
-              </div>
-              <div
-                style={{
-                  fontFamily: p.display,
-                  fontSize: large ? 20 : 12,
-                  color: p.accent,
-                }}
-              >
-                {g[1]}
-              </div>
-              <div style={{ background: "#111", height: 5, marginTop: 4 }}>
-                <div
-                  style={{
-                    background: g[3] ? p.accent2 : p.accent,
-                    width: g[2],
-                    height: "100%",
-                  }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* hazard divider */}
-        <div style={{ height: large ? 10 : 7, marginTop: large ? 8 : 5, background: hazard }} />
-
-        {/* spec + warning CTA footer */}
-        <div
+          className="flex items-center justify-between"
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: large ? "7px 12px" : "4px 8px",
-            background: "#111",
-            borderTop: "2px solid #555",
+            borderTop: `1px solid ${p.muted}44`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            fontWeight: 700,
+            color: p.muted,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
           }}
         >
-          <span
-            style={{
-              fontFamily: mono,
-              fontSize: large ? 8 : 5.5,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: p.muted,
-            }}
-          >
-            IP65 · 24/7 DUTY
-          </span>
-          <span
-            style={{
-              background: p.accent2,
-              color: "#111",
-              fontFamily: mono,
-              fontWeight: 700,
-              fontSize: large ? 8 : 5.5,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              padding: large ? "5px 9px" : "3px 6px",
-            }}
-          >
-            ⚠ OVERLOAD
-          </span>
+          <span>OSHA COMPLIANT SPEC</span>
+          <span>PLATE #IN-8890</span>
+          <span style={{ color: p.accent }}>LOCKOUT / TAGOUT</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

@@ -2,298 +2,202 @@ import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
 
 export function DesktopUIPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
-  const bg = "#008080";
-  const surface = "#C0C0C0";
-  const ink = "#111111";
-  const muted = "#555555";
-  const accent = "#000080";
-  const accent2 = "#1084D0";
-  const font = "Tahoma, Verdana, sans-serif";
-
-  const titleSize = large ? 11 : 7.5;
-  const bodySize = large ? 11 : 7;
-  const labelSize = large ? 9 : 6.5;
-  const iconBox = large ? 32 : 22;
-  const taskH = large ? 34 : 24;
-
-  const iconLabel: React.CSSProperties = {
-    marginTop: 3,
-    fontSize: labelSize,
-    lineHeight: 1.1,
-    color: surface,
-    background: bg,
-    padding: "1px 3px",
-    borderRadius: 4,
-    textShadow: `1px 1px 0 ${ink}`,
-    whiteSpace: "nowrap",
-  };
+  const p = meta.preview;
+  const s = large ? 1.6 : 1;
 
   return (
     <Frame meta={meta} large={large}>
       <div
+        className="flex h-full flex-col justify-between"
         style={{
-          position: "absolute",
-          inset: 0,
-          display: "flex",
-          flexDirection: "column",
-          background: bg,
-          fontFamily: font,
-          overflow: "hidden",
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${6 * s}px`,
         }}
       >
-        {/* desktop field: icon grid + open window hero */}
-        <div style={{ flex: 1, display: "flex", gap: large ? 14 : 8, padding: large ? 14 : 8, minHeight: 0 }}>
-          {/* desktop icon grid */}
-          <div style={{ display: "flex", flexDirection: "column", gap: large ? 14 : 8, width: large ? 72 : 48, flexShrink: 0 }}>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <div
-                style={{
-                  width: iconBox,
-                  height: iconBox,
-                  background: surface,
-                  border: `2px solid ${ink}`,
-                  boxShadow: `2px 2px 0 ${ink}`,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <div style={{ width: "60%", height: "48%", background: accent, border: `1px solid ${ink}` }} />
-              </div>
-              <div style={iconLabel}>My PC</div>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <div
-                style={{
-                  width: iconBox,
-                  height: iconBox,
-                  background: surface,
-                  border: `2px solid ${ink}`,
-                  boxShadow: `2px 2px 0 ${ink}`,
-                  position: "relative",
-                }}
-              >
-                <div style={{ position: "absolute", left: 2, top: 2, width: "38%", height: 4, background: muted, border: `1px solid ${ink}` }} />
-                <div style={{ position: "absolute", left: 2, right: 2, bottom: 2, top: 7, background: bg, border: `1px solid ${ink}` }} />
-              </div>
-              <div style={iconLabel}>Files</div>
-            </div>
-            {large ? (
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <div
-                  style={{
-                    width: iconBox,
-                    height: iconBox,
-                    background: surface,
-                    border: `2px solid ${ink}`,
-                    boxShadow: `2px 2px 0 ${ink}`,
-                    display: "flex",
-                    alignItems: "flex-end",
-                    justifyContent: "center",
-                    paddingBottom: 4,
-                    gap: 2,
-                  }}
-                >
-                  <div style={{ width: 3, height: 12, background: muted }} />
-                  <div style={{ width: 3, height: 12, background: muted }} />
-                  <div style={{ width: 3, height: 12, background: muted }} />
-                </div>
-                <div style={iconLabel}>Trash</div>
-              </div>
-            ) : null}
-          </div>
-
-          {/* open window hero with window chrome bar */}
+        {/* Top Desktop Workspace with Classic Window */}
+        <div
+          className="flex-1 flex flex-col justify-between"
+          style={{
+            background: p.surface,
+            border: `2px outset ${p.surface}`,
+            boxShadow: `${4 * s}px ${4 * s}px 0 ${p.ink}44`,
+            padding: `${2 * s}px`,
+            margin: `${4 * s}px`,
+          }}
+        >
+          {/* Classic Navy Titlebar */}
           <div
+            className="flex items-center justify-between"
             style={{
-              flex: 1,
-              minWidth: 0,
-              background: surface,
-              border: `2px solid ${ink}`,
-              boxShadow: large ? `5px 5px 0 ${ink}` : `3px 3px 0 ${ink}`,
-              display: "flex",
-              flexDirection: "column",
-              minHeight: 0,
+              background: p.accent,
+              color: p.surface,
+              padding: `${2 * s}px ${6 * s}px`,
+              fontWeight: 700,
+              fontSize: 6.5 * s,
             }}
           >
-            {/* window chrome bar */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 6,
-                padding: "3px 4px 3px 8px",
-                background: `linear-gradient(90deg, ${accent}, ${accent2})`,
-                color: surface,
-                fontSize: titleSize,
-                fontWeight: 700,
-              }}
-            >
-              <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}>
-                readme.txt
-              </span>
-              <span style={{ display: "flex", gap: 2, flexShrink: 0 }}>
-                {["_", "▢", "×"].map((g) => (
-                  <span
-                    key={g}
-                    style={{
-                      width: large ? 18 : 13,
-                      height: large ? 16 : 12,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      background: surface,
-                      color: ink,
-                      fontSize: large ? 10 : 7,
-                      fontWeight: 700,
-                      lineHeight: 1,
-                      border: `1px solid ${ink}`,
-                      boxShadow: `inset 1px 1px 0 ${surface}, inset -1px -1px 0 ${muted}`,
-                    }}
-                  >
-                    {g}
-                  </span>
-                ))}
-              </span>
-            </div>
-            {/* menu strip */}
-            <div
-              style={{
-                display: "flex",
-                gap: large ? 12 : 7,
-                padding: large ? "4px 10px" : "3px 7px",
-                fontSize: bodySize,
-                color: ink,
-                borderBottom: `1px solid ${muted}`,
-              }}
-            >
-              {["File", "Edit", "View", "Help"].map((m) => (
-                <span key={m}>{m}</span>
-              ))}
-            </div>
-            {/* content well */}
-            <div style={{ flex: 1, padding: large ? 12 : 8, minHeight: 0 }}>
-              <div
+            <span>📁 C:\PROJECTS\ATLAS_OS</span>
+            <div className="flex items-center" style={{ gap: 2 * s }}>
+              <span
                 style={{
-                  background: surface,
-                  border: `2px inset ${muted}`,
-                  padding: large ? 10 : 6,
-                  height: "100%",
-                  overflow: "hidden",
+                  background: p.surface,
+                  color: p.ink,
+                  border: `1px outset ${p.surface}`,
+                  padding: `0 ${3 * s}px`,
+                  fontSize: 5.5 * s,
                 }}
               >
-                <div style={{ fontSize: large ? 16 : 10, fontWeight: 700, color: ink, lineHeight: 1.15 }}>
-                  Double-click anything.
-                </div>
-                <div style={{ fontSize: bodySize, color: ink, marginTop: 4, lineHeight: 1.4 }}>
-                  Every panel is a window.
-                </div>
-                <div style={{ display: "flex", gap: 6, marginTop: large ? 10 : 6 }}>
-                  <span
-                    style={{
-                      fontSize: bodySize,
-                      fontWeight: 700,
-                      color: ink,
-                      background: surface,
-                      border: `2px outset ${muted}`,
-                      padding: large ? "3px 18px" : "2px 12px",
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    OK
-                  </span>
-                  <span
-                    style={{
-                      fontSize: bodySize,
-                      color: muted,
-                      background: surface,
-                      border: `2px outset ${muted}`,
-                      padding: large ? "3px 14px" : "2px 9px",
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    Cancel
-                  </span>
-                </div>
+                _
+              </span>
+              <span
+                style={{
+                  background: p.surface,
+                  color: p.ink,
+                  border: `1px outset ${p.surface}`,
+                  padding: `0 ${3 * s}px`,
+                  fontSize: 5.5 * s,
+                }}
+              >
+                □
+              </span>
+              <span
+                style={{
+                  background: p.surface,
+                  color: p.ink,
+                  border: `1px outset ${p.surface}`,
+                  padding: `0 ${3 * s}px`,
+                  fontSize: 5.5 * s,
+                }}
+              >
+                ✕
+              </span>
+            </div>
+          </div>
+
+          {/* Menu Strip */}
+          <div
+            className="flex items-center"
+            style={{
+              gap: 8 * s,
+              padding: `${2 * s}px ${6 * s}px`,
+              borderBottom: `1px solid ${p.ink}22`,
+              fontSize: 6 * s,
+            }}
+          >
+            <span>File</span>
+            <span>Edit</span>
+            <span>View</span>
+            <span>Help</span>
+          </div>
+
+          {/* Inset Canvas Content Area */}
+          <div
+            className="flex-1 flex flex-col justify-between"
+            style={{
+              background: p.surface,
+              border: `2px inset ${p.surface}`,
+              padding: `${8 * s}px ${10 * s}px`,
+              margin: `${4 * s}px 0`,
+            }}
+          >
+            <div className="grid grid-cols-3" style={{ gap: 6 * s }}>
+              <div
+                className="flex flex-col items-center"
+                style={{
+                  padding: `${4 * s}px`,
+                  fontSize: 6 * s,
+                  textAlign: "center",
+                }}
+              >
+                <div style={{ fontSize: 14 * s }}>💾</div>
+                <span style={{ marginTop: 2 * s }}>Disk 3.5</span>
+              </div>
+              <div
+                className="flex flex-col items-center"
+                style={{
+                  padding: `${4 * s}px`,
+                  background: p.accent,
+                  color: p.surface,
+                  fontSize: 6 * s,
+                  textAlign: "center",
+                }}
+              >
+                <div style={{ fontSize: 14 * s }}>📁</div>
+                <span style={{ marginTop: 2 * s }}>Documents</span>
+              </div>
+              <div
+                className="flex flex-col items-center"
+                style={{
+                  padding: `${4 * s}px`,
+                  fontSize: 6 * s,
+                  textAlign: "center",
+                }}
+              >
+                <div style={{ fontSize: 14 * s }}>⚙️</div>
+                <span style={{ marginTop: 2 * s }}>Control.exe</span>
               </div>
             </div>
-            {/* status bar */}
+
             <div
+              className="flex items-center justify-between"
               style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 6,
-                padding: large ? "4px 8px" : "3px 6px",
-                borderTop: `1px solid ${muted}`,
-                fontSize: bodySize,
-                color: muted,
+                fontSize: 5.5 * s,
+                color: p.muted,
+                borderTop: `1px solid ${p.ink}18`,
+                paddingTop: 4 * s,
               }}
             >
-              <span style={{ flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                3 objects · click clunks
-              </span>
-              <span style={{ width: 10, height: 10, border: `2px outset ${muted}`, flexShrink: 0 }} />
+              <span>3 object(s) selected</span>
+              <span>420 KB free</span>
             </div>
           </div>
         </div>
 
-        {/* taskbar footer */}
+        {/* Desktop Taskbar with Start Button */}
         <div
+          className="flex items-center justify-between"
           style={{
-            height: taskH,
-            flexShrink: 0,
-            background: surface,
-            borderTop: `2px solid ${ink}`,
-            boxShadow: `inset 0 1px 0 ${surface}, inset 0 2px 0 ${muted}`,
-            display: "flex",
-            alignItems: "center",
-            gap: large ? 8 : 5,
-            padding: large ? "3px 8px 3px 96px" : "2px 6px 2px 72px",
+            background: p.surface,
+            borderTop: `2px outset ${p.surface}`,
+            padding: `${2 * s}px ${4 * s}px`,
+            fontSize: 6 * s,
           }}
         >
-          <span
+          <div className="flex items-center" style={{ gap: 4 * s }}>
+            <button
+              type="button"
+              style={{
+                background: p.surface,
+                border: `2px outset ${p.surface}`,
+                padding: `${2 * s}px ${8 * s}px`,
+                fontWeight: 700,
+                fontSize: 6 * s,
+                cursor: "pointer",
+              }}
+            >
+              🪟 Start
+            </button>
+            <div
+              style={{
+                border: `2px inset ${p.surface}`,
+                padding: `${1 * s}px ${6 * s}px`,
+                fontSize: 5.5 * s,
+              }}
+            >
+              C:\PROJECTS
+            </div>
+          </div>
+          <div
             style={{
-              fontSize: bodySize,
-              fontWeight: 700,
-              color: ink,
-              background: surface,
-              border: `2px outset ${muted}`,
-              padding: large ? "2px 12px" : "1px 8px",
-              whiteSpace: "nowrap",
-              lineHeight: 1.3,
+              border: `2px inset ${p.surface}`,
+              padding: `${1 * s}px ${6 * s}px`,
+              fontSize: 5.5 * s,
             }}
           >
-            ▦ Start
-          </span>
-          <span
-            style={{
-              fontSize: bodySize,
-              color: ink,
-              background: surface,
-              border: `2px inset ${muted}`,
-              padding: large ? "2px 10px" : "1px 7px",
-              whiteSpace: "nowrap",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              flex: 1,
-              lineHeight: 1.3,
-            }}
-          >
-            readme.txt
-          </span>
-          <span
-            style={{
-              fontSize: bodySize,
-              color: ink,
-              border: `2px inset ${muted}`,
-              padding: large ? "2px 8px" : "1px 6px",
-              whiteSpace: "nowrap",
-              lineHeight: 1.3,
-              flexShrink: 0,
-            }}
-          >
-            {large ? "2:48 PM" : "2:48"}
-          </span>
+            ⏳ 4:32 PM
+          </div>
         </div>
       </div>
       <Meta meta={meta} large={large} />

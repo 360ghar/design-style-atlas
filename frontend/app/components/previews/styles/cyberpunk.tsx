@@ -4,152 +4,163 @@ import { Frame, Meta } from "../frame";
 export function CyberpunkPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
       <div
-        className="relative flex h-full flex-col overflow-hidden"
-        style={{ background: p.bg, color: p.ink, fontFamily: p.body }}
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
       >
-        {/* rain streaks (§14) + scanlines (§14) */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage: `repeating-linear-gradient(105deg, ${p.accent2}14 0 1px, transparent 1px 14px), repeating-linear-gradient(0deg, ${p.ink}0F 0 1px, transparent 1px 3px)`,
-          }}
-        />
-        {/* neon nav: chrome + Japanese */}
-        <div
-          className="relative flex items-center justify-between gap-2 overflow-hidden whitespace-nowrap"
-          style={{
-            padding: `${7 * s}px ${10 * s}px`,
-            borderBottom: `1px solid ${p.accent2}`,
-            background: p.surface,
-            boxShadow: `0 1px 12px ${p.accent2}55`,
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 6 * s, flexShrink: 0 }}>
-            <span style={{ fontFamily: p.display, fontWeight: 900, fontSize: 9 * s, letterSpacing: "0.08em" }}>
-              KIRA<span style={{ color: p.accent2 }}>{"//"}</span>DYNE
+        {/* Cyberpunk High-Voltage Cyberdeck Header */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center" style={{ gap: 5 * s }}>
+            <span
+              style={{
+                fontFamily: p.display,
+                fontSize: 11 * s,
+                fontWeight: 900,
+                color: p.bg,
+                background: p.accent,
+                padding: `${1 * s}px ${8 * s}px`,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                clipPath: "polygon(0 0, 100% 0, 88% 100%, 0 100%)",
+              }}
+            >
+              ARASAKA★NET
             </span>
-            <span style={{ color: p.accent2, fontSize: 8 * s }}>電脳</span>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 7 * s,
-              fontSize: 5.5 * s,
-              fontWeight: 700,
-              letterSpacing: "0.18em",
-              color: p.muted,
-              flexShrink: 0,
-            }}
-          >
-            <span style={{ color: p.ink }}>WATSON</span>
-            <span className="hidden sm:inline">HEYWOOD</span>
-            <span style={{ display: "flex", gap: 2.5 * s }} aria-hidden="true">
-              {[p.accent, p.accent, p.accent, p.muted, p.muted].map((c, i) => (
-                <i key={i} style={{ width: 4 * s, height: 4 * s, background: c, display: "block", transform: "skewX(-15deg)" }} />
-              ))}
+            <span
+              style={{
+                background: `${p.accent2}18`,
+                color: p.accent2,
+                border: `1px solid ${p.accent2}`,
+                fontSize: 6 * s,
+                fontWeight: 800,
+                padding: `${1 * s}px ${6 * s}px`,
+                boxShadow: `0 0 ${8 * s}px ${p.accent2}66`,
+              }}
+            >
+              ICE: BYPASSED
             </span>
-            <span style={{ fontFamily: "monospace", letterSpacing: "0.05em", color: p.accent2 }}>¥48,210</span>
           </div>
-        </div>
-        {/* ticker seam */}
-        <div
-          className="relative truncate"
-          style={{ background: p.accent, color: p.bg, fontSize: 5.5 * s, fontWeight: 800, letterSpacing: "0.22em", padding: `${2.5 * s}px ${10 * s}px` }}
-        >
-          WANTED LVL 3 — HIGH-TECH LOW-LIFE — NEON ON WET BLACK — 高科技 · 低生活
-        </div>
-        {/* glitch hero */}
-        <div className="relative flex min-w-0 flex-1 items-center overflow-hidden" style={{ padding: `${8 * s}px ${10 * s}px` }}>
-          <span
-            aria-hidden="true"
-            style={{
-              writingMode: "vertical-rl" as const,
-              color: p.accent2,
-              fontSize: 8 * s,
-              letterSpacing: "0.3em",
-              borderLeft: `1px solid ${p.accent2}`,
-              paddingLeft: 3 * s,
-              marginRight: 7 * s,
-              flexShrink: 0,
-            }}
-          >
-            夜の街
+          <span style={{ fontSize: 6.5 * s, color: p.accent, fontFamily: p.display, fontWeight: 700 }}>
+            NEURAL LINK 99% ⚡
           </span>
-          <div style={{ minWidth: 0, flexShrink: 1 }}>
-            <div style={{ color: p.accent, fontSize: 6 * s, fontWeight: 800, letterSpacing: "0.28em", whiteSpace: "nowrap" }}>
-              NIGHT CITY // 02:47 AM
+        </div>
+
+        {/* Central Neon-Bleed Cyber-Chamfer Card */}
+        <div
+          className="my-auto flex flex-col justify-between"
+          style={{
+            background: p.surface,
+            border: `1.5px solid ${p.accent2}`,
+            boxShadow: `0 0 ${20 * s}px ${p.accent2}33, 0 0 ${40 * s}px ${p.bg}`,
+            padding: `${12 * s}px ${14 * s}px`,
+            position: "relative",
+          }}
+        >
+          <div className="flex items-start justify-between">
+            <div>
+              <div
+                style={{
+                  fontSize: 6 * s,
+                  fontWeight: 800,
+                  color: p.accent,
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                }}
+              >
+                Night City Sub-Net · Sector 04
+              </div>
+              <h3
+                style={{
+                  fontFamily: p.display,
+                  fontSize: 14 * s,
+                  fontWeight: 900,
+                  color: p.ink,
+                  textShadow: `0 0 ${10 * s}px ${p.accent2}`,
+                  lineHeight: 1.15,
+                  margin: `${3 * s}px 0 0 0`,
+                }}
+              >
+                High-Tech Low-Life Chrome
+              </h3>
             </div>
             <div
               style={{
+                background: p.accent,
+                color: p.bg,
                 fontFamily: p.display,
                 fontWeight: 900,
-                fontSize: 19 * s,
-                lineHeight: 0.95,
-                marginTop: 4 * s,
-                textShadow: `2px 0 0 ${p.accent}, -2px 0 0 ${p.accent2}`,
+                fontSize: 8 * s,
+                padding: `${2 * s}px ${6 * s}px`,
               }}
             >
-              CHROME
-              <br />
-              UP<span style={{ color: p.accent }}>_</span>
-            </div>
-            <div style={{ display: "flex", alignItems: "center", gap: 6 * s, marginTop: 6 * s }}>
-              <span
-                style={{
-                  fontSize: 6.5 * s,
-                  fontWeight: 800,
-                  letterSpacing: "0.14em",
-                  border: `1.5px solid ${p.accent}`,
-                  color: p.accent,
-                  padding: `${4 * s}px ${8 * s}px`,
-                  background: p.surface,
-                  boxShadow: `0 0 12px ${p.accent}44`,
-                  whiteSpace: "nowrap",
-                }}
-              >
-                JACK IN ▸
-              </span>
-              <span style={{ fontFamily: "monospace", fontSize: 6 * s, color: p.muted, whiteSpace: "nowrap" }}>lat 35.68 / rain 82%</span>
+              OVERCLOCK
             </div>
           </div>
-          {/* chamfered vendor chip */}
-          <div
+
+          <p
             style={{
-              marginLeft: "auto",
-              background: p.surface,
-              border: `1px solid ${p.accent2}`,
-              clipPath: "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)",
-              padding: `${6 * s}px ${8 * s}px`,
-              minWidth: 64 * s,
-              flexShrink: 0,
-              boxShadow: `0 0 16px ${p.accent2}33`,
+              fontSize: 6.5 * s,
+              color: p.muted,
+              lineHeight: 1.45,
+              margin: `${8 * s}px 0`,
             }}
           >
-            <div style={{ fontSize: 5.5 * s, fontWeight: 800, letterSpacing: "0.2em", color: p.accent2 }}>IMPLANT</div>
-            <div style={{ fontFamily: p.display, fontWeight: 800, fontSize: 10 * s }}>¥12.8K</div>
-            <div style={{ fontSize: 5.5 * s, color: p.muted, fontFamily: "monospace" }}>stock: 03 · 渋谷</div>
+            Acid yellow telemetry, rain-slick cyan keylines, hazard chevrons, and neural interface data streams.
+          </p>
+
+          <div
+            className="flex items-center justify-between"
+            style={{
+              borderTop: `1px solid ${p.accent2}33`,
+              paddingTop: 6 * s,
+            }}
+          >
+            <span style={{ fontSize: 6 * s, color: p.muted, fontFamily: "monospace" }}>
+              DECK: MILITECH PARALINE // V7
+            </span>
+            <button
+              type="button"
+              style={{
+                background: p.accent,
+                color: p.bg,
+                border: "none",
+                fontFamily: p.display,
+                fontSize: 6.5 * s,
+                fontWeight: 900,
+                padding: `${4 * s}px ${14 * s}px`,
+                cursor: "pointer",
+                boxShadow: `0 0 ${12 * s}px ${p.accent}`,
+              }}
+            >
+              JACK IN ⏵
+            </button>
           </div>
         </div>
-        {/* stat footer */}
+
+        {/* Footer Dystopian Strip */}
         <div
-          className="relative grid grid-cols-3"
-          style={{ borderTop: `1px solid ${p.accent2}`, background: p.surface }}
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `1px solid ${p.accent2}44`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            fontWeight: 800,
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            color: p.muted,
+          }}
         >
-          {[
-            ["REP", "★★★★☆"],
-            ["HEAT", "LVL 3"],
-            ["UPTIME", "99.2%"],
-          ].map(([k, v], i) => (
-            <div key={k} style={{ padding: `${5 * s}px ${10 * s}px`, borderLeft: i ? `1px solid ${p.muted}` : "none", minWidth: 0 }}>
-              <div style={{ fontSize: 5 * s, fontWeight: 800, letterSpacing: "0.22em", color: p.muted }}>{k}</div>
-              <div style={{ fontFamily: "monospace", fontSize: 7.5 * s, color: i === 1 ? p.accent : p.ink, whiteSpace: "nowrap" }}>{v}</div>
-            </div>
-          ))}
+          <span>✦ ACID YELLOW ACCENT</span>
+          <span>✦ NEON BLEED GLOW</span>
+          <span style={{ color: p.accent2 }}>✦ ZERO PASTEL RETREAT</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

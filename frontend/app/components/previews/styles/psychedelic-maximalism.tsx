@@ -3,122 +3,169 @@ import { Frame, Meta } from "../frame";
 
 export function PsychedelicMaximalismPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const pad = large ? 28 : 14;
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <style>{`
-        @keyframes pm-swirl { to { transform: rotate(360deg) scale(1.15); } }
-        @keyframes pm-drift { 0%,100% { transform: translateY(-4px) rotate(-2deg); } 50% { transform: translateY(5px) rotate(2deg); } }
-        @keyframes pm-marquee { to { transform: translateX(-50%); } }
-        @media (prefers-reduced-motion: reduce) {
-          .pm-swirl, .pm-drift, .pm-marquee-inner { animation: none !important; }
-        }
-      `}</style>
-      <div className="flex h-full flex-col" style={{ background: p.bg, color: p.ink, fontFamily: p.body }}>
-        {/* trippy nav */}
-        <div className="flex items-center justify-between" style={{ padding: `${large ? 16 : 9}px ${pad}px` }}>
-          <span style={{ fontFamily: p.display, fontSize: large ? 20 : 12, color: p.accent, transform: "rotate(-3deg)", textShadow: `0 0 18px ${p.accent}` }}>
-            ✿ voyagé
-          </span>
-          <div className="flex items-center" style={{ gap: large ? 10 : 6 }}>
-            {["Trip", "Lineup"].map((l) => (
-              <span
-                key={l}
-                style={{
-                  fontSize: large ? 11 : 7,
-                  fontWeight: 800,
-                  letterSpacing: "0.14em",
-                  textTransform: "uppercase",
-                  color: p.ink,
-                  border: `1.5px solid ${p.accent2}`,
-                  borderRadius: 999,
-                  padding: large ? "5px 12px" : "3px 8px",
-                  boxShadow: `0 0 14px ${p.accent2}66`,
-                }}
-              >
-                {l}
-              </span>
-            ))}
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Neon Trip Top Banner */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center" style={{ gap: 5 * s }}>
             <span
               style={{
-                fontSize: large ? 11 : 7,
-                fontWeight: 800,
-                letterSpacing: "0.1em",
+                fontFamily: p.display,
+                fontSize: 10 * s,
+                fontWeight: 900,
+                color: p.accent,
+                textShadow: `0 0 ${10 * s}px ${p.accent}`,
+                letterSpacing: "0.08em",
                 textTransform: "uppercase",
-                color: p.bg,
-                background: `linear-gradient(90deg, ${p.accent}, ${p.accent2})`,
-                borderRadius: 999,
-                padding: large ? "6px 14px" : "4px 9px",
-                boxShadow: `0 0 24px ${p.accent}88`,
               }}
             >
-              Get tickets
+              ASTRAL★PLANE
+            </span>
+            <span
+              style={{
+                background: `${p.accent2}22`,
+                color: p.accent2,
+                border: `1px solid ${p.accent2}`,
+                borderRadius: 999,
+                fontSize: 6 * s,
+                fontWeight: 800,
+                padding: `${1 * s}px ${6 * s}px`,
+                boxShadow: `0 0 ${8 * s}px ${p.accent2}66`,
+              }}
+            >
+              LIQUID LIGHT
             </span>
           </div>
-        </div>
-
-        {/* swirling hero with concentric gradients */}
-        <div className="relative flex flex-1 items-center justify-center overflow-hidden text-center" style={{ padding: `0 ${pad}px` }}>
-          <div
-            className="pm-swirl absolute left-1/2 top-1/2"
-            aria-hidden="true"
+          <span
             style={{
-              width: large ? 560 : 320,
-              height: large ? 560 : 320,
-              transform: "translate(-50%, -50%)",
-              background: `repeating-radial-gradient(circle, ${p.accent}55 0 22px, ${p.accent2}44 22px 44px, ${p.surface} 44px 66px)`,
-              borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
-              filter: "blur(1px) saturate(1.3)",
-              animation: "pm-swirl 14s cubic-bezier(0.37,0,0.63,1) infinite alternate",
-              opacity: 0.85,
+              fontSize: 6.5 * s,
+              color: p.accent2,
+              fontFamily: p.display,
+              textShadow: `0 0 ${6 * s}px ${p.accent2}`,
             }}
-          />
-          <div className="absolute inset-0" aria-hidden="true" style={{ background: `radial-gradient(ellipse at 50% 60%, transparent 30%, ${p.bg} 78%)` }} />
-          <div className="relative">
-            <div style={{ fontSize: large ? 11 : 7, fontWeight: 800, letterSpacing: "0.35em", color: p.accent2 }}>✿ 1967 → ∞ ✿</div>
-            <div
-              className="pm-drift"
-              style={{
-                fontFamily: p.display,
-                fontSize: large ? 56 : 30,
-                lineHeight: 0.95,
-                color: p.ink,
-                transform: "rotate(-3deg)",
-                textShadow: `0 0 24px ${p.accent}, 3px 3px 0 ${p.accent2}`,
-                animation: "pm-drift 8s cubic-bezier(0.37,0,0.63,1) infinite",
-                margin: "6px 0",
-              }}
-            >
-              cosmic
-              <br />
-              voyage
+          >
+            TRIP 09 ✺
+          </span>
+        </div>
+
+        {/* Central Fluid Melting Blob Card */}
+        <div
+          className="my-auto flex flex-col justify-between"
+          style={{
+            background: p.surface,
+            borderRadius: `${24 * s}px ${12 * s}px ${28 * s}px ${14 * s}px`,
+            border: `2px solid ${p.accent}`,
+            boxShadow: `0 0 ${20 * s}px ${p.accent}55, 0 0 ${40 * s}px ${p.accent2}33`,
+            padding: `${14 * s}px ${16 * s}px`,
+            position: "relative",
+          }}
+        >
+          <div className="flex items-start justify-between">
+            <div>
+              <div
+                style={{
+                  fontSize: 6 * s,
+                  fontWeight: 800,
+                  color: p.accent2,
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                }}
+              >
+                Kaleidoscopic Vision · 1967
+              </div>
+              <h3
+                style={{
+                  fontFamily: p.display,
+                  fontSize: 15 * s,
+                  fontWeight: 900,
+                  color: p.ink,
+                  textShadow: `0 0 ${12 * s}px ${p.accent}`,
+                  lineHeight: 1.1,
+                  margin: `${3 * s}px 0 0 0`,
+                }}
+              >
+                Melting Type &amp; Liquid Light
+              </h3>
             </div>
             <div
-              className="mx-auto"
+              className="pv-spin-slow"
               style={{
-                maxWidth: large ? 340 : 210,
-                background: `${p.surface}E6`,
-                border: `2px solid ${p.accent}`,
-                borderRadius: 24,
-                padding: large ? "12px 18px" : "8px 12px",
-                boxShadow: `0 0 24px ${p.accent}80, 0 8px 48px ${p.accent}33`,
+                fontSize: 16 * s,
+                color: p.accent2,
+                textShadow: `0 0 ${12 * s}px ${p.accent2}`,
               }}
             >
-              <div style={{ fontSize: large ? 14 : 9, fontWeight: 700 }}>Liquid lights · 3 stages · all night</div>
-              <div style={{ fontSize: large ? 12 : 8, color: p.muted, marginTop: 2 }}>A kaleidoscope poster you can walk inside.</div>
+              🌀
             </div>
+          </div>
+
+          <p
+            style={{
+              fontSize: 7 * s,
+              color: p.muted,
+              lineHeight: 1.5,
+              margin: `${8 * s}px 0`,
+            }}
+          >
+            Organic fluid curves, hallucinogenic neon blooms, and molten letterforms in continuous psychedelic drift.
+          </p>
+
+          <div
+            className="flex items-center justify-between"
+            style={{
+              borderTop: `1px solid ${p.accent}44`,
+              paddingTop: 8 * s,
+            }}
+          >
+            <span style={{ fontSize: 6.5 * s, color: p.accent2, fontWeight: 700 }}>
+              Cosmic Frequency: 432Hz
+            </span>
+            <button
+              type="button"
+              style={{
+                background: p.accent,
+                color: p.bg,
+                border: "none",
+                borderRadius: 999,
+                fontSize: 6.5 * s,
+                fontWeight: 900,
+                padding: `${4 * s}px ${14 * s}px`,
+                cursor: "pointer",
+                boxShadow: `0 0 ${14 * s}px ${p.accent}`,
+              }}
+            >
+              Enter The Void ✦
+            </button>
           </div>
         </div>
 
-        {/* marquee footer */}
-        <div className="overflow-hidden" style={{ borderTop: `2px solid ${p.accent}`, background: p.surface, padding: large ? "10px 0" : "6px 0" }}>
-          <div className="pm-marquee-inner flex whitespace-nowrap" style={{ animation: "pm-marquee 12s linear infinite", width: "max-content" }}>
-            {[0, 1].map((n) => (
-              <span key={n} style={{ fontFamily: p.display, fontSize: large ? 14 : 9, color: p.accent2, paddingRight: 24 }}>
-                ✿ MELT INTO THE MUSIC ✿ LIQUID LIGHTS ✿ COSMIC VOYAGE ✿ MELT INTO THE MUSIC ✿ LIQUID LIGHTS ✿&nbsp;
-              </span>
-            ))}
-          </div>
+        {/* Footer Neon Strip */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `1px solid ${p.accent}44`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            fontWeight: 800,
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            color: p.muted,
+          }}
+        >
+          <span>✦ NEON MAGENTA BLOOM</span>
+          <span>✦ ORGANIC BLOB EDGES</span>
+          <span style={{ color: p.accent2 }}>✦ ZERO BLACK SHADOWS</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

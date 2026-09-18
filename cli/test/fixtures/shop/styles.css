@@ -1,0 +1,22 @@
+/* Fixture: plants exactly 6 violations for the neo-brutalism contract.
+   Violations: off-palette red, hairline border, oversized radius,
+   blurred shadow (also flags the black overlay), foreign display font. */
+.hero {
+  background: #ff3366;                        /* palette violation */
+  border: 1px solid #111111;                  /* border-width violation */
+  border-radius: 16px;                        /* radius violation */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* shadow-hard + palette (black) */
+  font-family: Georgia, serif;                /* fonts violation */
+}
+
+.card {
+  border: 3px solid #111111;
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 #111111;
+  color: var(--ink);
+}
+
+.btn {
+  font-family: Inter, sans-serif;
+  background: #FF5C00;
+}

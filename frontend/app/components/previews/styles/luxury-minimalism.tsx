@@ -3,100 +3,136 @@ import { Frame, Meta } from "../frame";
 
 export function LuxuryMinimalismPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
       <div
-        className="flex h-full flex-col items-center justify-center text-center"
+        className="flex h-full flex-col justify-between"
         style={{
-          padding: large ? "0 12%" : "0 10%",
-          background: `radial-gradient(ellipse 70% 55% at 50% 36%, ${p.accent}14, transparent 70%), ${p.bg}`,
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${16 * s}px ${18 * s}px`,
         }}
       >
+        {/* Top Whispered Folio */}
         <div
+          className="flex items-center justify-between"
           style={{
-            fontFamily: p.body,
-            fontWeight: 500,
-            fontSize: large ? 10 : 7,
-            letterSpacing: "0.55em",
-            paddingLeft: "0.55em",
-            color: p.accent,
-          }}
-        >
-          MAISON
-        </div>
-        <div
-          style={{
-            fontFamily: p.display,
-            fontWeight: 400,
-            color: p.ink,
-            fontSize: large ? 46 : 26,
-            lineHeight: 1.02,
-            letterSpacing: "0.01em",
-            marginTop: large ? 14 : 10,
-          }}
-        >
-          Lumi&egrave;re
-        </div>
-        <div style={{ width: large ? 56 : 40, height: 1, backgroundColor: p.accent, opacity: 0.4, marginTop: large ? 14 : 10 }} />
-        <div
-          style={{
-            fontFamily: p.body,
-            fontStyle: "italic",
+            fontSize: 5.5 * s,
             color: p.muted,
-            fontSize: large ? 12 : 8,
-            marginTop: large ? 10 : 8,
-            lineHeight: 1.4,
+            letterSpacing: "0.25em",
+            textTransform: "uppercase",
           }}
         >
-          Whispered opulence, kept apart.
+          <span>Maison de Haute Horlogerie</span>
+          <span>Genève · N° 08</span>
         </div>
+
+        {/* Central Gold Hairline Frame Plaque */}
         <div
+          className="my-auto flex flex-col justify-between"
           style={{
-            borderTop: `1px solid ${p.accent}66`,
-            borderBottom: `1px solid ${p.accent}66`,
-            marginTop: large ? 14 : 10,
-            padding: large ? "8px 0 8px 0.32em" : "6px 0 6px 0.32em",
-            fontFamily: p.body,
-            fontWeight: 500,
-            fontSize: large ? 9 : 6.5,
-            letterSpacing: "0.32em",
-            color: p.muted,
-            whiteSpace: "nowrap",
-          }}
-        >
-          HAUTE &middot; MMXXVI &middot; PARIS
-        </div>
-        <span
-          style={{
-            display: "inline-block",
-            border: `1px solid ${p.accent}`,
+            background: p.surface,
+            border: `1px solid ${p.accent}55`,
             borderRadius: 0,
-            background: "transparent",
-            color: p.accent,
-            fontFamily: p.body,
-            fontWeight: 500,
-            fontSize: large ? 9 : 6.5,
-            letterSpacing: "0.28em",
-            padding: large ? "11px 26px 11px calc(26px + 0.28em)" : "7px 16px 7px calc(16px + 0.28em)",
-            marginTop: large ? 16 : 10,
-            lineHeight: 1,
+            padding: `${14 * s}px ${16 * s}px`,
+            position: "relative",
           }}
         >
-          PRIVATE VIEWING
-        </span>
+          {/* Inner Hairline Inset */}
+          <div
+            className="pointer-events-none absolute inset-1"
+            style={{ border: `1px solid ${p.accent}22` }}
+          />
+
+          <div style={{ textAlign: "center" }}>
+            <div
+              style={{
+                fontSize: 6 * s,
+                color: p.accent,
+                letterSpacing: "0.25em",
+                textTransform: "uppercase",
+                marginBottom: 4 * s,
+              }}
+            >
+              Pièce Unique · MMXXIV
+            </div>
+            <h3
+              style={{
+                fontFamily: p.display,
+                fontSize: 13 * s,
+                fontWeight: 400,
+                color: p.ink,
+                letterSpacing: "0.06em",
+                lineHeight: 1.2,
+                margin: 0,
+              }}
+            >
+              Chronomètre Souverain
+            </h3>
+            <div
+              style={{
+                fontSize: 6.5 * s,
+                color: p.muted,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                marginTop: 4 * s,
+              }}
+            >
+              Tourbillon Volant · Calibre 1401
+            </div>
+          </div>
+
+          <div
+            className="flex items-center justify-between"
+            style={{
+              marginTop: 10 * s,
+              paddingTop: 8 * s,
+              borderTop: `1px solid ${p.accent}2A`,
+            }}
+          >
+            <span
+              style={{
+                fontSize: 6 * s,
+                color: p.muted,
+                letterSpacing: "0.1em",
+              }}
+            >
+              Platinum 950 · Guilloché Main
+            </span>
+            <button
+              type="button"
+              style={{
+                background: "transparent",
+                color: p.accent,
+                border: `1px solid ${p.accent}`,
+                borderRadius: 0,
+                fontSize: 5.5 * s,
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                padding: `${3 * s}px ${10 * s}px`,
+                cursor: "pointer",
+              }}
+            >
+              Acquérir
+            </button>
+          </div>
+        </div>
+
+        {/* Footer Museum Cadence */}
         <div
+          className="flex items-center justify-between"
           style={{
-            fontFamily: p.body,
-            fontStyle: "italic",
-            fontSize: large ? 9 : 6,
-            letterSpacing: "0.18em",
-            paddingLeft: "0.18em",
-            color: p.accent2,
-            opacity: 0.7,
-            marginTop: large ? 10 : 7,
+            fontSize: 5.5 * s,
+            color: p.muted,
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
           }}
         >
-          by appointment only
+          <span>Sur Invitation Seulement</span>
+          <span>Édition Limitée · 1/1</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

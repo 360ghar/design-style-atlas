@@ -4,28 +4,91 @@ import { Frame, Meta } from "../frame";
 export function WabiSabiPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full" style={{ background: p.bg, color: p.ink, fontFamily: p.body }}>
-        <div className="flex w-[18%] flex-col items-center justify-between" style={{ padding: `${10 * s}px 0`, borderRight: `1px solid ${p.ink}22`, fontSize: 7 * s, color: p.muted }}>
-          <span style={{ writingMode: "vertical-rl", letterSpacing: "0.35em" }}>侘寂</span>
-          <span>◍</span>
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Kintsugi tea master header */}
+        <div className="flex items-center justify-between" style={{ borderBottom: `1px solid ${p.ink}15`, paddingBottom: 4 * s }}>
+          <span style={{ fontFamily: p.display, fontSize: 8.5 * s, fontWeight: 500, letterSpacing: "0.08em" }}>
+            侘寂 · SEN NO RIKYŪ
+          </span>
+          <span style={{ fontSize: 5.5 * s, color: p.accent, fontWeight: 700 }}>
+            KINTSUGI GOLD REPAIR ✦
+          </span>
         </div>
-        <div className="flex flex-1 flex-col">
-          <div className="flex items-center justify-between" style={{ padding: `${7 * s}px ${10 * s}px`, fontSize: 6.5 * s, color: p.muted }}>
-            <span>KILN № 9</span><span>EST. 1974</span>
+
+        {/* Asymmetric Broken-Bowl Card */}
+        <div
+          className="my-auto"
+          style={{
+            background: p.surface,
+            borderRadius: `${18 * s}px ${12 * s}px ${24 * s}px ${8 * s}px`,
+            border: `1px solid ${p.ink}15`,
+            padding: `${14 * s}px ${16 * s}px`,
+            position: "relative",
+          }}
+        >
+          {/* Gold fissure line */}
+          <svg viewBox="0 0 100 12" style={{ width: 80 * s, marginBottom: 4 * s }}>
+            <path d="M0 6 L30 2 L50 8 L75 3 L100 6" fill="none" stroke={p.accent} strokeWidth="1.6" />
+          </svg>
+          <div style={{ fontSize: 5.5 * s, color: p.accent, letterSpacing: "0.15em", textTransform: "uppercase" as const }}>
+            Beauty in Imperfection
           </div>
-          <div className="flex flex-1 items-center" style={{ padding: `0 ${10 * s}px`, gap: 10 * s }}>
-            <div style={{ width: 66 * s, height: 44 * s, flexShrink: 0, background: "#D8CFC0", borderRadius: "46% 54% 52% 48%  / 58% 60% 40% 42%", position: "relative", boxShadow: "0 8px 20px rgba(58,53,44,.15)" }}>
-              <svg viewBox="0 0 100 60" style={{ position: "absolute", inset: 0 }}><path d="M30 5 L45 30 L38 55" fill="none" stroke={p.accent} strokeWidth="3" /></svg>
-            </div>
-            <div>
-              <div style={{ fontFamily: p.display, fontStyle: "italic", fontSize: large ? 20 : 12, lineHeight: 1.15 }}>mended<br />with gold.</div>
-              <div style={{ fontSize: 6 * s, color: p.muted, marginTop: 5 * s }}>nothing lasts · nothing is finished</div>
-              <span style={{ display: "inline-block", border: `1px solid ${p.ink}55`, borderRadius: 999, padding: `${3 * s}px ${9 * s}px`, fontSize: 6 * s, marginTop: 7 * s }}>The repair shelf →</span>
-            </div>
+          <h3
+            style={{
+              fontFamily: p.display,
+              fontSize: 14 * s,
+              fontWeight: 500,
+              lineHeight: 1.2,
+              margin: `${3 * s}px 0 ${5 * s}px 0`,
+            }}
+          >
+            The Mended Ceramic Bowl
+          </h3>
+          <p style={{ fontSize: 6.5 * s, color: p.muted, lineHeight: 1.5 }}>
+            Cracked stoneware joined with real gold lacquer, weathered cedar, moss in the margins, and serene asymmetry.
+          </p>
+          <div className="flex items-center" style={{ gap: 8 * s, marginTop: 8 * s }}>
+            <span
+              style={{
+                border: `1px solid ${p.accent}`,
+                color: p.accent,
+                fontSize: 6 * s,
+                padding: `${4 * s}px ${14 * s}px`,
+                borderRadius: 999,
+              }}
+            >
+              Contemplate 🍵
+            </span>
+            <span style={{ fontSize: 5.5 * s, color: p.muted }}>
+              Impermanent · Incomplete
+            </span>
           </div>
-          <div style={{ padding: `${6 * s}px ${10 * s}px`, borderTop: `1px solid ${p.ink}22`, fontSize: 6 * s, color: p.muted }}>kintsugi · ash glaze · one firing</div>
+        </div>
+
+        {/* Footer */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `1px solid ${p.ink}12`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            color: p.muted,
+          }}
+        >
+          <span>WEATHERED WOOD</span>
+          <span>GOLD LACQUER JOINERY</span>
+          <span style={{ color: p.accent }}>MOSS MARGINS</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

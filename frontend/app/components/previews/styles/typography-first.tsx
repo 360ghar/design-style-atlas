@@ -71,7 +71,7 @@ export function TypographyFirstPreview({ meta, large }: { meta: StyleMeta; large
               You notice it only when the measure is wrong, the leading pinches, or the emphasis
               arrives a beat late.
               <sup style={{ color: p.accent2, fontSize: "0.75em" }}> 1</sup>{" "}
-              <a style={{ color: p.accent2, textDecoration: "underline" }}>Read the rule →</a>
+              <span style={{ color: p.accent2, textDecoration: "underline" }}>Read the rule →</span>
             </p>
             <div className="flex items-center" style={{ gap: large ? 14 : 8, marginTop: large ? 16 : 8 }}>
               <span

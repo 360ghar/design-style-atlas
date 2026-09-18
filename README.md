@@ -255,15 +255,41 @@ Frontmatter carries the machine-readable contract (`slug`, `category`, `tags`, `
 |---|---|
 | `GET /api/styles.json` | Index of all 120 styles (meta, vibes, urls) |
 | `GET /api/<slug>.json` | One style: `slim` (<1500 tokens), `full` spec, `tokens`, `vibes`, `urls` |
+| `GET /api/<slug>.contract.json` | Machine token contract (palette, fonts, radius, shadows, borders) — the audit target |
 | `GET /llms.txt` | Agent entry point listing every style + format |
 
 Each style page has **Copy as** buttons: Full / Slim / Tailwind / CSS vars / JSON.
 
-MCP server (`mcp/server.mjs`, zero deps, stdio) exposes `list_styles`, `get_style`, `match_vibe`:
+MCP server (`mcp/server.mjs`, zero deps, stdio) exposes `list_styles`, `get_style`, `match_vibe`, `get_contract` plus the `verify_style` prompt:
 
 ```json
 { "mcpServers": { "design-styles": { "command": "node", "args": ["/path/to/design-style-atlas/mcp/server.mjs"] } } }
 ```
+
+---
+
+## 🚨 Enforce a style (agents drift, contracts don't)
+
+Handing an agent a DESIGN.md is a suggestion. The audit CLI makes it a contract:
+
+1. **Declare** the style at your repo root — `DESIGN.lock` (also read from `.well-known/design-style.json`):
+
+   ```json
+   { "style": "neo-brutalism", "version": "1.0.0" }
+   ```
+
+2. **Audit** the codebase against the style's token contract:
+
+   ```bash
+   node /path/to/design-style-atlas/cli/audit.mjs .            # report only
+   node /path/to/design-style-atlas/cli/audit.mjs . --ci       # exit 1 on violations
+   ```
+
+   Checks: off-palette hex/rgb colors, foreign primary fonts, border-radius outside the style's range, blurred shadows on hard-shadow styles, hairline borders on thick-border styles. Flags `--style <slug>` skip the lockfile.
+
+3. **Verify in the loop** — agents can self-check before declaring done via the MCP `verify_style` prompt and `get_contract` tool.
+
+Contracts are generated per style from the DESIGN.md body (`frontend/scripts/build-api.mjs`); `null` fields mean "not checkable" and those checks are skipped. Run `npm run test:cli` for the audit smoke tests.
 
 ---
 
@@ -297,6 +323,7 @@ Requires Node 18+.
 │   │   └── lib/styles.ts     ← fs index over ../designs (no duplicated content)
 │   └── scripts/              ← generators (style-definitions, api) + validate
 ├── mcp/                      ← stdio MCP server (zero deps, reads public/api)
+├── cli/                      ← audit CLI (zero deps) + fixture tests
 ├── README.md
 └── CONTRIBUTING.md
 ```

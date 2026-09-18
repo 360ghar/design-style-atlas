@@ -140,6 +140,26 @@ export default async function GuidePage({
               {guide!.snippet}
             </pre>
           </div>
+          <div className="mt-6 border border-[#111110]/20 dark:border-white/15 p-5">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em]">
+              Keep it enforced — agents drift, contracts don&apos;t
+            </p>
+            <ol className="mt-3 space-y-2 text-[14px] leading-relaxed text-[#111110]/80 dark:text-white/80">
+              <li>
+                <strong>1.</strong> Drop a{" "}
+                <code className="font-mono text-[12px]">DESIGN.lock</code> ({`{"style":"<slug>","version":"1.0.0"}`}) at the repo root so any agent or tool can discover the style.
+              </li>
+              <li>
+                <strong>2.</strong> Audit violations (off-palette colors, foreign fonts, bad radii, blurred shadows):{" "}
+                <code className="font-mono text-[12px] break-all">node &lt;atlas-repo&gt;/cli/audit.mjs . --ci</code>
+              </li>
+              <li>
+                <strong>3.</strong> Machines read the token contract at{" "}
+                <code className="font-mono text-[12px]">/api/&lt;slug&gt;.contract.json</code> — wire it into CI or the MCP{" "}
+                <code className="font-mono text-[12px]">verify_style</code> prompt.
+              </li>
+            </ol>
+          </div>
         </div>
       </div>
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">

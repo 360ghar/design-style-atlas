@@ -3,134 +3,159 @@ import { Frame, Meta } from "../frame";
 
 export function PostBrutalismPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const mono = "ui-monospace, SFMono-Regular, Menlo, monospace";
-  const pad = large ? 14 : 10;
-  const rows: Array<{ title: string; tag: string; accentEdge: boolean }> = [
-    { title: "Brand system", tag: "FIN — 24", accentEdge: true },
-    { title: "Exhibition", tag: "BER — 12", accentEdge: false },
-  ];
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div style={{ display: "flex", flexDirection: "column", height: "100%", background: p.bg }}>
-        {/* refined-raw nav: ruled bar, wordmark, index links, availability */}
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Refined Modular Header */}
         <div
+          className="flex items-center justify-between"
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 8,
-            background: p.surface,
             borderBottom: `1.5px solid ${p.ink}`,
-            padding: large ? "9px 14px" : "7px 10px",
+            paddingBottom: 6 * s,
           }}
         >
-          <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
-            <span style={{ fontFamily: p.display, fontWeight: 800, fontSize: large ? 13 : 9.5, color: p.ink, letterSpacing: "-0.02em" }}>
-              STUDIO®
-            </span>
-            <span style={{ fontFamily: mono, fontSize: large ? 8 : 6, color: p.muted, letterSpacing: "0.1em" }}>IDX—04</span>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: large ? 12 : 8 }}>
-            <span style={{ fontFamily: mono, fontSize: large ? 8 : 6, color: p.ink, borderBottom: `1.5px solid ${p.accent}` }}>01 Work</span>
-            <span style={{ fontFamily: mono, fontSize: large ? 8 : 6, color: p.muted }}>02 Index</span>
-            <span style={{ display: "flex", alignItems: "center", gap: 4, fontFamily: mono, fontSize: large ? 8 : 6, color: p.muted }}>
-              <span style={{ width: large ? 6 : 5, height: large ? 6 : 5, borderRadius: "50%", background: p.accent2 }} />
-              Q3 ●
-            </span>
-          </div>
-        </div>
-
-        {/* softened hard-shadow hero */}
-        <div style={{ borderBottom: `1.5px solid ${p.ink}`, padding: `${pad}px ${pad}px ${pad + 2}px` }}>
-          <div style={{ fontFamily: mono, fontSize: large ? 8 : 6, letterSpacing: "0.12em", color: p.muted }}>
-            PORTFOLIO 2026 — RAW / REFINED
-          </div>
-          <div
-            style={{
-              fontFamily: p.display,
-              fontWeight: 750,
-              fontSize: large ? 27 : 19,
-              lineHeight: 0.98,
-              letterSpacing: "-0.025em",
-              color: p.ink,
-              marginTop: large ? 8 : 6,
-            }}
-          >
-            Raw structure,
-            <br />
-            tailored finish.
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: large ? 10 : 8 }}>
+          <div className="flex items-center" style={{ gap: 6 * s }}>
             <span
               style={{
-                fontFamily: p.body,
-                fontWeight: 600,
-                fontSize: large ? 10 : 7.5,
-                color: p.surface,
-                background: p.accent,
-                border: `2px solid ${p.ink}`,
-                borderRadius: 4,
-                padding: large ? "6px 12px" : "4px 9px",
-                boxShadow: `3px 3px 0 ${p.ink}`,
+                fontFamily: p.display,
+                fontSize: 9 * s,
+                fontWeight: 700,
+                color: p.ink,
+                letterSpacing: "-0.01em",
               }}
             >
-              Start a project →
+              Post·Brutalist Lab
             </span>
-            <span style={{ fontFamily: mono, fontSize: large ? 8 : 6, color: p.ink, borderBottom: `1.5px solid ${p.accent}` }}>
-              See index
+            <span
+              style={{
+                fontSize: 6 * s,
+                fontWeight: 600,
+                background: p.surface,
+                border: `1px solid ${p.ink}`,
+                borderRadius: 4 * s,
+                padding: `${1 * s}px ${5 * s}px`,
+              }}
+            >
+              SYS 03
             </span>
+          </div>
+          <span style={{ fontSize: 6.5 * s, color: p.muted, fontWeight: 500 }}>
+            Structured / Refined
+          </span>
+        </div>
+
+        {/* Central Refined Structural Card */}
+        <div
+          className="my-auto flex flex-col justify-between"
+          style={{
+            background: p.surface,
+            border: `1.5px solid ${p.ink}`,
+            borderRadius: 4 * s,
+            padding: `${12 * s}px ${14 * s}px`,
+          }}
+        >
+          <div className="flex items-start justify-between">
+            <div>
+              <div
+                style={{
+                  fontSize: 6 * s,
+                  fontWeight: 600,
+                  color: p.accent2,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                }}
+              >
+                Architectural Grid
+              </div>
+              <h3
+                style={{
+                  fontFamily: p.display,
+                  fontSize: 13 * s,
+                  fontWeight: 700,
+                  color: p.ink,
+                  lineHeight: 1.2,
+                  margin: `${3 * s}px 0 0 0`,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                Brutalism Softened by Editorial Order
+              </h3>
+            </div>
+            <span
+              style={{
+                width: 8 * s,
+                height: 8 * s,
+                borderRadius: "50%",
+                background: p.accent,
+                display: "inline-block",
+              }}
+            />
+          </div>
+
+          <p
+            style={{
+              fontSize: 7 * s,
+              color: p.muted,
+              lineHeight: 1.5,
+              margin: `${8 * s}px 0`,
+            }}
+          >
+            Honest structural bones preserved, but paired with measured margins, refined Neue Haas type, and electric blue restraint.
+          </p>
+
+          <div
+            className="flex items-center justify-between"
+            style={{
+              borderTop: `1px solid ${p.ink}15`,
+              paddingTop: 8 * s,
+            }}
+          >
+            <span style={{ fontSize: 6 * s, fontWeight: 600, color: p.muted }}>
+              Plate 04 · Modularity
+            </span>
+            <button
+              type="button"
+              style={{
+                background: p.accent,
+                color: p.surface,
+                border: `1.5px solid ${p.ink}`,
+                borderRadius: 4 * s,
+                boxShadow: `${3 * s}px ${3 * s}px 0 ${p.ink}`,
+                fontSize: 6.5 * s,
+                fontWeight: 600,
+                padding: `${4 * s}px ${12 * s}px`,
+                cursor: "pointer",
+              }}
+            >
+              Explore Frame →
+            </button>
           </div>
         </div>
 
-        {/* rounded-border card row */}
-        <div style={{ display: "flex", gap: large ? 10 : 7, padding: `${pad}px`, flex: 1 }}>
-          {rows.map((r) => (
-            <div
-              key={r.title}
-              style={{
-                flex: 1,
-                background: p.surface,
-                border: `1.5px solid ${p.ink}`,
-                borderLeft: r.accentEdge ? `4px solid ${p.accent}` : `1.5px solid ${p.ink}`,
-                borderRadius: 4,
-                padding: large ? "10px 11px" : "7px 8px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                gap: large ? 10 : 7,
-              }}
-            >
-              <div style={{ fontFamily: mono, fontSize: large ? 7.5 : 5.5, letterSpacing: "0.1em", color: p.muted }}>
-                {r.tag}
-              </div>
-              <div style={{ fontFamily: p.display, fontWeight: 700, fontSize: large ? 13 : 9.5, color: p.ink, letterSpacing: "-0.01em" }}>
-                {r.title}
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontFamily: mono, fontSize: large ? 7.5 : 5.5, color: p.muted }}>CASE — 04</span>
-                <span style={{ fontFamily: mono, fontSize: large ? 10 : 7.5, color: p.accent }}>→</span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* refined footer */}
+        {/* Footer Technical Grid Note */}
         <div
+          className="flex items-center justify-between"
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            background: p.surface,
-            borderTop: `1.5px solid ${p.ink}`,
-            padding: large ? "8px 14px" : "6px 10px",
-            fontFamily: mono,
-            fontSize: large ? 7.5 : 5.5,
-            letterSpacing: "0.08em",
+            borderTop: `1px solid ${p.ink}22`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
             color: p.muted,
+            letterSpacing: "0.05em",
           }}
         >
-          <span>©2026 STUDIO — SPEC 04</span>
-          <span>GRID / TYPE / COLOR</span>
+          <span>4PX FUNCTIONAL RADIUS</span>
+          <span>1.5PX INK STRUCTURE</span>
+          <span>RATIONED ACCENT</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

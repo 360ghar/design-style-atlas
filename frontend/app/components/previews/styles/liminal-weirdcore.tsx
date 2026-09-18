@@ -2,25 +2,107 @@ import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
 
 export function LiminalWeirdcorePreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
+  const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="relative flex h-full flex-col overflow-hidden" style={{ background: "linear-gradient(180deg,#E4E1D8,#CFCBC0)", color: "#2B2B2B" }}>
-        <div className="flex items-center justify-between" style={{ padding: `${7 * s}px ${12 * s}px`, fontFamily: "monospace", fontSize: 6.5 * s, zIndex: 2 }}>
-          <span>CAM 04 · HALLWAY B</span><span style={{ color: "#C81E1E" }}>● LIVE</span>
+      <div
+        className="relative flex h-full flex-col justify-between overflow-hidden"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Fluorescent hum flicker */}
+        <div style={{ position: "absolute", top: 0, left: "20%", right: "20%", height: 2 * s, background: p.accent, opacity: 0.5, boxShadow: `0 0 ${12 * s}px ${p.accent}` }} />
+
+        {/* Backrooms level header */}
+        <div className="relative flex items-center justify-between" style={{ zIndex: 1 }}>
+          <span style={{ fontFamily: "monospace", fontSize: 6.5 * s, color: p.accent, letterSpacing: "0.1em" }}>
+            [LEVEL 0 // MONO-YELLOW]
+          </span>
+          <span style={{ fontFamily: "monospace", fontSize: 5.5 * s, color: p.muted }}>
+            DEPTH: UNKNOWN
+          </span>
         </div>
-        <div className="relative flex flex-1 flex-col items-center justify-center">
-          <div className="absolute inset-x-0 top-[18%] flex justify-center opacity-40" style={{ gap: "8%" }}>
-            {[0, 1, 2, 3].map((i) => <span key={i} style={{ width: 16 * s, height: 6 * s, background: "#FFFDE8", boxShadow: "0 0 12px #FFFDE8" }} />)}
+
+        {/* Eerie Backrooms Notice Card */}
+        <div
+          className="relative my-auto flex flex-col justify-between"
+          style={{
+            background: p.surface,
+            border: `1px solid ${p.accent}55`,
+            boxShadow: `0 0 ${20 * s}px ${p.bg}`,
+            padding: `${14 * s}px ${16 * s}px`,
+            zIndex: 1,
+          }}
+        >
+          <div>
+            <div style={{ fontSize: 5.5 * s, color: p.accent, fontFamily: "monospace", letterSpacing: "0.2em", textTransform: "uppercase" as const }}>
+              NON-EUCLIDEAN NOTICE
+            </div>
+            <h2
+              style={{
+                fontFamily: p.display,
+                fontSize: 15 * s,
+                fontWeight: 900,
+                color: p.ink,
+                letterSpacing: "-0.01em",
+                margin: `${4 * s}px 0 ${6 * s}px 0`,
+                lineHeight: 1.1,
+              }}
+            >
+              YOU ARE HERE.
+              <br />
+              <span style={{ color: p.accent2 }}>NO ONE ELSE IS.</span>
+            </h2>
           </div>
-          <div style={{ background: "#111", color: "#fff", fontFamily: "monospace", fontSize: 6.5 * s, padding: `${5 * s}px ${12 * s}px`, zIndex: 2 }}>LEVEL 0 — THE LOBBY</div>
-          <div style={{ fontFamily: "monospace", fontSize: 6 * s, marginTop: 8 * s, color: "#C81E1E", zIndex: 2 }}>EXIT →&nbsp;&nbsp;&nbsp;YOU ARE HERE ●</div>
-          <div className="flex" style={{ gap: 6 * s, marginTop: 9 * s, zIndex: 2 }}>
-            <span style={{ border: "1px solid #2B2B2B", fontFamily: "monospace", fontSize: 6 * s, padding: `${4 * s}px ${12 * s}px` }}>Noclip →</span>
+
+          <p style={{ fontSize: 6.5 * s, color: p.muted, lineHeight: 1.5 }}>
+            Damp carpet underfoot, infinite wallpaper partitions, and distant hums from dead fluorescent tubes.
+          </p>
+
+          <div
+            className="flex items-center justify-between"
+            style={{
+              borderTop: `1px solid ${p.accent}33`,
+              paddingTop: 6 * s,
+              marginTop: 6 * s,
+            }}
+          >
+            <span style={{ fontSize: 5.5 * s, color: p.muted, fontFamily: "monospace" }}>
+              EXIT: NOT LOCATED
+            </span>
+            <span
+              style={{
+                background: p.accent,
+                color: p.bg,
+                fontFamily: "monospace",
+                fontSize: 6 * s,
+                fontWeight: 900,
+                padding: `${2 * s}px ${10 * s}px`,
+              }}
+            >
+              KEEP WALKING ⏵
+            </span>
           </div>
         </div>
-        <div className="flex items-center justify-between" style={{ padding: `${6 * s}px ${12 * s}px`, fontFamily: "monospace", fontSize: 6 * s, zIndex: 2, borderTop: "1px solid #2B2B2B33" }}>
-          <span>poolrooms · level !</span><span>hum 60hz</span>
+
+        {/* Footer */}
+        <div
+          className="relative flex items-center justify-between"
+          style={{
+            fontSize: 5.5 * s,
+            fontFamily: "monospace",
+            color: p.muted,
+            zIndex: 1,
+          }}
+        >
+          <span>60HZ FLUORESCENT HUM</span>
+          <span style={{ color: p.accent }}>LIMINAL ANOMALY</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

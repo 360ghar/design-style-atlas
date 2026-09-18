@@ -4,29 +4,111 @@ import { Frame, Meta } from "../frame";
 export function AfrofuturismPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full flex-col" style={{ background: `radial-gradient(circle at 80% 10%, ${p.accent2}33, transparent 45%), radial-gradient(circle at 15% 85%, ${p.accent}2e, transparent 50%), ${p.bg}`, color: p.ink }}>
-        <div style={{ height: 5 * s, background: `repeating-linear-gradient(90deg, ${p.accent} 0 14px, ${p.accent2} 14px 20px, ${p.ink} 20px 26px)` }} />
-        <div className="flex items-center justify-between" style={{ padding: `${7 * s}px ${12 * s}px`, fontSize: 7 * s }}>
-          <span style={{ fontFamily: p.display, color: p.accent, letterSpacing: "0.14em" }}>✦ SOLSTICE</span>
-          <span className="flex" style={{ gap: 9 * s, color: p.muted }}><span>Lore</span><span>Starships</span><span>Tour</span></span>
-          <span style={{ background: p.accent, color: "#120D1E", borderRadius: 999, padding: `${3 * s}px ${10 * s}px`, fontWeight: 700 }}>Board →</span>
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Cosmic tribal header */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center" style={{ gap: 6 * s }}>
+            <span style={{
+              fontFamily: p.display,
+              fontSize: 10 * s,
+              fontWeight: 900,
+              background: `linear-gradient(135deg, ${p.accent}, ${p.accent2})`,
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+            }}>
+              WAKANDA.SYS
+            </span>
+            <span style={{
+              background: `${p.accent2}22`,
+              color: p.accent2,
+              border: `1px solid ${p.accent2}55`,
+              fontSize: 5.5 * s,
+              fontWeight: 700,
+              padding: `${1 * s}px ${6 * s}px`,
+              borderRadius: 99,
+            }}>
+              ✧ STELLAR
+            </span>
+          </div>
+          <span style={{ fontSize: 6 * s, color: p.accent, fontFamily: p.display }}>◈ ◈ ◈</span>
         </div>
-        <div className="flex flex-1 flex-col justify-center" style={{ padding: `0 ${12 * s}px` }}>
-          <div style={{ fontSize: 7 * s, letterSpacing: "0.3em", color: p.accent2 }}>✦ SOL · ANCESTOR · STARSHIP</div>
-          <div style={{ fontFamily: p.display, color: p.accent, fontSize: large ? 36 : 20, lineHeight: 1.02, marginTop: 6 * s }}>GOLD IS<br />SACRED.</div>
-          <div style={{ color: p.muted, fontSize: 7.5 * s, marginTop: 6 * s }}>Kente geometry · mudcloth rhythm · percussion layout</div>
-          <div className="flex" style={{ gap: 6 * s, marginTop: 9 * s }}>
-            <span style={{ border: `1px solid ${p.accent}`, color: p.accent, borderRadius: 999, padding: `${4 * s}px ${12 * s}px`, fontSize: 6.5 * s, fontWeight: 700 }}>LISTEN →</span>
-            <span style={{ fontSize: 6.5 * s, color: p.muted, alignSelf: "center" }}>12 tracks · 48 min</span>
+
+        {/* Central Ancestral-Futurist Panel */}
+        <div
+          className="my-auto"
+          style={{
+            background: p.surface,
+            border: `1.5px solid ${p.accent}44`,
+            borderRadius: 6 * s,
+            padding: `${14 * s}px ${16 * s}px`,
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          {/* Geometric pattern accent */}
+          <div style={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            width: "35%",
+            height: "100%",
+            background: `repeating-linear-gradient(45deg, ${p.accent}08 0px, ${p.accent}08 4px, transparent 4px, transparent 12px)`,
+          }} />
+          <div style={{ fontSize: 6 * s, fontWeight: 800, color: p.accent, letterSpacing: "0.15em", textTransform: "uppercase" as const }}>
+            Ancestral Future Protocol
+          </div>
+          <h3 style={{
+            fontFamily: p.display,
+            fontSize: 14 * s,
+            fontWeight: 900,
+            lineHeight: 1.15,
+            margin: `${4 * s}px 0 ${6 * s}px 0`,
+          }}>
+            Heritage Meets Cosmos
+          </h3>
+          <p style={{ fontSize: 6.5 * s, color: p.muted, lineHeight: 1.5 }}>
+            Kente geometry, Adinkra symbolism, and cosmic metallics forged into digital interfaces.
+          </p>
+          <div className="flex items-center" style={{ gap: 8 * s, marginTop: 8 * s }}>
+            <span style={{
+              background: p.accent,
+              color: p.bg,
+              fontSize: 6.5 * s,
+              fontWeight: 800,
+              padding: `${4 * s}px ${14 * s}px`,
+              borderRadius: 4 * s,
+            }}>
+              Enter the Archive
+            </span>
+            <span style={{ color: p.accent2, fontSize: 6 * s, fontWeight: 700 }}>
+              ✦ Sun Ra Station
+            </span>
           </div>
         </div>
-        <div className="flex items-center justify-between" style={{ padding: `${6 * s}px ${12 * s}px`, borderTop: `1px solid ${p.accent}44`, fontSize: 6 * s, color: p.muted }}>
-          <span>Lagos · Bahia · Atlanta</span><span>◍ tour MMXXVI</span>
+
+        {/* Footer cosmic strip */}
+        <div
+          className="flex items-center justify-between"
+          style={{ fontSize: 5.5 * s, color: p.muted, borderTop: `1px solid ${p.accent}33`, paddingTop: 4 * s, letterSpacing: "0.08em", textTransform: "uppercase" as const }}
+        >
+          <span>◆ GOLD METALLICS</span>
+          <span>◆ ADINKRA GEOMETRY</span>
+          <span style={{ color: p.accent2 }}>◆ COSMIC PALETTE</span>
         </div>
-        <Meta meta={meta} large={large} />
       </div>
+      <Meta meta={meta} large={large} />
     </Frame>
   );
 }

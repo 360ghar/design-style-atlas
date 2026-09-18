@@ -123,12 +123,12 @@ export function CardBasedUIPreview({ meta, large }: { meta: StyleMeta; large?: b
             >
               Featured
             </span>
-            <span style={{ position: "absolute", top: large ? 7 : 5, right: large ? 7 : 5, background: "color-mix(in srgb, #000 28%, transparent)", color: p.surface, fontSize: fs.meta, borderRadius: 999, padding: large ? "2px 7px" : "1px 5px" }}>
+            <span style={{ position: "absolute", top: large ? 7 : 5, right: large ? 7 : 5, background: `color-mix(in srgb, ${p.ink} 28%, transparent)`, color: p.surface, fontSize: fs.meta, borderRadius: 999, padding: large ? "2px 7px" : "1px 5px" }}>
               4 min
             </span>
             <div style={{ display: "flex", gap: 4, alignItems: "flex-end" }}>
               {[42, 68, 52, 80].map((h, i) => (
-                <div key={i} style={{ flex: 1, height: large ? h * 0.42 : h * 0.24, borderRadius: 3, background: "color-mix(in srgb, #fff 88%, transparent)", opacity: i === 3 ? 1 : 0.75 }} />
+                <div key={i} style={{ flex: 1, height: large ? h * 0.42 : h * 0.24, borderRadius: 3, background: `color-mix(in srgb, ${p.surface} 88%, transparent)`, opacity: i === 3 ? 1 : 0.75 }} />
               ))}
             </div>
           </div>

@@ -76,6 +76,118 @@ function cssVars(p) {
   return `:root {\n  --bg: ${p.bg};\n  --surface: ${p.surface};\n  --ink: ${p.ink};\n  --muted: ${p.muted};\n  --accent: ${p.accent};\n  --accent-2: ${p.accent2};\n  --font-display: ${p.display};\n  --font-body: ${p.body};\n}`;
 }
 
+function pxNumbers(text) {
+  return [...String(text).matchAll(/(\d+(?:\.\d+)?)px/gi)]
+    .map((m) => parseFloat(m[1]))
+    .filter((n) => Number.isFinite(n));
+}
+
+function hexesIn(text) {
+  return [...String(text).matchAll(/#[0-9a-fA-F]{6}\b/g)].map((m) => m[0].toUpperCase());
+}
+
+/** "0–6px" / "2-3px" ranges beat loose px scans (bare range starts have no px suffix). */
+function rangeIn(text) {
+  const m = String(text).match(/(\d+(?:\.\d+)?)\s*(?:–|—|-|to)\s*(\d+(?:\.\d+)?)\s*px/i);
+  if (!m) return null;
+  const a = parseFloat(m[1]);
+  const b = parseFloat(m[2]);
+  return [Math.min(a, b), Math.max(a, b)];
+}
+
+function extractRadius(text) {
+  const pill = /pill|fully? round|999px/i.test(text) || pxNumbers(text).some((n) => n >= 100) ? 999 : null;
+  const sane = pxNumbers(text).filter((n) => n >= 0 && n < 100);
+  const range = rangeIn(text);
+  const min = range ? range[0] : sane.length ? Math.min(...sane) : null;
+  const max = range ? range[1] : sane.length ? Math.max(...sane) : null;
+  if (min === null && max === null && !pill) return null;
+  return { min: min ?? 0, max: max ?? 0, pill };
+}
+
+function extractBorder(text) {
+  const width = rangeIn(text)
+    ?? (() => {
+      const nums = pxNumbers(text).filter((n) => n > 0 && n <= 16);
+      return nums.length ? [Math.min(...nums), Math.max(...nums)] : null;
+    })();
+  const color = hexesIn(text)[0] ?? null;
+  if (!width && !color) return null;
+  return { style: "solid", width, color };
+}
+
+function extractShadow(text) {
+  const hard = /hard|zero blur|no blur|blur\s*(?:is\s*)?0|offset shadow/i.test(text);
+  const soft = /soft|blurry|diffuse|ambient/i.test(text);
+  const style = hard ? "hard" : soft ? "soft" : null;
+  const off = String(text).match(/(\d+(?:\.\d+)?)px\s+(\d+(?:\.\d+)?)px/i);
+  const color = hexesIn(text)[0] ?? null;
+  if (!style && !off && !color) return null;
+  return {
+    style,
+    offset: off ? [parseFloat(off[1]), parseFloat(off[2])] : null,
+    color,
+    blur: style === "hard" ? 0 : null,
+  };
+}
+
+function extractSpacing(text) {
+  const m = String(text).match(/(\d+(?:\.\d+)?)px\s+base/i)
+    ?? String(text).match(/base unit[^.]*?(\d+(?:\.\d+)?)px/i);
+  return m ? { base: parseFloat(m[1]) } : null;
+}
+
+function primaryFamily(stack) {
+  return String(stack).split(",")[0].trim().replace(/^["']|["']$/g, "");
+}
+
+function familiesIn(stack) {
+  return String(stack)
+    .split(",")
+    .map((s) => s.trim().replace(/^["']|["']$/g, ""))
+    .filter(Boolean)
+    .map((s) => s.toLowerCase());
+}
+
+/** Machine-checkable token contract extracted from the DESIGN.md body.
+ *  Consumed by cli/audit.mjs and MCP get_contract; null fields mean "no
+ *  checkable data" and the corresponding check is skipped downstream. */
+function buildContract(meta, content, urls) {
+  const p = meta.preview;
+  const fonts = {
+    display: primaryFamily(p.display),
+    body: primaryFamily(p.body),
+    displayStack: familiesIn(p.display),
+    bodyStack: familiesIn(p.body),
+  };
+  const contract = {
+    slug: meta.slug,
+    version: "1.0.0",
+    generatedFrom: `designs/${meta.slug}/DESIGN.md`,
+    palette: {
+      bg: String(p.bg ?? "").toUpperCase(),
+      surface: String(p.surface ?? "").toUpperCase(),
+      ink: String(p.ink ?? "").toUpperCase(),
+      muted: String(p.muted ?? "").toUpperCase(),
+      accent: String(p.accent ?? "").toUpperCase(),
+      accent2: String(p.accent2 ?? "").toUpperCase(),
+    },
+    fonts,
+    spacing: extractSpacing(section(content, 4)),
+    border: extractBorder(section(content, 6)),
+    shadow: extractShadow(section(content, 7)),
+    radius: extractRadius(section(content, 8)),
+    checks: [],
+  };
+  if (Object.values(contract.palette).every(Boolean)) contract.checks.push("palette");
+  if (fonts.display && fonts.body) contract.checks.push("fonts");
+  if (contract.border?.width) contract.checks.push("border-width");
+  if (contract.shadow?.style === "hard") contract.checks.push("shadow-hard");
+  if (contract.radius) contract.checks.push("radius");
+  contract.urls = urls;
+  return contract;
+}
+
 function tailwindSnippet(p) {
   return `// tailwind.config.js — theme.extend\n{\n  colors: {\n    bg: "${p.bg}",\n    surface: "${p.surface}",\n    ink: "${p.ink}",\n    muted: "${p.muted}",\n    accent: "${p.accent}",\n    accent2: "${p.accent2}",\n  },\n  fontFamily: {\n    display: [${p.display.split(",").map((s) => `"${s.trim()}"`).join(", ")}],\n    body: [${p.body.split(",").map((s) => `"${s.trim()}"`).join(", ")}],\n  },\n}`;
 }
@@ -138,6 +250,7 @@ for (const slug of slugs) {
       page: `${SITE}/styles/${slug}`,
       raw: `${SITE}/designs/${slug}/DESIGN.md`,
       api: `${SITE}/api/${slug}.json`,
+      contract: `${SITE}/api/${slug}.contract.json`,
     },
     tokens: {
       cssVars: cssVars(meta.preview),
@@ -147,6 +260,8 @@ for (const slug of slugs) {
     full,
   };
   writeFileSync(join(apiDir, `${slug}.json`), JSON.stringify(out, null, 2) + "\n", "utf8");
+  const contract = buildContract(meta, content, out.urls);
+  writeFileSync(join(apiDir, `${slug}.contract.json`), JSON.stringify(contract, null, 2) + "\n", "utf8");
   index.push({
     slug: meta.slug,
     name: meta.name,
@@ -187,6 +302,13 @@ const llms = [
   `- tokens.tailwind — theme.extend snippet`,
   `- slim — <1500-token prompt for tight context windows`,
   `- full — complete DESIGN.md body`,
+  ``,
+  `## Enforcement (machine contracts)`,
+  `- Token contract per style: ${SITE}/api/<slug>.contract.json (palette, fonts, radius, shadows, borders)`,
+  `- Example: ${SITE}/api/neo-brutalism.contract.json`,
+  `- Declare a repo's style in DESIGN.lock at the repo root: {"style":"<slug>","version":"1.0.0"}`,
+  `- Audit a repo against the contract: node <atlas-repo>/cli/audit.mjs <path> [--style <slug>] [--ci]`,
+  `- Agents: before declaring UI work done, verify output against the contract (see MCP verify_style prompt).`,
   ``,
 ].join("\n");
 writeFileSync(llmsPath, llms, "utf8");

@@ -1,135 +1,170 @@
 import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
-import type { ReactNode } from "react";
-
-function HardCard({ large, bg, children }: { large?: boolean; bg: string; children: ReactNode }) {
-  return (
-    <div
-      style={{
-        background: bg,
-        border: "3px solid #111111",
-        borderRadius: 4,
-        boxShadow: large ? "6px 6px 0 #111111" : "4px 4px 0 #111111",
-        padding: large ? "10px 14px" : "6px 10px",
-      }}
-    >
-      {children}
-    </div>
-  );
-}
 
 export function NeoBrutalismPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full flex-col justify-center px-[7%]">
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Punchy Neo-Brutalist Top Bar */}
         <div className="flex items-center justify-between">
+          <div className="flex items-center" style={{ gap: 6 * s }}>
+            <span
+              style={{
+                fontFamily: p.display,
+                fontSize: 10 * s,
+                fontWeight: 900,
+                color: p.ink,
+                background: p.accent,
+                border: `2px solid ${p.ink}`,
+                boxShadow: `${2 * s}px ${2 * s}px 0 ${p.ink}`,
+                padding: `${1 * s}px ${6 * s}px`,
+              }}
+            >
+              NEO★LAB
+            </span>
+            <span
+              style={{
+                fontSize: 6 * s,
+                fontWeight: 700,
+                color: p.ink,
+                background: p.surface,
+                border: `1.5px solid ${p.ink}`,
+                borderRadius: 999,
+                padding: `${1 * s}px ${6 * s}px`,
+              }}
+            >
+              ⚡ V2.4 DROP
+            </span>
+          </div>
           <span
             style={{
-              background: p.ink,
-              color: p.surface,
-              border: `3px solid ${p.ink}`,
-              boxShadow: `3px 3px 0 ${p.accent}`,
-              fontFamily: p.display,
-              fontSize: large ? 10 : 7,
-              fontWeight: 900,
-              letterSpacing: "0.04em",
-              padding: large ? "4px 8px" : "3px 6px",
-              lineHeight: 1,
-            }}
-          >
-            NB★
-          </span>
-          <span
-            style={{
-              background: p.accent2,
-              color: p.surface,
-              border: `3px solid ${p.ink}`,
-              borderRadius: 999,
-              boxShadow: `3px 3px 0 ${p.ink}`,
-              fontFamily: p.body,
-              fontSize: large ? 9 : 6.5,
-              fontWeight: 900,
-              letterSpacing: "0.06em",
-              padding: large ? "4px 12px" : "3px 10px",
-              width: "fit-content",
-              transform: "rotate(2deg)",
-              lineHeight: 1,
-            }}
-          >
-            ★ NEW DROP
-          </span>
-        </div>
-        <div
-          style={{
-            fontFamily: p.display,
-            color: p.ink,
-            fontSize: large ? 34 : 19,
-            lineHeight: 0.95,
-            marginTop: large ? 12 : 8,
-            textTransform: "uppercase",
-          }}
-        >
-          LOUD.
-          <br />
-          PROUD.
-          <br />
-          <span
-            style={{
-              display: "inline-block",
-              background: p.accent,
+              fontSize: 6.5 * s,
+              fontWeight: 700,
               color: p.ink,
-              padding: "0 8px",
-              border: `3px solid ${p.ink}`,
-              boxShadow: large ? "5px 5px 0 #111111" : "3px 3px 0 #111111",
-              transform: "rotate(-1deg)",
-              marginTop: 4,
+              textDecoration: "underline",
             }}
           >
-            SHIPPED.
+            CATALOG →
           </span>
         </div>
-        <div className="flex gap-2" style={{ marginTop: large ? 14 : 8 }}>
-          <HardCard large={large} bg={p.accent}>
-            <span
-              style={{
-                color: p.ink,
-                fontFamily: p.body,
-                fontWeight: 900,
-                fontSize: large ? 10 : 7,
-                letterSpacing: "0.06em",
-                lineHeight: 1,
-              }}
-            >
-              GET IT →
-            </span>
-          </HardCard>
-          <HardCard large={large} bg={p.surface}>
-            <span
-              style={{
-                color: p.ink,
-                fontFamily: p.body,
-                fontWeight: 900,
-                fontSize: large ? 10 : 7,
-                letterSpacing: "0.06em",
-                lineHeight: 1,
-              }}
-            >
-              DOCS
-            </span>
-          </HardCard>
-        </div>
+
+        {/* Central High-Contrast Hard-Shadow Card */}
         <div
+          className="my-auto flex flex-col justify-between"
           style={{
-            color: p.muted,
-            fontFamily: p.body,
-            fontSize: large ? 8 : 6,
-            fontWeight: 800,
-            letterSpacing: "0.08em",
-            marginTop: large ? 10 : 6,
+            background: p.surface,
+            border: `2.5px solid ${p.ink}`,
+            boxShadow: `${4 * s}px ${4 * s}px 0 ${p.ink}`,
+            padding: `${12 * s}px ${14 * s}px`,
           }}
         >
-          NO SUBTLETY • SHIPS LOUD
+          <div className="flex items-start justify-between">
+            <div>
+              <span
+                style={{
+                  fontSize: 5.5 * s,
+                  fontFamily: p.display,
+                  fontWeight: 800,
+                  color: p.surface,
+                  background: p.accent2,
+                  border: `1.5px solid ${p.ink}`,
+                  padding: `${1 * s}px ${5 * s}px`,
+                  boxShadow: `${1.5 * s}px ${1.5 * s}px 0 ${p.ink}`,
+                }}
+              >
+                PRO ASSET KIT
+              </span>
+              <h3
+                style={{
+                  fontFamily: p.display,
+                  fontSize: 13 * s,
+                  fontWeight: 900,
+                  color: p.ink,
+                  lineHeight: 1.15,
+                  margin: `${4 * s}px 0 0 0`,
+                }}
+              >
+                Zero Blur. 100% Contrast.
+              </h3>
+            </div>
+            <div
+              style={{
+                background: p.accent,
+                border: `2px solid ${p.ink}`,
+                boxShadow: `${2 * s}px ${2 * s}px 0 ${p.ink}`,
+                fontFamily: p.display,
+                fontWeight: 900,
+                fontSize: 10 * s,
+                color: p.ink,
+                padding: `${2 * s}px ${6 * s}px`,
+                transform: "rotate(-3deg)",
+              }}
+            >
+              $49
+            </div>
+          </div>
+
+          <p
+            style={{
+              fontSize: 7 * s,
+              fontWeight: 500,
+              color: p.ink,
+              margin: `${8 * s}px 0`,
+              lineHeight: 1.4,
+            }}
+          >
+            Hard offset shadows, 2.5px solid black borders, and saturated citrus fills.
+          </p>
+
+          <div className="flex items-center justify-between">
+            <span style={{ fontSize: 6 * s, fontWeight: 700, color: p.muted }}>
+              Includes 120 vector assets
+            </span>
+            <button
+              type="button"
+              style={{
+                background: p.accent,
+                color: p.ink,
+                border: `2px solid ${p.ink}`,
+                boxShadow: `${3 * s}px ${3 * s}px 0 ${p.ink}`,
+                fontFamily: p.display,
+                fontWeight: 800,
+                fontSize: 7 * s,
+                padding: `${4 * s}px ${12 * s}px`,
+                cursor: "pointer",
+              }}
+            >
+              CLAIM PACK →
+            </button>
+          </div>
+        </div>
+
+        {/* Footer Marquee Strip Style */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `2px solid ${p.ink}`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            fontWeight: 800,
+            textTransform: "uppercase",
+            letterSpacing: "0.08em",
+          }}
+        >
+          <span>✦ NO SOFT SHADOWS</span>
+          <span>✦ HARD CORNERS</span>
+          <span>✦ GUMROAD VIBES</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

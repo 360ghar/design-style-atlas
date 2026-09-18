@@ -4,22 +4,105 @@ import { Frame, Meta } from "../frame";
 export function ConversationalAIPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full flex-col" style={{ background: p.bg, color: p.ink, fontFamily: p.body }}>
-        <div className="flex items-center justify-between" style={{ padding: `${7 * s}px ${12 * s}px`, fontSize: 7 * s, borderBottom: `1px solid ${p.ink}14` }}>
-          <span style={{ fontWeight: 700 }}>✳ Assistant</span>
-          <span style={{ color: p.muted }}>History · Library</span>
-          <span style={{ border: `1px solid ${p.ink}33`, borderRadius: 999, padding: `${2 * s}px ${8 * s}px` }}>+ New chat</span>
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* AI Agent Header */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center" style={{ gap: 5 * s }}>
+            <div style={{
+              width: 10 * s,
+              height: 10 * s,
+              borderRadius: "50%",
+              background: `linear-gradient(135deg, ${p.accent}, ${p.accent2})`,
+            }} />
+            <span style={{ fontFamily: p.display, fontSize: 8 * s, fontWeight: 700 }}>
+              Atlas AI
+            </span>
+          </div>
+          <span style={{
+            fontSize: 5.5 * s,
+            color: p.accent,
+            fontWeight: 600,
+            background: `${p.accent}15`,
+            padding: `${2 * s}px ${8 * s}px`,
+            borderRadius: 99,
+          }}>
+            ● Online
+          </span>
         </div>
-        <div className="flex flex-1 flex-col justify-center" style={{ gap: 7 * s, padding: `${8 * s}px ${12 * s}px` }}>
-          <div style={{ alignSelf: "flex-start", background: p.surface, border: `1px solid ${p.ink}1e`, borderRadius: "2px 14px 14px 14px", padding: `${5 * s}px ${8 * s}px`, fontSize: 7.5 * s, maxWidth: "80%", boxShadow: "0 1px 2px rgba(0,0,0,.05)" }}>Streaming answer — calm, cited, complete ▍</div>
-          <div style={{ alignSelf: "flex-end", background: p.accent, color: "#fff", borderRadius: "14px 14px 2px 14px", padding: `${5 * s}px ${8 * s}px`, fontSize: 7.5 * s }}>Summarize this spec for me</div>
-          <div style={{ alignSelf: "flex-start", fontSize: 6.5 * s, color: p.muted, fontFamily: "monospace" }}>✓ 3 sources · 0.8s · no hallucination</div>
+
+        {/* Chat Bubbles */}
+        <div className="my-auto flex flex-col" style={{ gap: 6 * s }}>
+          {/* AI response */}
+          <div style={{
+            background: p.surface,
+            borderRadius: `${10 * s}px ${10 * s}px ${10 * s}px ${2 * s}px`,
+            padding: `${8 * s}px ${10 * s}px`,
+            maxWidth: "82%",
+            border: `1px solid ${p.ink}10`,
+          }}>
+            <p style={{ fontSize: 6.5 * s, lineHeight: 1.5, margin: 0 }}>
+              I can help you explore design styles. Each one has a unique personality — what mood are you after?
+            </p>
+            <span style={{ fontSize: 5 * s, color: p.muted, marginTop: 2 * s, display: "block" }}>
+              Atlas · just now
+            </span>
+          </div>
+          {/* User message */}
+          <div style={{
+            background: p.accent,
+            color: p.bg,
+            borderRadius: `${10 * s}px ${10 * s}px ${2 * s}px ${10 * s}px`,
+            padding: `${8 * s}px ${10 * s}px`,
+            maxWidth: "72%",
+            alignSelf: "flex-end",
+            fontSize: 6.5 * s,
+            lineHeight: 1.5,
+          }}>
+            Something calm and intelligent
+          </div>
+          {/* Typing indicator */}
+          <div className="flex items-center" style={{ gap: 3 * s, padding: `${4 * s}px ${6 * s}px` }}>
+            <div className="pv-blink" style={{ width: 4 * s, height: 4 * s, borderRadius: "50%", background: p.accent2 }} />
+            <div className="pv-blink" style={{ width: 4 * s, height: 4 * s, borderRadius: "50%", background: p.accent2, animationDelay: "0.2s" }} />
+            <div className="pv-blink" style={{ width: 4 * s, height: 4 * s, borderRadius: "50%", background: p.accent2, animationDelay: "0.4s" }} />
+          </div>
         </div>
-        <div className="flex items-center" style={{ margin: `0 ${12 * s}px ${8 * s}px`, gap: 6 * s, background: p.surface, border: `1px solid ${p.ink}22`, borderRadius: 999, padding: `${5 * s}px ${10 * s}px`, fontSize: 7 * s, color: p.muted }}>
-          <span style={{ flex: 1 }}>Ask anything…</span>
-          <span style={{ background: p.accent, color: "#fff", borderRadius: "50%", width: 16 * s, height: 16 * s, display: "inline-flex", alignItems: "center", justifyContent: "center" }}>↑</span>
+
+        {/* Input Bar */}
+        <div
+          className="flex items-center"
+          style={{
+            background: p.surface,
+            border: `1px solid ${p.ink}12`,
+            borderRadius: 99,
+            padding: `${5 * s}px ${6 * s}px ${5 * s}px ${12 * s}px`,
+            gap: 6 * s,
+          }}
+        >
+          <span style={{ flex: 1, fontSize: 6 * s, color: p.muted }}>Ask me anything…</span>
+          <span style={{
+            background: p.accent,
+            color: p.bg,
+            borderRadius: "50%",
+            width: 18 * s,
+            height: 18 * s,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 8 * s,
+            fontWeight: 700,
+          }}>↑</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

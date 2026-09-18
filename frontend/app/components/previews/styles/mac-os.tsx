@@ -1,199 +1,180 @@
 import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
 
-const BG = "#E8E6DF";
-const SURFACE = "#F2F0EB";
-const INK = "#2B2B2B";
-const MUTED = "#5F5B54";
-const ACCENT = "#0B5FFF";
-const ACCENT2 = "#FF9F00";
-const DISPLAY = "Charcoal, Chicago, Geneva, sans-serif";
-const BODY = "Geneva, Verdana, Helvetica Neue, sans-serif";
-
 export function MacOSPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
-  const menuFs = large ? 8.5 : 5.5;
-  const titleFs = large ? 9 : 6.5;
-  const bodyFs = large ? 9 : 6.5;
-  const iconFs = large ? 22 : 13;
-  const dot = large ? 9 : 6;
+  const p = meta.preview;
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full flex-col" style={{ background: BG, color: INK, fontFamily: BODY }}>
-        {/* menu bar */}
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${6 * s}px`,
+        }}
+      >
+        {/* System 9 Platinum Top Menu Bar */}
         <div
+          className="flex items-center justify-between"
           style={{
-            background: SURFACE,
-            borderBottom: `1px solid ${MUTED}`,
-            display: "flex",
-            alignItems: "center",
-            gap: large ? 10 : 6,
-            padding: large ? "5px 10px" : "3px 7px",
-            fontSize: menuFs,
-            lineHeight: 1,
+            background: p.surface,
+            borderBottom: `1px solid ${p.ink}33`,
+            padding: `${2 * s}px ${8 * s}px`,
+            fontSize: 6 * s,
+            boxShadow: `0 1px 2px ${p.ink}15`,
           }}
         >
-          <span style={{ fontSize: large ? 11 : 7 }}>&#63743;</span>
-          <strong style={{ fontFamily: DISPLAY }}>Finder</strong>
-          <span>File</span>
-          <span>Edit</span>
-          <span>View</span>
-          <span>Special</span>
-          <span style={{ marginLeft: "auto", color: MUTED }}>Wed 2:04 PM &#8981;</span>
+          <div className="flex items-center" style={{ gap: 8 * s }}>
+            <span style={{ fontSize: 7 * s }}></span>
+            <span style={{ fontWeight: 700 }}>File</span>
+            <span>Edit</span>
+            <span>View</span>
+            <span>Special</span>
+            <span>Help</span>
+          </div>
+          <div className="flex items-center" style={{ gap: 6 * s }}>
+            <span>Finder</span>
+            <span>⏳ 10:42 AM</span>
+          </div>
         </div>
 
-        {/* aqua window hero */}
-        <div className="flex-1" style={{ padding: large ? 14 : 8 }}>
+        {/* Platinum Pinstripe Window */}
+        <div
+          className="my-auto flex flex-col justify-between"
+          style={{
+            background: p.surface,
+            border: `1.5px solid ${p.ink}44`,
+            borderRadius: 5 * s,
+            boxShadow: `0 ${4 * s}px ${16 * s}px ${p.ink}22`,
+            padding: `${2 * s}px`,
+            margin: `${6 * s}px`,
+          }}
+        >
+          {/* Classic Pinstripe Titlebar */}
           <div
+            className="flex items-center justify-between"
             style={{
-              background: SURFACE,
-              border: `1px solid ${MUTED}`,
-              borderRadius: 4,
-              boxShadow: "0 4px 16px rgba(43,43,43,0.18)",
-              overflow: "hidden",
+              background: `repeating-linear-gradient(180deg, ${p.surface}, ${p.surface} 1px, ${p.ink}22 1px, ${p.ink}22 2px)`,
+              borderBottom: `1px solid ${p.ink}44`,
+              padding: `${3 * s}px ${6 * s}px`,
             }}
           >
+            {/* Square Close Box */}
             <div
               style={{
-                background: `repeating-linear-gradient(0deg, ${BG} 0 2px, ${SURFACE} 2px 3px)`,
-                borderBottom: `1px solid ${MUTED}`,
-                display: "flex",
-                alignItems: "center",
-                padding: large ? "6px 10px" : "4px 7px",
+                width: 8 * s,
+                height: 8 * s,
+                border: `1px solid ${p.ink}66`,
+                background: p.surface,
+                boxShadow: `inset 1px 1px 0 ${p.surface}`,
+              }}
+            />
+
+            <span
+              style={{
+                fontFamily: p.display,
+                fontSize: 6.5 * s,
+                fontWeight: 700,
+                background: p.surface,
+                padding: `0 ${6 * s}px`,
+                color: p.ink,
               }}
             >
-              <div style={{ display: "flex", gap: large ? 5 : 3 }}>
-                {[ACCENT2, ACCENT, MUTED].map((c) => (
-                  <span
-                    key={c}
-                    style={{
-                      width: dot,
-                      height: dot,
-                      borderRadius: 999,
-                      background: c,
-                      border: `1px solid ${INK}`,
-                      display: "block",
-                    }}
-                  />
-                ))}
-              </div>
-              <div style={{ flex: 1, textAlign: "center", fontFamily: DISPLAY, fontSize: titleFs }}>
-                Macintosh HD
-              </div>
-              <div style={{ width: large ? 34 : 22 }} />
-            </div>
+              Macintosh HD (System 9.2)
+            </span>
 
-            <div style={{ display: "flex" }}>
-              <div
-                style={{
-                  width: large ? 84 : 56,
-                  borderRight: `1px solid ${MUTED}`,
-                  padding: large ? 8 : 5,
-                  fontSize: bodyFs,
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: large ? 5 : 3,
-                }}
-              >
-                {["Applications", "Documents", "Music"].map((t, i) => (
-                  <div
-                    key={t}
-                    style={{
-                      borderRadius: 4,
-                      padding: large ? "3px 6px" : "2px 4px",
-                      background: i === 1 ? ACCENT : "transparent",
-                      color: i === 1 ? SURFACE : INK,
-                    }}
-                  >
-                    {t}
-                  </div>
-                ))}
-                <div
+            {/* Collapse Box */}
+            <div
+              style={{
+                width: 8 * s,
+                height: 8 * s,
+                border: `1px solid ${p.ink}66`,
+                background: p.surface,
+              }}
+            />
+          </div>
+
+          {/* Platinum Canvas Inset */}
+          <div
+            style={{
+              background: p.surface,
+              padding: `${10 * s}px ${12 * s}px`,
+            }}
+          >
+            <div className="flex items-start justify-between">
+              <div>
+                <h3
                   style={{
-                    marginTop: "auto",
-                    borderRadius: 999,
-                    background: `linear-gradient(180deg, ${SURFACE} 0%, ${ACCENT} 55%, ${ACCENT} 100%)`,
-                    color: SURFACE,
-                    textAlign: "center",
-                    padding: large ? "4px 6px" : "3px 4px",
+                    fontFamily: p.display,
+                    fontSize: 12 * s,
                     fontWeight: 700,
-                    boxShadow: `0 0 0 1px ${ACCENT}, 0 0 8px rgba(11,95,255,0.55)`,
+                    color: p.ink,
+                    lineHeight: 1.2,
+                    margin: 0,
                   }}
                 >
-                  Install
-                </div>
+                  Classic Platinum Architecture
+                </h3>
+                <p
+                  style={{
+                    fontSize: 6.5 * s,
+                    color: p.muted,
+                    lineHeight: 1.45,
+                    margin: `${4 * s}px 0 0 0`,
+                  }}
+                >
+                  Horizontal pinstripes, Chicago typography, and iconic tactile Aqua gel buttons.
+                </p>
               </div>
+              <span style={{ fontSize: 18 * s }}>💿</span>
+            </div>
 
-              <div style={{ flex: 1, padding: large ? 10 : 7 }}>
-                <div style={{ fontFamily: DISPLAY, fontSize: large ? 15 : 10, lineHeight: 1.1 }}>
-                  Hello again, Mac.
-                </div>
-                <div style={{ color: MUTED, fontSize: bodyFs, marginTop: 2 }}>
-                  Pinstripes, platinum, Aqua gel.
-                </div>
-                <div style={{ display: "flex", gap: large ? 10 : 6, marginTop: large ? 9 : 6 }}>
-                  {[
-                    ["\uD83D\uDCC1", "System"],
-                    ["\uD83D\uDCC1", "Games"],
-                    ["🗑", "Trash"],
-                  ].map((f) => (
-                    <div key={f[1]} style={{ textAlign: "center", fontSize: bodyFs }}>
-                      <div
-                        style={{
-                          fontSize: iconFs,
-                          background: BG,
-                          border: `1px solid ${MUTED}`,
-                          borderRadius: 4,
-                          padding: large ? "6px 8px" : "4px 5px",
-                        }}
-                      >
-                        {f[0]}
-                      </div>
-                      <div style={{ marginTop: 2 }}>{f[1]}</div>
-                    </div>
-                  ))}
-                  <div
-                    style={{
-                      marginLeft: "auto",
-                      alignSelf: "start",
-                      fontSize: bodyFs,
-                      fontWeight: 700,
-                      background: ACCENT2,
-                      color: INK,
-                      border: `1px solid ${INK}`,
-                      borderRadius: 4,
-                      padding: large ? "3px 7px" : "2px 5px",
-                    }}
-                  >
-                    9.2
-                  </div>
-                </div>
-              </div>
+            {/* Aqua Pill Action Row */}
+            <div
+              className="flex items-center justify-between"
+              style={{
+                marginTop: 10 * s,
+                paddingTop: 8 * s,
+                borderTop: `1px solid ${p.ink}15`,
+              }}
+            >
+              <span style={{ fontSize: 6 * s, color: p.muted }}>
+                4 items · 1.4 GB available
+              </span>
+              <button
+                type="button"
+                style={{
+                  background: `linear-gradient(180deg, ${p.accent}, ${p.accent}CC)`,
+                  color: p.surface,
+                  border: `1px solid ${p.accent}`,
+                  borderRadius: 999,
+                  fontSize: 6.5 * s,
+                  fontWeight: 700,
+                  padding: `${3 * s}px ${14 * s}px`,
+                  cursor: "pointer",
+                  boxShadow: `0 ${2 * s}px ${6 * s}px ${p.accent}55, inset 0 1px 0 ${p.surface}88`,
+                }}
+              >
+                Restart in Mac OS X
+              </button>
             </div>
           </div>
         </div>
 
-        {/* dock footer */}
-        <div style={{ display: "flex", justifyContent: "center", padding: large ? "0 0 8px" : "0 0 5px" }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: large ? 8 : 5,
-              background: SURFACE,
-              border: `1px solid ${MUTED}`,
-              borderRadius: 10,
-              padding: large ? "5px 10px" : "3px 7px",
-              boxShadow: "0 4px 16px rgba(43,43,43,0.18)",
-              fontSize: large ? 14 : 9,
-            }}
-          >
-            <span>&#9786;</span>
-            <span>&#63743;</span>
-            <span>&#128193;</span>
-            <span>&#127911;</span>
-            <span style={{ width: 1, alignSelf: "stretch", background: MUTED }} />
-            <span>&#128465;</span>
-          </div>
+        {/* Platinum Bottom Footnote */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            fontSize: 5.5 * s,
+            color: p.muted,
+            padding: `0 ${4 * s}px`,
+          }}
+        >
+          <span>Apple Computer, Inc. · 1999</span>
+          <span>Platinum Interface Guidelines</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

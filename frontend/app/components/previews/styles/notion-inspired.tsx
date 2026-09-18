@@ -1,26 +1,26 @@
 import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
 
-const BG = "#FFFFFF";
-const SURFACE = "#F7F7F5";
-const BORDER = "#E9E9E8";
-const CALLOUT_BG = "#FFF8E6";
-const CALLOUT_BORDER = "#F0E2B6";
-const INK = "#37352F";
-const MUTED = "#9B9A93";
-const ACCENT = "#2383E2";
-const ACCENT2 = "#D9730D";
-const DISPLAY = "Georgia, Lyon Text, serif";
-const BODY = "Inter, ui-sans-serif, sans-serif";
-
-const ROWS = [
-  { task: "Beta invites", owner: "MK", status: "Done", dot: MUTED },
-  { task: "Launch post", owner: "JT", status: "In progress", dot: ACCENT },
-  { task: "Pricing page", owner: "AR", status: "Review", dot: ACCENT2 },
-];
-
 export function NotionInspiredPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
+  const p = meta.preview;
   const s = large ? 1.6 : 1;
+  const BG = p.bg;
+  const SURFACE = p.surface;
+  const BORDER = `${p.ink}15`;
+  const CALLOUT_BG = `${p.accent2}15`;
+  const CALLOUT_BORDER = `${p.accent2}33`;
+  const INK = p.ink;
+  const MUTED = p.muted;
+  const ACCENT = p.accent;
+  const ACCENT2 = p.accent2;
+  const DISPLAY = p.display;
+  const BODY = p.body;
+
+  const ROWS = [
+    { task: "Beta invites", owner: "MK", status: "Done", dot: MUTED },
+    { task: "Launch post", owner: "JT", status: "In progress", dot: ACCENT },
+    { task: "Pricing page", owner: "AR", status: "Review", dot: ACCENT2 },
+  ];
   return (
     <Frame meta={meta} large={large}>
       <div

@@ -38,8 +38,8 @@ export function IllustrationLedPreview({ meta, large }: { meta: StyleMeta; large
                 display: "inline-block",
               }}
             >
-              <span style={{ position: "absolute", top: "32%", left: "26%", width: "12%", height: "14%", background: "#fff", borderRadius: "50%" }} />
-              <span style={{ position: "absolute", top: "32%", right: "26%", width: "12%", height: "14%", background: "#fff", borderRadius: "50%" }} />
+              <span style={{ position: "absolute", top: "32%", left: "26%", width: "12%", height: "14%", background: p.surface, borderRadius: "50%" }} />
+              <span style={{ position: "absolute", top: "32%", right: "26%", width: "12%", height: "14%", background: p.surface, borderRadius: "50%" }} />
             </span>
             <span style={{ fontFamily: p.display, fontWeight: 700, fontSize: 8.5 * s }}>Pip & Co.</span>
           </div>
@@ -49,7 +49,7 @@ export function IllustrationLedPreview({ meta, large }: { meta: StyleMeta; large
             <span
               style={{
                 background: p.accent,
-                color: "#fff",
+                color: p.surface,
                 borderRadius: 999,
                 padding: `${3.5 * s}px ${9 * s}px`,
                 border: `1.5px solid ${p.ink}`,
@@ -95,7 +95,7 @@ export function IllustrationLedPreview({ meta, large }: { meta: StyleMeta; large
               <span
                 style={{
                   background: p.accent,
-                  color: "#fff",
+                  color: p.surface,
                   borderRadius: 12,
                   padding: `${5 * s}px ${12 * s}px`,
                   fontWeight: 700,
@@ -155,7 +155,7 @@ export function IllustrationLedPreview({ meta, large }: { meta: StyleMeta; large
             </div>
             {/* hills */}
             <div style={{ position: "absolute", bottom: -14 * s, left: -10 * s, width: "70%", height: 34 * s, background: p.accent2, border: `1.5px solid ${p.ink}`, borderRadius: "50%", opacity: 0.9 }} />
-            <div style={{ position: "absolute", bottom: -16 * s, right: -12 * s, width: "70%", height: 36 * s, background: "#FFE3C2", border: `1.5px solid ${p.ink}`, borderRadius: "50%" }} />
+            <div style={{ position: "absolute", bottom: -16 * s, right: -12 * s, width: "70%", height: 36 * s, background: p.surface, border: `1.5px solid ${p.ink}`, borderRadius: "50%" }} />
             {/* Pip character */}
             <div
               className="pv-float"
@@ -165,7 +165,7 @@ export function IllustrationLedPreview({ meta, large }: { meta: StyleMeta; large
                 left: "34%",
                 width: 44 * s,
                 height: 52 * s,
-                background: "#FFE3C2",
+                background: p.surface,
                 border: `2px solid ${p.ink}`,
                 borderRadius: "48% 52% 50% 50% / 55% 55% 45% 45%",
               }}

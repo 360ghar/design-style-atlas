@@ -2,25 +2,166 @@ import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
 
 export function ComicPopArtPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
+  const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full flex-col" style={{ background: "#F5F0E6", color: "#141414", backgroundImage: "radial-gradient(#141414 1.2px, transparent 1.2px)", backgroundSize: "10px 10px" }}>
-        <div className="flex items-center justify-between" style={{ background: "#141414", color: "#fff", padding: `${6 * s}px ${10 * s}px`, fontSize: 7 * s, fontWeight: 800 }}>
-          <span>KAPOW! COMICS</span><span>ISSUE #1 · 10¢</span>
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${10 * s}px ${12 * s}px`,
+        }}
+      >
+        {/* Comic Masthead */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            background: p.surface,
+            border: `2.5px solid ${p.ink}`,
+            boxShadow: `${3 * s}px ${3 * s}px 0 ${p.ink}`,
+            padding: `${4 * s}px ${10 * s}px`,
+          }}
+        >
+          <span
+            style={{
+              fontFamily: p.display,
+              fontSize: 10 * s,
+              fontWeight: 900,
+              color: p.accent,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+            }}
+          >
+            ACTION COMICS #88
+          </span>
+          <span
+            style={{
+              background: p.accent2,
+              color: p.ink,
+              border: `1.5px solid ${p.ink}`,
+              fontSize: 5.5 * s,
+              fontWeight: 900,
+              padding: `${1 * s}px ${6 * s}px`,
+            }}
+          >
+            APPROVED BY CODE
+          </span>
         </div>
-        <div className="grid flex-1 grid-cols-2" style={{ gap: 8 * s, padding: `${8 * s}px ${10 * s}px` }}>
-          <div style={{ background: "#fff", border: "3px solid #141414", padding: `${7 * s}px`, boxShadow: "4px 4px 0 #141414" }}>
-            <div style={{ background: "#FFD802", border: "2px solid #141414", fontSize: 5.5 * s, fontWeight: 800, padding: "2px 6px", width: "fit-content" }}>MEANWHILE…</div>
-            <div style={{ fontFamily: "Bangers, cursive", fontSize: large ? 22 : 13, marginTop: 4 * s }}>ORIGIN STORY!</div>
+
+        {/* Comic Action Panels Grid */}
+        <div className="my-auto grid grid-cols-2" style={{ gap: 8 * s }}>
+          {/* Panel 1 */}
+          <div
+            style={{
+              background: p.surface,
+              border: `2.5px solid ${p.ink}`,
+              boxShadow: `${3 * s}px ${3 * s}px 0 ${p.ink}`,
+              padding: `${8 * s}px`,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
+            <div
+              style={{
+                background: p.accent2,
+                border: `1.5px solid ${p.ink}`,
+                fontSize: 5 * s,
+                fontWeight: 900,
+                padding: `${1 * s}px ${5 * s}px`,
+                width: "fit-content",
+              }}
+            >
+              MEANWHILE...
+            </div>
+            <div
+              style={{
+                fontFamily: p.display,
+                fontSize: 16 * s,
+                fontWeight: 900,
+                lineHeight: 1,
+                color: p.accent,
+                margin: `${6 * s}px 0`,
+                textShadow: `${1.5 * s}px ${1.5 * s}px 0 ${p.ink}`,
+              }}
+            >
+              KRAK!
+            </div>
+            <p style={{ fontSize: 5.5 * s, color: p.ink, fontWeight: 700, margin: 0 }}>
+              The villain's server explodes into halftones!
+            </p>
           </div>
-          <div style={{ background: "#E30613", border: "3px solid #141414", padding: `${7 * s}px`, color: "#fff", boxShadow: "4px 4px 0 #141414" }}>
-            <div style={{ fontFamily: "Bangers, cursive", fontSize: large ? 22 : 13 }}>KRAKOOM!</div>
-            <div style={{ fontSize: 6 * s, marginTop: 3 * s }}>Zero to hero in one scroll. →</div>
+
+          {/* Panel 2 */}
+          <div
+            style={{
+              background: p.accent,
+              color: p.bg,
+              border: `2.5px solid ${p.ink}`,
+              boxShadow: `${3 * s}px ${3 * s}px 0 ${p.ink}`,
+              padding: `${8 * s}px`,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
+            <div
+              style={{
+                background: p.bg,
+                color: p.ink,
+                border: `1.5px solid ${p.ink}`,
+                fontSize: 5 * s,
+                fontWeight: 900,
+                padding: `${1 * s}px ${5 * s}px`,
+                width: "fit-content",
+              }}
+            >
+              NEXT ISSUE!
+            </div>
+            <div
+              style={{
+                fontFamily: p.display,
+                fontSize: 14 * s,
+                fontWeight: 900,
+                lineHeight: 1.1,
+                margin: `${6 * s}px 0`,
+              }}
+            >
+              TO BE CONTINUED!
+            </div>
+            <span
+              style={{
+                background: p.accent2,
+                color: p.ink,
+                border: `1.5px solid ${p.ink}`,
+                fontSize: 5.5 * s,
+                fontWeight: 900,
+                textAlign: "center",
+                padding: `${3 * s}px 0`,
+              }}
+            >
+              READ CHAPTER 2 →
+            </span>
           </div>
         </div>
-        <div className="flex items-center justify-between" style={{ background: "#FFD802", borderTop: "3px solid #141414", padding: `${5 * s}px ${10 * s}px`, fontSize: 6 * s, fontWeight: 800 }}>
-          <span>POW! · BAM! · ZOOM!</span><span>NEXT →</span>
+
+        {/* Comic Gutter Footer */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            fontSize: 5.5 * s,
+            fontWeight: 900,
+            letterSpacing: "0.08em",
+            color: p.muted,
+          }}
+        >
+          <span>★ BEN-DAY DOTS</span>
+          <span>★ BURST BADGES</span>
+          <span style={{ color: p.accent }}>★ 10 CENTS ONLY</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

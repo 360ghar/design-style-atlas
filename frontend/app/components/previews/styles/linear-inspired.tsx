@@ -1,15 +1,6 @@
 import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
 
-const BG = "#08090A";
-const SURFACE = "#101214";
-const INK = "#F7F8F8";
-const MUTED = "#8A8F98";
-const ACCENT = "#5E6AD2";
-const ACCENT2 = "#8E8AFF";
-const HAIR = "rgba(247,248,248,0.08)";
-const FONT = "Inter, SF Pro Display, sans-serif";
-
 const CYCLES = [
   { tag: "CYCLE 14", title: "Velocity rising", stat: "+32% closed", kbd: "C" },
   { tag: "TRIAGE", title: "Inbox zero", stat: "12 open", kbd: "⌘K" },
@@ -17,7 +8,17 @@ const CYCLES = [
 ];
 
 export function LinearInspiredPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
+  const p = meta.preview;
+  const s = large ? 1.6 : 1;
   const fs = large ? 1.6 : 1;
+  const BG = p.bg;
+  const SURFACE = p.surface;
+  const INK = p.ink;
+  const MUTED = p.muted;
+  const ACCENT = p.accent;
+  const ACCENT2 = p.accent2;
+  const HAIR = `${p.ink}14`;
+  const FONT = p.display;
   return (
     <Frame meta={meta} large={large}>
       <div

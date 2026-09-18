@@ -4,26 +4,138 @@ import { Frame, Meta } from "../frame";
 export function FintechNeobankPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full flex-col" style={{ background: p.bg, color: p.ink, fontFamily: p.body }}>
-        <div className="flex items-center justify-between" style={{ padding: `${8 * s}px ${12 * s}px`, fontSize: 7 * s }}>
-          <span>◍ Good evening, Ana</span>
-          <span style={{ border: `1px solid ${p.ink}33`, borderRadius: 999, padding: `${2 * s}px ${8 * s}px`, color: p.muted }}>◍ ●</span>
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Neobank header bar */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center" style={{ gap: 6 * s }}>
+            <span
+              style={{
+                fontFamily: p.display,
+                fontSize: 9 * s,
+                fontWeight: 900,
+                color: p.ink,
+                letterSpacing: "0.08em",
+              }}
+            >
+              VOLT//VAULT
+            </span>
+            <span
+              style={{
+                background: `${p.accent}22`,
+                color: p.accent,
+                fontSize: 5 * s,
+                fontWeight: 800,
+                padding: `${1 * s}px ${6 * s}px`,
+                borderRadius: 999,
+                border: `1px solid ${p.accent}66`,
+              }}
+            >
+              TIER: TITANIUM
+            </span>
+          </div>
+          <span style={{ fontSize: 6 * s, color: p.muted, fontFamily: "monospace" }}>
+            APY 5.40%
+          </span>
         </div>
-        <div style={{ padding: `0 ${12 * s}px` }}>
-          <div style={{ background: p.surface, border: `1px solid ${p.ink}22`, borderRadius: 16, padding: `${10 * s}px` }}>
-            <div style={{ fontSize: 6.5 * s, color: p.muted, letterSpacing: "0.15em" }}>TOTAL BALANCE</div>
-            <div style={{ fontSize: large ? 34 : 20, fontWeight: 700, letterSpacing: "-0.02em" }}>$24,806<span style={{ color: p.accent }}>.12</span></div>
-            <div className="flex" style={{ gap: 6 * s, marginTop: 10 * s }}>
-              <span style={{ background: p.accent, color: "#0B0D0E", fontWeight: 700, borderRadius: 999, padding: `${4 * s}px ${12 * s}px`, fontSize: 7 * s }}>Send →</span>
-              <span style={{ border: `1px solid ${p.ink}33`, borderRadius: 999, padding: `${4 * s}px ${12 * s}px`, fontSize: 7 * s }}>Vaults</span>
+
+        {/* Floating Dark Obsidian Metal Card */}
+        <div
+          className="my-auto flex flex-col justify-between"
+          style={{
+            background: p.surface,
+            borderRadius: 16 * s,
+            border: `1px solid ${p.accent}33`,
+            boxShadow: `0 ${10 * s}px ${32 * s}px ${p.bg}, 0 0 ${20 * s}px ${p.accent}15`,
+            padding: `${14 * s}px ${16 * s}px`,
+          }}
+        >
+          <div className="flex items-start justify-between">
+            <div>
+              <div style={{ fontSize: 5.5 * s, color: p.muted, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>
+                TOTAL LIQUID ASSETS
+              </div>
+              <div
+                style={{
+                  fontFamily: p.display,
+                  fontSize: 18 * s,
+                  fontWeight: 900,
+                  color: p.ink,
+                  letterSpacing: "-0.03em",
+                  marginTop: 2 * s,
+                  fontVariantNumeric: "tabular-nums",
+                }}
+              >
+                $842,910<span style={{ color: p.accent, fontSize: 13 * s }}>.45</span>
+              </div>
+            </div>
+            <div
+              style={{
+                background: p.accent,
+                color: p.bg,
+                fontFamily: p.display,
+                fontWeight: 900,
+                fontSize: 7 * s,
+                padding: `${2 * s}px ${8 * s}px`,
+                borderRadius: 999,
+              }}
+            >
+              +14.2%
             </div>
           </div>
-          <div style={{ fontSize: 6 * s, color: p.muted, marginTop: 8 * s, fontFamily: "monospace" }}>◆ metal card · 4.9% APY · instant rails</div>
+
+          <p style={{ fontSize: 6.5 * s, color: p.muted, lineHeight: 1.45, margin: `${8 * s}px 0` }}>
+            Obsidian dark grounds, electric lime yields, tabular micro-cents, and screenshot-ready metal cards.
+          </p>
+
+          <div
+            className="flex items-center justify-between"
+            style={{
+              borderTop: `1px solid ${p.ink}15`,
+              paddingTop: 6 * s,
+            }}
+          >
+            <span style={{ fontSize: 6 * s, color: p.muted, fontFamily: "monospace" }}>
+              CARD: **** 4812 · VIRTUAL
+            </span>
+            <span
+              style={{
+                background: p.accent,
+                color: p.bg,
+                fontSize: 6 * s,
+                fontWeight: 800,
+                padding: `${3 * s}px ${12 * s}px`,
+                borderRadius: 999,
+              }}
+            >
+              TRANSFER ↗
+            </span>
+          </div>
         </div>
-        <div className="flex items-center justify-between" style={{ marginTop: "auto", padding: `${7 * s}px ${14 * s}px`, borderTop: `1px solid ${p.ink}22`, fontSize: 6.5 * s, color: p.muted }}>
-          <span style={{ color: p.accent }}>Home</span><span>Cards</span><span>Vaults</span><span>You</span>
+
+        {/* Footer status */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            fontSize: 5.5 * s,
+            color: p.muted,
+            borderTop: `1px solid ${p.ink}15`,
+            paddingTop: 4 * s,
+          }}
+        >
+          <span>ELECTRIC LIME MOMENTUM</span>
+          <span>TABULAR NUMERALS</span>
+          <span style={{ color: p.accent }}>FDIC INSURED</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

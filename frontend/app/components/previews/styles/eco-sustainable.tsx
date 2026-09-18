@@ -4,30 +4,104 @@ import { Frame, Meta } from "../frame";
 export function EcoSustainablePreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full flex-col" style={{ background: p.bg, color: p.ink, fontFamily: p.body }}>
-        <div className="flex items-center justify-between" style={{ padding: `${7 * s}px ${12 * s}px`, borderBottom: `1.5px dashed ${p.accent}`, fontSize: 7 * s }}>
-          <span style={{ fontFamily: p.display, fontWeight: 700 }}>❦ Rooted</span>
-          <span className="flex" style={{ gap: 8 * s, color: p.muted }}>
-            <span>Shop</span><span>Impact</span><span>Journal</span>
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Certification header */}
+        <div className="flex items-center justify-between" style={{ borderBottom: `1.5px solid ${p.accent}44`, paddingBottom: 4 * s }}>
+          <div className="flex items-center" style={{ gap: 5 * s }}>
+            <span style={{
+              background: p.accent,
+              color: p.surface,
+              fontSize: 6 * s,
+              fontWeight: 800,
+              padding: `${1 * s}px ${6 * s}px`,
+              borderRadius: 3 * s,
+            }}>
+              1% FOR THE PLANET
+            </span>
+            <span style={{ fontFamily: p.display, fontSize: 8 * s, fontWeight: 700 }}>
+              TerraCraft
+            </span>
+          </div>
+          <span style={{ fontSize: 5.5 * s, color: p.accent, fontWeight: 700 }}>
+            CERTIFIED B-CORP Ⓑ
           </span>
-          <span style={{ background: p.accent, color: "#fff", borderRadius: 999, padding: `${3 * s}px ${9 * s}px`, fontWeight: 700 }}>Offset →</span>
         </div>
-        <div className="flex flex-1 flex-col justify-center" style={{ padding: `0 ${12 * s}px` }}>
-          <div className="flex" style={{ gap: 5 * s }}>
-            {[["🌳", "1.2M trees"], ["◍", "−48% CO₂"], ["✓", "B-Corp"]].map((b) => (
-              <span key={b[1]} style={{ border: `1.5px dashed ${p.accent}`, borderRadius: 10, padding: `${4 * s}px ${7 * s}px`, fontSize: 6 * s, fontWeight: 700, background: p.surface }}>{b[0]} {b[1]}</span>
-            ))}
+
+        {/* Kraft Impact Card */}
+        <div
+          className="my-auto"
+          style={{
+            background: p.surface,
+            border: `1px solid ${p.ink}18`,
+            borderRadius: 8 * s,
+            padding: `${12 * s}px ${14 * s}px`,
+            boxShadow: `0 ${4 * s}px ${12 * s}px ${p.ink}08`,
+          }}
+        >
+          <div style={{ fontSize: 5.5 * s, color: p.accent, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const }}>
+            Patagonia-Grade Environmental Ledger
           </div>
-          <div style={{ fontFamily: p.display, fontSize: (large ? 28 : 16), lineHeight: 1.05, marginTop: 8 * s }}>Receipts,<br />not promises.</div>
-          <div style={{ fontSize: 6.5 * s, color: p.muted, marginTop: 4 * s }}>Every order plants one. Track yours ↓</div>
-          <div style={{ height: 6 * s, background: "#DDE5D5", borderRadius: 999, marginTop: 8 * s, overflow: "hidden" }}>
-            <div style={{ width: "72%", height: "100%", background: `linear-gradient(90deg, ${p.accent}, ${p.accent2})`, borderRadius: 999 }} />
+          <h3
+            style={{
+              fontFamily: p.display,
+              fontSize: 13 * s,
+              fontWeight: 800,
+              lineHeight: 1.15,
+              margin: `${3 * s}px 0 ${5 * s}px 0`,
+            }}
+          >
+            Honest Climate Receipts
+          </h3>
+          <p style={{ fontSize: 6.5 * s, color: p.muted, lineHeight: 1.45 }}>
+            Recycled-paper textures, forest green accents, carbon metric counters, and repair-first consumer stewardship.
+          </p>
+          {/* Metrics row */}
+          <div className="flex items-center" style={{ gap: 8 * s, marginTop: 8 * s }}>
+            <div style={{
+              background: `${p.accent}15`,
+              border: `1px solid ${p.accent}33`,
+              borderRadius: 4 * s,
+              padding: `${4 * s}px ${8 * s}px`,
+            }}>
+              <div style={{ fontSize: 10 * s, fontWeight: 800, color: p.accent, fontFamily: p.display }}>2,840 kg</div>
+              <div style={{ fontSize: 4.5 * s, color: p.muted, textTransform: "uppercase" as const }}>CO₂ Offset</div>
+            </div>
+            <div style={{
+              background: `${p.accent2}15`,
+              border: `1px solid ${p.accent2}33`,
+              borderRadius: 4 * s,
+              padding: `${4 * s}px ${8 * s}px`,
+            }}>
+              <div style={{ fontSize: 10 * s, fontWeight: 800, color: p.accent2, fontFamily: p.display }}>100%</div>
+              <div style={{ fontSize: 4.5 * s, color: p.muted, textTransform: "uppercase" as const }}>Post-Consumer Recycled</div>
+            </div>
           </div>
         </div>
-        <div className="flex items-center justify-between" style={{ padding: `${6 * s}px ${12 * s}px`, background: p.surface, borderTop: `1px solid ${p.accent}44`, fontSize: 6 * s, color: p.muted }}>
-          <span>♻ post-consumer kraft · soy inks</span><span>72% of goal</span>
+
+        {/* Footprint ledger footer */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `1px solid ${p.ink}18`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            color: p.muted,
+          }}
+        >
+          <span>KRAFT &amp; CREAM GROUND</span>
+          <span>REPAIR OVER REPLACEMENT</span>
+          <span style={{ color: p.accent, fontWeight: 700 }}>ZERO GREENWASHING</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

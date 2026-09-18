@@ -4,29 +4,85 @@ import { Frame, Meta } from "../frame";
 export function GenerativeAlgorithmicPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="relative flex h-full flex-col overflow-hidden font-mono" style={{ background: p.bg, color: p.ink, fontSize: 6 * s }}>
-        <div className="flex items-center justify-between" style={{ padding: `${7 * s}px ${10 * s}px`, zIndex: 2 }}>
-          <span style={{ fontWeight: 700 }}>FIELD.SYS</span>
-          <span style={{ color: p.muted }}>900 pts · 60fps</span>
-          <span style={{ border: `1px solid ${p.ink}44`, borderRadius: 6, padding: `${2 * s}px ${8 * s}px` }}>⧉ EXPORT</span>
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Algorithmic Header */}
+        <div className="flex items-center justify-between" style={{ borderBottom: `1px solid ${p.accent}44`, paddingBottom: 4 * s }}>
+          <span style={{ fontFamily: p.display, fontSize: 8 * s, fontWeight: 700 }}>
+            SEED #0x4F82 // ATTRACTOR
+          </span>
+          <span style={{ fontSize: 5.5 * s, fontFamily: "monospace", color: p.accent }}>
+            ITERATION: 120,400
+          </span>
         </div>
-        <div className="relative flex-1">
-          <svg viewBox="0 0 200 90" style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} preserveAspectRatio="none">
-            {Array.from({ length: 9 }).map((_, i) => (
-              <path key={i} d={`M-5 ${10 + i * 9} Q 60 ${i * 7}, 110 ${12 + i * 8} T 210 ${8 + i * 9}`} fill="none" stroke={i % 3 ? p.accent : p.accent2} strokeWidth="1.4" opacity="0.8" />
+
+        {/* Parametric Curve Field */}
+        <div className="my-auto flex flex-col items-center text-center" style={{ padding: `${4 * s}px 0` }}>
+          <svg viewBox="0 0 160 50" style={{ width: large ? 240 : 150 }}>
+            {[0, 1, 2, 3, 4, 5].map((i) => (
+              <path
+                key={i}
+                d={`M10 ${10 + i * 6} Q 80 ${40 - i * 5}, 150 ${15 + i * 5}`}
+                fill="none"
+                stroke={i % 2 === 0 ? p.accent : p.accent2}
+                strokeWidth="1.2"
+                opacity={0.6 + i * 0.08}
+              />
             ))}
           </svg>
-          <div className="flex" style={{ position: "relative", gap: 6 * s, padding: `${6 * s}px ${10 * s}px` }}>
-            <span style={{ border: "1px solid #ffffff33", borderRadius: 6, padding: `${3 * s}px ${8 * s}px`, background: "#00000088" }}>SEED #4821 ⧉</span>
-            <span style={{ background: p.accent, color: p.bg, borderRadius: 6, padding: `${3 * s}px ${8 * s}px`, fontWeight: 700 }}>⟳ REGENERATE</span>
+          <div
+            style={{
+              fontFamily: p.display,
+              fontSize: 13 * s,
+              fontWeight: 800,
+              marginTop: 4 * s,
+              lineHeight: 1.15,
+            }}
+          >
+            The Algorithm is the Artist
+          </div>
+          <p style={{ fontSize: 6 * s, color: p.muted, lineHeight: 1.4, margin: `${3 * s}px 0` }}>
+            Parametric flow fields, seed-based mathematical editions, and generative rulesets.
+          </p>
+          <div className="flex items-center" style={{ gap: 6 * s, marginTop: 4 * s }}>
+            <span
+              style={{
+                background: p.accent,
+                color: p.bg,
+                fontSize: 5.5 * s,
+                fontWeight: 700,
+                padding: `${3 * s}px ${10 * s}px`,
+                borderRadius: 4 * s,
+              }}
+            >
+              Regenerate Seed
+            </span>
           </div>
         </div>
-        <div style={{ padding: `${6 * s}px ${10 * s}px`, borderTop: `1px solid ${p.ink}22`, color: p.muted, zIndex: 2 }}>
-          <div className="flex" style={{ gap: 10 * s }}>
-            <span>noise ──●── 0.62</span><span>chaos ──●── 0.31</span><span>flow 900</span>
-          </div>
+
+        {/* Parametric Footer */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `1px solid ${p.accent}33`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            fontFamily: "monospace",
+            color: p.muted,
+          }}
+        >
+          <span>PARAMETRIC VECTORS</span>
+          <span style={{ color: p.accent2 }}>FLOW EQUATION: SIN(x)+COS(y)</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

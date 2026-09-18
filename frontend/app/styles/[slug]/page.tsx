@@ -11,6 +11,7 @@ import {
   softwareAppJsonLd,
 } from "../../lib/seo";
 import { StyleActions } from "../../components/StyleActions";
+import { EnforceStyle } from "../../components/EnforceStyle";
 import { StyleCard } from "../../components/StyleCard";
 import { StylePreviewStudio } from "../../components/StylePreviewStudio";
 import { DetailNav } from "../../components/DetailNav";
@@ -172,6 +173,7 @@ export default async function StylePage({
             className="mt-6 border border-[#111110]/20 dark:border-white/15 bg-white dark:bg-[#141416] p-4 sm:p-5 transition-colors"
           >
             <StyleActions slug={style.slug} />
+            <EnforceStyle slug={style.slug} name={style.name} />
           </div>
         </div>
       </div>

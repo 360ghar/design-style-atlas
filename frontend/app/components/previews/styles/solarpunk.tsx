@@ -4,30 +4,92 @@ import { Frame, Meta } from "../frame";
 export function SolarpunkPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full flex-col" style={{ background: p.bg, color: p.ink, fontFamily: p.body }}>
-        <div className="flex items-center justify-between" style={{ padding: `${7 * s}px ${12 * s}px`, fontSize: 7 * s }}>
-          <span style={{ fontFamily: p.display, fontWeight: 700 }}>☀ Heliotrope Commons</span>
-          <span style={{ color: p.muted }}>Grow · Build · Share</span>
-          <span style={{ background: p.accent, color: "#fff", borderRadius: 999, padding: `${3 * s}px ${10 * s}px` }}>Join →</span>
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Greenhouse Solar Grid Header */}
+        <div className="flex items-center justify-between" style={{ borderBottom: `1.5px solid ${p.accent}44`, paddingBottom: 4 * s }}>
+          <div className="flex items-center" style={{ gap: 6 * s }}>
+            <span style={{ fontSize: 9 * s, color: p.accent2 }}>☼</span>
+            <span style={{ fontFamily: p.display, fontSize: 8.5 * s, fontWeight: 700, color: p.accent }}>
+              HELIOS COMMONS
+            </span>
+          </div>
+          <span style={{ fontSize: 5.5 * s, color: p.accent2, fontWeight: 700 }}>
+            SOLAR OUTPUT: 12.8 kW · 100% CLEAN
+          </span>
         </div>
-        <div className="flex flex-1 flex-col justify-center" style={{ padding: `0 ${12 * s}px` }}>
-          <div className="flex items-center" style={{ gap: 10 * s }}>
-            <span style={{ width: 32 * s, height: 32 * s, borderRadius: "50%", background: `radial-gradient(circle at 35% 35%, #fff8, transparent), ${p.accent2}`, boxShadow: `0 0 24px ${p.accent2}99`, flexShrink: 0 }} />
-            <div style={{ fontFamily: p.display, fontSize: large ? 28 : 16, lineHeight: 1.05 }}>Sunlit<br />abundance.</div>
+
+        {/* Food Forest & Stained Glass Panel */}
+        <div
+          className="my-auto"
+          style={{
+            background: p.surface,
+            borderRadius: 16 * s,
+            border: `1.5px solid ${p.accent}44`,
+            boxShadow: `0 ${6 * s}px ${20 * s}px ${p.accent}15`,
+            padding: `${14 * s}px ${16 * s}px`,
+          }}
+        >
+          <div style={{ fontSize: 5.5 * s, color: p.accent2, fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase" as const }}>
+            COMMUNITY FOOD FOREST · CELL 08
           </div>
-          <div className="flex" style={{ gap: 6 * s, marginTop: 10 * s, fontSize: 6.5 * s }}>
-            {[["+212%", "solar"], ["98%", "green"], ["0", "carbon"]].map((x) => (
-              <span key={x[1]} style={{ background: p.surface, border: `1px solid ${p.accent}55`, borderRadius: 999, padding: `${3 * s}px ${8 * s}px` }}><b>{x[0]}</b> {x[1]}</span>
-            ))}
-          </div>
-          <div style={{ marginTop: 8 * s, height: 6 * s, background: `${p.accent}22`, borderRadius: 999, overflow: "hidden" }}>
-            <div style={{ width: "84%", height: "100%", background: `linear-gradient(90deg, ${p.accent2}, ${p.accent})` }} />
+          <h3
+            style={{
+              fontFamily: p.display,
+              fontSize: 14 * s,
+              fontWeight: 800,
+              lineHeight: 1.15,
+              margin: `${3 * s}px 0 ${5 * s}px 0`,
+              color: p.ink,
+            }}
+          >
+            The Optimistic Green Future
+          </h3>
+          <p style={{ fontSize: 6.5 * s, color: p.muted, lineHeight: 1.45 }}>
+            Art Nouveau organic curves meet appropriate solar technology. Interfaces grown like community gardens, not cold machines.
+          </p>
+          <div className="flex items-center" style={{ gap: 8 * s, marginTop: 8 * s }}>
+            <span
+              style={{
+                background: p.accent,
+                color: p.surface,
+                fontSize: 6 * s,
+                fontWeight: 700,
+                padding: `${4 * s}px ${14 * s}px`,
+                borderRadius: 999,
+              }}
+            >
+              Harvest Ledger ☼
+            </span>
+            <span style={{ fontSize: 6 * s, color: p.accent2, fontWeight: 700 }}>
+              Open knowledge seed bank
+            </span>
           </div>
         </div>
-        <div className="flex items-center justify-between" style={{ padding: `${6 * s}px ${12 * s}px`, borderTop: `1px solid ${p.accent}44`, fontSize: 6 * s, color: p.muted }}>
-          <span>🌱 rooftop · mesh · orchard</span><span>grid +84%</span>
+
+        {/* Footer */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `1px solid ${p.accent}33`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            color: p.muted,
+          }}
+        >
+          <span>GREENHOUSE GLASS</span>
+          <span>ART NOUVEAU CURVES</span>
+          <span style={{ color: p.accent2, fontWeight: 700 }}>ABUNDANCE FOR ALL</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

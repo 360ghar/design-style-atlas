@@ -3,18 +3,162 @@ import { Frame, Meta } from "../frame";
 
 export function PlayfulBrutalismPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full items-center justify-center" style={{ padding: large ? "24px 48px" : "14px 26px", background: p.bg, backgroundImage: `radial-gradient(${p.accent}55 1.6px, transparent 1.7px), radial-gradient(${p.accent2}55 1.6px, transparent 1.7px)`, backgroundSize: "22px 22px, 36px 36px", backgroundPosition: "0 0, 10px 12px" }}>
-        <div style={{ position: "relative", background: p.surface, border: `3px solid ${p.ink}`, borderRadius: 20, boxShadow: `5px 5px 0 ${p.ink}`, padding: large ? "20px 22px 18px" : "12px 13px 11px", maxWidth: large ? 400 : 230, transform: "rotate(-1.5deg)" }}>
-          <span style={{ position: "absolute", top: large ? -14 : -10, right: large ? 18 : 12, background: p.accent2, color: p.surface, border: `3px solid ${p.ink}`, borderRadius: 999, padding: large ? "4px 14px" : "2px 9px", fontFamily: p.display, fontSize: large ? 10 : 6.5, fontWeight: 800, letterSpacing: "0.06em", transform: "rotate(5deg)", boxShadow: `3px 3px 0 ${p.ink}` }}>★ STICKER</span>
-          <span style={{ position: "absolute", bottom: large ? -13 : -9, left: large ? -14 : -10, background: p.accent, color: p.surface, border: `3px solid ${p.ink}`, borderRadius: "50%", width: large ? 34 : 22, height: large ? 34 : 22, display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: large ? 16 : 10, transform: "rotate(-8deg)", boxShadow: `3px 3px 0 ${p.ink}` }}>✿</span>
-          <div style={{ fontFamily: p.display, fontWeight: 800, fontSize: large ? 27 : 16, lineHeight: 1.02, letterSpacing: "-0.01em", color: p.ink }}>Squishy but<br /><span style={{ color: p.accent, textDecoration: "underline wavy", textDecorationThickness: 3, textUnderlineOffset: 4 }}>sturdy!</span></div>
-          <div style={{ color: p.muted, fontSize: large ? 10.5 : 7, marginTop: large ? 8 : 5, fontWeight: 600 }}>Plush frames, candy fills, ink outlines.</div>
-          <div className="flex items-center gap-2" style={{ marginTop: large ? 12 : 8 }}>
-            <span style={{ background: p.accent, color: p.surface, border: `3px solid ${p.ink}`, borderRadius: 999, padding: large ? "7px 20px" : "4px 12px", fontFamily: p.display, fontSize: large ? 10.5 : 7, fontWeight: 800, letterSpacing: "0.05em", boxShadow: `4px 4px 0 ${p.ink}` }}>BOING →</span>
-            <span className="pv-float" style={{ background: p.accent2, color: p.surface, border: `3px solid ${p.ink}`, borderRadius: "50%", width: large ? 34 : 21, height: large ? 34 : 21, display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: large ? 15 : 9, boxShadow: `4px 4px 0 ${p.ink}` }}>◍</span>
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Playful Chunky Nav */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center" style={{ gap: 6 * s }}>
+            <span
+              style={{
+                fontFamily: p.display,
+                fontSize: 11 * s,
+                fontWeight: 900,
+                color: p.surface,
+                background: p.accent,
+                border: `2.5px solid ${p.ink}`,
+                borderRadius: 14 * s,
+                padding: `${2 * s}px ${8 * s}px`,
+                boxShadow: `${2 * s}px ${2 * s}px 0 ${p.ink}`,
+              }}
+            >
+              Squish!
+            </span>
+            <span
+              style={{
+                background: p.accent2,
+                color: p.ink,
+                border: `2px solid ${p.ink}`,
+                borderRadius: 999,
+                fontSize: 6 * s,
+                fontWeight: 800,
+                padding: `${1 * s}px ${6 * s}px`,
+              }}
+            >
+              ★ STICKER DROP
+            </span>
           </div>
+          <span style={{ fontSize: 6.5 * s, fontWeight: 800, color: p.ink }}>
+            Candy Club ✿
+          </span>
+        </div>
+
+        {/* Central Squishy Card with Hard Sweet Shadow */}
+        <div
+          className="my-auto flex flex-col justify-between"
+          style={{
+            background: p.surface,
+            border: `2.5px solid ${p.ink}`,
+            borderRadius: 18 * s,
+            boxShadow: `${4 * s}px ${4 * s}px 0 ${p.ink}`,
+            padding: `${14 * s}px ${16 * s}px`,
+          }}
+        >
+          <div className="flex items-start justify-between">
+            <div>
+              <div
+                style={{
+                  fontSize: 6 * s,
+                  fontWeight: 800,
+                  color: p.accent,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                }}
+              >
+                Chunky &amp; Friendly
+              </div>
+              <h3
+                style={{
+                  fontFamily: p.display,
+                  fontSize: 14 * s,
+                  fontWeight: 900,
+                  color: p.ink,
+                  lineHeight: 1.15,
+                  margin: `${2 * s}px 0 0 0`,
+                }}
+              >
+                Plush Shapes with Structural Bite
+              </h3>
+            </div>
+            <div
+              className="pv-float"
+              style={{
+                width: 26 * s,
+                height: 26 * s,
+                borderRadius: "50%",
+                background: p.accent2,
+                border: `2px solid ${p.ink}`,
+                boxShadow: `${2 * s}px ${2 * s}px 0 ${p.ink}`,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 12 * s,
+              }}
+            >
+              ✦
+            </div>
+          </div>
+
+          <p
+            style={{
+              fontSize: 7 * s,
+              fontWeight: 600,
+              color: p.muted,
+              margin: `${8 * s}px 0`,
+              lineHeight: 1.4,
+            }}
+          >
+            Big rounded pill corners colliding with bold cartoon ink lines and bubblegum pop fills.
+          </p>
+
+          <div className="flex items-center justify-between">
+            <span style={{ fontSize: 6.5 * s, fontWeight: 800, color: p.ink }}>
+              Pack #01 · 10 Stickers
+            </span>
+            <button
+              type="button"
+              style={{
+                background: p.accent,
+                color: p.surface,
+                border: `2.5px solid ${p.ink}`,
+                borderRadius: 999,
+                boxShadow: `${3 * s}px ${3 * s}px 0 ${p.ink}`,
+                fontFamily: p.display,
+                fontWeight: 900,
+                fontSize: 7 * s,
+                padding: `${4 * s}px ${14 * s}px`,
+                cursor: "pointer",
+              }}
+            >
+              Claim Badge ✦
+            </button>
+          </div>
+        </div>
+
+        {/* Footer Playful Ribbon */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `2px solid ${p.ink}`,
+            paddingTop: 4 * s,
+            fontSize: 6 * s,
+            fontWeight: 800,
+            color: p.ink,
+          }}
+        >
+          <span>✿ SQUISHY 18PX CORNERS</span>
+          <span>● HARD 4PX SHADOWS</span>
+          <span>★ BOING!</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

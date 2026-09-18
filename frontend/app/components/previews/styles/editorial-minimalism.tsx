@@ -3,160 +3,123 @@ import { Frame, Meta } from "../frame";
 
 export function EditorialMinimalismPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const pad = large ? 40 : 18;
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
       <div
-        className="flex h-full flex-col"
-        style={{ background: p.bg, color: p.ink, fontFamily: p.body, padding: pad }}
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${16 * s}px`,
+        }}
       >
-        {/* Masthead: wordmark + edition line, double rule, section nav */}
-        <div className="flex items-baseline justify-between">
+        {/* Double Typographic Hairline Masthead */}
+        <div>
           <div
+            className="flex items-center justify-between"
             style={{
-              fontFamily: p.display,
-              fontWeight: 500,
-              fontSize: large ? 22 : 12,
-              letterSpacing: "0.01em",
-              textShadow: `0 1px 0 ${p.surface}`,
-            }}
-          >
-            The Quiet Review
-          </div>
-          <div
-            style={{
-              fontSize: large ? 10 : 6.5,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              fontWeight: 600,
+              fontSize: 6 * s,
               color: p.muted,
-            }}
-          >
-            No. 42 — Autumn
-          </div>
-        </div>
-        <div style={{ borderTop: `3px double ${p.ink}`, marginTop: large ? 10 : 6, paddingTop: large ? 8 : 5 }} className="flex items-center justify-between">
-          <div
-            style={{
-              fontSize: large ? 10 : 6.5,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              fontWeight: 600,
-              color: p.ink,
+              paddingBottom: 4 * s,
             }}
           >
-            Essays&nbsp;&nbsp;·&nbsp;&nbsp;Marginalia&nbsp;&nbsp;·&nbsp;&nbsp;Colophon
+            <span>Quarterly Review</span>
+            <span>Issue No. 84 · Paris</span>
+            <span>Autumn MCMXXIV</span>
           </div>
-          <div
-            style={{
-              fontSize: large ? 10 : 6.5,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              fontWeight: 600,
-              color: p.accent,
-            }}
-          >
-            Vol. IV
-          </div>
-        </div>
 
-        {/* Pull-quote hero */}
-        <div className="flex flex-1 flex-col justify-center" style={{ paddingTop: large ? 20 : 8, paddingBottom: large ? 20 : 8 }}>
           <div
             style={{
-              fontSize: large ? 11 : 6.5,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              fontWeight: 600,
-              color: p.accent,
+              borderTop: `2px solid ${p.ink}`,
+              borderBottom: `1px solid ${p.ink}`,
+              padding: `${3 * s}px 0`,
+              textAlign: "center",
             }}
           >
-            Essay — Vol. IV
-          </div>
-          <div
-            style={{
-              fontFamily: p.display,
-              fontStyle: "italic",
-              fontWeight: 500,
-              fontSize: large ? 40 : 17,
-              lineHeight: 1.25,
-              marginTop: large ? 12 : 6,
-              maxWidth: large ? 560 : 260,
-            }}
-          >
-            “On the quiet discipline of the well-set paragraph.”
-          </div>
-          <div style={{ width: large ? 40 : 24, borderTop: `1px solid ${p.accent}`, marginTop: large ? 14 : 7 }} />
-          <div
-            style={{
-              fontFamily: p.body,
-              fontStyle: "italic",
-              fontWeight: 400,
-              fontSize: large ? 14 : 8.5,
-              lineHeight: 1.6,
-              color: p.muted,
-              marginTop: large ? 10 : 5,
-              maxWidth: large ? 480 : 230,
-            }}
-          >
-            Attention is a discipline. The page rewards what the feed never does — slowness.
-          </div>
-          <div className="flex items-center" style={{ gap: large ? 16 : 10, marginTop: large ? 16 : 8 }}>
-            <span
+            <div
               style={{
-                fontSize: large ? 11 : 7,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                fontWeight: 600,
-                color: p.accent,
-              }}
-            >
-              Continue reading →
-            </span>
-            <span
-              style={{
-                fontSize: large ? 11 : 7,
-                letterSpacing: "0.14em",
+                fontFamily: p.display,
+                fontSize: 14 * s,
+                letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 fontWeight: 600,
                 color: p.ink,
-                background: p.surface,
-                border: `1px solid ${p.ink}`,
-                borderRadius: 2,
-                padding: large ? "8px 14px" : "4px 8px",
+                lineHeight: 1.1,
               }}
             >
-              Subscribe
-            </span>
+              The Literary Dispatch
+            </div>
           </div>
         </div>
 
-        {/* Byline rule + reading meta footer */}
-        <div style={{ borderTop: `1px solid ${p.ink}`, paddingTop: large ? 10 : 6 }} className="flex items-center justify-between">
-          <span style={{ fontFamily: p.body, fontWeight: 400, fontSize: large ? 12 : 7 }}>By E. Marlowe</span>
-          <span
+        {/* Essay Opening Column with Oxblood Kicker */}
+        <div className="my-auto">
+          <div
             style={{
-              fontSize: large ? 10 : 6.5,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              fontWeight: 600,
-              color: p.muted,
+              fontSize: 6.5 * s,
+              fontStyle: "italic",
+              color: p.accent,
+              letterSpacing: "0.05em",
+              marginBottom: 3 * s,
             }}
           >
-            12 min read · § 4
-          </span>
+            On the Architecture of Solitude
+          </div>
+          <h3
+            style={{
+              fontFamily: p.display,
+              fontSize: 12 * s,
+              fontWeight: 400,
+              lineHeight: 1.35,
+              color: p.ink,
+              margin: 0,
+            }}
+          >
+            “A sentence, like a stone arch, holds its gravity only when every ornament is stripped away.”
+          </h3>
+          <p
+            style={{
+              fontSize: 7 * s,
+              color: p.muted,
+              lineHeight: 1.6,
+              margin: `${6 * s}px 0 0 0`,
+            }}
+          >
+            By Julian Vance · Translated from the Italian by M. Claire{" "}
+            <sup style={{ color: p.accent, fontWeight: 600 }}>[1]</sup>
+          </p>
         </div>
+
+        {/* Footnote Rule & Metadata */}
         <div
           style={{
-            fontFamily: p.body,
-            fontStyle: "italic",
-            fontWeight: 400,
-            fontSize: large ? 11 : 6.5,
+            borderTop: `1px solid ${p.ink}22`,
+            paddingTop: 5 * s,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            fontSize: 6 * s,
             color: p.muted,
-            marginTop: large ? 6 : 3,
           }}
         >
-          ❦ Set in Georgia · 680px measure · Fig. 1
+          <span>
+            <strong style={{ color: p.accent }}>[1]</strong> Folio Archive, Biblioteca Marciana, Venice
+          </span>
+          <span
+            style={{
+              color: p.accent,
+              textDecoration: "underline",
+              textUnderlineOffset: 2 * s,
+              cursor: "pointer",
+            }}
+          >
+            Continue reading § 2 →
+          </span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

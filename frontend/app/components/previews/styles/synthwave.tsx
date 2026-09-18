@@ -2,24 +2,190 @@ import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
 
 export function SynthwavePreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
+  const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="relative flex h-full flex-col overflow-hidden" style={{ background: "linear-gradient(180deg,#0A0118 40%,#4A0E2E 80%,#FF2E88 140%)", color: "#F5EDFF" }}>
-        <div className="flex w-full items-center justify-between" style={{ padding: `${7 * s}px ${12 * s}px`, fontSize: 7 * s, color: "#9A86C7", zIndex: 2 }}>
-          <span style={{ fontFamily: "Orbitron, monospace", color: "#fff", letterSpacing: "0.2em" }}>OUTRUN</span>
-          <span>Synths · Tapes · Night</span>
-          <span style={{ border: "1px solid #FFD319", color: "#FFD319", borderRadius: 4, padding: `${2 * s}px ${8 * s}px` }}>▶ MIXTAPE</span>
-        </div>
-        <div className="relative flex flex-1 flex-col items-center justify-center">
-          <div className="pv-flicker" style={{ width: large ? 120 : 72, height: large ? 120 : 72, borderRadius: "50%", background: "linear-gradient(180deg,#FFD319 30%,#FF2E88 75%)", boxShadow: "0 0 50px #FF2E88", overflow: "hidden", position: "relative" }}>
-            {[0, 1, 2, 3].map((i) => <div key={i} style={{ position: "absolute", left: 0, right: 0, bottom: 4 + i * 9, height: 2 + i * 1.4, background: "#0A0118" }} />)}
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Outrun Wireframe Horizon Grid Floor */}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0"
+          style={{
+            height: "45%",
+            backgroundImage: `linear-gradient(${p.accent}44 1px, transparent 1px), linear-gradient(90deg, ${p.accent}44 1px, transparent 1px)`,
+            backgroundSize: `${26 * s}px ${14 * s}px`,
+            transform: "perspective(180px) rotateX(60deg)",
+            transformOrigin: "bottom",
+          }}
+        />
+
+        {/* Laser Status HUD Header */}
+        <div className="flex items-center justify-between" style={{ position: "relative", zIndex: 1 }}>
+          <div className="flex items-center" style={{ gap: 5 * s }}>
+            <span
+              style={{
+                fontFamily: p.display,
+                fontSize: 10 * s,
+                fontWeight: 900,
+                color: p.accent,
+                textShadow: `0 0 ${10 * s}px ${p.accent}`,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+              }}
+            >
+              SYNTH★WAVE
+            </span>
+            <span
+              style={{
+                background: `${p.accent2}22`,
+                color: p.accent2,
+                border: `1px solid ${p.accent2}`,
+                borderRadius: 999,
+                fontSize: 6 * s,
+                fontWeight: 800,
+                padding: `${1 * s}px ${8 * s}px`,
+                boxShadow: `0 0 ${8 * s}px ${p.accent2}66`,
+              }}
+            >
+              OUTRUN SPEEDWAY
+            </span>
           </div>
-          <div style={{ fontFamily: "Orbitron, monospace", fontSize: large ? 16 : 10, letterSpacing: "0.35em", color: "#fff", marginTop: 8, textShadow: "0 0 14px #FF2E88" }}>NIGHT DRIVE</div>
-          <div className="absolute inset-x-0 bottom-0" style={{ height: "30%", backgroundImage: "linear-gradient(#FFD31944 1px, transparent 1px), linear-gradient(90deg,#FFD31944 1px, transparent 1px)", backgroundSize: "30px 12px", transform: "perspective(200px) rotateX(60deg)", transformOrigin: "bottom" }} />
+          <span
+            style={{
+              fontSize: 7 * s,
+              fontFamily: p.display,
+              fontWeight: 900,
+              color: p.accent2,
+              textShadow: `0 0 ${8 * s}px ${p.accent2}`,
+            }}
+          >
+            140 KM/H ⚡
+          </span>
         </div>
-        <div className="flex w-full items-center justify-between" style={{ padding: `${6 * s}px ${12 * s}px`, fontSize: 6 * s, color: "#9A86C7", zIndex: 2, borderTop: "1px solid #FF2E8844" }}>
-          <span>SIDE A · CHROME SUNSET</span><span style={{ color: "#FFD319" }}>98.7 FM →</span>
+
+        {/* Central Vector Drive Deck with Pulsing Sun Halo */}
+        <div
+          className="my-auto flex flex-col justify-between"
+          style={{
+            background: `${p.surface}E6`,
+            borderRadius: 14 * s,
+            border: `1.5px solid ${p.accent}`,
+            boxShadow: `0 0 ${26 * s}px ${p.accent}44, 0 0 ${50 * s}px ${p.bg}`,
+            padding: `${12 * s}px ${14 * s}px`,
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
+          <div className="flex items-start justify-between">
+            <div>
+              <div
+                style={{
+                  fontSize: 6 * s,
+                  fontWeight: 800,
+                  color: p.accent2,
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                }}
+              >
+                Night-Drive Vector Horizon
+              </div>
+              <h3
+                style={{
+                  fontFamily: p.display,
+                  fontSize: 14 * s,
+                  fontWeight: 900,
+                  color: p.ink,
+                  textShadow: `0 0 ${12 * s}px ${p.accent}`,
+                  lineHeight: 1.15,
+                  margin: `${3 * s}px 0 0 0`,
+                }}
+              >
+                Analog Synth Glow &amp; Chrome Suns
+              </h3>
+            </div>
+
+            {/* Glowing Neon Sun Disc */}
+            <div
+              style={{
+                width: 30 * s,
+                height: 30 * s,
+                borderRadius: "50%",
+                background: `linear-gradient(180deg, ${p.accent2}, ${p.accent})`,
+                boxShadow: `0 0 ${20 * s}px ${p.accent}, 0 0 ${40 * s}px ${p.accent2}`,
+              }}
+            />
+          </div>
+
+          <p
+            style={{
+              fontSize: 6.5 * s,
+              color: p.muted,
+              lineHeight: 1.45,
+              margin: `${8 * s}px 0`,
+            }}
+          >
+            High-voltage outrun wireframe perspective, pulsing solar halos, and retro-futuristic driving synth urgency.
+          </p>
+
+          <div
+            className="flex items-center justify-between"
+            style={{
+              borderTop: `1px solid ${p.accent}33`,
+              paddingTop: 6 * s,
+            }}
+          >
+            <span style={{ fontSize: 6 * s, color: p.muted, fontFamily: "monospace" }}>
+              BPM: 128 · ANALOG ARP: ON
+            </span>
+            <button
+              type="button"
+              style={{
+                background: p.accent,
+                color: p.ink,
+                border: "none",
+                borderRadius: 999,
+                fontFamily: p.display,
+                fontSize: 6.5 * s,
+                fontWeight: 900,
+                padding: `${3 * s}px ${14 * s}px`,
+                cursor: "pointer",
+                boxShadow: `0 0 ${12 * s}px ${p.accent}`,
+              }}
+            >
+              TURBO DRIVE ⏵
+            </button>
+          </div>
+        </div>
+
+        {/* Footer Night-Drive Strip */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `1px solid ${p.accent}44`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            fontWeight: 800,
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            color: p.muted,
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
+          <span>✦ PERSPECTIVE WIREFRAME</span>
+          <span>✦ CHROME SUN HALO</span>
+          <span style={{ color: p.accent2 }}>✦ OUTRUN SPEED</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

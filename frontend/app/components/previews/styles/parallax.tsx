@@ -2,6 +2,8 @@ import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
 
 export function ParallaxPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
+  const p = meta.preview;
+  const s = large ? 1.6 : 1;
   const t = meta.preview;
   const pad = large ? 16 : 10;
   return (
@@ -12,7 +14,7 @@ export function ParallaxPreview({ meta, large }: { meta: StyleMeta; large?: bool
         style={{ background: t.bg, color: t.ink, fontFamily: t.body }}
       >
         {/* sky + stars + sun */}
-        <div aria-hidden style={{ position: "absolute", inset: 0, background: `linear-gradient(180deg,${t.bg} 0%,#27436B 46%,${t.surface} 72%,${t.bg} 100%)` }} />
+        <div aria-hidden style={{ position: "absolute", inset: 0, background: `linear-gradient(180deg,${t.bg} 0%,${p.surface} 46%,${t.surface} 72%,${t.bg} 100%)` }} />
         <div aria-hidden style={{ position: "absolute", inset: 0, opacity: 0.7, backgroundImage: "radial-gradient(rgba(240,246,255,0.7) 1px,transparent 1px)", backgroundSize: large ? "22px 22px" : "14px 14px", maskImage: "linear-gradient(180deg,black 0%,transparent 45%)", WebkitMaskImage: "linear-gradient(180deg,black 0%,transparent 45%)" }} />
         <div aria-hidden style={{ position: "absolute", top: large ? 26 : 16, right: large ? 30 : 18, width: large ? 40 : 24, height: large ? 40 : 24, borderRadius: "50%", background: t.accent, boxShadow: `0 0 ${large ? 36 : 22}px ${t.accent}` }} />
 
@@ -58,12 +60,12 @@ export function ParallaxPreview({ meta, large }: { meta: StyleMeta; large?: bool
         {/* vista layers */}
         <div aria-hidden style={{ position: "relative", height: large ? 92 : 58, marginTop: large ? 8 : 5 }}>
           <svg viewBox="0 0 200 60" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", filter: "brightness(1.08) saturate(0.85)", opacity: 0.9 }}>
-            <path d="M0 42 L35 18 L60 36 L95 8 L130 34 L165 20 L200 34 L200 60 L0 60 Z" fill="#2A4A73" />
+            <path d="M0 42 L35 18 L60 36 L95 8 L130 34 L165 20 L200 34 L200 60 L0 60 Z" fill={`${p.surface}cc`} />
           </svg>
           <div className="px-anim" style={{ position: "absolute", left: "-10%", right: "-10%", top: large ? 30 : 18, height: large ? 22 : 14, background: "linear-gradient(180deg,transparent,rgba(14,26,43,0.6))", filter: "blur(3px)", animation: "px-mist 20s ease-in-out infinite" }} />
           <svg viewBox="0 0 200 50" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", transform: "translateY(18%)" }}>
             <path d="M0 34 L30 22 L55 30 L85 12 L120 30 L150 20 L200 32 L200 50 L0 50 Z" fill={t.surface} />
-            <path d="M0 44 L45 28 L80 40 L125 26 L170 40 L200 34 L200 50 L0 50 Z" fill="#0B1420" />
+            <path d="M0 44 L45 28 L80 40 L125 26 L170 40 L200 34 L200 50 L0 50 Z" fill={p.bg} />
           </svg>
           <span aria-hidden style={{ position: "absolute", bottom: large ? 10 : 6, left: "12%", fontSize: large ? 9 : 6, color: t.ink }}>▲</span>
           <span aria-hidden style={{ position: "absolute", bottom: large ? 14 : 8, left: "14%", width: 2, height: large ? 8 : 5, background: t.accent2 }} />

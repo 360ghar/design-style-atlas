@@ -3,74 +3,120 @@ import { Frame, Meta } from "../frame";
 
 export function BrutalismPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full flex-col" style={{ textAlign: "left", background: p.bg }}>
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${10 * s}px ${12 * s}px`,
+        }}
+      >
+        {/* Unadorned Web 1.0 Path Navigation */}
         <div
+          className="flex items-center justify-between"
           style={{
-            borderBottom: `3px solid ${p.ink}`,
-            padding: large ? "8px 14px" : "5px 8px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            fontSize: large ? 10 : 7,
-            fontFamily: p.body,
-            color: p.ink,
+            borderBottom: `2px solid ${p.ink}`,
+            paddingBottom: 4 * s,
+            fontSize: 6.5 * s,
           }}
         >
-          <strong style={{ fontFamily: p.body, fontWeight: 700 }}>index.html</strong>
+          <span style={{ fontWeight: 700, fontFamily: p.body }}>
+            index.html
+          </span>
           <span>
-            <a style={{ color: p.accent, textDecoration: "underline" }}>home</a>
+            <span style={{ color: p.accent, textDecoration: "underline" }}>home</span>
             <span style={{ color: p.muted }}> / </span>
-            <a style={{ color: p.accent, textDecoration: "underline" }}>section</a>
+            <span style={{ color: p.accent, textDecoration: "underline" }}>archive</span>
             <span style={{ color: p.muted }}> / </span>
-            <a style={{ color: p.accent, textDecoration: "underline" }}>page</a>
+            <span style={{ color: p.accent, textDecoration: "underline" }}>raw</span>
           </span>
         </div>
-        <div style={{ padding: large ? "12px 14px" : "7px 8px", background: p.surface, borderBottom: `2px solid ${p.ink}` }}>
-          <p
+
+        {/* Raw Béton Brut Content Block */}
+        <div
+          className="my-auto"
+          style={{
+            background: p.surface,
+            border: `2px solid ${p.ink}`,
+            padding: `${10 * s}px ${12 * s}px`,
+          }}
+        >
+          <div
             style={{
               fontFamily: p.display,
-              fontSize: large ? 30 : 17,
-              margin: 0,
+              fontSize: 14 * s,
               fontWeight: 700,
-              color: p.ink,
               lineHeight: 1.1,
+              color: p.ink,
             }}
           >
-            Welcome to my homepage
+            Welcome to the directory.
+          </div>
+          <p
+            style={{
+              fontSize: 7 * s,
+              lineHeight: 1.5,
+              margin: `${4 * s}px 0 ${8 * s}px 0`,
+              color: p.ink,
+            }}
+          >
+            Hand-crafted in a plain text editor. 0px radius. No drop shadows. No webfonts.
           </p>
-          <p style={{ fontFamily: p.body, fontSize: large ? 11 : 7, margin: large ? "6px 0 8px" : "4px 0 6px", color: p.ink }}>
-            Made with a text editor. Best viewed at 800x600. <a style={{ color: p.accent, textDecoration: "underline" }}>about this site</a>
-          </p>
-          <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+
+          <div className="flex items-center" style={{ gap: 8 * s }}>
             <button
               type="button"
               style={{
-                fontFamily: p.body,
-                fontSize: large ? 11 : 7.5,
                 background: p.bg,
                 color: p.ink,
                 border: `2px outset ${p.surface}`,
                 borderRadius: 0,
-                padding: large ? "5px 16px" : "3px 10px",
+                fontSize: 6.5 * s,
+                fontWeight: 700,
+                padding: `${3 * s}px ${8 * s}px`,
                 cursor: "pointer",
               }}
             >
               Submit query
             </button>
-            <span style={{ fontFamily: p.body, fontSize: large ? 10 : 7, color: p.accent2, fontWeight: 700 }}>[ under construction ]</span>
+            <span
+              style={{
+                fontSize: 6 * s,
+                color: p.accent2,
+                fontWeight: 700,
+                letterSpacing: "0.05em",
+              }}
+            >
+              [ UNDER CONSTRUCTION ]
+            </span>
           </div>
         </div>
-        <div style={{ padding: large ? "8px 14px" : "5px 8px", marginTop: "auto" }}>
-          <table style={{ borderCollapse: "collapse", fontSize: large ? 10 : 7, fontFamily: p.body, color: p.ink }}>
+
+        {/* Exposed Raw Table & Visitor Counter */}
+        <div style={{ borderTop: `2px solid ${p.ink}`, paddingTop: 4 * s }}>
+          <table
+            className="w-full text-left"
+            style={{
+              borderCollapse: "collapse",
+              fontSize: 6 * s,
+            }}
+          >
             <tbody>
               <tr>
-                <td style={{ border: `2px solid ${p.ink}`, padding: "3px 8px" }}>est. 1997</td>
-                <td style={{ border: `2px solid ${p.ink}`, padding: "3px 8px" }}>
-                  visitors: <span style={{ color: p.accent2, fontWeight: 700 }}>004821</span>
+                <td style={{ border: `1px solid ${p.ink}`, padding: `${2 * s}px ${6 * s}px` }}>
+                  est. 1997
                 </td>
-                <td style={{ border: `2px solid ${p.ink}`, padding: "3px 8px", color: p.muted }}>Home / Section / Page</td>
+                <td style={{ border: `1px solid ${p.ink}`, padding: `${2 * s}px ${6 * s}px` }}>
+                  visitors: <strong style={{ color: p.accent2 }}>004821</strong>
+                </td>
+                <td style={{ border: `1px solid ${p.ink}`, padding: `${2 * s}px ${6 * s}px`, color: p.muted }}>
+                  best viewed at 800x600
+                </td>
               </tr>
             </tbody>
           </table>

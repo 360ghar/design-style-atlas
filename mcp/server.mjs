@@ -4,9 +4,12 @@
  * Reads the prebuilt JSON in frontend/public/api/ with fallback to designs/.
  *
  * Tools:
- *  - list_styles  { query?, category?, limit? }
- *  - get_style    { slug, format?: "full" | "slim" | "tokens" }
- *  - match_vibe   { query, limit? }
+ *  - list_styles    { query?, category?, limit? }
+ *  - get_style      { slug, format?: "full" | "slim" | "tokens" }
+ *  - match_vibe     { query, limit? }
+ *  - get_contract   { slug }
+ * Prompts:
+ *  - verify_style   { slug? } — self-verification checklist against the contract
  *
  * Run: npm run mcp  (from frontend/) or: node mcp/server.mjs
  */
@@ -114,10 +117,57 @@ const TOOLS = [
       required: ["query"],
     },
   },
+  {
+    name: "get_contract",
+    description: "Get one style's machine token contract (palette, fonts, radius, shadows, borders, spacing) for auditing code against the style.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        slug: { type: "string", description: "Style slug, e.g. 'neo-brutalism'" },
+      },
+      required: ["slug"],
+    },
+  },
 ];
+
+const PROMPTS = [
+  {
+    name: "verify_style",
+    description: "Self-verify UI output against a style's token contract before declaring work done.",
+    arguments: [
+      {
+        name: "slug",
+        description: "Style slug (e.g. 'neo-brutalism'). Omit to resolve from the repo's DESIGN.lock.",
+        required: false,
+      },
+    ],
+  },
+];
+
+function verifyStylePrompt(slug) {
+  const target = slug ? `"${slug}"` : "declared in the repo's DESIGN.lock (or .well-known/design-style.json)";
+  return [
+    `Verify the UI work in this repo against the style contract (${target}). Do not declare the work done until all steps pass.`,
+    ``,
+    `1. Resolve the style slug${slug ? "" : " from DESIGN.lock / .well-known/design-style.json at the repo root"}.`,
+    `2. Load the contract: local <atlas-repo>/frontend/public/api/<slug>.contract.json, or fetch https://design-styles.dev/api/<slug>.contract.json.`,
+    `3. Run the audit CLI if available: node <atlas-repo>/cli/audit.mjs . --ci — treat every reported line as a bug.`,
+    `4. If the CLI is unavailable, check manually in every changed file: colors (hex/rgb literals) within the contract palette; primary font families from the contract stacks; border-radius within the contract range (pill values allowed); border widths >= the contract minimum; box-shadow blur = 0 for hard-shadow styles.`,
+    `5. Visually confirm one produced screen against the style's specimen page (see urls.page in the contract): borders, shadow style, type scale, spacing feel.`,
+    `6. Report: checks run, violations found, fixes applied. Remaining violations = work not done.`,
+  ].join("\n");
+}
 
 function textResult(text) {
   return { content: [{ type: "text", text }] };
+}
+
+function getContract(slug) {
+  const p = join(apiDir, `${slug}.contract.json`);
+  if (existsSync(p)) return JSON.parse(readFileSync(p, "utf8"));
+  throw new Error(
+    `No contract for "${slug}". Run: cd frontend && node scripts/build-api.mjs (writes public/api/<slug>.contract.json).`
+  );
 }
 
 function callTool(name, args = {}) {
@@ -165,6 +215,12 @@ function callTool(name, args = {}) {
       )
     );
   }
+  if (name === "get_contract") {
+    const slug = String(args.slug ?? "").trim();
+    if (!slug) throw new Error("Missing required argument: slug");
+    const contract = getContract(slug);
+    return textResult(JSON.stringify(contract, null, 2));
+  }
   throw new Error(`Unknown tool: ${name}`);
 }
 
@@ -187,8 +243,8 @@ rl.on("line", (line) => {
     if (method === "initialize") {
       reply({
         protocolVersion: "2024-11-05",
-        capabilities: { tools: {} },
-        serverInfo: { name: "design-styles", version: "1.0.0" },
+        capabilities: { tools: {}, prompts: {} },
+        serverInfo: { name: "design-styles", version: "1.1.0" },
       });
     } else if (method === "notifications/initialized" || method?.startsWith("notifications/")) {
       // no reply for notifications
@@ -199,6 +255,21 @@ rl.on("line", (line) => {
     } else if (method === "tools/call") {
       const { name, arguments: args } = params ?? {};
       reply(callTool(name, args ?? {}));
+    } else if (method === "prompts/list") {
+      reply({ prompts: PROMPTS });
+    } else if (method === "prompts/get") {
+      const name = String(params?.name ?? "");
+      if (name !== "verify_style") return reply(null, `Unknown prompt: ${name}`);
+      const slug = String(params?.arguments?.slug ?? "").trim() || null;
+      reply({
+        description: "Self-verify UI output against a style token contract.",
+        messages: [
+          {
+            role: "user",
+            content: { type: "text", text: verifyStylePrompt(slug) },
+          },
+        ],
+      });
     } else {
       if (id != null) reply(null, `Method not found: ${method}`);
     }

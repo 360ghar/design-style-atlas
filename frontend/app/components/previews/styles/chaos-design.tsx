@@ -3,236 +3,166 @@ import { Frame, Meta } from "../frame";
 
 export function ChaosDesignPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const ink3 = `3px solid ${p.ink}`;
-  const ink2 = `2.5px solid ${p.ink}`;
-  const fs = {
-    logo: large ? 13 : 8,
-    link: large ? 10 : 6.5,
-    cta: large ? 10 : 6.5,
-    h1: large ? 30 : 17,
-    sub: large ? 11 : 7,
-    badge: large ? 10 : 6.5,
-    foot: large ? 9 : 6,
-  };
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
       <div
+        className="flex h-full flex-col justify-between"
         style={{
-          position: "relative",
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
-          overflow: "hidden",
           background: p.bg,
-          fontFamily: p.body,
           color: p.ink,
+          fontFamily: p.body,
+          padding: `${10 * s}px ${12 * s}px`,
         }}
       >
-        {/* colliding nav — taped bar, rotated -0.5deg, bleeds edges */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 8,
-            background: p.surface,
-            borderBottom: ink2,
-            padding: large ? "8px 14px" : "5px 9px",
-            transform: "rotate(-0.5deg)",
-            width: "104%",
-            marginLeft: "-2%",
-            marginTop: "-1px",
-            flexShrink: 0,
-            zIndex: 5,
-          }}
-        >
-          <span
-            style={{
-              fontFamily: p.display,
-              fontSize: fs.logo,
-              background: p.accent,
-              color: p.surface,
-              border: ink2,
-              boxShadow: `3px 3px 0 ${p.ink}`,
-              padding: large ? "3px 9px" : "2px 6px",
-              transform: "rotate(-3deg)",
-              whiteSpace: "nowrap",
-            }}
-          >
-            MESS&amp;CO
-          </span>
-          <span style={{ display: "flex", alignItems: "center", gap: large ? 10 : 6 }}>
+        {/* Controlled Demolition Header */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center" style={{ gap: 5 * s }}>
             <span
               style={{
-                fontSize: fs.link,
-                fontWeight: 800,
-                boxShadow: `inset 0 -0.65em ${p.accent}55`,
-                padding: "0 2px",
-                whiteSpace: "nowrap",
+                fontFamily: p.display,
+                fontSize: 10 * s,
+                fontWeight: 900,
+                color: p.surface,
+                background: p.accent,
+                padding: `${2 * s}px ${8 * s}px`,
+                transform: "rotate(-2deg)",
+                border: `2px solid ${p.ink}`,
+                boxShadow: `${2 * s}px ${2 * s}px 0 ${p.ink}`,
               }}
             >
-              Drops
-            </span>
-            <span style={{ fontSize: fs.link, fontWeight: 700, color: p.muted, whiteSpace: "nowrap" }}>
-              Lookbook
+              CHAOS★CORP
             </span>
             <span
               style={{
-                fontSize: fs.cta,
-                fontWeight: 900,
                 background: p.accent2,
                 color: p.surface,
-                border: ink2,
-                boxShadow: `3px 3px 0 ${p.ink}`,
-                padding: large ? "5px 11px" : "3px 7px",
-                transform: "rotate(2deg)",
-                whiteSpace: "nowrap",
-              }}
-            >
-              SHOP →
-            </span>
-          </span>
-        </div>
-
-        {/* overlapping hero panels */}
-        <div style={{ position: "relative", flex: 1, overflow: "hidden", padding: large ? 16 : 10 }}>
-          {/* tape strip on main panel */}
-          <div
-            style={{
-              position: "absolute",
-              left: "16%",
-              top: large ? 8 : 4,
-              width: large ? 88 : 56,
-              height: large ? 16 : 10,
-              background: p.surface,
-              opacity: 0.75,
-              border: `1px solid ${p.muted}`,
-              transform: "rotate(-6deg)",
-              zIndex: 4,
-            }}
-          />
-          {/* main headline panel */}
-          <div
-            style={{
-              position: "relative",
-              width: "80%",
-              background: p.surface,
-              border: ink3,
-              boxShadow: `5px 5px 0 ${p.ink}`,
-              padding: large ? "12px 14px 13px" : "7px 9px 8px",
-              transform: "rotate(-2deg)",
-              zIndex: 3,
-            }}
-          >
-            <div style={{ fontSize: fs.sub, fontWeight: 900, letterSpacing: "0.08em", color: p.muted }}>
-              DROP 07 — FESTIVAL PACK
-            </div>
-            <div style={{ fontFamily: p.display, fontSize: fs.h1, lineHeight: 0.95, marginTop: 4 }}>
-              BEAUTI
-              <span style={{ boxShadow: `inset 0 -0.38em ${p.accent}` }}>FUL</span>
-              <br />
-              ACCIDENT
-            </div>
-            <div style={{ fontSize: fs.sub, fontWeight: 600, marginTop: large ? 8 : 5, maxWidth: "92%" }}>
-              24 pieces. Rotated, taped, colliding — still checks out.
-            </div>
-          </div>
-
-          {/* colliding dark panel, overlaps main by ~28px */}
-          <div
-            style={{
-              position: "absolute",
-              right: large ? 12 : 8,
-              top: large ? 64 : 40,
-              width: "52%",
-              background: p.ink,
-              color: p.surface,
-              border: ink2,
-              boxShadow: `4px 4px 0 ${p.accent}`,
-              padding: large ? "10px 11px" : "6px 7px",
-              transform: "rotate(3deg)",
-              zIndex: 4,
-            }}
-          >
-            <div style={{ fontFamily: p.display, fontSize: fs.badge }}>50% OFF</div>
-            <div style={{ fontSize: fs.sub, fontWeight: 600, marginTop: 2, opacity: 0.85 }}>
-              ends midnight. no restocks.
-            </div>
-            <div
-              style={{
-                marginTop: large ? 8 : 5,
-                background: p.surface,
-                color: p.ink,
-                fontSize: fs.cta,
+                fontSize: 6 * s,
                 fontWeight: 900,
-                textAlign: "center",
-                padding: large ? "6px 0" : "4px 0",
-                border: `2px solid ${p.surface}`,
-                boxShadow: `2px 2px 0 ${p.accent2}`,
+                padding: `${1 * s}px ${6 * s}px`,
+                transform: "rotate(2.5deg)",
+                border: `1.5px solid ${p.ink}`,
               }}
             >
-              GRAB IT →
-            </div>
+              WARNING: COLLISION
+            </span>
           </div>
-
-          {/* sticker badge breaking the edge */}
-          <div
-            style={{
-              position: "absolute",
-              left: "62%",
-              top: large ? 46 : 28,
-              fontFamily: p.display,
-              fontSize: fs.badge,
-              background: p.accent2,
-              color: p.surface,
-              border: ink2,
-              borderRadius: 999,
-              padding: large ? "6px 12px" : "4px 8px",
-              transform: "rotate(-8deg)",
-              boxShadow: `2px 2px 0 ${p.ink}`,
-              zIndex: 5,
-              whiteSpace: "nowrap",
-            }}
-          >
-            ★ NEW!
-          </div>
-        </div>
-
-        {/* sticker footer */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 8,
-            background: p.ink,
-            color: p.surface,
-            padding: large ? "7px 14px 9px" : "5px 9px 6px",
-            transform: "rotate(0.5deg)",
-            width: "104%",
-            marginLeft: "-2%",
-            marginBottom: "-2px",
-            flexShrink: 0,
-            zIndex: 5,
-          }}
-        >
-          <span style={{ fontSize: fs.foot, fontWeight: 800, letterSpacing: "0.06em" }}>
-            ★ NO RESTOCKS ★ WORLDWIDE
-          </span>
           <span
             style={{
-              fontSize: fs.foot,
-              fontWeight: 900,
-              background: p.accent,
-              color: p.surface,
-              borderRadius: 999,
-              padding: large ? "3px 10px" : "2px 7px",
-              transform: "rotate(-3deg)",
-              whiteSpace: "nowrap",
+              fontSize: 6.5 * s,
+              fontWeight: 800,
+              color: p.ink,
+              textDecoration: "line-through",
             }}
           >
-            SALE ENDS?!
+            ORDER IS DEAD
           </span>
+        </div>
+
+        {/* Overlapping Colliding Chaos Card */}
+        <div
+          className="my-auto"
+          style={{
+            background: p.surface,
+            border: `3px solid ${p.ink}`,
+            boxShadow: `${5 * s}px ${5 * s}px 0 ${p.ink}`,
+            padding: `${12 * s}px ${14 * s}px`,
+            position: "relative",
+          }}
+        >
+          {/* Taped Edge Decal */}
+          <div
+            style={{
+              position: "absolute",
+              top: -6 * s,
+              left: 20 * s,
+              background: `${p.accent}33`,
+              color: p.ink,
+              fontSize: 5.5 * s,
+              fontWeight: 800,
+              padding: `${1 * s}px ${12 * s}px`,
+              borderLeft: `2px dashed ${p.ink}`,
+              borderRight: `2px dashed ${p.ink}`,
+              transform: "rotate(-1deg)",
+            }}
+          >
+            // ART DIRECTED DEMOLITION
+          </div>
+
+          <h3
+            style={{
+              fontFamily: p.display,
+              fontSize: 14 * s,
+              fontWeight: 900,
+              color: p.ink,
+              lineHeight: 1.15,
+              margin: `${4 * s}px 0 0 0`,
+              transform: "rotate(0.5deg)",
+            }}
+          >
+            Colliding Elements That Still Convert
+          </h3>
+
+          <p
+            style={{
+              fontSize: 6.5 * s,
+              fontWeight: 600,
+              color: p.muted,
+              lineHeight: 1.45,
+              margin: `${6 * s}px 0`,
+            }}
+          >
+            Controlled anarchy: intentional rotations, overlapping washi-tape overlays, and deliberate tension across every coordinate.
+          </p>
+
+          <div className="flex items-center justify-between">
+            <span
+              style={{
+                fontSize: 6 * s,
+                fontWeight: 900,
+                color: p.accent,
+                background: `${p.accent}15`,
+                padding: `${2 * s}px ${6 * s}px`,
+              }}
+            >
+              ±3° MAX ROTATION
+            </span>
+            <button
+              type="button"
+              style={{
+                background: p.accent,
+                color: p.surface,
+                border: `2px solid ${p.ink}`,
+                boxShadow: `${3 * s}px ${3 * s}px 0 ${p.ink}`,
+                fontFamily: p.display,
+                fontWeight: 900,
+                fontSize: 7 * s,
+                padding: `${4 * s}px ${12 * s}px`,
+                cursor: "pointer",
+                transform: "rotate(-1.5deg)",
+              }}
+            >
+              TRIGGER IMPACT →
+            </button>
+          </div>
+        </div>
+
+        {/* Footer Controlled Chaos Strip */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `2px solid ${p.ink}`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            fontWeight: 800,
+            textTransform: "uppercase",
+            letterSpacing: "0.08em",
+          }}
+        >
+          <span>✦ TAPED EDGES</span>
+          <span>✦ COLLIDING WEIGHTS</span>
+          <span style={{ color: p.accent }}>✦ ZERO ACCIDENTAL BUGS</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

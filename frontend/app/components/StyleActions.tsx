@@ -180,6 +180,15 @@ export function StyleActions({ slug }: { slug: string }) {
         >
           JSON ↗
         </a>
+        <a
+          href={`/api/${slug}.contract.json`}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Machine token contract — used by the audit CLI and MCP get_contract"
+          className={`${btn} border-[#111110]/30 bg-transparent text-[#111110] hover:border-[#111110] dark:border-white/20 dark:text-white dark:hover:border-white`}
+        >
+          Contract ↗
+        </a>
       </div>
       {error && (
         <p role="alert" className="mt-2 font-mono text-[11px] text-red-600 dark:text-red-400">

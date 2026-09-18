@@ -2,12 +2,14 @@ import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
 
 export function HolographicPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
-  const bg = "#0D0D14";
-  const surface = "#15151F";
-  const ink = "#F2F0FF";
-  const muted = "#8E8AB0";
-  const accent = "#7DF9FF";
-  const accent2 = "#FF7AD9";
+  const p = meta.preview;
+  const s = large ? 1.6 : 1;
+  const bg = p.bg;
+  const surface = p.surface;
+  const ink = p.ink;
+  const muted = p.muted;
+  const accent = p.accent;
+  const accent2 = p.accent2;
   const display = "Unbounded, Outfit, sans-serif";
   const body = "Outfit, Inter, sans-serif";
   const foil = `conic-gradient(from 210deg, ${accent2}, ${ink}, ${accent}, ${muted}, ${accent2})`;

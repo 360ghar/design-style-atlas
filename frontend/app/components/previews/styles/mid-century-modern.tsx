@@ -4,28 +4,101 @@ import { Frame, Meta } from "../frame";
 export function MidCenturyModernPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
   const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
-      <div className="flex h-full flex-col" style={{ background: p.bg, color: p.ink, fontFamily: p.body }}>
-        <div className="flex items-center justify-between" style={{ padding: `${7 * s}px ${12 * s}px`, fontSize: 7 * s }}>
-          <span style={{ fontFamily: p.display, fontWeight: 700 }}>✳ Miller &amp; Co.</span>
-          <span className="flex" style={{ gap: 8 * s, color: p.muted }}><span>Lounge</span><span>Dining</span><span>Lighting</span></span>
-          <span style={{ background: p.ink, color: p.surface, borderRadius: 999, padding: `${3 * s}px ${9 * s}px` }}>Showroom</span>
-        </div>
-        <div className="flex flex-1 items-center" style={{ padding: `0 ${12 * s}px`, gap: 12 * s }}>
-          <div style={{ width: 56 * s, height: 56 * s, flexShrink: 0, background: `conic-gradient(${p.accent} 0 8%, transparent 8% 25%, ${p.accent} 25% 33%, transparent 33% 50%, ${p.accent} 50% 58%, transparent 58% 75%, ${p.accent} 75% 83%, transparent 83%)`, borderRadius: "50%", position: "relative" }}>
-            <span style={{ position: "absolute", inset: "38%", background: p.accent2, borderRadius: "50%" }} />
+      <div
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${12 * s}px ${14 * s}px`,
+        }}
+      >
+        {/* Herman Miller Showroom Header */}
+        <div className="flex items-center justify-between" style={{ borderBottom: `1.5px solid ${p.accent}55`, paddingBottom: 4 * s }}>
+          <div className="flex items-center" style={{ gap: 5 * s }}>
+            <span style={{ fontFamily: p.display, fontSize: 9 * s, fontWeight: 700, color: p.accent }}>
+              ✶ HERMAN MILLER · 1958
+            </span>
           </div>
-          <div>
-            <div style={{ fontFamily: p.display, fontSize: large ? 26 : 15, lineHeight: 1.05 }}>Atomic<br />living.</div>
-            <div style={{ fontSize: 6 * s, color: p.muted, marginTop: 4 * s }}>teak · starburst · est. 1958</div>
-            <div className="flex" style={{ gap: 4 * s, marginTop: 7 * s }}>
-              {[p.accent, "#D9A441", p.accent2].map((c) => <span key={c} style={{ width: 22 * s, height: 7 * s, background: c, borderRadius: 3 }} />)}
+          <span style={{ fontSize: 5.5 * s, color: p.muted, letterSpacing: "0.15em", textTransform: "uppercase" as const }}>
+            EAMES &amp; NELSON
+          </span>
+        </div>
+
+        {/* Central Teak & Starburst Showcase */}
+        <div
+          className="my-auto"
+          style={{
+            background: p.surface,
+            borderRadius: 8 * s,
+            border: `1px solid ${p.accent}33`,
+            padding: `${14 * s}px ${16 * s}px`,
+            boxShadow: `0 ${6 * s}px ${20 * s}px ${p.ink}0f`,
+          }}
+        >
+          <div className="flex items-start justify-between">
+            <div>
+              <div style={{ fontSize: 5.5 * s, color: p.accent, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" as const }}>
+                PALM SPRINGS MODERNISM
+              </div>
+              <h3
+                style={{
+                  fontFamily: p.display,
+                  fontSize: 14 * s,
+                  fontWeight: 700,
+                  lineHeight: 1.15,
+                  margin: `${3 * s}px 0 ${5 * s}px 0`,
+                  color: p.ink,
+                }}
+              >
+                Teak, Mustard &amp; Starburst
+              </h3>
+            </div>
+            {/* Starburst clock icon */}
+            <div style={{ fontSize: 16 * s, color: p.accent2, lineHeight: 1 }}>
+              ✶
             </div>
           </div>
+
+          <p style={{ fontSize: 6.5 * s, color: p.muted, lineHeight: 1.45 }}>
+            Tapered peg legs, atomic starburst motifs, warm teak grain, mustard and avocado organic geometry.
+          </p>
+
+          <div className="flex items-center" style={{ gap: 8 * s, marginTop: 8 * s }}>
+            <span
+              style={{
+                background: p.accent,
+                color: p.bg,
+                fontSize: 6 * s,
+                fontWeight: 700,
+                padding: `${4 * s}px ${14 * s}px`,
+                borderRadius: 999,
+              }}
+            >
+              Browse Lounge
+            </span>
+            <span style={{ fontSize: 6 * s, color: p.accent2, fontWeight: 600 }}>
+              Form follows function
+            </span>
+          </div>
         </div>
-        <div className="flex items-center justify-between" style={{ padding: `${6 * s}px ${12 * s}px`, borderTop: `2px solid ${p.ink}`, fontSize: 6 * s, color: p.muted }}>
-          <span>EAMES · NELSON · SAARINEN</span><span>catalog 1958 →</span>
+
+        {/* Footer */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `1.5px solid ${p.accent}33`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            color: p.muted,
+          }}
+        >
+          <span>TEAK &amp; MUSTARD</span>
+          <span>ATOMIC STARBURST CLOCK</span>
+          <span style={{ color: p.accent }}>OPTIMISTIC MODERN</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

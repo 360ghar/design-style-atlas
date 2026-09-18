@@ -3,192 +3,179 @@ import { Frame, Meta } from "../frame";
 
 export function ZinePunkPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const fs = {
-    masthead: large ? 10 : 6.5,
-    stamp: large ? 8 : 5,
-    hero: large ? 30 : 16,
-    kicker: large ? 9 : 6,
-    gig: large ? 8.5 : 5.5,
-  };
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
       <div
-        className="flex h-full flex-col overflow-hidden"
-        style={{ background: p.bg, color: p.ink, fontFamily: p.body }}
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${10 * s}px ${12 * s}px`,
+        }}
       >
-        {/* xerox masthead */}
-        <div
-          className="flex items-center justify-between"
-          style={{
-            padding: large ? "7px 12px" : "5px 8px",
-            borderBottom: `2px solid ${p.ink}`,
-            background: p.surface,
-          }}
-        >
-          <div
-            style={{
-              background: p.ink,
-              color: p.surface,
-              fontFamily: p.display,
-              fontSize: fs.masthead,
-              letterSpacing: "0.06em",
-              padding: "2px 7px",
-              transform: "rotate(-2deg)",
-              lineHeight: 1,
-            }}
-          >
-            RIOT PRESS
-          </div>
-          <div style={{ color: p.muted, fontSize: fs.stamp, letterSpacing: "0.12em" }}>
-            ISSUE #07 — XEROXED MONTHLY
-          </div>
-          <div
-            style={{
-              border: `1.5px dashed ${p.ink}`,
-              color: p.accent,
-              fontSize: fs.stamp,
-              fontWeight: 800,
-              padding: "1px 6px",
-              transform: "rotate(1.5deg)",
-              lineHeight: 1.4,
-            }}
-          >
-            ALL AGES
-          </div>
-        </div>
-
-        {/* ransom-note hero */}
-        <div
-          className="relative flex flex-1 flex-col justify-center"
-          style={{
-            padding: large ? "12px 16px" : "8px 10px",
-            backgroundImage: `radial-gradient(${p.ink}22 1px, transparent 1.2px)`,
-            backgroundSize: large ? "6px 6px" : "5px 5px",
-          }}
-        >
-          {/* tape strips */}
-          <div
-            style={{
-              position: "absolute",
-              top: large ? 8 : 5,
-              left: "12%",
-              width: large ? 54 : 34,
-              height: large ? 11 : 7,
-              background: p.accent2,
-              opacity: 0.92,
-              transform: "rotate(-7deg)",
-              borderLeft: `1px dashed ${p.ink}`,
-              borderRight: `1px dashed ${p.ink}`,
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: large ? 10 : 6,
-              right: "10%",
-              width: large ? 22 : 14,
-              height: large ? 22 : 14,
-              borderRadius: "50%",
-              border: `2px solid ${p.ink}`,
-              background: p.surface,
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: large ? 16 : 10,
-              right: "12.5%",
-              width: 3,
-              height: 3,
-              borderRadius: "50%",
-              background: p.ink,
-            }}
-          />
-          <div
-            style={{
-              display: "inline-block",
-              width: "fit-content",
-              background: p.accent2,
-              color: p.ink,
-              fontSize: fs.kicker,
-              fontWeight: 800,
-              letterSpacing: "0.14em",
-              padding: "1px 6px",
-              transform: "rotate(-1deg)",
-              marginBottom: 5,
-            }}
-          >
-            CUT / PASTE / SCREAM
-          </div>
-          <div
-            style={{
-              display: "inline-block",
-              width: "fit-content",
-              background: p.ink,
-              color: p.surface,
-              fontFamily: p.display,
-              fontSize: fs.hero,
-              lineHeight: 1,
-              letterSpacing: "0.01em",
-              padding: "3px 10px 4px",
-              transform: "rotate(-2deg)",
-              boxShadow: `4px 4px 0 ${p.accent}`,
-            }}
-          >
-            NO FUTURE?
-          </div>
-          <div
-            style={{
-              display: "inline-block",
-              width: "fit-content",
-              background: p.accent,
-              color: p.surface,
-              fontFamily: p.display,
-              fontSize: fs.hero,
-              lineHeight: 1,
-              padding: "3px 10px 4px",
-              transform: "rotate(1.5deg)",
-              marginTop: 5,
-            }}
-          >
-            MAKE ONE.
-          </div>
-          <div style={{ fontSize: fs.kicker, color: p.muted, marginTop: large ? 9 : 6 }}>
-            3 chords · 1 copier · <span style={{ background: p.ink, color: p.surface, padding: "0 5px" }}>NO PERMISSION NEEDED</span>
-          </div>
-        </div>
-
-        {/* gig-list footer */}
-        <div
-          style={{
-            background: p.surface,
-            borderTop: `2px solid ${p.ink}`,
-            padding: large ? "7px 12px 8px" : "5px 8px 6px",
-            fontSize: fs.gig,
-            lineHeight: 1.7,
-          }}
-        >
-          <div className="flex items-center justify-between" style={{ borderBottom: `1px solid ${p.ink}` }}>
-            <span style={{ fontWeight: 800 }}>FRI 21 — BASEMENT SHOW</span>
-            <span style={{ color: p.muted }}>$5 · 7PM</span>
-          </div>
-          <div className="flex items-center justify-between" style={{ color: p.muted, borderBottom: `1px solid ${p.ink}` }}>
-            <s>SAT 22 — VFW HALL — SOLD OUT</s>
-            <span> RIP</span>
-          </div>
-          <div className="flex items-center justify-between">
-            <span>
-              <b>SUN 23 — MATINEE</b> · $5 ·{" "}
-              <span style={{ background: p.ink, color: p.surface, padding: "0 5px", fontWeight: 800 }}>DIY OR DIE</span>
+        {/* DIY Xeroxed Zine Top Header */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center" style={{ gap: 5 * s }}>
+            <span
+              style={{
+                fontFamily: p.display,
+                fontSize: 11 * s,
+                fontWeight: 900,
+                color: p.bg,
+                background: p.ink,
+                padding: `${1 * s}px ${6 * s}px`,
+                transform: "rotate(-2deg)",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+              }}
+            >
+              RIOT★ZINE
             </span>
             <span
               style={{
-                width: large ? 44 : 30,
-                height: large ? 10 : 7,
-                background: `repeating-linear-gradient(90deg, ${p.ink} 0 2px, transparent 2px 4px)`,
+                background: p.accent2,
+                color: p.ink,
+                border: `2px dashed ${p.ink}`,
+                fontSize: 6 * s,
+                fontWeight: 900,
+                padding: `${1 * s}px ${6 * s}px`,
+                transform: "rotate(2deg)",
               }}
-            />
+            >
+              ISSUE #07 · 50 COPIES
+            </span>
           </div>
+          <span
+            style={{
+              fontSize: 6.5 * s,
+              fontWeight: 900,
+              color: p.accent,
+              textTransform: "uppercase",
+            }}
+          >
+            NO MASTERS ★
+          </span>
+        </div>
+
+        {/* Photocopied Cut & Paste Ripped Card */}
+        <div
+          className="my-auto flex flex-col justify-between"
+          style={{
+            background: p.surface,
+            border: `3px solid ${p.ink}`,
+            boxShadow: `${5 * s}px ${5 * s}px 0 ${p.ink}`,
+            padding: `${12 * s}px ${14 * s}px`,
+            position: "relative",
+          }}
+        >
+          {/* Simulated Scotch Tape Strip */}
+          <div
+            style={{
+              position: "absolute",
+              top: -6 * s,
+              right: 18 * s,
+              width: 48 * s,
+              height: 12 * s,
+              background: `${p.ink}15`,
+              borderLeft: `1px solid ${p.ink}33`,
+              borderRight: `1px solid ${p.ink}33`,
+              transform: "rotate(3deg)",
+            }}
+          />
+
+          <div>
+            <span
+              style={{
+                fontSize: 6 * s,
+                fontWeight: 900,
+                background: p.accent,
+                color: p.bg,
+                padding: `${1 * s}px ${6 * s}px`,
+                textTransform: "uppercase",
+                display: "inline-block",
+                marginBottom: 3 * s,
+              }}
+            >
+              GIG FLYER · TONIGHT
+            </span>
+            <h2
+              style={{
+                fontFamily: p.display,
+                fontSize: 16 * s,
+                fontWeight: 900,
+                color: p.ink,
+                lineHeight: 0.95,
+                letterSpacing: "-0.03em",
+                textTransform: "uppercase",
+                margin: 0,
+              }}
+            >
+              BASEMENT PUNK FURY
+            </h2>
+            <p
+              style={{
+                fontSize: 6.5 * s,
+                fontFamily: "monospace",
+                color: p.ink,
+                lineHeight: 1.45,
+                margin: `${6 * s}px 0 0 0`,
+                background: `${p.accent2}33`,
+                padding: `${3 * s}px ${6 * s}px`,
+                borderLeft: `2px solid ${p.ink}`,
+              }}
+            >
+              FEATURING: THE STATIC · WIRE CUTTERS · ANARCHY DUO. $5 AT DOOR OR BRING CANNED FOOD.
+            </p>
+          </div>
+
+          <div
+            className="flex items-center justify-between"
+            style={{
+              marginTop: 8 * s,
+              paddingTop: 6 * s,
+              borderTop: `2px dashed ${p.ink}`,
+            }}
+          >
+            <span style={{ fontSize: 6 * s, fontFamily: "monospace", fontWeight: 700 }}>
+              DOORS 21:00 · WAREHOUSE B
+            </span>
+            <button
+              type="button"
+              style={{
+                background: p.ink,
+                color: p.bg,
+                border: "none",
+                fontFamily: p.display,
+                fontWeight: 900,
+                fontSize: 7 * s,
+                padding: `${3 * s}px ${10 * s}px`,
+                cursor: "pointer",
+                boxShadow: `${2 * s}px ${2 * s}px 0 ${p.accent}`,
+              }}
+            >
+              STEAL FLYER ☠
+            </button>
+          </div>
+        </div>
+
+        {/* Footer Xerox Redaction Strip */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `2px solid ${p.ink}`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            fontFamily: "monospace",
+            fontWeight: 800,
+            textTransform: "uppercase",
+          }}
+        >
+          <span>✦ XEROX CONTRAST 100%</span>
+          <span>✦ TAPED RIPS</span>
+          <span style={{ color: p.accent }}>✦ EARN THE ANGER</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

@@ -1,69 +1,214 @@
 import type { StyleMeta } from "../../../lib/styles";
 import { Frame, Meta } from "../frame";
 
-const MONO = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace";
-const NOMINAL = "#7CFF6B";
-
 export function SciFiUIPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
-  const fs = large ? 8 : 5.5;
-  const pad = large ? 12 : 8;
-  const gap = large ? 8 : 6;
-  const corner = large ? 12 : 9;
-  const rows: Array<[label: string, value: string, color: string]> = [
-    ["VEL", "7.66 KM/S", p.accent],
-    ["HULL", "98.2% OK", NOMINAL],
-    ["FUEL", "61% LOW", p.accent2],
-  ];
+  const s = large ? 1.6 : 1;
+
   return (
     <Frame meta={meta} large={large}>
       <div
-        className="relative flex h-full flex-col"
-        style={{ background: p.bg, padding: pad, gap, fontFamily: p.body, overflow: "hidden", fontSize: fs }}
+        className="flex h-full flex-col justify-between"
+        style={{
+          background: p.bg,
+          color: p.ink,
+          fontFamily: p.body,
+          padding: `${10 * s}px ${12 * s}px`,
+        }}
       >
-        {/* HUD frame corners */}
-        <div style={{ position: "absolute", top: 3, left: 3, width: corner, height: corner, borderTop: `2px solid ${p.accent}`, borderLeft: `2px solid ${p.accent}` }} />
-        <div style={{ position: "absolute", top: 3, right: 3, width: corner, height: corner, borderTop: `2px solid ${p.accent}`, borderRight: `2px solid ${p.accent}` }} />
-        <div style={{ position: "absolute", bottom: 3, left: 3, width: corner, height: corner, borderBottom: `2px solid ${p.accent}`, borderLeft: `2px solid ${p.accent}` }} />
-        <div style={{ position: "absolute", bottom: 3, right: 3, width: corner, height: corner, borderBottom: `2px solid ${p.accent}`, borderRight: `2px solid ${p.accent}` }} />
-
-        {/* command bar */}
-        <div className="flex items-center justify-between" style={{ color: p.muted, fontFamily: MONO, fontSize: fs - 1, letterSpacing: "0.18em", fontWeight: 700 }}>
-          <span style={{ color: p.ink }}>◆ ASTRA-9 <span style={{ color: p.muted }}>SYS.NAV</span></span>
-          <span style={{ border: `1px solid ${p.accent2}`, color: p.accent2, padding: large ? "2px 6px" : "1px 4px" }}>ALERT 2</span>
-          <span style={{ color: p.accent }}>T+04:12:55</span>
-        </div>
-
-        {/* holographic hero readout */}
-        <div style={{ position: "relative", flex: 1, minHeight: 0, border: `1px solid ${p.accent}66`, background: `${p.surface}CC`, padding: large ? 10 : 7, overflow: "hidden" }}>
-          <div style={{ position: "absolute", top: -1, left: -1, width: 10, height: 10, borderTop: `2px solid ${p.accent}`, borderLeft: `2px solid ${p.accent}` }} />
-          <div style={{ position: "absolute", top: -1, right: -1, width: 10, height: 10, borderTop: `2px solid ${p.accent}`, borderRight: `2px solid ${p.accent}` }} />
-          <div className="flex items-center justify-between" style={{ fontFamily: MONO, fontSize: fs - 1, letterSpacing: "0.18em", color: p.muted, fontWeight: 700 }}>
-            <span>APPROACH VECTOR · CH-04</span>
-            <span style={{ display: "flex", alignItems: "center", gap: 4, color: NOMINAL }}>
-              <span style={{ width: 5, height: 5, background: NOMINAL, boxShadow: `0 0 6px ${NOMINAL}` }} /> NOMINAL
+        {/* Bridge Tactical HUD Telemetry Header */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center" style={{ gap: 5 * s }}>
+            <span
+              style={{
+                fontFamily: p.display,
+                fontSize: 9 * s,
+                fontWeight: 900,
+                color: p.accent,
+                textShadow: `0 0 ${8 * s}px ${p.accent}`,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+              }}
+            >
+              TAC-OPS // BRIDGE 01
+            </span>
+            <span
+              style={{
+                border: `1px solid ${p.accent}`,
+                fontSize: 5.5 * s,
+                padding: `${1 * s}px ${6 * s}px`,
+                color: p.accent,
+              }}
+            >
+              DEFENSE MATRIX: ONLINE
             </span>
           </div>
-          <div style={{ fontFamily: p.display, color: p.ink, fontWeight: 700, fontSize: large ? 21 : 14, lineHeight: 1.05, marginTop: large ? 6 : 4 }}>
-            HOLD <span style={{ color: p.accent, textShadow: `0 0 12px ${p.accent}66` }}>ORBIT 98.2%</span>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: large ? 6 : 4, marginTop: large ? 8 : 5, fontFamily: MONO, fontSize: fs - 0.5 }}>
-            {rows.map(([label, value, color]) => (
-              <div key={label} style={{ border: `1px solid ${p.accent}44`, padding: large ? 4 : 3, background: `${p.bg}AA` }}>
-                <div style={{ color: p.muted, letterSpacing: "0.15em" }}>{label}</div>
-                <div style={{ color, fontWeight: 700, marginTop: 1 }}>{value}</div>
-              </div>
-            ))}
-          </div>
-          <div style={{ marginTop: large ? 8 : 5, height: large ? 10 : 7, border: `1px solid ${p.accent}44`, background: `repeating-linear-gradient(90deg,${p.accent}33 0 2px,transparent 2px 5px)` }} />
+          <span style={{ fontSize: 6 * s, color: p.accent2, fontFamily: "monospace", fontWeight: 700 }}>
+            ORBITAL SECTOR 07-B
+          </span>
         </div>
 
-        {/* telemetry footer */}
-        <div className="flex items-center justify-between" style={{ borderTop: `1px solid ${p.accent}44`, paddingTop: large ? 6 : 4, fontFamily: MONO, fontSize: fs - 1, letterSpacing: "0.14em", color: p.muted, fontWeight: 700 }}>
-          <span>SIG <span style={{ color: p.accent }}>-42DB</span></span>
-          <span>PWR <span style={{ color: p.accent }}>87%</span></span>
-          <span>EVT <span style={{ color: p.accent2 }}>002 CAUTION</span></span>
-          <span style={{ color: p.accent }}>▮▮▮▯▯ SCAN</span>
+        {/* Console Frame with Corner Brackets */}
+        <div
+          className="my-auto flex flex-col justify-between"
+          style={{
+            background: p.surface,
+            border: `1px solid ${p.accent}55`,
+            boxShadow: `0 0 ${20 * s}px ${p.accent}22`,
+            padding: `${12 * s}px ${14 * s}px`,
+            position: "relative",
+          }}
+        >
+          {/* Cyan Corner Brackets */}
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: 8 * s,
+              height: 8 * s,
+              borderTop: `2px solid ${p.accent}`,
+              borderLeft: `2px solid ${p.accent}`,
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              width: 8 * s,
+              height: 8 * s,
+              borderTop: `2px solid ${p.accent}`,
+              borderRight: `2px solid ${p.accent}`,
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              width: 8 * s,
+              height: 8 * s,
+              borderBottom: `2px solid ${p.accent}`,
+              borderLeft: `2px solid ${p.accent}`,
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              right: 0,
+              width: 8 * s,
+              height: 8 * s,
+              borderBottom: `2px solid ${p.accent}`,
+              borderRight: `2px solid ${p.accent}`,
+            }}
+          />
+
+          <div className="flex items-start justify-between">
+            <div>
+              <div
+                style={{
+                  fontSize: 5.5 * s,
+                  fontWeight: 700,
+                  color: p.accent2,
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                }}
+              >
+                TACTICAL SENSOR ARRAY
+              </div>
+              <h3
+                style={{
+                  fontFamily: p.display,
+                  fontSize: 13 * s,
+                  fontWeight: 800,
+                  color: p.ink,
+                  textShadow: `0 0 ${10 * s}px ${p.accent}44`,
+                  lineHeight: 1.2,
+                  margin: `${3 * s}px 0 0 0`,
+                }}
+              >
+                Deep-Space Kinetic Target Acquisition
+              </h3>
+            </div>
+            <div
+              style={{
+                border: `1px solid ${p.accent2}`,
+                color: p.accent2,
+                fontFamily: "monospace",
+                fontSize: 6.5 * s,
+                fontWeight: 700,
+                padding: `${2 * s}px ${6 * s}px`,
+              }}
+            >
+              LOCK 99.4%
+            </div>
+          </div>
+
+          {/* Segmented Energy Shield Gauge */}
+          <div style={{ margin: `${8 * s}px 0` }}>
+            <div className="flex items-center justify-between" style={{ fontSize: 5.5 * s, color: p.muted, marginBottom: 2 * s }}>
+              <span>SHIELD DEFLECTORS</span>
+              <span style={{ color: p.accent }}>88% NOMINAL</span>
+            </div>
+            <div className="flex h-2 w-full gap-1">
+              {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+                <div
+                  key={i}
+                  className="flex-1"
+                  style={{
+                    background: i < 7 ? p.accent : `${p.accent}22`,
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div
+            className="flex items-center justify-between"
+            style={{
+              borderTop: `1px solid ${p.accent}33`,
+              paddingTop: 6 * s,
+            }}
+          >
+            <span style={{ fontSize: 6 * s, color: p.muted, fontFamily: "monospace" }}>
+              WARP DRIVE CHARGED: 12.8 TJ
+            </span>
+            <button
+              type="button"
+              style={{
+                background: p.accent,
+                color: p.bg,
+                border: "none",
+                fontFamily: p.display,
+                fontSize: 6.5 * s,
+                fontWeight: 800,
+                padding: `${3 * s}px ${12 * s}px`,
+                cursor: "pointer",
+                boxShadow: `0 0 ${12 * s}px ${p.accent}`,
+              }}
+            >
+              ENGAGE THRUST ⏵
+            </button>
+          </div>
+        </div>
+
+        {/* Tactical Telemetry Footer */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            borderTop: `1px solid ${p.accent}33`,
+            paddingTop: 4 * s,
+            fontSize: 5.5 * s,
+            color: p.muted,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+          }}
+        >
+          <span>✦ 1PX CYAN HAIRLINES</span>
+          <span>✦ CORNER BRACKETS</span>
+          <span style={{ color: p.accent }}>✦ 0PX SHARP TACTICAL HUD</span>
         </div>
       </div>
       <Meta meta={meta} large={large} />

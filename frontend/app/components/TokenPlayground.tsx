@@ -181,7 +181,7 @@ export function TokenPlayground({
                   type="color"
                   value={isHexColor(val) ? val.slice(0, 7) : "#000000"}
                   onChange={(e) => onChange({ ...overrides, [k]: e.target.value.toUpperCase() })}
-                  className="h-8 w-10 cursor-pointer border border-black/20 bg-transparent p-0.5"
+                  className="h-8 w-10 cursor-pointer border border-[#111110]/20 dark:border-white/20 bg-transparent p-0.5"
                   aria-label={`${k} color picker`}
                 />
                 <span className="w-16 font-mono text-[11px] uppercase">{k}</span>
@@ -190,7 +190,7 @@ export function TokenPlayground({
                   value={val}
                   spellCheck={false}
                   onChange={(e) => onChange({ ...overrides, [k]: e.target.value })}
-                  className="w-32 border border-black/20 bg-transparent px-2 py-1 font-mono text-[11px]"
+                  className="w-32 border border-[#111110]/20 dark:border-white/20 bg-transparent px-2 py-1 font-mono text-[11px]"
                   aria-label={`${k} hex value`}
                 />
               </label>
@@ -213,7 +213,7 @@ export function TokenPlayground({
               <select
                 value={String(eff[k as keyof StyleDefinition] ?? "")}
                 onChange={(e) => onChange({ ...overrides, [k]: e.target.value })}
-                className="border border-black/20 bg-transparent px-2 py-1 font-mono text-[11px]"
+                className="border border-[#111110]/20 dark:border-white/20 bg-transparent px-2 py-1 font-mono text-[11px]"
               >
                 {RADIUS_CHOICES.map((r) => (
                   <option key={r} value={r}>{r}</option>
@@ -228,7 +228,7 @@ export function TokenPlayground({
               value={eff.cardBorder}
               spellCheck={false}
               onChange={(e) => onChange({ ...overrides, cardBorder: e.target.value })}
-              className="w-full border border-black/20 bg-transparent px-2 py-1 font-mono text-[11px]"
+              className="w-full border border-[#111110]/20 dark:border-white/20 bg-transparent px-2 py-1 font-mono text-[11px]"
             />
           </label>
           <label className="flex items-center gap-3">
@@ -238,7 +238,7 @@ export function TokenPlayground({
               value={eff.cardShadow}
               spellCheck={false}
               onChange={(e) => onChange({ ...overrides, cardShadow: e.target.value })}
-              className="w-full border border-black/20 bg-transparent px-2 py-1 font-mono text-[11px]"
+              className="w-full border border-[#111110]/20 dark:border-white/20 bg-transparent px-2 py-1 font-mono text-[11px]"
             />
           </label>
         </div>
@@ -276,7 +276,7 @@ export function MixControls({
         <select
           value={mixSlug ?? ""}
           onChange={(e) => onMixSlug(e.target.value || null)}
-          className="border border-black/25 bg-transparent px-3 py-1.5 font-mono text-[11px]"
+          className="border border-[#111110]/25 dark:border-white/25 bg-transparent px-3 py-1.5 font-mono text-[11px]"
           aria-label="Style to mix with"
         >
           <option value="">Pick a style to mix…</option>
@@ -306,7 +306,7 @@ export function MixControls({
             max={100}
             value={mixT}
             onChange={(e) => onMixT(Number(e.target.value))}
-            className="mt-2 w-full"
+            className="mt-2 w-full accent-[#111110] dark:accent-white"
             aria-label="Mix balance"
           />
           <p className="mt-2 font-mono text-[10.5px] opacity-60">
@@ -348,7 +348,7 @@ export function RemixExport({ def, sources }: { def: StyleDefinition; sources: s
         <button type="button" className={btn} onClick={download}>↓ REMIX-DESIGN.md</button>
       </div>
       {msg && <p aria-live="polite" className="mt-2 font-mono text-[11px] opacity-70">{msg}</p>}
-      <pre className="mt-4 overflow-x-auto border border-black/15 p-3 font-mono text-[11px] leading-relaxed whitespace-pre-wrap">
+      <pre className="mt-4 overflow-x-auto border border-[#111110]/15 dark:border-white/15 p-3 font-mono text-[11px] leading-relaxed whitespace-pre-wrap">
         {toCssVars(def)}
       </pre>
       <p className="mt-2 font-mono text-[10.5px] opacity-60">
