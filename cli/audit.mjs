@@ -14,6 +14,7 @@
  *                      [--format text|json] [--ci]
  *
  * Style resolution order: --style flag → <path>/DESIGN.lock → <path>/.well-known/design-style.json
+ * (parent-only: the audited path itself must hold the declaration, or pass --style)
  * Exit codes: 0 clean (or violations without --ci) · 1 violations with --ci · 2 usage/contract errors
  */
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
@@ -51,6 +52,7 @@ Options:
   -h, --help          Show this help
 
 Style resolution: --style → <path>/DESIGN.lock → <path>/.well-known/design-style.json
+  (parent-only: run from the directory holding DESIGN.lock, or pass --style)
 `;
 
 function fail(msg) {
@@ -205,8 +207,8 @@ function maskNonCssColors(source) {
   let s = source.replace(/<!--[\s\S]*?-->/g, (m) => m.replace(/[^\n]/g, " "));
   // Replace CSS/JS block comments /* ... */ with spaces
   s = s.replace(/\/\*[\s\S]*?\*\//g, (m) => m.replace(/[^\n]/g, " "));
-  // Replace JS line comments // ... with spaces
-  s = s.replace(/(^|[^\\])\/\/[^\n]*/g, (m) => m.replace(/[^\n]/g, " "));
+  // Replace JS line comments // ... with spaces (but not :// in URLs like https://)
+  s = s.replace(/(?<![:"'(\w])\/\/[^\n]*/g, (m) => m.replace(/[^\n]/g, " "));
   // Replace href="#..." and id="..." anchor targets and IDs so they aren't parsed as hex colors
   s = s.replace(/\b(?:href|id)\s*=\s*(["'])#[^"'\s>]+\1/gi, (m) => m.replace(/[^\n]/g, " "));
   return s;
@@ -318,15 +320,15 @@ function shadowTokenIsBlurred(t) {
 }
 
 function borderWidthTokenToPx(t) {
-  const arb = t.match(/^border(?:-[xytrbl])?-\[(.+)\]$/);
+  const arb = t.match(/^border(?:-[xytrblse])?-\[(.+)\]$/);
   if (arb) {
     const v = arb[1];
     if (/^(#|current|transparent|inherit)/.test(v)) return null;
     return toPx(v);
   }
-  const m = t.match(/^border(?:-[xytrbl])?-(0|2|4|8)$/);
+  const m = t.match(/^border(?:-[xytrblse])?-(0|2|4|8)$/);
   if (m) return parseInt(m[1], 10);
-  if (/^border(?:-[xytrbl])?$/.test(t)) return 1;
+  if (/^border(?:-[xytrblse])?$/.test(t)) return 1;
   return null;
 }
 
@@ -369,7 +371,7 @@ function checkPalette(contract, allowedExtra = new Set()) {
       fn: (m) => hexTo6(m[0]),
     });
     scan(scannable, {
-      re: /\brgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})/g,
+      re: /\brgba?\(\s*(\d{1,3})(?:\s*,\s*|\s+)(\d{1,3})(?:\s*,\s*|\s+)(\d{1,3})/g,
       fn: (m) => rgbToHex(m[1], m[2], m[3]),
     });
     for (const { token, index } of tailwindTokens(scannable)) {
@@ -435,7 +437,7 @@ function checkRadius(contract) {
   return (source) => {
     const violations = [];
     for (const d of declarations(source, ["border-radius", "borderRadius"])) {
-      const pxs = lengthTokens(d.value.split("/")[0]);
+      const pxs = lengthTokens(d.value.replace(/\//g, " "));
       for (const px of pxs) {
         if (pill && px >= 100) continue;
         if (max !== undefined && px > max) {
@@ -594,8 +596,12 @@ function collectViolations(contract, files) {
       // problem behind a clean report.
       throw new Error(`Could not read ${file}: ${(err && err.message) || err}`);
     }
+    // Run every check on the comment-masked copy so tokens inside comments do
+    // not report as violations. maskNonCssColors preserves length/newlines, so
+    // lineOf(source, index) still maps to the original file.
+    const masked = maskNonCssColors(source);
     for (const check of active) {
-      for (const v of impl[check](source)) {
+      for (const v of impl[check](masked)) {
         violations.push({ file: relative(process.cwd(), file), check, ...v });
       }
     }

@@ -67,7 +67,7 @@ Soft ink outlines on illustrated panels (1.5–2px); chapter-rule ornaments
 
 ## 7. Shadows
 
-Storybook lift: 0 12px 32px warm/12; illustrated drop shadows inside scenes
+Storybook lift: 0 12px 32px rgba(43,38,32,0.12); illustrated drop shadows inside scenes
 
 ## 8. Radius
 
@@ -75,7 +75,7 @@ Storybook lift: 0 12px 32px warm/12; illustrated drop shadows inside scenes
 
 ## 9. Buttons
 
-Storybook buttons: warm fills, rounded 12px, friendly 16px labels; hover bounces gently.
+Storybook buttons: warm fills, rounded 12px, friendly 16px labels with white `#FFFFFF` labels on Ink `#2B2620` fills (14.99:1); hover bounces gently.
 
 All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
@@ -101,7 +101,7 @@ Paper grain 4%, watercolor washes in scenes, pencil-line details.
 
 ## 15. Motion
 
-Living pictures: gentle idle loops (blink, bob, 4–6s), scroll-triggered scene builds, character reactions on CTA hover.
+Living pictures: gentle idle loops (blink, bob, 4–6s — all render static under reduced-motion), scroll-triggered scene builds, character reactions on CTA hover.
 
 Durations: micro 150–250ms, standard 400–600ms for hovers/transitions; idle loops (blink, bob) 4–6s. Easings: soft ease-in-out storybook motion; harsh snaps forbidden.
 
@@ -114,8 +114,8 @@ Durations: micro 150–250ms, standard 400–600ms for hovers/transitions; idle 
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

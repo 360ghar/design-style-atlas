@@ -114,8 +114,8 @@ Easings: soft spring cubic-bezier(0.34,1.56,0.64,1) for clay wobble; harsh linea
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
@@ -157,6 +157,12 @@ Easings: soft spring cubic-bezier(0.34,1.56,0.64,1) for clay wobble; harsh linea
   border: none;
   border-radius: 999px;
   box-shadow: inset 2px 2px 4px rgba(255,255,255,.8), inset -2px -2px 6px rgba(255,107,157,.2), 8px 8px 16px rgba(255,107,157,.25);
+}
+.ds-btn:hover { transform: scale(1.03); }
+.ds-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.ds-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .ds-btn, .ds-btn:hover { transform: none; transition: none; }
 }
 .ds-card {
   background: var(--surface);

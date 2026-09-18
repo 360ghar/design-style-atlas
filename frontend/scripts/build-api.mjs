@@ -24,7 +24,7 @@ const apiDir = join(frontendDir, "public", "api");
 const llmsPath = join(frontendDir, "public", "llms.txt");
 const llmsFullPath = join(frontendDir, "public", "llms-full.txt");
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ?? "https://design-styles.dev";
+const SITE = (process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://design-styles.dev").replace(/\/+$/, "");
 
 // Default order: real-world popularity (single source of truth, shared with app/lib/styles.ts).
 const popularityOrder = JSON.parse(

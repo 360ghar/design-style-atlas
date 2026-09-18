@@ -22,12 +22,12 @@ preview:
 
 ## 1. Overall aesthetic
 
-1993 in the best way: teal + purple + lime confetti, squiggle underlines, triangle patterns, boombox energy. Loud, fun, geometric. For snacks, games, kids, and throwback drops. Not Memphis (Milan 1981 terrazzo/pastel design-movement); this is US kid-TV: Nickelodeon slime, checkerboards, boomboxes.
+1993 in the best way: teal + purple confetti, squiggle underlines, triangle patterns, boombox energy. Loud, fun, geometric. For snacks, games, kids, and throwback drops. Not Memphis (Milan 1981 terrazzo/pastel design-movement); this is US kid-TV: Nickelodeon slime, checkerboards, boomboxes.
 
 **Three principles:**
 
 - Confetti geometry everywhere — with grid discipline
-- Teal + purple + lime + coral; black outlines
+- Teal + purple; black outlines
 - Squiggles underline what matters
 
 ## 2. Typography
@@ -85,7 +85,7 @@ Confetti cards: white, ink borders, shape badges, squiggle titles.
 
 ## 11. Navigation
 
-Fresh bar: geometric mark, bold links, lime CTA. Zigzag trim.
+Fresh bar: geometric mark, bold links, Accent CTA. Zigzag trim.
 
 ## 12. Imagery
 
@@ -114,8 +114,8 @@ Durations: micro 150–250ms sticker slaps, standard 350–500ms. Easings: sprin
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

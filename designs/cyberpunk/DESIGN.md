@@ -103,7 +103,7 @@ Rain streaks, wet asphalt reflections, scanlines, poster wheat-paste walls, stic
 
 Rain loops, neon flicker (subtle, accessible), glitch cuts, HUD boot sequences. Flicker must respect vestibular safety.
 
-Durations: micro 250–400ms single glitch cuts (max 2 flashes, never looping), standard 300–500ms neon pulses. Easings: harsh steps() and linear for single glitch cuts; smooth springs forbidden. Never auto-loop flicker; flicker is opt-in only and disabled under `prefers-reduced-motion`.
+Durations: micro 250–400ms single glitch cuts (max 2 flashes, max 3 flashes/s, never fullscreen/large-area, never looping), standard 300–500ms neon pulses. Easings: harsh steps() and linear for single glitch cuts; smooth springs forbidden. Never auto-loop flicker; flicker is opt-in only and disabled under `prefers-reduced-motion`.
 
 ## 16. Interactions
 
@@ -114,8 +114,8 @@ Durations: micro 250–400ms single glitch cuts (max 2 flashes, never looping), 
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

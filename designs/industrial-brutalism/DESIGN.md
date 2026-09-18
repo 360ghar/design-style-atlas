@@ -47,7 +47,7 @@ A control room crossed with a shipping crate: dark steel grounds, safety-yellow 
 | Ink | `#F2F0EA` | Headlines, body text |
 | Muted | `#A8A49A` | Captions, meta, secondary text |
 | Accent | `#FFD802` | Primary actions, highlights |
-| Accent 2 | `#FF5A1F` | Secondary moments, gradients, glows |
+| Accent 2 | `#FF5A1F` | Heat/warning states only (over-temp, overload) — never gradients, glows, or fun decoration |
 
 Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
 
@@ -95,7 +95,7 @@ Machinery, warehouses, night infrastructure, macro metal. High contrast, warm so
 
 ## 13. Icons
 
-Stencil-cut pictograms, 2px strokes, yellow or bone on dark. Warning triangles and ISO-style glyphs welcome.
+Stencil-cut pictograms, 2px strokes, yellow or bone on dark. Warning triangles and ISO-style glyphs welcome. LED status always pairs shape + text label (● NOMINAL / ▲ WARN) — never color alone.
 
 ## 14. Textures / Patterns
 
@@ -116,8 +116,8 @@ Durations: instant–150ms mechanical snaps. Easings: linear or steps(2); machin
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

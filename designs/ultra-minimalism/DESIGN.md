@@ -114,8 +114,8 @@ Durations: 200ms opacity fades at most; content feels printed, not animated. Eas
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets.
-- Tablet (768–1100px): same single narrow column, condensed nav, preserved section order — no grids.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets.
+- Tablet (768–1099px): same single narrow column, condensed nav, preserved section order — no grids.
 - Desktop (1100px+): same single narrow column (640–760px), generous whitespace — no grids, no oversized type.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

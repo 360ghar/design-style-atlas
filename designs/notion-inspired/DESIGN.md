@@ -114,8 +114,8 @@ Durations: micro 100–200ms toggle opens, standard 250ms. Easings: plain ease-o
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets; sidebar becomes drawer, no sticky CTA.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets; sidebar becomes drawer, no sticky CTA.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): sidebar + 708px doc measure, boards full-bleed where needed; titles stay 28–36px, never oversized.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

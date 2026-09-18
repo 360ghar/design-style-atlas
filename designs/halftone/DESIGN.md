@@ -49,7 +49,7 @@ Lichtenstein meets the landing page: Ben-Day dot fields, duotone photo-pops, bur
 | Accent | `#E30613` | Primary actions, highlights |
 | Accent 2 | `#0B3D91` | Secondary moments, duotone fills, burst badges |
 
-Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
+Keep contrast at 4.5:1 minimum for body text. Accent #E30613 for large/UI text only (4.30:1 on Background — fails body text); body copy stays Ink.
 
 ## 4. Spacing
 
@@ -75,7 +75,7 @@ Pop depth: hard 5px ink offsets; dot-gradient fades instead of blurs
 
 ## 9. Buttons
 
-Burst and bar buttons: ink-bordered red/yellow blocks, POW hover scale (1.04, 120ms).
+Burst and bar buttons: ink-bordered red `#E30613` / yellow `#FFD802` blocks with Ink `#141414` labels on yellow (13.22:1); POW hover scale (1.04, 120ms).
 
 All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
@@ -114,8 +114,8 @@ Durations: micro 150–250ms, standard 350–500ms dot-pop entrances. Easings: p
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

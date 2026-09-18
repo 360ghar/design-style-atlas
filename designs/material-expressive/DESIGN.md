@@ -49,7 +49,7 @@ Material 3 Expressive is Google's bouncy, emotional design language: supersized 
 | Accent | `#6750A4` | Primary actions, highlights |
 | Accent 2 | `#EFB8C8` | Secondary emphasis, badges, special states |
 
-Keep contrast at 4.5:1 minimum for body text. Primary #6750A4 for actions; tonal containers (#EADDFF family) for emphasis blocks.
+Keep contrast at 4.5:1 minimum for body text. Primary #6750A4 for actions; tonal containers (#EADDFF family) for emphasis blocks. Never white text on Accent-2 #EFB8C8 (1.70:1) — use Ink #1D1B20 on tonal containers.
 
 ## 4. Spacing
 
@@ -63,7 +63,7 @@ Single-column app flows with edge-to-edge tonal headers; cards 16–28px radius 
 
 ## 6. Borders
 
-None — separation via tonal fills; 1px outline (#79747E at 20%) only on outlined inputs.
+None — separation via tonal fills; 1px solid #79747E (4.33:1) outline only on outlined inputs (never below 50% alpha, must clear 3:1).
 
 ## 7. Shadows
 
@@ -114,8 +114,8 @@ Durations: 200–500ms expressive springs; exiting 150ms. Easings: ease-out for 
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

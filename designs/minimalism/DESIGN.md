@@ -63,7 +63,7 @@ Single centered column, max-width 1120px, 12-column grid for features. One idea 
 
 ## 6. Borders
 
-1px solid #E7E7E4 on cards; no borders on sections — whitespace separates
+1px solid #D9D9D6 on cards (keeps a perceivable white-card boundary on the off-white ground); no borders on sections — whitespace separates
 
 ## 7. Shadows
 
@@ -114,8 +114,8 @@ Durations: micro 150–200ms, page reveals up to 250ms. Easings: ease-out only; 
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

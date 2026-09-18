@@ -47,7 +47,7 @@ De Stijl (The Style), pioneered by Piet Mondrian and Gerrit Rietveld in 1917, is
 | Ink | `#111111` | Headlines, primary text |
 | Muted | `#717171` | Secondary copy, metadata, borders |
 | Accent | `#E52521` | Primary action, key highlights |
-| Accent 2 | `#0045A5` | Secondary moments, glows, tags |
+| Accent 2 | `#0045A5` | Secondary moments, flat fills, tags |
 
 Keep contrast at 4.5:1 minimum for body text against both Background and Surface. Cadmium Red (#E52521) for the dominant focal block; Cobalt Blue (#0045A5) and Yellow (#FED100) for counterbalance.
 
@@ -75,7 +75,7 @@ None — strictly flat 2D plane; zero elevation or ambient shading.
 
 ## 9. Buttons
 
-Solid rectangular blocks with 4px black borders; hover shifts fill between white, red, and yellow with zero transition delay.
+Solid rectangular blocks with 4px black borders; hover shifts fill between white, red, and yellow with zero transition delay. Red (#E52521) blocks carry large/UI text only — Ink on #E52521 is 4.15:1, below body minimum; body copy stays Ink on white/paper.
 
 ## 10. Cards
 
@@ -106,12 +106,12 @@ Instantaneous or mechanical sliding along orthogonal axes; no rotation, no easin
 - Hover: predictable state changes honoring the design's physical metaphor.
 - Active / Pressed: tactile feedback (recoil or depression).
 - Focus: clear visible focus ring with 2px offset, using a ring that clears 3:1 on the adjacent ground — Ink when it clears, otherwise Background.
-- Loading: skeletons or spinners matching the style's texture.
+- Loading: skeletons or square/stepped loaders matching the style's texture — no circular spinners (no-curves rule).
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
-- Tablet (768–1100px): 2-column layouts, condensed navigation, proportional display type.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
+- Tablet (768–1099px): 2-column layouts, condensed navigation, proportional display type.
 - Desktop (1100px+): full grid expression, max-width per layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

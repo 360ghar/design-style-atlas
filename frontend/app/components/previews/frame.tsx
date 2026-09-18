@@ -42,6 +42,10 @@ export function Frame({
             ? 520
             : "var(--preview-min-height, clamp(480px, 72vh, 640px))"
           : undefined,
+        // Give large frames a definite height so bespoke `h-full` children
+        // fill the canvas instead of collapsing to intrinsic height.
+        height: large ? "100%" : undefined,
+        flex: large ? 1 : undefined,
         fontFamily: p.body,
       }}
       data-large={large ? "true" : "false"}

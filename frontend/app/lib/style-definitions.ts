@@ -928,7 +928,7 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "display": "IBM Plex Sans, Inter, Helvetica Neue, sans-serif",
       "body": "IBM Plex Sans, Inter, Helvetica Neue, Arial, sans-serif"
     },
-    "cardBorder": "1px solid #16161622",
+    "cardBorder": "none",
     "cardShadow": "0 2px 8px rgba(0,0,0,0.05)",
     "cardRadius": "0px",
     "btnRadius": "0px",
@@ -1834,7 +1834,7 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "body": "Outfit, Inter, sans-serif"
     },
     "cardBorder": "2px solid #F2F0FF",
-    "cardShadow": "0 2px 8px rgba(0,0,0,0.05)",
+    "cardShadow": "4px 4px 0px #F2F0FF",
     "cardRadius": "16px",
     "btnRadius": "9999px",
     "badgeRadius": "9999px",
@@ -2148,7 +2148,7 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "accent": "#C81E1E",
       "accent2": "#0F4C81",
       "display": "Playfair Display, Didot, Georgia, serif",
-      "body": "Georgia, Source Serif 4, serif"
+      "body": "Georgia, \"Source Serif 4\", serif"
     },
     "cardBorder": "2px solid #141414",
     "cardShadow": "none",
@@ -2461,7 +2461,7 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "ink": "#18181B",
       "muted": "#6F6F77",
       "accent": "#2563EB",
-      "accent2": "#059669",
+      "accent2": "#047857",
       "display": "system-ui, -apple-system, Segoe UI, sans-serif",
       "body": "system-ui, -apple-system, Segoe UI, sans-serif"
     },
@@ -2551,7 +2551,7 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "bg": "#8BAC0F",
       "surface": "#9BBC0F",
       "ink": "#0F380F",
-      "muted": "#1B3F1B",
+      "muted": "#0F380F",
       "accent": "#0F380F",
       "accent2": "#306230",
       "display": "Press Start 2P, Courier, monospace",
@@ -3140,7 +3140,7 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
       "ink": "#2E2A26",
       "muted": "#7C736B",
       "accent": "#E4572E",
-      "accent2": "#2E86AB",
+      "accent2": "#1F6B8A",
       "display": "Caveat, Kalam, Comic Sans MS, sans-serif",
       "body": "Karla, Nunito, sans-serif"
     },
@@ -3172,7 +3172,7 @@ export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = {
   "heritage-classic": {
     "slug": "heritage-classic",
     "name": "Heritage Classic",
-    "category": "Minimal",
+    "category": "Heritage Luxury",
     "description": "Savile Row distinction: British racing green, gold foil serif crests, warm parchment, and quiet pedigree.",
     "tags": [
       "old-money",

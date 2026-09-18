@@ -101,9 +101,9 @@ Flat tints, dot grids, blob shapes — minimal texture, maximum friendliness.
 
 ## 15. Motion
 
-Gentle floats (5s), wave loops on characters, 250ms lifts. Approachable springs.
+Gentle idle-only floats (5s, off under `prefers-reduced-motion`), wave loops on characters, 250ms lifts.
 
-Durations: micro 150–250ms, standard 350–500ms friendly floats. Easings: gentle ease-in-out; harsh motion forbidden.
+Durations: micro 150–250ms, standard 350–500ms UI transitions with gentle ease-in-out. Easings: gentle ease-in-out; harsh motion forbidden.
 
 ## 16. Interactions
 
@@ -114,8 +114,8 @@ Durations: micro 150–250ms, standard 350–500ms friendly floats. Easings: gen
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

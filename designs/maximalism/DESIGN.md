@@ -103,7 +103,7 @@ Damask, velvet noise, marble veining, animal print at 10–25% — texture is a 
 
 Lush motion: micro 150–250ms, standard 400–600ms festive reveals, ceremonial 800–1000ms flourishes. Slow Ken Burns on imagery; shimmer sweeps on gold. Everything moves like heavy fabric.
 
-Durations: micro 150–250ms, standard 350–550ms festive reveals, ceremonial 800–1000ms flourishes. Easings: bouncy springs cubic-bezier(0.34,1.56,0.64,1) welcome; never funereal fades.
+Durations: micro 150–250ms, ceremonial 800–1000ms flourishes. Easings: bouncy springs cubic-bezier(0.34,1.56,0.64,1) welcome; never funereal fades.
 
 ## 16. Interactions
 
@@ -114,8 +114,8 @@ Durations: micro 150–250ms, standard 350–550ms festive reveals, ceremonial 8
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

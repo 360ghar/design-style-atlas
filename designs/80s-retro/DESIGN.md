@@ -75,7 +75,7 @@ Chrome rounds: pills `999px`, grid-sun circles `50%`, VHS-card `8px`
 
 ## 9. Buttons
 
-Chrome/neon pills with glow; hover flares. High-score CTA styling for conversion.
+Chrome/neon pills with glow; hover flares. High-score CTA styling for conversion. Accent #FF2E88 fills use Background #0D0221 labels — never Ink #F5EDFF on Accent (3.07:1, fails); off-white labels only on dark grounds.
 
 All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
@@ -101,9 +101,9 @@ Grid floors, VHS noise, scanlines, chrome gradients.
 
 ## 15. Motion
 
-Retro-future: grid scroll (slow), neon flicker (gentle), sun-set parallax. VHS tracking warp on transitions (subtle).
+Retro-future: static grid by default, neon flicker (gentle), sun-set parallax. VHS tracking warp on transitions (subtle). Grid-scroll loops opt-in only with multi-second duration (4s+); static grid under `prefers-reduced-motion`.
 
-Durations: micro 150–250ms, standard 400–700ms grid-scroll loops. Easings: synthwave ease-in-out cruise; harsh steps forbidden.
+Durations: micro 150–250ms, standard 400–700ms opt-in grid-scroll loops. Easings: synthwave ease-in-out cruise; harsh steps forbidden.
 
 ## 16. Interactions
 
@@ -114,8 +114,8 @@ Durations: micro 150–250ms, standard 400–700ms grid-scroll loops. Easings: s
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

@@ -97,7 +97,7 @@ Bookmark, share, more (···), view-mode glyphs — 18px, gray-500, accent on a
 
 ## 14. Textures / Patterns
 
-Flat slate-50 ground; skeleton shimmer tiles while loading.
+Flat slate-100 (#F1F5F9) ground; skeleton shimmer tiles while loading.
 
 ## 15. Motion
 
@@ -114,8 +114,8 @@ Durations: micro 100–200ms card lifts, standard 300ms. Easings: crisp ease-out
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

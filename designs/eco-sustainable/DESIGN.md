@@ -67,7 +67,7 @@ Recycled edges: 1–2px kraft keylines; stamp frames; dashed impact-ticket divid
 
 ## 7. Shadows
 
-Honest-soft: 0 8px 24px green-black/08; stamp ink offsets on badges
+Honest-soft: 0 8px 24px rgba(34,48,31,0.08); stamp ink offsets on badges
 
 ## 8. Radius
 
@@ -75,7 +75,7 @@ Honest-soft: 0 8px 24px green-black/08; stamp ink offsets on badges
 
 ## 9. Buttons
 
-Forest `#2E7D32` fills with cream labels (4.9:1); sun-yellow `#F2B705` fills with Ink `#22301F` labels (8.2:1) — cream on yellow is 1.7:1; stamped hover (ink edge appears).
+Forest `#2E7D32` fills with cream `#F4F5EF` labels (4.68:1); sun-yellow `#F2B705` fills with Ink `#22301F` labels (7.65:1) — cream on yellow is 1.7:1; stamped hover (ink edge appears).
 
 All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
@@ -114,8 +114,8 @@ Durations: micro 150–250ms, standard 400–600ms grow-in reveals. Easings: org
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

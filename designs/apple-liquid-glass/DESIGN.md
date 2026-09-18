@@ -48,6 +48,7 @@ Liquid Glass is Apple's 2025 design language: interface as a physical material. 
 | Muted | `#6E6E73` | Captions, meta, secondary text |
 | Accent | `#006EDE` | Primary actions, highlights |
 | Accent 2 | `#913AFF` | Secondary emphasis, badges, special states |
+| Accent Hover | `#0077ED` | Button hover fill only — white text restricted to large/UI text; normal text uses darker fill to keep 4.5:1 |
 
 Keep contrast at 4.5:1 minimum for body text. Accent is for key actions and links only; large fills stay white or glass.
 
@@ -75,7 +76,7 @@ Soft ambient: 0 8px 32px rgba(0,0,0,0.12) under glass; inset 0 1px 0 rgba(255,25
 
 ## 9. Buttons
 
-Glassy pills with blur, blue filled primary (#006EDE, white text); hover deepens to #0077ED with 150ms ease; 44px targets.
+Glassy pills with blur, blue filled primary (#006EDE, white text); hover deepens to #0077ED with 150ms ease; white on #0077ED (4.32:1) restricted to large (18pt+/14pt bold+) or UI labels — for normal text darken hover fill to #005FCC to keep 4.5:1; 44px targets.
 
 All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
@@ -114,8 +115,8 @@ Durations: 120–300ms springs; no linear fades. Easings: ease-out for UI, sprin
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
@@ -144,6 +145,7 @@ Durations: 120–300ms springs; no linear fades. Easings: ease-out for UI, sprin
   --ink: #1D1D1F;
   --muted: #6E6E73;
   --accent: #006EDE;
+  --accent-hover: #0077ED;
   --accent-2: #913AFF;
   --font-display: SF Pro Display, Inter, Helvetica Neue, sans-serif;
   --font-body: SF Pro Text, Inter, Helvetica Neue, Arial, sans-serif;

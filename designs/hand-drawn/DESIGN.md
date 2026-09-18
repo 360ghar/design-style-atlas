@@ -11,7 +11,7 @@ preview:
   ink: "#2E2A26"
   muted: "#7C736B"
   accent: "#E4572E"
-  accent2: "#2E86AB"
+  accent2: "#1F6B8A"
   display: "Caveat, Kalam, Comic Sans MS, sans-serif"
   body: "Karla, Nunito, sans-serif"
 ---
@@ -47,7 +47,7 @@ A whiteboard that shipped: wobbly dividers, hand-circled prices, arrow doodles p
 | Ink | `#2E2A26` | Headlines, body text |
 | Muted | `#7C736B` | Captions, meta, secondary text |
 | Accent | `#E4572E` | Primary actions, highlights |
-| Accent 2 | `#2E86AB` | Secondary links, stamps, diagram ink |
+| Accent 2 | `#1F6B8A` | Secondary links, stamps, diagram ink (body-text safe at 5.84:1; #2E86AB was 4.03:1 — fails) |
 
 Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
 
@@ -114,8 +114,8 @@ Durations: micro 150–250ms, standard 400–600ms draw-on strokes. Easings: han
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
@@ -144,7 +144,7 @@ Durations: micro 150–250ms, standard 400–600ms draw-on strokes. Easings: han
   --ink: #2E2A26;
   --muted: #7C736B;
   --accent: #E4572E;
-  --accent-2: #2E86AB;
+  --accent-2: #1F6B8A;
   --font-display: Caveat, Kalam, Comic Sans MS, sans-serif;
   --font-body: Karla, Nunito, sans-serif;
 }

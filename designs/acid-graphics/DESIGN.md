@@ -101,6 +101,8 @@ Subtle digital CRT scanlines, metallic noise, iridescent gradient sheens.
 
 Hyper-kinetic micro-interactions: fast glow pulses, liquid distortion wave filters, glitch jitter on click. No strobing — keep flashes under 3 per second, never flash a full-screen area, and replace every pulse with a static state under `prefers-reduced-motion`.
 
+Durations: micro 150–250ms / standard 350–500ms for glow, distortion, and glitch. Easings: ease-out for glow, sine in-out for distortion, steps(2) for single glitch cuts.
+
 ## 16. Interactions
 
 - Hover: predictable state changes honoring the design's physical metaphor.
@@ -110,8 +112,8 @@ Hyper-kinetic micro-interactions: fast glow pulses, liquid distortion wave filte
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
-- Tablet (768–1100px): 2-column layouts, condensed navigation, proportional display type.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
+- Tablet (768–1099px): 2-column layouts, condensed navigation, proportional display type.
 - Desktop (1100px+): full grid expression, max-width per layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

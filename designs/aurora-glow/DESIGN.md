@@ -63,7 +63,7 @@ Observatory scroll: sky hero with ribbons, dark pauses, glowing data bands, hori
 
 ## 6. Borders
 
-Luminous hairlines: 1px rgba(0,229,160,0.35); ribbon dividers via SVG aurora bands
+Luminous hairlines: 1px rgba(0,229,160,0.35) decorative only, never the sole meaningful boundary; ribbon dividers via SVG aurora bands
 
 ## 7. Shadows
 
@@ -114,8 +114,8 @@ Durations: micro 150–250ms, standard 500–900ms aurora-curtain drifts. Easing
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

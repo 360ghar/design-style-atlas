@@ -67,7 +67,7 @@ Glowing 1–2px gradient borders; sticker white keylines; scanline overlays
 
 ## 7. Shadows
 
-Neon stack: 0 0 24px cyan + 0 0 60px magenta at low alpha; hard sticker drop shadows on decals
+Neon stack: 0 0 24px cyan + 0 0 60px magenta at low alpha; offset solid shadows on decals
 
 ## 8. Radius
 
@@ -114,8 +114,8 @@ Durations: micro 100–200ms widget pops, standard 300–500ms glow pulses, cere
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

@@ -49,7 +49,7 @@ A beautiful accident, rehearsed: rotated polaroids, taped type, colliding grids,
 | Accent | `#FF3D00` | Primary actions, highlights |
 | Accent 2 | `#1E40FF` | Secondary moments, gradients, glows |
 
-Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
+Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs. Accent #FF3D00 fills use Ink #141414 labels (5.19:1); never Accent text on light grounds.
 
 ## 4. Spacing
 
@@ -71,7 +71,7 @@ Mixed: hard offsets on frames, washi-tape translucency, marker highlights behind
 
 ## 8. Radius
 
-Mixed deliberately: sharp frames + occasional blob stickers
+Mixed deliberately: sharp frames 0–2px + blob stickers 16–24px
 
 ## 9. Buttons
 
@@ -114,8 +114,8 @@ Durations: instant–250ms for jarring cuts and shakes; up to 300ms for settle/e
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

@@ -75,11 +75,11 @@ Punchy colored glow: 0 12px 32px rgba(255,64,113,0.35); crisp dark drop on text 
 
 ## 9. Buttons
 
-Solid neon coral pill or rounded rect; deep navy Background `#0C1B33` labels (5.5:1 on the coral — white would be 3.4:1); hover expands with colored bloom.
+Solid neon coral pill or rounded rect; deep navy Background `#0C1B33` labels (5.46:1 on the coral — white would be 3.15:1); hover expands with colored bloom.
 
 ## 10. Cards
 
-Duotone image-backed cards with CSS mix-blend-mode: multiply/screen; title in giant semibold type.
+Duotone image-backed cards with a dark scrim or solid fallback behind text over imagery; apply mix-blend-mode: multiply or mix-blend-mode: screen (alternatives, never combined) for the duotone map; title in giant semibold type.
 
 ## 11. Navigation
 
@@ -110,8 +110,8 @@ Punchy kinetic hover reveals: color inversion crossfades (180ms), scale lift (1.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
-- Tablet (768–1100px): 2-column layouts, condensed navigation, proportional display type.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
+- Tablet (768–1099px): 2-column layouts, condensed navigation, proportional display type.
 - Desktop (1100px+): full grid expression, max-width per layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

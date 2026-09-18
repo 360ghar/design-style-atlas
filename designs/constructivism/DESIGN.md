@@ -101,6 +101,8 @@ Newsprint/kraft paper grain, coarse lithographic halftone dots, letterpress ink 
 
 Rapid forceful thrusts: elements slide in along diagonal paths with punchy snap; stamp-down entrance effects.
 
+Durations: micro 150–250ms / standard 350–500ms diagonal entrances and stamp-downs. Easings: cubic-bezier(0.2,0.9,0.2,1) thrust, steps(2) stamp snap. Reduced-motion: static final states, no diagonal slide.
+
 ## 16. Interactions
 
 - Hover: predictable state changes honoring the design's physical metaphor.
@@ -110,8 +112,8 @@ Rapid forceful thrusts: elements slide in along diagonal paths with punchy snap;
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
-- Tablet (768–1100px): 2-column layouts, condensed navigation, proportional display type.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
+- Tablet (768–1099px): 2-column layouts, condensed navigation, proportional display type.
 - Desktop (1100px+): full grid expression, max-width per layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

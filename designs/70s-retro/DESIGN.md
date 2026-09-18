@@ -71,7 +71,7 @@ Groovy frames: thick rounded outlines in brown/orange; rainbow-arch dividers as 
 
 ## 7. Shadows
 
-Shag warmth: 0 12px 32px brown/15; sunset-glow accents
+Shag warmth: 0 12px 32px rgba(59,46,35,.15); sunset glow 0 0 24px rgba(164,80,29,.25) accents
 
 ## 8. Radius
 
@@ -118,8 +118,8 @@ Durations: micro 150–250ms, standard 400–600ms wavy groove loops. Easings: l
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

@@ -11,7 +11,7 @@ preview:
   ink: "#18181B"
   muted: "#6F6F77"
   accent: "#2563EB"
-  accent2: "#059669"
+  accent2: "#047857"
   display: "system-ui, -apple-system, Segoe UI, sans-serif"
   body: "system-ui, -apple-system, Segoe UI, sans-serif"
 ---
@@ -47,7 +47,7 @@ The aesthetic of infrastructure: system fonts, visible tables, explicit labels, 
 | Ink | `#18181B` | Headlines, body text |
 | Muted | `#6F6F77` | Captions, meta, secondary text |
 | Accent | `#2563EB` | Primary actions, highlights |
-| Accent 2 | `#059669` | Success status, passed states only |
+| Accent 2 | `#047857` | Success/status body text (5.48:1; #059669 decor only at 3.77:1 — fails body text) |
 
 Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
 
@@ -114,8 +114,8 @@ Durations: micro 100ms, standard 150ms max. Easings: linear or ease-out; no spri
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px tap targets, sticky action bar only for the primary task action.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px tap targets, sticky action bar only for the primary task action.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
@@ -144,7 +144,7 @@ Durations: micro 100ms, standard 150ms max. Easings: linear or ease-out; no spri
   --ink: #18181B;
   --muted: #6F6F77;
   --accent: #2563EB;
-  --accent-2: #059669;
+  --accent-2: #047857;
   --font-display: system-ui, -apple-system, Segoe UI, sans-serif;
   --font-body: system-ui, -apple-system, Segoe UI, sans-serif;
 }

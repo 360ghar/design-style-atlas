@@ -51,7 +51,7 @@ Anti-design weaponizes ugliness: Arial body copy, misaligned blocks, clashing li
 
 Intentional clash colors outside tokens: highlight yellow `#FFFF00` (updated-stamps), marquee green `#008000` (tickers). Sparing, jarring, never themed.
 
-Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
+Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs. Accent 2 #FF0000 never for body text (fails on gray grounds); links stay underlined in Accent #0000EE on light grounds.
 
 ## 4. Spacing
 
@@ -103,7 +103,7 @@ Tiled starfield backgrounds, gray bevel gradients, visible dither. Nostalgia thr
 
 Marquees, blinking text, cursor trails, alert() energy — but keep it performant and escapable. Parody, not malware.
 
-Durations: none or jarring instant swaps; marquees and blinks encouraged. Easings: none; smoothness is surrender.
+Durations: none or jarring instant swaps; marquees and blinks encouraged. Blinking caps at max 3 flashes/s, never fullscreen/large-area, off under `prefers-reduced-motion`. Easings: none; smoothness is surrender.
 
 ## 16. Interactions
 
@@ -114,8 +114,8 @@ Durations: none or jarring instant swaps; marquees and blinks encouraged. Easing
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column that still misbehaves — edge-to-edge text, overlapping blocks, abrupt type shifts. Keep primary content and controls reachable at 360px: allow horizontal overflow only where the content intrinsically needs it, and never on nav or actions.
-- Tablet (768–1100px): colliding columns persist; nav stays a raw link list, never condensed into a tidy hamburger.
+- Mobile (360–767px): single column that still misbehaves — edge-to-edge text, overlapping blocks, abrupt type shifts. Keep primary content and controls reachable at 360px: allow horizontal overflow only where the content intrinsically needs it, and never on nav or actions.
+- Tablet (768–1099px): colliding columns persist; nav stays a raw link list, never condensed into a tidy hamburger.
 - Desktop (1100px+): full collision — footers mid-page, absolutely-positioned overlaps, marquee traps. No max-width container.
 - Touch: visual styling stays defiant, but every control keeps a 44px hit area (padding or a transparent overlay) so targets remain tappable; never hide the guestbook or hit counter — they are the conversion.
 

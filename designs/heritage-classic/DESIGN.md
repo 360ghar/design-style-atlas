@@ -2,7 +2,7 @@
 slug: heritage-classic
 name: "Heritage Classic"
 description: "Savile Row distinction: British racing green, gold foil serif crests, warm parchment, and quiet pedigree."
-category: Minimal
+category: Heritage Luxury
 tags: [old-money, luxury, heritage, serif, gold]
 related: [quiet-luxury, luxury-minimalism, dark-academia]
 preview:
@@ -110,8 +110,8 @@ Slow, dignified, confident transitions: graceful 400ms opacity dissolves; zero b
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
-- Tablet (768–1100px): 2-column layouts, condensed navigation, proportional display type.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
+- Tablet (768–1099px): 2-column layouts, condensed navigation, proportional display type.
 - Desktop (1100px+): full grid expression, max-width per layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

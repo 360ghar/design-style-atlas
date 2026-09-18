@@ -49,7 +49,7 @@ A half-remembered afternoon: empty playgrounds, mall corridors, birthday-party p
 | Accent | `#5B8DD9` | Primary actions, highlights |
 | Accent 2 | `#E8A0BF` | Secondary moments, gradients, glows |
 
-Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
+Keep contrast at 4.5:1 minimum for body text. Body-text actions/links use #2F5DA8 (clears 4.5:1); #5B8DD9 is decor/large-display only (3.36:1 on white, 3.49:1 on ink — fails body text).
 
 ## 4. Spacing
 
@@ -71,7 +71,7 @@ Memory frames: white polaroid-ish mats, soft vignettes, timestamp captions
 
 ## 7. Shadows
 
-Hazy: 0 8px 30px warm-gray/20 + vignette darkening on imagery
+Hazy: 0 8px 30px rgba(106,101,90,0.2) + vignette darkening on imagery
 
 ## 8. Radius
 
@@ -118,8 +118,8 @@ Durations: micro 250–400ms, standard 600–1000ms slow loops. Easings: sleepy 
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

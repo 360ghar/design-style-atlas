@@ -59,7 +59,7 @@ Use an 8px base unit (4px for dense product UI). Section padding generous; card 
 
 ## 5. Layout / Grid
 
-Broadsheet grid, max-width 1280px centered with 24px page gutters (16px at 360–768px): nameplate band 96–140px tall, 5-column grid at desktop with 24px gutters and 1px column rules, lede story spanning 3 columns + 2-column secondary wells, 320px sidebar for briefs and agate-type data strips. Section wells separated by 3px bars with 32–48px stack spacing; full-width folio/dateline bars top and bottom.
+Broadsheet grid, max-width 1280px centered with 24px page gutters (16px at 360–767px): nameplate band 96–140px tall, 5-column grid at desktop with 24px gutters and 1px column rules, lede story spanning 3 columns + 2-column secondary wells, 320px sidebar for briefs and agate-type data strips. Section wells separated by 3px bars with 32–48px stack spacing; full-width folio/dateline bars top and bottom.
 
 ## 6. Borders
 
@@ -114,8 +114,8 @@ Durations: micro instant–150ms, standard 200ms ticker fades at most; no ceremo
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

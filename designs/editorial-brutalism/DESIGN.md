@@ -85,7 +85,7 @@ Story blocks: kicker, huge headline, dek, byline, rule — no containing card. I
 
 ## 11. Navigation
 
-Masthead bar: date/edition mono, giant wordmark, section links in condensed caps; breaking-news ticker below in red-on-black.
+Masthead bar: date/edition mono, giant wordmark, section links in condensed caps; breaking-news ticker below in red-on-black — large/bold labels only (#E30613 on black is 4.30:1, below body minimum; body copy stays ink on paper).
 
 ## 12. Imagery
 
@@ -114,8 +114,8 @@ Durations: instant–150ms hard cuts; marquees allowed. Easings: none or linear 
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

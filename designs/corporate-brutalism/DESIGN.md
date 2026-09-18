@@ -49,7 +49,7 @@ The annual-report wing of brutalism: imposing black rules, dense tables, small-c
 | Accent | `#0033AA` | Primary actions, highlights |
 | Accent 2 | `#141414` | Structural rules, stamps, rule-stack headers (same as Ink by design) |
 
-Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
+Keep contrast at 4.5:1 minimum for body text. Never black text on `#0033AA` (2.05:1) — white on `#0033AA` (10.22:1) is the passing pair. Accent is for action and emphasis, never for long paragraphs.
 
 ## 4. Spacing
 
@@ -114,8 +114,8 @@ Durations: instant–150ms blunt state flips; no ceremonial motion. Easings: non
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

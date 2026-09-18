@@ -81,7 +81,7 @@ All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2p
 
 ## 10. Cards
 
-White cards, pink borders, gold star ratings, product shots with sparkle overlays; 'iconic' ribbon badges.
+White cards, pink borders, gold star ratings on Ink `#57102E` grounds (gold `#FFD700` on Ink is 9.86:1) or large-decorative-only — never gold on white (1.40:1) for meaningful ratings; product shots with sparkle overlays; 'iconic' ribbon badges.
 
 ## 11. Navigation
 
@@ -114,8 +114,8 @@ Durations: 200–400ms pops; 1–3s sparkle loops. Easings: ease-out for UI, spr
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

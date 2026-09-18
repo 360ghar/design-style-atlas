@@ -75,7 +75,7 @@ Bubbles and pills: 24px–999px; panels 20–28px; sharp corners forbidden.
 
 ## 9. Buttons
 
-Glossy aqua gel pills with top-half highlight; hover brightens + lifts; active squeezes; 48px tall.
+Glossy aqua gel pills with top-half highlight; aqua fills take dark-ink #0B3B39 labels (white on #00A67E is 3.11:1 — fails; dark ink clears 4.5:1); hover brightens + lifts; active squeezes; 48px tall.
 
 All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
@@ -85,7 +85,7 @@ Frosted glass panels over nature wallpaper; 24px radius; icon orbs (glossy spher
 
 ## 11. Navigation
 
-Glass top bar with glossy orb logo; bottom dock with magnified-hover icons; search as dewy pill.
+Glass top bar with glossy orb logo; bottom dock with magnified-hover icons; search as dewy pill. White text over wallpaper/nature imagery always sits on a dark scrim/overlay (shadow alone is insufficient).
 
 ## 12. Imagery
 
@@ -114,8 +114,8 @@ Durations: 250–400ms UI; 6–10s ambient drifts. Easings: ease-out for UI, spr
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

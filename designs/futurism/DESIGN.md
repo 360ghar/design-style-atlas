@@ -49,7 +49,7 @@ Marinetti meets the motorway: diagonal compositions, speed lines, chrome numeral
 | Accent | `#E30613` | Primary actions, highlights |
 | Accent 2 | `#0B3D91` | Secondary moments, gradients, glows |
 
-Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
+Keep contrast at 4.5:1 minimum for body text. Accent #E30613 for large/UI text only (4.30:1 — fails body text); body copy stays Ink.
 
 ## 4. Spacing
 
@@ -114,8 +114,8 @@ Durations: micro 150–250ms, standard 350–550ms velocity slides. Easings: sha
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

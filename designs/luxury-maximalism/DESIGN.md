@@ -67,7 +67,7 @@ Gold filigree: double rules (1px line + 4px gap + 1px line), corner flourishes, 
 
 ## 7. Shadows
 
-Candlelight depth: 0 24px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(212,175,55,0.35) + inset 0 0 24px rgba(212,175,55,0.15) gold inner glow on frames
+Candlelight depth: 0 24px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(212,175,55,0.35), inset 0 0 24px rgba(212,175,55,0.15) gold inner glow on frames
 
 ## 8. Radius
 
@@ -114,8 +114,8 @@ Durations: micro 200–300ms, standard 500–700ms curtain reveals, ceremonial 1
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

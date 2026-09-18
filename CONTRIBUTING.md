@@ -4,7 +4,8 @@ A style is one folder + one file + one preview component:
 
 ```text
 designs/<your-slug>/DESIGN.md
-frontend/app/components/previews/batchN-*.tsx  (add export)
+frontend/app/components/previews/styles/<your-slug>.tsx  (create the component)
+frontend/app/components/previews/batchN-*.tsx  (add one re-export line)
 frontend/app/components/previews/index.tsx      (register slug → component)
 ```
 
@@ -26,6 +27,7 @@ Copy `designs/neo-brutalism/DESIGN.md` as a template. Requirements:
 
 Previews are pure HTML/CSS (Tailwind + inline styles, small `<style>`-free keyframes from `app/globals.css`: `pv-marquee`, `pv-blink`, `pv-float`, `pv-spin-slow`, `pv-drift`, `pv-flicker`, `pv-chrome-text`, `pv-outline-text`).
 
+- Create `frontend/app/components/previews/styles/<your-slug>.tsx` exporting `<Name>Preview`; batch files (`batchN-*.tsx`) are re-export shims, so add one `export { X } from "./styles/<your-slug>"` line in the right batch file and register the slug in `index.tsx`.
 - Wrap in `<Frame meta large?>` + `<Meta meta>` from `./frame`.
 - Compact (`4/3`) is the catalog card; `large` (`16/8`) is the detail page — support both via the `large` prop (scale type/spacing).
 - No images, no external assets, no JS interaction. `Frame` marks compact previews `aria-hidden` (the catalog card wraps them in `inert`); large studio/fullscreen previews stay in the accessibility tree, so anything interactive there must be real, focusable, and labelled.
@@ -37,6 +39,7 @@ Previews are pure HTML/CSS (Tailwind + inline styles, small `<style>`-free keyfr
 ```bash
 cd frontend
 npx tsc --noEmit
+node scripts/build-api.mjs  # regenerate public/api/*.json + llms.txt first
 npm run validate        # sections, frontmatter, API JSON + the contrast gate
 npm run check:contrast  # just the contrast gate, if you want the fast answer
 npm run build           # must emit the new /styles/<slug> page + raw file

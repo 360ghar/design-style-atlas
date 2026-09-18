@@ -13,7 +13,7 @@ preview:
   accent: "#C81E1E"
   accent2: "#0F4C81"
   display: "Playfair Display, Didot, Georgia, serif"
-  body: "Georgia, Source Serif 4, serif"
+  body: "Georgia, \"Source Serif 4\", serif"
 ---
 
 # Editorial Maximalism — DESIGN.md
@@ -33,7 +33,7 @@ A fashion issue exploded across the screen: colliding serif headlines, oversized
 ## 2. Typography
 
 - **Display:** Playfair Display, Didot, Georgia, serif
-- **Body:** Georgia, Source Serif 4, serif
+- **Body:** Georgia, "Source Serif 4", serif
 - **Scale:** hero 56–96px Didot/Playfair display, H2 36–48px, H3 24–28px, body 16–17px in rich columns, meta/labels 12–14px tracked uppercase.
 - **Weights:** display 700–900 high-contrast serif; body 400–500; labels 700 with +0.1–0.18em tracking.
 - **Rules:** centered and oversized serif headlines with pull-quotes and marginalia; justified accents allowed; never minimal whitespace worship.
@@ -114,8 +114,8 @@ Durations: micro 150–250ms, standard 400–600ms curtain reveals, ceremonial u
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
@@ -146,7 +146,7 @@ Durations: micro 150–250ms, standard 400–600ms curtain reveals, ceremonial u
   --accent: #C81E1E;
   --accent-2: #0F4C81;
   --font-display: Playfair Display, Didot, Georgia, serif;
-  --font-body: Georgia, Source Serif 4, serif;
+  --font-body: Georgia, "Source Serif 4", serif;
 }
 ```
 

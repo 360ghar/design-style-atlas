@@ -49,7 +49,7 @@ Backrooms-adjacent: empty offices, pools at night, playgrounds fogged, low-fi ov
 | Accent | `#C81E1E` | Primary actions, highlights |
 | Accent 2 | `#0F4C81` | Secondary moments, gradients, glows |
 
-Keep contrast at 4.5:1 minimum for body text — use Ink for all body/small text (Muted is 3.67:1 on Background / 4.12:1 on Surface, so large/meta/decorative only). Accent is for action and emphasis, never for long paragraphs.
+Keep contrast at 4.5:1 minimum for body text — Ink for body/small text; Muted is 4.53:1 on Background / 5.08:1 on Surface (body-OK). Accent is for action and emphasis, never for long paragraphs.
 
 ## 4. Spacing
 
@@ -114,14 +114,14 @@ Durations: micro 200–400ms fluorescent hum flickers, standard 600ms. Easings: 
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
 
-- Contrast: body/small text in Ink only (9.65:1 on Background, 10.83:1 on Surface — verified); Muted (3.67:1 / 4.12:1) and Accent (3.91:1) are large/meta/decorative only, never body. Large display 3:1 minimum.
+- Contrast: body/small text in Ink (9.65:1 on Background, 10.83:1 on Surface — verified) or Muted (4.53:1 / 5.08:1 body-OK); Accent (3.91:1) is large/meta/decorative only, never body. Large display 3:1 minimum.
 - Focus: always visible, never removed; skip-link to main content.
 - Motion: honor `prefers-reduced-motion` — replace loops, parallax, and scrubs with static final states plus manual steppers.
 - Touch: 44px targets, 8px gaps between adjacent targets.

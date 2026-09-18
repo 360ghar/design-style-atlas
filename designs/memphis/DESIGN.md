@@ -48,6 +48,7 @@ Milan 1981, digitized: terrazzo confetti, squiggle lines, pastel cones and torus
 | Muted | `#797269` | Captions, meta, secondary text |
 | Accent | `#008080` | Primary actions, highlights |
 | Accent 2 | `#FF4FA3` | Secondary moments, shapes, badges |
+| Yellow | `#FFD02F` | Yellow button fills (Ink `#222222` labels only, body-OK) |
 
 Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
 
@@ -75,7 +76,7 @@ Playful mix: circles, squiggles, rounded blobs + sharp triangles
 
 ## 9. Buttons
 
-Bold geometric buttons in teal/pink/yellow, each with a contrast-tested label: white on teal `#008080` (4.8:1), Ink `#222222` on pink `#FF4FA3` (6.1:1) — the reverse pairings fail. Pastel hard shadows; hover swaps shape color.
+Bold geometric buttons in teal/pink/yellow, each with a contrast-tested label: white on teal `#008080` (4.8:1), Ink `#222222` on pink `#FF4FA3` (5.2:1), Ink `#222222` on yellow `#FFD02F` (body-OK) — the reverse pairings fail. Pastel hard shadows; hover swaps shape color.
 
 All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
@@ -114,8 +115,8 @@ Durations: micro 150–250ms, standard 350–500ms shape-dance entrances. Easing
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
@@ -145,6 +146,7 @@ Durations: micro 150–250ms, standard 350–500ms shape-dance entrances. Easing
   --muted: #797269;
   --accent: #008080;
   --accent-2: #FF4FA3;
+  --yellow: #FFD02F;
   --font-display: Archivo Black, Poppins, sans-serif;
   --font-body: Inter, Helvetica Neue, sans-serif;
 }

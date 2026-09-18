@@ -22,7 +22,7 @@ preview:
 
 ## 1. Overall aesthetic
 
-Classic 2013 flat: honest two-dimensional color blocks, long shadows only if any, crisp icon grids, and typography doing all the talking. Turquoise, emerald, sunflower, and alizarin in confident rectangles. No bevels, no gloss, no pretending — the web distilled to color, type, and grid.
+Classic 2013 flat: honest two-dimensional color blocks, crisp icon grids, and typography doing all the talking. Turquoise, emerald, sunflower, and alizarin in confident rectangles. No bevels, no gloss, no pretending — the web distilled to color, type, and grid.
 
 **Three principles:**
 
@@ -89,7 +89,7 @@ Flat colored top bar (white text) or white bar with colored logo; underline-free
 
 ## 12. Imagery
 
-Flat vector illustrations with long shadows; duotone hero shapes; photos rare, full-bleed with color overlay.
+Flat vector illustrations with flat shapes; duotone hero shapes; photos rare, full-bleed with color overlay.
 
 ## 13. Icons
 
@@ -103,7 +103,7 @@ None whatsoever — flat means flat.
 
 Simple 150–200ms color fades and slides; tile flips on dashboards; no springs, no physics.
 
-Durations: 150–250ms ease; snappy and honest. Easings: ease-out for UI, springs for playful emphasis; no harsh linear slides.
+Durations: 150–250ms ease; snappy and honest. Easings: ease-out only; no springs, no harsh linear slides.
 
 ## 16. Interactions
 
@@ -114,8 +114,8 @@ Durations: 150–250ms ease; snappy and honest. Easings: ease-out for UI, spring
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

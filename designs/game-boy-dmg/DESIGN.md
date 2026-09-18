@@ -9,7 +9,7 @@ preview:
   bg: "#8BAC0F"
   surface: "#9BBC0F"
   ink: "#0F380F"
-  muted: "#1B3F1B"
+  muted: "#0F380F"
   accent: "#0F380F"
   accent2: "#306230"
   display: "Press Start 2P, Courier, monospace"
@@ -45,7 +45,7 @@ Game Boy DMG is the authentic nostalgia of Nintendo's 1989 handheld masterpiece.
 | Background | `#8BAC0F` | Page ground |
 | Surface | `#9BBC0F` | Cards, panels, containers |
 | Ink | `#0F380F` | Headlines, primary text |
-| Muted | `#1B3F1B` | Secondary copy, metadata, borders |
+| Muted | `#0F380F` | Secondary copy, metadata, borders (deepest shade — hierarchy via size/weight/case, not color; canonical DMG four only) |
 | Accent | `#0F380F` | Primary action, key highlights |
 | Accent 2 | `#306230` | Secondary moments, glows, tags |
 
@@ -79,7 +79,7 @@ Chunky 8-bit pixel buttons; slanted pill SELECT/START buttons; circular magenta 
 
 ## 10. Cards
 
-Recessed LCD dialogue boxes; 2px black pixel border with double-line corners; typing dialogue text.
+Recessed LCD dialogue boxes; 2px black pixel border with double-line corners; typing dialogue text. Accent-2 (#306230) fills take lightest-shade #9BBC0F labels only (3.29:1 — large/UI minimum, never body text); body text stays #0F380F on #9BBC0F/#8BAC0F.
 
 ## 11. Navigation
 
@@ -110,8 +110,8 @@ Step-based 8-frame animations; LCD pixel ghosting trail on rapid scrolling; scre
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
-- Tablet (768–1100px): 2-column layouts, condensed navigation, proportional display type.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
+- Tablet (768–1099px): 2-column layouts, condensed navigation, proportional display type.
 - Desktop (1100px+): full grid expression, max-width per layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
@@ -138,7 +138,7 @@ Step-based 8-frame animations; LCD pixel ghosting trail on rapid scrolling; scre
   --bg: #8BAC0F;
   --surface: #9BBC0F;
   --ink: #0F380F;
-  --muted: #1B3F1B;
+  --muted: #0F380F;
   --accent: #0F380F;
   --accent-2: #306230;
   --font-display: Press Start 2P, Courier, monospace;

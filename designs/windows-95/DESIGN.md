@@ -114,8 +114,8 @@ Durations: instant–150ms bevel-pressed snaps. Easings: none (steps welcome); s
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single dialog column, 16–20px page margins, taskbar with Start + clock preserved; enlarge chrome to 44px only under `(pointer: coarse)`, never a sticky bottom CTA.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single dialog column, 16–20px page margins, taskbar with Start + clock preserved; enlarge chrome to 44px only under `(pointer: coarse)`, never a sticky bottom CTA.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full window stack per Layout section, hero capped at 28–40px per Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

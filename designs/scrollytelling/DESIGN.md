@@ -59,7 +59,7 @@ Use an 8px base unit (4px for dense product UI). Section padding generous; card 
 
 ## 5. Layout / Grid
 
-Desktop (1100px+): 2-column grid `1fr 1fr` with 48px gap, max-width 1280px centered with 32px side gutters. Left column: sticky graphic `position:sticky; top:88px; height:calc(100vh - 176px)`. Right column: step stream max-width 480px, each step min-height 100vh. Mobile (360–768px): single column, graphic static 56vh on top, 4px sticky progress bar at `top:0`, steps stacked with 16px gap.
+Desktop (1100px+): 2-column grid `1fr 1fr` with 48px gap, max-width 1280px centered with 32px side gutters. Left column: sticky graphic `position:sticky; top:88px; height:calc(100vh - 176px)`. Right column: step stream max-width 480px, each step min-height 100vh. Mobile (360–767px): single column, graphic static 56vh on top, 4px sticky progress bar at `top:0`, steps stacked with 16px gap.
 
 ## 6. Borders
 
@@ -114,8 +114,8 @@ Durations: scroll-scrubbed chapter pins (no timed fades); micro 150ms progress t
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

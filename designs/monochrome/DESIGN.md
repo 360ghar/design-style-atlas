@@ -47,9 +47,9 @@ One hue, infinite control. Monochrome interfaces prove that value contrast alone
 | Ink | `#0A0A0A` | Headlines, body text |
 | Muted | `#707070` | Captions, meta, secondary text |
 | Accent | `#0A0A0A` | Primary actions, highlights |
-| Accent 2 | `#525252` | Secondary text, borders on dark, subtle tonal steps |
+| Accent 2 | `#525252` | Borders/large-only on dark (`#525252` on `#0A0A0A` is 2.53:1 — fails body), subtle tonal steps |
 
-Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
+Keep contrast at 4.5:1 minimum for body text. Never Accent-2 `#525252` body text on `#0A0A0A` (2.53:1) — dark-section body stays white/sufficient gray. Accent is for action and emphasis, never for long paragraphs.
 
 ## 4. Spacing
 
@@ -114,8 +114,8 @@ Durations: micro 150–250ms, standard 300–450ms tonal fades. Easings: ease-ou
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

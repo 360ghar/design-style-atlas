@@ -75,7 +75,7 @@ Theater dark: vignettes + scrims; no UI shadows — depth from layering planes
 
 ## 9. Buttons
 
-Ghost-on-film buttons with scrims; solid lime for conversion moments. Big, few, subtitled.
+Ghost-on-film buttons with scrims; solid lime `#E8FF47` conversion buttons take black `#060606` labels only (18.16:1 — off-white on lime is 1.00:1 and never ships). Accent-2 `#FF5C00` fills take black `#060606` labels (6.54:1) so contrast holds.
 
 All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
@@ -114,8 +114,8 @@ Durations: micro 150–250ms, standard 500–800ms scroll-chapter dissolves. Eas
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

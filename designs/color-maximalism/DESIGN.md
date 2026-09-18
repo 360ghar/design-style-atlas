@@ -51,7 +51,7 @@ Dopamine dressing for interfaces: every section a saturated field — taxi yello
 
 Extended spectrum (alternating chapters only, never adjacent repeats): cyan `#00C2FF`, hot pink `#FF2E88` (= Accent). Gradients and glows allowed — this separates Color Maximalism from Colorful Brutalism (flat-only).
 
-Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
+Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs. Accent fills take ink/black labels — white on `#FF2E88` is 3.5:1 and never ships.
 
 ## 4. Spacing
 
@@ -77,7 +77,7 @@ Saturated color shadows: 8px 8px 0 rgba(22,22,22,1) on cards; colored glows matc
 
 ## 9. Buttons
 
-Ink-black buttons on color grounds (white text), or white buttons with ink text on dark grounds. Hover inverts with a pop.
+Ink-black buttons on color grounds (white text), or white buttons with ink text on dark grounds. Accent `#FF2E88` fills take ink/black labels, never white (3.5:1). Hover inverts with a pop.
 
 All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
@@ -116,8 +116,8 @@ Durations: micro 150–250ms, standard 350–500ms saturated panel swaps, ceremo
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

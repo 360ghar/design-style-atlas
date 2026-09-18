@@ -49,7 +49,7 @@ The neobank look is money after dark: near-black grounds, oversized balance nume
 | Accent | `#D4FF4F` | Primary actions, highlights |
 | Accent 2 | `#7C5CFF` | Secondary emphasis, badges, special states |
 
-Keep contrast at 4.5:1 minimum for body text. Lime #D4FF4F for primary CTA, gains, active states; violet accent2 for premium/insurance tiers.
+Keep contrast at 4.5:1 minimum for body text. Lime #D4FF4F with black text for primary CTA, gains, active states; violet #7C5CFF for badges/decor only (3.77:1 — fails body text, never body copy).
 
 ## 4. Spacing
 
@@ -114,8 +114,8 @@ Durations: 150–300ms UI; count-ups 800ms ease-out. Easings: ease-out for UI, s
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

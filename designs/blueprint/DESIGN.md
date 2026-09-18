@@ -101,6 +101,8 @@ Subtle cyanotype paper grain; dual millimeter grid (10px minor white lines at 8%
 
 Draw-in vector stroke animations: SVG stroke-dasharray reveal; crosshair cursor tracking.
 
+Durations: micro 150–250ms / standard 350–500ms stroke reveals. Easings: linear for stroke draw, ease-out for cursor tracking. Reduced-motion: static final linework, no tracking animation.
+
 ## 16. Interactions
 
 - Hover: predictable state changes honoring the design's physical metaphor.
@@ -110,8 +112,8 @@ Draw-in vector stroke animations: SVG stroke-dasharray reveal; crosshair cursor 
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
-- Tablet (768–1100px): 2-column layouts, condensed navigation, proportional display type.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
+- Tablet (768–1099px): 2-column layouts, condensed navigation, proportional display type.
 - Desktop (1100px+): full grid expression, max-width per layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

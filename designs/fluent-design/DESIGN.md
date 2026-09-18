@@ -53,7 +53,7 @@ Keep contrast at 4.5:1 minimum for body text. Blue #0078D4 reserved for interact
 
 ## 4. Spacing
 
-4px base (dense enterprise); cards 16–24px; sections 64–96px; command bars 44–48px tall.
+8px base with 4px dense-micro exception; cards 16–24px; sections 64–96px; command bars 44–48px tall.
 
 Use an 8px base unit (4px for dense product UI). Section padding generous; card padding comfortable; never let text touch a container edge.
 
@@ -75,7 +75,7 @@ Elevation scale: 4/8/16/64 — 0 4px 16px rgba(0,0,0,0.12) standard; flyouts dee
 
 ## 9. Buttons
 
-4px buttons, 32px default height; primary blue filled; hover reveal-lightens; focus is 2px blue outline offset 1px.
+4px buttons, 32px visual height with hit area expanded to 44px via padding; primary blue filled; hover reveal-lightens; focus is 2px blue outline offset 1px.
 
 All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
@@ -114,8 +114,8 @@ Durations: 100–250ms; standard curve cubic-bezier(0.1,0.9,0.2,1). Easings: eas
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

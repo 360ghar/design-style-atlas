@@ -114,8 +114,8 @@ Durations: micro 200–300ms, standard 500–700ms runway fades, ceremonial 1000
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): single-column stacked look chapters (fashion exception — no 2-column grids), condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
@@ -151,13 +151,14 @@ Durations: micro 200–300ms, standard 500–700ms runway fades, ceremonial 1000
 ```
 
 ```html
-<!-- Copy-paste starter: button + card in Fashion Editorial -->
-<a class="ds-btn" href="#">Get started</a>
-<article class="ds-card">
-  <p class="ds-kicker">Kicker label</p>
-  <h3>Card headline</h3>
+<!-- Copy-paste starter: look plate + buy row in Fashion Editorial (no cards — spec forbids .ds-card) -->
+<a class="ds-btn" href="#">Book appointment</a>
+<figure class="ds-look-plate">
+  <figcaption>Look 12 — wool, silk</figcaption>
+  <h3>Runway headline</h3>
   <p>One supporting sentence in body type.</p>
-</article>
+</figure>
+<div class="ds-buy-row"><a href="#">Add to bag</a></div>
 ```
 
 ---

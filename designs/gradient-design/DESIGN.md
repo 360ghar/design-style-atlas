@@ -103,7 +103,7 @@ Mesh gradients, grain 4%, light-leak streaks. Blur orbs behind everything.
 
 20s gradient drift, floating panels (8s), glow pulses. Reduced-motion = still aurora poster.
 
-Durations: micro 150–250ms, standard 400–700ms mesh-drift loops. Easings: slow ease-in-out gradient flow; harsh snaps forbidden.
+Durations: micro 150–250ms discrete UI transitions, standard 400–700ms discrete UI transitions; 20s mesh-drift is ambient-only (reduced-motion poster). Easings: slow ease-in-out gradient flow; harsh snaps forbidden.
 
 ## 16. Interactions
 
@@ -114,8 +114,8 @@ Durations: micro 150–250ms, standard 400–700ms mesh-drift loops. Easings: sl
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 

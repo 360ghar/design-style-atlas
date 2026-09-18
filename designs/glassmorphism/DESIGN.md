@@ -63,7 +63,7 @@ Field + float: full-viewport gradient/blob canvas, frosted nav pill, hero glass 
 
 ## 6. Borders
 
-Frosted keylines: 1px solid rgba(255,255,255,0.35); inner top-light (inset 0 1px 0 white/30)
+Frosted keylines: 1px solid rgba(255,255,255,0.35); inner top-light (inset 0 1px 0 rgba(255,255,255,.3))
 
 ## 7. Shadows
 
@@ -114,15 +114,15 @@ Durations: micro 150–250ms, standard 250–350ms; ambient blob morphs up to 20
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
-- Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
+- Mobile (360–767px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
+- Tablet (768–1099px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
 
 - Contrast: body text 4.5:1 minimum, large display 3:1 minimum, verified against the actual glass stack (text + translucent fill + field behind, not the flat tokens). White on `#6350DE` (5.6:1) and on the `#4A3AC8` fallback (7.7:1) passes; the 15–20% white glass fill does not, so pair glass text with a 20–30% dark scrim or the solid fallback.
-- Focus: always visible, never removed; skip-link to main content.
+- Focus: always visible (keep cyan ring on dark; add dark Ink outline fallback over light imagery where cyan alone is <3:1), never removed; skip-link to main content.
 - Motion: honor `prefers-reduced-motion` — replace loops, parallax, and scrubs with static final states plus manual steppers.
 - Touch: 44px targets, 8px gaps between adjacent targets.
 - Screen readers: semantic landmarks, labeled nav, alt text describing content (not decoration), status announcements for dynamic changes.
