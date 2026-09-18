@@ -18,11 +18,19 @@ function getSection(content, num) {
 function resolveCardBorder(slug, bText, ink, muted, accent, bg) {
   const t = bText.toLowerCase();
   if (slug === "windows-95") return "2px outset #ffffff";
-  if (slug === "claymorphism") return "none";
+  if (slug === "claymorphism" || slug === "plasticine-clay" || slug === "papercut") return "none";
   if (slug === "neumorphism") return "none";
   if (slug === "cyberpunk" || slug === "sci-fi-ui") return `1.5px solid ${accent}`;
-  if (slug === "glassmorphism") return "1px solid rgba(255, 255, 255, 0.35)";
-  if (slug === "art-deco") return `2px double ${accent}`;
+  if (slug === "acid-graphics") return `1.5px solid ${accent}`;
+  if (slug === "blueprint") return `1px solid ${accent}66`;
+  if (slug === "glassmorphism" || slug === "spatial-computing") return "1px solid rgba(255, 255, 255, 0.3)";
+  if (slug === "art-deco" || slug === "steampunk") return `2px double ${accent}`;
+  if (slug === "heritage-classic") return `1px solid ${accent}66`;
+  if (slug === "de-stijl") return "5px solid #111111";
+  if (slug === "constructivism") return "4px solid #121212";
+  if (slug === "game-boy-dmg") return "3px solid #0F380F";
+  if (slug === "raw-html") return "1px solid #808080";
+  if (slug === "raycast-inspired" || slug === "racing-telemetry") return "1px solid rgba(255, 255, 255, 0.12)";
   if (slug === "neo-brutalism" || slug === "playful-brutalism" || slug === "colorful-brutalism" || slug === "comic-pop-art") {
     return "3px solid #111111";
   }
@@ -41,15 +49,24 @@ function resolveCardShadow(slug, sText, ink, accent, accent2) {
   const t = sText.toLowerCase();
   if (slug === "windows-95") return "2px 2px 0px #000000";
   if (slug === "neumorphism") return "6px 6px 14px rgba(163,177,198,0.6), -6px -6px 14px rgba(255,255,255,0.8)";
-  if (slug === "claymorphism") {
+  if (slug === "claymorphism" || slug === "plasticine-clay") {
     return "inset 2px 2px 4px rgba(255,255,255,0.7), inset -3px -3px 6px rgba(0,0,0,0.12), 8px 12px 20px rgba(0,0,0,0.12)";
   }
-  if (slug === "glassmorphism") return "0 10px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4)";
+  if (slug === "papercut") return "0 8px 24px rgba(45,40,35,0.12), 0 2px 6px rgba(45,40,35,0.06)";
+  if (slug === "glassmorphism" || slug === "spatial-computing") return "0 10px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4)";
+  if (slug === "raycast-inspired") return "0 16px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.06)";
   if (slug === "cyberpunk" || slug === "sci-fi-ui") return `0 0 18px ${accent}66, inset 0 0 12px ${accent}22`;
+  if (slug === "acid-graphics") return `0 0 24px ${accent}66`;
+  if (slug === "bioluminescence") return `0 0 28px ${accent}55, 0 12px 36px rgba(0,0,0,0.6)`;
+  if (slug === "heritage-classic") return "0 12px 36px rgba(0,0,0,0.5)";
+  if (slug === "analog-hifi") return "0 12px 32px rgba(0,0,0,0.6)";
   if (slug === "synthwave" || slug === "vaporwave") return `0 0 24px ${accent}55, 0 8px 32px rgba(0,0,0,0.4)`;
   if (slug === "neo-brutalism" || slug === "playful-brutalism" || slug === "colorful-brutalism" || slug === "comic-pop-art") {
     return "4px 4px 0px #111111";
   }
+  if (slug === "constructivism") return "4px 4px 0px #121212";
+  if (slug === "game-boy-dmg") return "3px 3px 0px #0F380F";
+  if (slug === "de-stijl" || slug === "raw-html") return "none";
   if (slug === "pixel-8bit") return "4px 4px 0px #000000";
   if (slug === "bento-grid" || slug === "card-based-ui" || slug === "corporate-saas") {
     return "0 4px 20px rgba(0,0,0,0.06)";
@@ -65,14 +82,32 @@ function resolveCardShadow(slug, sText, ink, accent, accent2) {
 
 function resolveRadius(slug, rText) {
   const t = rText.toLowerCase();
-  if (slug === "windows-95" || slug === "swiss-design" || slug === "swiss-poster" || slug === "fashion-editorial" || slug === "newspaper" || slug === "bauhaus" || slug === "pixel-8bit") {
+  if (
+    slug === "windows-95" ||
+    slug === "swiss-design" ||
+    slug === "swiss-poster" ||
+    slug === "fashion-editorial" ||
+    slug === "newspaper" ||
+    slug === "bauhaus" ||
+    slug === "pixel-8bit" ||
+    slug === "de-stijl" ||
+    slug === "constructivism" ||
+    slug === "blueprint" ||
+    slug === "game-boy-dmg" ||
+    slug === "deconstructivism" ||
+    slug === "glitch-art" ||
+    slug === "raw-html"
+  ) {
     return { card: "0px", btn: "0px", badge: "0px" };
   }
-  if (slug === "claymorphism") {
+  if (slug === "claymorphism" || slug === "plasticine-clay") {
     return { card: "28px", btn: "9999px", badge: "9999px" };
   }
-  if (slug === "glassmorphism") {
-    return { card: "20px", btn: "9999px", badge: "9999px" };
+  if (slug === "glassmorphism" || slug === "spatial-computing") {
+    return { card: "24px", btn: "9999px", badge: "9999px" };
+  }
+  if (slug === "raycast-inspired") {
+    return { card: "12px", btn: "6px", badge: "4px" };
   }
   if (slug === "neumorphism") {
     return { card: "18px", btn: "9999px", badge: "9999px" };
@@ -105,28 +140,28 @@ function resolveRadius(slug, rText) {
 }
 
 function resolveSignatureType(slug) {
-  if (["terminal", "hacker-aesthetic"].includes(slug)) return "terminal";
+  if (["terminal", "hacker-aesthetic", "blueprint", "cassette-futurism", "glitch-art", "racing-telemetry"].includes(slug)) return "terminal";
   if (slug === "windows-95") return "windows95";
   if (slug === "mac-os") return "macos";
   if (["cyberpunk", "sci-fi-ui", "futurism"].includes(slug)) return "cyberpunk";
-  if (["neo-brutalism", "playful-brutalism", "colorful-brutalism", "comic-pop-art"].includes(slug)) return "neobrutalism";
+  if (["neo-brutalism", "playful-brutalism", "colorful-brutalism", "comic-pop-art", "constructivism", "deconstructivism"].includes(slug)) return "neobrutalism";
   if (["swiss-design", "swiss-poster", "poster-inspired"].includes(slug)) return "swiss";
-  if (["glassmorphism", "liquid-chrome"].includes(slug)) return "glassmorphism";
-  if (slug === "claymorphism") return "claymorphism";
+  if (["glassmorphism", "liquid-chrome", "spatial-computing"].includes(slug)) return "glassmorphism";
+  if (slug === "claymorphism" || slug === "plasticine-clay" || slug === "papercut") return "claymorphism";
   if (slug === "neumorphism") return "neumorphism";
-  if (["fashion-editorial", "editorial-magazine", "editorial-minimalism"].includes(slug)) return "fashion";
-  if (["bento-grid", "card-based-ui"].includes(slug)) return "bento";
-  if (slug === "linear-inspired") return "linear";
-  if (["stripe-inspired", "gradient-design", "aurora-glow", "holographic"].includes(slug)) return "stripe";
-  if (["y2k", "retro-internet", "webcore"].includes(slug)) return "y2k";
+  if (["fashion-editorial", "editorial-magazine", "editorial-minimalism", "duotone"].includes(slug)) return "fashion";
+  if (["bento-grid", "card-based-ui", "analog-hifi"].includes(slug)) return "bento";
+  if (slug === "linear-inspired" || slug === "raycast-inspired") return "linear";
+  if (["stripe-inspired", "gradient-design", "aurora-glow", "holographic", "bioluminescence"].includes(slug)) return "stripe";
+  if (["y2k", "retro-internet", "webcore", "acid-graphics"].includes(slug)) return "y2k";
   if (["vaporwave", "synthwave"].includes(slug)) return "vaporwave";
-  if (slug === "pixel-8bit" || slug === "gaming-ui") return "pixel";
+  if (slug === "pixel-8bit" || slug === "gaming-ui" || slug === "game-boy-dmg") return "pixel";
   if (slug === "notion-inspired") return "notion";
-  if (slug === "newspaper") return "newspaper";
-  if (slug === "bauhaus") return "bauhaus";
+  if (slug === "newspaper" || slug === "raw-html" || slug === "botanical-herbarium") return "newspaper";
+  if (slug === "bauhaus" || slug === "de-stijl") return "bauhaus";
   if (slug === "memphis") return "memphis";
-  if (["quiet-luxury", "luxury-minimalism", "luxury-maximalism"].includes(slug)) return "quietluxury";
-  if (["art-deco", "art-nouveau", "gothic-victorian"].includes(slug)) return "artdeco";
+  if (["quiet-luxury", "luxury-minimalism", "luxury-maximalism", "heritage-classic"].includes(slug)) return "quietluxury";
+  if (["art-deco", "art-nouveau", "gothic-victorian", "steampunk"].includes(slug)) return "artdeco";
   if (["apple-liquid-glass", "frutiger-aero"].includes(slug)) return "glassmorphism";
   if (["material-expressive", "web3-crypto"].includes(slug)) return "stripe";
   if (slug === "fintech-neobank") return "linear";

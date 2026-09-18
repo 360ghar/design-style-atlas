@@ -94,7 +94,7 @@ export function DarkAcademiaPreview({ meta, large }: { meta: StyleMeta; large?: 
               Inspect Folio
             </span>
             <span style={{ fontSize: 6 * s, color: p.muted, fontStyle: "italic" }}>
-              "Per aspera ad astra"
+              &ldquo;Per aspera ad astra&rdquo;
             </span>
           </div>
         </div>

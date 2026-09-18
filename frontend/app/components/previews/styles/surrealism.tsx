@@ -51,7 +51,7 @@ export function SurrealismPreview({ meta, large }: { meta: StyleMeta; large?: bo
               margin: `${4 * s}px 0 ${4 * s}px 0`,
             }}
           >
-            Dalí's Waiting Room
+            Dalí&apos;s Waiting Room
           </h2>
           <p style={{ fontSize: 6.5 * s, color: p.muted, lineHeight: 1.5, maxWidth: "85%" }}>
             Melting clocks, floating staircases, tiny silhouettes beneath vast dreamscapes, and museum manners.

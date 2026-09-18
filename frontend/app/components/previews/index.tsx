@@ -139,6 +139,28 @@ import {
   SolarpunkPreview,
   Web3CryptoPreview,
 } from "./batch8-new-styles";
+import {
+  RaycastInspiredPreview,
+  CassetteFuturismPreview,
+  SpatialComputingPreview,
+  DeStijlPreview,
+  ConstructivismPreview,
+  BlueprintPreview,
+  AcidGraphicsPreview,
+  SteampunkPreview,
+  AnalogHifiPreview,
+  GameBoyDmgPreview,
+  DuotonePreview,
+  PapercutPreview,
+  HeritageClassicPreview,
+  BioluminescencePreview,
+  DeconstructivismPreview,
+  GlitchArtPreview,
+  PlasticineClayPreview,
+  RawHtmlPreview,
+  RacingTelemetryPreview,
+  BotanicalHerbariumPreview,
+} from "./batch9-iconic-styles";
 import { StyleLandingPage } from "./StyleLandingPage";
 import { StyleComponentKit } from "./StyleComponentKit";
 import { Frame, Meta } from "./frame";
@@ -268,6 +290,26 @@ const previews: Record<string, ComponentType<{ meta: StyleMeta; large?: boolean 
   "polaris-commerce": PolarisCommercePreview,
   "solarpunk": SolarpunkPreview,
   "web3-crypto": Web3CryptoPreview,
+  "raycast-inspired": RaycastInspiredPreview,
+  "cassette-futurism": CassetteFuturismPreview,
+  "spatial-computing": SpatialComputingPreview,
+  "de-stijl": DeStijlPreview,
+  "constructivism": ConstructivismPreview,
+  "blueprint": BlueprintPreview,
+  "acid-graphics": AcidGraphicsPreview,
+  "steampunk": SteampunkPreview,
+  "analog-hifi": AnalogHifiPreview,
+  "game-boy-dmg": GameBoyDmgPreview,
+  "duotone": DuotonePreview,
+  "papercut": PapercutPreview,
+  "heritage-classic": HeritageClassicPreview,
+  "bioluminescence": BioluminescencePreview,
+  "deconstructivism": DeconstructivismPreview,
+  "glitch-art": GlitchArtPreview,
+  "plasticine-clay": PlasticineClayPreview,
+  "raw-html": RawHtmlPreview,
+  "racing-telemetry": RacingTelemetryPreview,
+  "botanical-herbarium": BotanicalHerbariumPreview,
 };
 
 export function hasBespoke(slug: string): boolean {

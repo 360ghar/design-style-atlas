@@ -87,7 +87,7 @@ export function ChaosDesignPreview({ meta, large }: { meta: StyleMeta; large?: b
               transform: "rotate(-1deg)",
             }}
           >
-            // ART DIRECTED DEMOLITION
+            {"// ART DIRECTED DEMOLITION"}
           </div>
 
           <h3

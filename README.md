@@ -2,15 +2,15 @@
 
 # 🎨 Design Style Atlas
 
-**120 copy-paste visual directions for AI coding agents.** Pick a style, hand its `DESIGN.md` to your agent, get coherent UI.
+**140 copy-paste visual directions for AI coding agents.** Pick a style, hand its `DESIGN.md` to your agent, get coherent UI.
 
 [![MIT](https://img.shields.io/badge/license-MIT-green)](#-license)
-![Styles](https://img.shields.io/badge/styles-120-blue)
+![Styles](https://img.shields.io/badge/styles-140-blue)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![MCP ready](https://img.shields.io/badge/MCP-ready-purple)
 ![Node](https://img.shields.io/badge/node-%3E%3D18-339933?logo=node.js)
 
-🌐 Live demo — https://design-styles.dev · [📖 Browse styles](#-browse-the-120-styles) · [🤝 Contribute](CONTRIBUTING.md)
+🌐 Live demo — https://design-styles.dev · [📖 Browse styles](#-browse-the-140-styles) · [🤝 Contribute](CONTRIBUTING.md)
 
 </div>
 
@@ -38,27 +38,27 @@ Browse the index: https://design-styles.dev · machine index: https://design-sty
 
 ---
 
-## 📖 Browse the 120 styles
+## 📖 Browse the 140 styles
 
 Every name links to its agent-ready spec. Most used first (same order as the site):
 
 1. [Corporate SaaS](designs/corporate-saas/DESIGN.md) — Trust-first software marketing: gradient heroes, logos walls and ROI proof.
 2. [Minimalism](designs/minimalism/DESIGN.md) — Restrained layouts, generous whitespace and quiet typography that lets content breathe.
-3. [Stripe-Inspired](designs/stripe-inspired/DESIGN.md) — Gradient precision: airy pastels, developer clarity and weight-300 elegance.
-4. [Linear-Inspired](designs/linear-inspired/DESIGN.md) — Ultra-minimal precision: dark restraint, purple glow and keyboard-first craft.
-5. [Notion-Inspired](designs/notion-inspired/DESIGN.md) — Warm minimal workspace: serif warmth, soft blocks and template friendliness.
-6. [Flat Design](designs/flat-design/DESIGN.md) — Bold color blocks, zero shadows, and honest two-dimensional clarity.
-7. [Material Expressive](designs/material-expressive/DESIGN.md) — Springy rounded shapes, bold tonal color, and playful Google-grade motion.
-8. [Fluent Design](designs/fluent-design/DESIGN.md) — Acrylic depth, soft light, and calm Microsoft-grade enterprise clarity.
-9. [Bento Grid](designs/bento-grid/DESIGN.md) — Compartmentalized delight: varied-size tiles packing features into one view.
-10. [Card-Based UI](designs/card-based-ui/DESIGN.md) — Contained modularity: bordered content units in browsable grids and feeds.
+3. [Apple Liquid Glass](designs/apple-liquid-glass/DESIGN.md) — Translucent specular layers, floating glass bars, and fluid Apple-grade restraint.
+4. [Spatial Computing](designs/spatial-computing/DESIGN.md) — Volumetric frosted glass, 3D z-depth layering, eye-tracking glow, and floating optical surfaces.
+5. [Bento Grid](designs/bento-grid/DESIGN.md) — Compartmentalized delight: varied-size tiles packing features into one view.
+6. [Glassmorphism](designs/glassmorphism/DESIGN.md) — Translucent blurred surfaces floating over vibrant gradient fields.
+7. [Neo-Brutalism](designs/neo-brutalism/DESIGN.md) — Bold borders, hard shadows, saturated colors and deliberately raw interfaces.
+8. [Brutalism](designs/brutalism/DESIGN.md) — Raw concrete honesty: system type, exposed structure and zero decoration.
+9. [Aurora / Glow](designs/aurora-glow/DESIGN.md) — Northern-light interfaces: dark skies, luminous ribbons and soft radiance.
+10. [Y2K](designs/y2k/DESIGN.md) — Chrome, glossy surfaces and optimistic early-2000s digital futurism.
 
 Order follows `frontend/app/lib/popularity.json`, the same ranking the site uses. Re-rank by editing that file.
 
 <!-- STYLES:START -->
 
 <details>
-<summary><strong>Minimal & Calm (17)</strong></summary>
+<summary><strong>Minimal & Calm (18)</strong></summary>
 
 - [Minimalism](designs/minimalism/DESIGN.md) — Restrained layouts, generous whitespace and quiet typography that lets content breathe.
 - [Flat Design](designs/flat-design/DESIGN.md) — Bold color blocks, zero shadows, and honest two-dimensional clarity.
@@ -77,11 +77,12 @@ Order follows `frontend/app/lib/popularity.json`, the same ranking the site uses
 - [Eco / Sustainable](designs/eco-sustainable/DESIGN.md) — Planet-first design: recycled textures, impact counters and honest green.
 - [Wabi-Sabi](designs/wabi-sabi/DESIGN.md) — Perfect imperfection: asymmetry, cracks and weathered beauty, honored.
 - [E-Ink Paper](designs/e-ink-paper/DESIGN.md) — Warm paper grounds, book serif, and distraction-free reading calm.
+- [Papercut](designs/papercut/DESIGN.md) — Dimensional physical paper craft: stacked textured cardstock silhouettes with soft cast drop shadows.
 
 </details>
 
 <details>
-<summary><strong>Brutalist & Raw (14)</strong></summary>
+<summary><strong>Brutalist & Raw (16)</strong></summary>
 
 - [Neo-Brutalism](designs/neo-brutalism/DESIGN.md) — Bold borders, hard shadows, saturated colors and deliberately raw interfaces.
 - [Brutalism](designs/brutalism/DESIGN.md) — Raw concrete honesty: system type, exposed structure and zero decoration.
@@ -97,11 +98,13 @@ Order follows `frontend/app/lib/popularity.json`, the same ranking the site uses
 - [Surrealism](designs/surrealism/DESIGN.md) — Dream-logic interfaces: floating objects, impossible scale and poetic dissonance.
 - [Dreamcore](designs/dreamcore/DESIGN.md) — Liminal nostalgia: familiar places, hazy memory and VHS softness.
 - [Liminal / Weirdcore](designs/liminal-weirdcore/DESIGN.md) — Threshold-space unease: empty corridors, low-fi text and strange comfort.
+- [Raw HTML](designs/raw-html/DESIGN.md) — Radical web honesty: Times New Roman, default blue hyperlinks, beveled gray buttons, and raw HTML tables.
+- [Deconstructivism](designs/deconstructivism/DESIGN.md) — Non-orthogonal architectural tension: colliding planes, 15° diagonal cuts, fragmented grids, and raw titanium.
 
 </details>
 
 <details>
-<summary><strong>Maximalist & Playful (16)</strong></summary>
+<summary><strong>Maximalist & Playful (18)</strong></summary>
 
 - [Gaming UI](designs/gaming-ui/DESIGN.md) — HUD-first interfaces: health bars, quest logs and reward-loop feedback.
 - [Pixel / 8-Bit](designs/pixel-8bit/DESIGN.md) — Crisp chunky pixels: sprite logic, limited palettes and arcade honesty.
@@ -119,11 +122,13 @@ Order follows `frontend/app/lib/popularity.json`, the same ranking the site uses
 - [Chaos Design](designs/chaos-design/DESIGN.md) — Controlled demolition: overlapping, rotated, colliding elements that still convert.
 - [Kawaii Pop](designs/kawaii-pop/DESIGN.md) — Pastel Harajuku stickers, chunky rounded type, and cute overload.
 - [McBling](designs/mcbling/DESIGN.md) — Rhinestone pink luxe, celebrity glamour, and Y2K maximalist sparkle.
+- [Acid Graphics](designs/acid-graphics/DESIGN.md) — Distorted liquid chrome typography, high-voltage neon lime, tribal cyber sigils, and rave adrenaline.
+- [Plasticine Clay](designs/plasticine-clay/DESIGN.md) — Chunky handmade claymation: soft matte plasticine volumes, finger-pressed indentations, and warm studio depth.
 
 </details>
 
 <details>
-<summary><strong>Editorial, Print & Type (19)</strong></summary>
+<summary><strong>Editorial, Print & Type (22)</strong></summary>
 
 - [Editorial / Magazine](designs/editorial-magazine/DESIGN.md) — Magazine-inspired layouts driven by expressive typography and imagery.
 - [Typography-First](designs/typography-first/DESIGN.md) — Reading-led design: exquisite measure, scale and hierarchy over decoration.
@@ -144,11 +149,14 @@ Order follows `frontend/app/lib/popularity.json`, the same ranking the site uses
 - [Risograph](designs/risograph/DESIGN.md) — Soy-ink print charm: misregistered layers, grain and limited spot palettes.
 - [Zine / Punk](designs/zine-punk/DESIGN.md) — Xeroxed rebellion: cut letters, harsh contrast and photocopied fury.
 - [Scrapbook](designs/scrapbook/DESIGN.md) — Memory-keeping warmth: photos, tickets and handwritten notes in keepsake grids.
+- [De Stijl](designs/de-stijl/DESIGN.md) — Pure geometric harmony: primary red, blue, and yellow anchored by thick black orthogonal grids.
+- [Constructivism](designs/constructivism/DESIGN.md) — Revolutionary dynamic diagonals, stark cadmium red wedges, and industrial typographic power.
+- [Duotone](designs/duotone/DESIGN.md) — Electric two-color posterization: high-voltage contrasting color fields with bold editorial weight.
 
 </details>
 
 <details>
-<summary><strong>Retro, Nostalgia & Internet (9)</strong></summary>
+<summary><strong>Retro, Nostalgia & Internet (12)</strong></summary>
 
 - [Y2K](designs/y2k/DESIGN.md) — Chrome, glossy surfaces and optimistic early-2000s digital futurism.
 - [Synthwave](designs/synthwave/DESIGN.md) — Night-drive neon: outrun grids, chrome suns and analog-synth glow.
@@ -159,11 +167,14 @@ Order follows `frontend/app/lib/popularity.json`, the same ranking the site uses
 - [80s Retro](designs/80s-retro/DESIGN.md) — Miami-VHS nostalgia: chrome script, palm silhouettes and sunset grids.
 - [70s Retro](designs/70s-retro/DESIGN.md) — Warm analog groove: burnt orange, harvest gold and curvy mushroom type.
 - [Webcore](designs/webcore/DESIGN.md) — Early-internet aesthetics using browser chrome, hyperlinks and deliberately primitive UI.
+- [Cassette Futurism](designs/cassette-futurism/DESIGN.md) — Analog 1970s/80s high-tech: chunky beige chassis, amber phosphor displays, and rocker switches.
+- [Game Boy DMG](designs/game-boy-dmg/DESIGN.md) — Iconic 4-shade pea-soup olive LCD matrix, dot-grid ghosting, and chunky 8-bit handheld charm.
+- [Glitch Art](designs/glitch-art/DESIGN.md) — Digital signal degradation: chromatic aberration, horizontal displacement slices, scanlines, and VHS drift.
 
 </details>
 
 <details>
-<summary><strong>Atmospheric, Soft & Immersive (17)</strong></summary>
+<summary><strong>Atmospheric, Soft & Immersive (19)</strong></summary>
 
 - [Glassmorphism](designs/glassmorphism/DESIGN.md) — Translucent blurred surfaces floating over vibrant gradient fields.
 - [Gradient Design](designs/gradient-design/DESIGN.md) — Color in transition: mesh washes, aurora fields and glow-led hierarchy.
@@ -182,11 +193,13 @@ Order follows `frontend/app/lib/popularity.json`, the same ranking the site uses
 - [Holographic](designs/holographic/DESIGN.md) — Iridescent foil surfaces: shifting rainbows, light-streak cards and prism play.
 - [Liquid Chrome](designs/liquid-chrome/DESIGN.md) — Molten metal interfaces: flowing silver, mirror reflections and Y2K luxury.
 - [Solarpunk](designs/solarpunk/DESIGN.md) — Sunlit eco-futurism, leafy greens, and optimistic post-carbon abundance.
+- [Bioluminescence](designs/bioluminescence/DESIGN.md) — Deep midnight abyss illuminated by ethereal glowing jellyfish cyan, marine violet, and fluid light.
+- [Analog Hi-Fi](designs/analog-hifi/DESIGN.md) — Brushed anodized aluminum faceplates, warm amber backlit VU needle meters, and knurled knobs.
 
 </details>
 
 <details>
-<summary><strong>Heritage, Culture & Craft (8)</strong></summary>
+<summary><strong>Heritage, Culture & Craft (11)</strong></summary>
 
 - [Quiet Luxury](designs/quiet-luxury/DESIGN.md) — Restrained serif typography and whitespace for understated wealth.
 - [Art Deco](designs/art-deco/DESIGN.md) — Geometric luxury ornament: gold fans, sunbursts and Gatsby-era glamour.
@@ -196,11 +209,14 @@ Order follows `frontend/app/lib/popularity.json`, the same ranking the site uses
 - [Dark Academia](designs/dark-academia/DESIGN.md) — Oxford libraries, oxblood leather, and candlelit scholarly romance.
 - [Cottagecore](designs/cottagecore/DESIGN.md) — Gingham warmth, wildflower palettes, and slow romantic rural craft.
 - [Gothic Victorian](designs/gothic-victorian/DESIGN.md) — Baroque blackletter, candlelit burgundy, and haunted high-luxury drama.
+- [Heritage Classic](designs/heritage-classic/DESIGN.md) — Savile Row distinction: British racing green, gold foil serif crests, warm parchment, and quiet pedigree.
+- [Steampunk](designs/steampunk/DESIGN.md) — Victorian brass clockwork, interlocking bronze gears, riveted copper seams, and aged mahogany.
+- [Botanical Herbarium](designs/botanical-herbarium/DESIGN.md) — 19th-century naturalist archives: pressed floral specimens, Latin taxonomy italics, tea-stained parchment, and ink rules.
 
 </details>
 
 <details>
-<summary><strong>Product, Systems & OS (20)</strong></summary>
+<summary><strong>Product, Systems & OS (24)</strong></summary>
 
 - [Corporate SaaS](designs/corporate-saas/DESIGN.md) — Trust-first software marketing: gradient heroes, logos walls and ROI proof.
 - [Stripe-Inspired](designs/stripe-inspired/DESIGN.md) — Gradient precision: airy pastels, developer clarity and weight-300 elegance.
@@ -222,6 +238,10 @@ Order follows `frontend/app/lib/popularity.json`, the same ranking the site uses
 - [Desktop UI](designs/desktop-ui/DESIGN.md) — Windowed nostalgia: draggable-feeling panels, menus and desktop metaphors.
 - [Web3 Crypto](designs/web3-crypto/DESIGN.md) — Wallet-first glassy dark surfaces with gradient balances and exchange-grade glow.
 - [Dataviz Terminal](designs/dataviz-terminal/DESIGN.md) — Bloomberg-grade dense tables, sparklines, and monospace market precision.
+- [Raycast Inspired](designs/raycast-inspired/DESIGN.md) — Hyper-fast obsidian command surfaces, glowing ruby hotkeys, and keyboard-first precision.
+- [Spatial Computing](designs/spatial-computing/DESIGN.md) — Volumetric frosted glass, 3D z-depth layering, eye-tracking glow, and floating optical surfaces.
+- [Blueprint](designs/blueprint/DESIGN.md) — Architectural cyanotype precision: crisp white drafting schematics on deep Prussian blue grids.
+- [Racing Telemetry](designs/racing-telemetry/DESIGN.md) — High-g cockpit telemetry: carbon fiber weave, digital tachometer rev-counter redline, and lap split telemetry.
 
 </details>
 

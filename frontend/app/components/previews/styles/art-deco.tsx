@@ -58,7 +58,7 @@ export function ArtDecoPreview({ meta, large }: { meta: StyleMeta; large?: boole
               color: p.ink,
             }}
           >
-            L'ÉTOILE NOIRE
+            L&apos;ÉTOILE NOIRE
           </div>
           <div
             style={{

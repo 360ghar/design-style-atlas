@@ -58,7 +58,7 @@ export function ArtNouveauPreview({ meta, large }: { meta: StyleMeta; large?: bo
             lineHeight: 1.15,
             color: p.ink,
           }}>
-            L'Heure des Nymphéas
+            L&apos;Heure des Nymphéas
           </div>
           <div style={{ fontSize: 5.5 * s, color: p.accent, letterSpacing: "0.22em", margin: `${3 * s}px 0`, textTransform: "uppercase" as const }}>
             Mucha · Guimard · Émile Gallé
@@ -76,7 +76,7 @@ export function ArtNouveauPreview({ meta, large }: { meta: StyleMeta; large?: bo
               borderRadius: 999,
               fontFamily: p.display,
             }}>
-              ENTRER DANS L'ATELIER
+              ENTRER DANS L&apos;ATELIER
             </span>
           </div>
         </div>

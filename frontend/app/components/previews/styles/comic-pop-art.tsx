@@ -92,7 +92,7 @@ export function ComicPopArtPreview({ meta, large }: { meta: StyleMeta; large?: b
               KRAK!
             </div>
             <p style={{ fontSize: 5.5 * s, color: p.ink, fontWeight: 700, margin: 0 }}>
-              The villain's server explodes into halftones!
+              The villain&apos;s server explodes into halftones!
             </p>
           </div>
 
