@@ -161,7 +161,10 @@ body {
   color: transparent;
 }
 .pv-outline-text {
-  color: transparent;
+  /* Consumers set an inline `color`; keep it for currentColor so the stroke is
+     visible, and hollow the glyph with text-fill-color instead of clearing
+     `color` (which the inline style would override anyway). */
+  -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1.5px currentColor;
 }
 .pv-pixelated { image-rendering: pixelated; }

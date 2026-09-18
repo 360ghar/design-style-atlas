@@ -45,6 +45,25 @@ export function isStyleDark(def: StyleDefinition): boolean {
   return getLuminance(def.preview.bg) < 0.4;
 }
 
+/** WCAG contrast ratio between two colours. */
+export function contrastRatio(a: string, b: string): number {
+  const x = getLuminance(a);
+  const y = getLuminance(b);
+  return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05);
+}
+
+/**
+ * Pick the more readable of white/black for a filled surface.
+ * Keying the label off the page background instead of the fill itself produces
+ * unreadable CTAs whenever a light style has a light accent (or a dark style a
+ * dark accent). For any fill one of the two returns at least ~4.58:1.
+ */
+export function readableTextColor(fill: string): "#FFFFFF" | "#000000" {
+  return contrastRatio("#FFFFFF", fill) >= contrastRatio("#000000", fill)
+    ? "#FFFFFF"
+    : "#000000";
+}
+
 /**
  * Handcrafted overrides for signature styles to guarantee maximum aesthetic delight in both themes.
  */

@@ -127,12 +127,9 @@ async function loadContract(slug, override) {
 }
 
 function walkFiles(dir, acc = []) {
-  let entries;
-  try {
-    entries = readdirSync(dir, { withFileTypes: true });
-  } catch {
-    return acc;
-  }
+  // Let read errors propagate: swallowing them reports an unreadable tree as
+  // "no files to scan" and produces a clean audit that inspected nothing.
+  const entries = readdirSync(dir, { withFileTypes: true });
   for (const e of entries) {
     const p = join(dir, e.name);
     if (e.isDirectory()) {
@@ -303,7 +300,19 @@ function roundedTokenToPx(t) {
 
 function shadowTokenIsBlurred(t) {
   if (t === "shadow-none") return false;
-  if (/^shadow(?:-[trblxyse]+)?-\[(.+)\]$/.test(t)) return true;
+  const arb = t.match(/^shadow(?:-[trblxyse]+)?-\[(.+)\]$/);
+  if (arb) {
+    // Arbitrary shadows encode lengths with underscores, e.g.
+    // shadow-[4px_4px_0_#111111]. A hard offset shadow has a zero third
+    // length, so only a positive blur counts as blurred.
+    const nums = arb[1]
+      .split("_")
+      .map((v) => v.trim().replace(/^(#|rgba?\(|hsla?\()/i, ""))
+      .map(toPx)
+      .filter((n) => n !== null);
+    const blur = nums[2];
+    return blur !== undefined && blur > 0;
+  }
   if (t === "shadow" || t === "shadow-inner") return true;
   return /^shadow-(sm|md|lg|xl|2xl)$/.test(t);
 }
@@ -411,7 +420,10 @@ function checkFonts(contract) {
 function lengthTokens(decl) {
   return decl
     .split(/\s+/)
-    .map((t) => t.replace(/[;,"'`].*$/, ""))
+    // Trim surrounding punctuation instead of discarding from the first quote
+    // onward: CSS-in-JS writes `borderRadius: "16px"`, and dropping the quoted
+    // value made the length invisible to the radius check.
+    .map((t) => t.replace(/^[;,"'`]+/, "").replace(/[;,"'`]+$/, ""))
     .map(toPx)
     .filter((n) => n !== null);
 }
@@ -458,7 +470,9 @@ function checkShadowHard(contract) {
     for (const d of declarations(source, ["box-shadow", "boxShadow"])) {
       if (/var\(/.test(d.value)) continue;
       for (const chunk of splitTopLevel(d.value)) {
-        const stripped = chunk.replace(/\([^)]*\)/g, " ");
+        // Strip string delimiters before matching: `boxShadow: "0 4px 12px #111111"`
+        // otherwise hides its leading offset behind the opening quote.
+        const stripped = chunk.replace(/[`"']/g, " ").replace(/\([^)]*\)/g, " ");
         const lengths = stripped.match(/(?:^|\s)[+-]?\d*\.?\d+(?:px|rem|em)?(?=\s|$)/g) ?? [];
         const nums = lengths.map((t) => toPx(t.trim())).filter((n) => n !== null);
         const blur = nums[2];
@@ -491,8 +505,9 @@ function checkBorderWidth(contract) {
   return (source) => {
     const violations = [];
     const patterns = [
-      /(?:^|[\s;{(])border\s*:\s*([+-]?\d*\.?\d+(?:px|rem|em))\b/gi,
-      /(?:^|[\s;{(])border-(?:width|top|right|bottom|left)\s*:\s*([+-]?\d*\.?\d+(?:px|rem|em)?)\b/gi,
+      // Allow a leading quote so CSS-in-JS `border: "1px solid #222"` is seen.
+      /(?:^|[\s;{(])border\s*:\s*["'`]?([+-]?\d*\.?\d+(?:px|rem|em))\b/gi,
+      /(?:^|[\s;{(])border-(?:width|top|right|bottom|left)\s*:\s*["'`]?([+-]?\d*\.?\d+(?:px|rem|em)?)\b/gi,
       /(?:^|[\s{(])border(?:Top|Right|Bottom|Left)?Width\s*:\s*["'`]?([+-]?\d*\.?\d+(?:px|rem|em)?)/g,
     ];
     for (const re of patterns) {
@@ -541,8 +556,10 @@ function collectViolations(contract, files) {
     let source;
     try {
       source = readFileSync(file, "utf8");
-    } catch {
-      continue;
+    } catch (err) {
+      // Same reasoning as walkFiles: skipping an unreadable file hides the
+      // problem behind a clean report.
+      throw new Error(`Could not read ${file}: ${(err && err.message) || err}`);
     }
     for (const check of active) {
       for (const v of impl[check](source)) {
@@ -591,9 +608,16 @@ async function main() {
   } catch {
     fail(`Target path not found: ${target}`);
   }
-  const files = targetStat.isFile()
-    ? (SCAN_EXTS.has(extname(target).toLowerCase()) ? [target] : [])
-    : walkFiles(target);
+  let files;
+  if (targetStat.isFile()) {
+    files = SCAN_EXTS.has(extname(target).toLowerCase()) ? [target] : [];
+  } else {
+    try {
+      files = walkFiles(target);
+    } catch (err) {
+      fail(`Could not read directory ${target}: ${(err && err.message) || err}`);
+    }
+  }
 
   let styleInfo;
   let contract;

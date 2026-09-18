@@ -62,7 +62,10 @@ for (const slug of slugs) {
     failures++;
   }
   for (const key of requiredPreview) {
-    if (!data.preview?.[key]) {
+    const v = data.preview?.[key];
+    // Must match app/lib/styles.ts: a truthy non-string (e.g. a number or an
+    // object) passes a plain truthiness check but fails the frontend build.
+    if (typeof v !== "string" || v.length === 0) {
       console.error(`${slug}: preview missing "${key}"`);
       failures++;
     }

@@ -11,6 +11,6 @@
     "build:api": "cd frontend && node scripts/build-api.mjs"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20.9.0"
   }
 }

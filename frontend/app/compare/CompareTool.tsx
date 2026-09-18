@@ -4,6 +4,12 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { CompareView } from "../components/CompareView";
+import { STYLE_DEFINITIONS } from "../lib/style-definitions";
+
+/** Own-key check so inherited query values like `__proto__` are rejected. */
+function isKnownStyle(slug: string): boolean {
+  return Object.prototype.hasOwnProperty.call(STYLE_DEFINITIONS, slug);
+}
 
 export function CompareTool() {
   return (
@@ -23,6 +29,7 @@ function CompareInner() {
     pair = [aParam ?? "", bParam ?? ""].map((s) => s.trim()).filter(Boolean);
   }
   const [a, b] = pair;
+  const valid = Boolean(a && b && isKnownStyle(a) && isKnownStyle(b));
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
@@ -36,7 +43,7 @@ function CompareInner() {
         Two styles side by side. Share the URL to share the comparison.
       </p>
       <div className="mt-6">
-        {a && b ? (
+        {valid ? (
           <CompareView a={a} b={b} />
         ) : (
           <div className="border border-dashed border-[#111110]/30 dark:border-white/30 p-10 text-center">

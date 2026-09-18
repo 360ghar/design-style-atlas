@@ -313,7 +313,9 @@ const previews: Record<string, ComponentType<{ meta: StyleMeta; large?: boolean 
 };
 
 export function hasBespoke(slug: string): boolean {
-  return slug in previews;
+  // Own-key check: `slug in previews` is true for inherited keys such as
+  // "__proto__", which would hand Object.prototype to React as a component.
+  return Object.prototype.hasOwnProperty.call(previews, slug);
 }
 
 /** Hand-crafted specimen for one style. Falls back to name + description when missing. */
@@ -328,22 +330,31 @@ export function BespokePreview({
   previewTheme?: PreviewThemeMode;
   viewport?: "desktop" | "tablet" | "mobile";
 }) {
-  const Cmp = previews[meta.slug];
+  const Cmp = hasBespoke(meta.slug) ? previews[meta.slug] : undefined;
+  // Every bespoke specimen reads tokens straight off `meta.preview`, and none
+  // of them thread the theme through. Resolve the requested preview theme here
+  // once, so the whole catalogue follows the theme selector instead of only
+  // repainting the outer Frame.
+  const baseDef = STYLE_DEFINITIONS[meta.slug];
+  const themedMeta =
+    baseDef && previewTheme !== "default"
+      ? { ...meta, preview: resolvePreviewTheme(baseDef, previewTheme).preview }
+      : meta;
   if (!Cmp) {
-    const p = meta.preview;
+    const p = themedMeta.preview;
     return (
-      <Frame meta={meta} large={large} previewTheme={previewTheme} viewport={viewport}>
+      <Frame meta={themedMeta} large={large} previewTheme={previewTheme} viewport={viewport}>
         <div className="flex h-full flex-col justify-center px-[8%]">
           <div style={{ fontFamily: p.display, fontSize: large ? 26 : 15 }}>{meta.name}</div>
           <div style={{ color: p.muted, fontSize: large ? 11 : 7.5 }}>{meta.description}</div>
         </div>
-        <Meta meta={meta} large={large} previewTheme={previewTheme} />
+        <Meta meta={themedMeta} large={large} previewTheme={previewTheme} />
       </Frame>
     );
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Component = Cmp as ComponentType<any>;
-  return <Component meta={meta} large={large} previewTheme={previewTheme} viewport={viewport} />;
+  return <Component meta={themedMeta} large={large} previewTheme={previewTheme} viewport={viewport} />;
 }
 
 /** Generic data-driven landing page for one style. Falls back like bespoke when undefined. */

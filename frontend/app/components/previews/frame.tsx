@@ -23,8 +23,11 @@ export function Frame({
   viewport?: "desktop" | "tablet" | "mobile";
   children: ReactNode;
 }) {
+  // Resolve from the meta we were handed, so callers that already resolved a
+  // theme (BespokePreview passes themed tokens) are not resolved a second time.
   const baseDef = STYLE_DEFINITIONS[meta.slug];
-  const resolved = baseDef ? resolvePreviewTheme(baseDef, previewTheme) : null;
+  const base = baseDef ? { ...baseDef, preview: meta.preview } : null;
+  const resolved = base ? resolvePreviewTheme(base, previewTheme) : null;
   const p = resolved ? resolved.preview : meta.preview;
 
   return (
@@ -60,7 +63,8 @@ export function Meta({
   previewTheme?: PreviewThemeMode;
 }) {
   const baseDef = STYLE_DEFINITIONS[meta.slug];
-  const resolved = baseDef ? resolvePreviewTheme(baseDef, previewTheme) : null;
+  const base = baseDef ? { ...baseDef, preview: meta.preview } : null;
+  const resolved = base ? resolvePreviewTheme(base, previewTheme) : null;
   const p = resolved ? resolved.preview : meta.preview;
 
   return (

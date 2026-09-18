@@ -8,7 +8,7 @@
 ![Styles](https://img.shields.io/badge/styles-140-blue)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![MCP ready](https://img.shields.io/badge/MCP-ready-purple)
-![Node](https://img.shields.io/badge/node-%3E%3D18-339933?logo=node.js)
+![Node](https://img.shields.io/badge/node-%3E%3D20.9.0-339933?logo=node.js)
 
 🌐 Live demo — https://design-styles.dev · [📖 Browse styles](#-browse-the-140-styles) · [🤝 Contribute](CONTRIBUTING.md)
 
@@ -320,10 +320,11 @@ cd frontend
 npm install
 npm run dev        # http://localhost:3000
 npm run build      # static export → frontend/out (all pages + raw files)
+npm run start      # serve the built frontend/out export
 npm run mcp        # stdio MCP server
 ```
 
-Requires Node 18+.
+Requires Node 20.9 or newer (Next.js 16 requires `>=20.9.0`).
 
 <details>
 <summary><strong>Repo structure</strong></summary>

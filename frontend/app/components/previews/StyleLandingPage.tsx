@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { StyleDefinition } from "../../lib/style-definitions";
 import type { PreviewThemeMode } from "../../lib/preview-theme";
-import { resolvePreviewTheme } from "../../lib/preview-theme";
+import { resolvePreviewTheme, readableTextColor } from "../../lib/preview-theme";
 import { SignatureWidget } from "./SignatureWidget";
 
 export function StyleLandingPage({
@@ -34,14 +34,9 @@ export function StyleLandingPage({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const isLightBg =
-    p.bg !== "#000000" &&
-    p.bg !== "#08090A" &&
-    p.bg !== "#0A0118" &&
-    p.bg !== "#0B0B12" &&
-    p.bg !== "#05070E";
-
-  const btnAccentColor = isLightBg ? "#FFFFFF" : "#000000";
+  // Label colour follows the accent fill, not the page background — see
+  // readableTextColor in app/lib/preview-theme.ts.
+  const btnAccentColor = readableTextColor(p.accent);
 
   return (
     <div

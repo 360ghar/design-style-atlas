@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /** CLI smoke tests: node cli/test/run.mjs (from the repo root or anywhere). */
 import { spawnSync } from "node:child_process";
+import { chmodSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -78,6 +80,41 @@ if (tailwind) {
   check("tailwind shadow flags shadow-2xl", byTailwind["shadow-hard"] === 1 && tailwind.violations.some((v) => v.found === "shadow-2xl"), JSON.stringify(byTailwind));
   check("tailwind border flags bare border", byTailwind["border-width"] === 1 && tailwind.violations.some((v) => v.found === "border"), JSON.stringify(byTailwind));
   check("tailwind ignores comment hex and href hash", !tailwind.violations.some((v) => String(v.found).includes("222222") || String(v.found).includes("333333")), JSON.stringify(tailwind.violations.map((v) => v.found)));
+}
+
+// 6. Quoted CSS-in-JS values must be parsed, and the hard-offset Tailwind
+//    syntax the report recommends must not be flagged as blurred.
+const quotedDir = join(here, "fixtures", "quoted-css-in-js");
+const quotedJson = run([quotedDir, "--format", "json"]);
+let quoted = null;
+try {
+  quoted = JSON.parse(quotedJson.out);
+} catch {
+  check("quoted CSS-in-JS valid JSON output", false, quotedJson.out.slice(0, 300));
+}
+if (quoted) {
+  const byQuoted = {};
+  for (const v of quoted.violations) byQuoted[v.check] = (byQuoted[v.check] ?? 0) + 1;
+  check("quoted borderRadius \"16px\" is flagged", byQuoted.radius === 1 && quoted.violations.some((v) => String(v.found).startsWith("border-radius: \"16px\"")), JSON.stringify(quoted.violations.map((v) => v.found)));
+  check("quoted boxShadow \"0 4px 12px …\" is flagged", byQuoted["shadow-hard"] === 1, JSON.stringify(byQuoted));
+  check("quoted border \"1px solid …\" is flagged", byQuoted["border-width"] === 1, JSON.stringify(byQuoted));
+  check("shadow-[4px_4px_0_#111111] is not flagged as blurred", !quoted.violations.some((v) => String(v.found).includes("shadow-[4px_4px_0_#111111]")), JSON.stringify(quoted.violations.map((v) => v.found)));
+  check("quoted CSS-in-JS total violations = 3", quoted.summary?.count === 3, `got ${quoted.summary?.count}`);
+}
+
+// 7. An unreadable directory must not be reported as a clean audit. Built in a
+//    temp dir because git does not preserve directory modes.
+const lockedDir = mkdtempSync(join(tmpdir(), "dsa-locked-"));
+writeFileSync(join(lockedDir, "DESIGN.lock"), '{ "style": "neo-brutalism", "version": "1.0.0" }\n');
+writeFileSync(join(lockedDir, "panel.html"), '<div style="border-radius: 16px"></div>\n');
+chmodSync(lockedDir, 0o000);
+const lockedRun = run([lockedDir]);
+chmodSync(lockedDir, 0o755);
+rmSync(lockedDir, { recursive: true, force: true });
+if (process.getuid?.() === 0) {
+  console.log("  ok  unreadable directory (skipped — running as root)");
+} else {
+  check("unreadable directory exits 2 instead of reporting a clean audit", lockedRun.code === 2 && /Could not read directory/.test(lockedRun.err), `exit ${lockedRun.code}: ${lockedRun.err || lockedRun.out}`);
 }
 
 console.log(failures === 0 ? "\nCLI tests: all passed." : `\nCLI tests: ${failures} failure(s).`);

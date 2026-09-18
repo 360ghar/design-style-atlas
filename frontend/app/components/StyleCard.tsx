@@ -19,13 +19,20 @@ function StyleCardInner({
 }) {
   return (
     <article className="group flex flex-col border border-[#111110]/15 dark:border-white/15 bg-white dark:bg-[#141416] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_#111110] dark:hover:shadow-[4px_4px_0_rgba(255,255,255,0.85)]">
-      <Link
-        href={`/styles/${style.slug}`}
-        className="block border-b border-[#111110]/15 dark:border-white/15 overflow-hidden"
-        aria-label={`View ${style.name} DESIGN.md`}
-      >
-        <StylePreview meta={style} previewTheme={previewTheme} />
-      </Link>
+      {/* The preview is decorative (Frame is aria-hidden). Several bespoke
+          previews contain their own <a>/<button>, so it must not be wrapped in
+          a link: that nests interactive elements. Instead the preview is made
+          inert and a sibling overlay link covers it. */}
+      <div className="relative border-b border-[#111110]/15 dark:border-white/15 overflow-hidden">
+        <div inert>
+          <StylePreview meta={style} previewTheme={previewTheme} />
+        </div>
+        <Link
+          href={`/styles/${style.slug}`}
+          className="absolute inset-0 z-20"
+          aria-label={`View ${style.name} DESIGN.md`}
+        />
+      </div>
       <div className="flex flex-1 flex-col p-4">
         <div className="flex items-baseline justify-between gap-2">
           <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#111110]/45 dark:text-white/45">

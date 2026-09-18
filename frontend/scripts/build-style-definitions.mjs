@@ -473,7 +473,11 @@ export interface StyleDefinition {
 export const STYLE_DEFINITIONS: Record<string, StyleDefinition> = ${JSON.stringify(definitions, null, 2)};
 
 export function getStyleDefinition(slug: string): StyleDefinition {
-  const def = STYLE_DEFINITIONS[slug];
+  // Own-key check: a bare lookup returns Object.prototype for inherited keys
+  // such as "__proto__", and consumers then crash reading def.preview.
+  const def = Object.prototype.hasOwnProperty.call(STYLE_DEFINITIONS, slug)
+    ? STYLE_DEFINITIONS[slug]
+    : undefined;
   if (!def) {
     throw new Error(\`[style-definitions] Style definition not found for slug: "\${slug}"\`);
   }
