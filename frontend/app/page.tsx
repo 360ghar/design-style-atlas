@@ -6,10 +6,9 @@ import { GITHUB_URL, SITE_URL } from "./lib/site";
 import { AGENT_GUIDES, categorySlug, faqJsonLd, itemListJsonLd } from "./lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const count = getAllStyles().length;
   return {
-    title: `${count} DESIGN.md Files for AI Coding Agents`,
-    description: `${count} ready-to-use DESIGN.md files for AI coding agents. Browse a visual style, preview it, copy its complete instructions into Codex, Claude Code, Cursor, Windsurf, v0, or Lovable.`,
+    title: "DESIGN.md Files for AI Coding Agents",
+    description: "Ready-to-use DESIGN.md files for AI coding agents. Browse a visual style, preview it, copy its complete instructions into Codex, Claude Code, Cursor, Windsurf, v0, or Lovable.",
     alternates: { canonical: SITE_URL },
   };
 }
@@ -65,7 +64,7 @@ export default function Home() {
             An open-source design archive
           </p>
           <h1 className="mt-5 max-w-3xl text-[42px] font-extrabold leading-[1.02] tracking-[-0.02em] sm:text-[64px]">
-            {styles.length} DESIGN.md files for AI coding agents
+            DESIGN.md files for AI coding agents
           </h1>
           <p className="mt-5 max-w-2xl font-serif text-[19px] italic leading-relaxed text-[#111110]/75 dark:text-white/75 sm:text-[21px]">
             Stop shipping generic AI-generated UI. Give Codex, Claude Code,
@@ -91,7 +90,7 @@ export default function Home() {
           </div>
           <dl className="mt-9 grid grid-cols-1 gap-px border border-[#111110]/20 dark:border-white/15 bg-[#111110]/20 dark:bg-white/10 sm:grid-cols-3">
             {[
-              [String(styles.length), "production-ready styles"],
+              ["Curated Archive", "production-ready styles"],
               ["Codex · Claude Code · Cursor", "works with your agent"],
               ["MIT", "open source, forever"],
             ].map(([k, v]) => (
@@ -132,8 +131,8 @@ export default function Home() {
                     className="flex items-baseline justify-between gap-2 border border-[#111110]/15 dark:border-white/15 px-3 py-2 text-sm hover:underline hover:underline-offset-4"
                   >
                     <span className="font-semibold">{c.name}</span>
-                    <span className="font-mono text-[11px] text-[#111110]/55 dark:text-white/55">
-                      {c.count}
+                    <span aria-hidden="true" className="font-mono text-[11px] text-[#111110]/40 dark:text-white/40">
+                      →
                     </span>
                   </Link>
                 </li>

@@ -5,7 +5,6 @@ import "./globals.css";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { SITE_URL } from "./lib/site";
-import { getStyleCount } from "./lib/styles";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 const newsreader = Newsreader({
@@ -33,15 +32,14 @@ export const viewport: Viewport = {
 };
 
 export async function generateMetadata(): Promise<Metadata> {
-  const count = getStyleCount();
-  const title = `${count} DESIGN.md Files for AI Coding Agents — Design Styles`;
+  const title = "DESIGN.md Files for AI Coding Agents — Design Styles";
   return {
     metadataBase: new URL(siteUrl),
     title: {
       default: title,
       template: "%s — Design Styles",
     },
-    description: `${count} ready-to-use DESIGN.md files for AI coding agents. Browse a visual style, preview it, and copy its complete instructions into Codex, Claude Code, Cursor, or Windsurf.`,
+    description: "Ready-to-use DESIGN.md files for AI coding agents. Browse a visual style, preview it, and copy its complete instructions into Codex, Claude Code, Cursor, or Windsurf.",
     keywords: [
       "DESIGN.md",
       "DESIGN.md for AI agents",
@@ -68,7 +66,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       siteName: "Design Styles",
       title,
-      description: `Give your coding agent a reusable visual direction. Browse ${count} styles, preview each one, copy its DESIGN.md.`,
+      description: "Give your coding agent a reusable visual direction. Browse styles, preview each one, copy its DESIGN.md.",
       url: siteUrl,
       images: [
         {
@@ -82,7 +80,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title,
-      description: `${count} ready-to-use DESIGN.md files for Codex, Claude Code, Cursor & Windsurf.`,
+      description: "Ready-to-use DESIGN.md files for Codex, Claude Code, Cursor & Windsurf.",
       images: ["/og.png"],
     },
     robots: { index: true, follow: true },

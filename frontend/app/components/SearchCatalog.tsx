@@ -321,11 +321,11 @@ function CatalogUI({
           <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
             {/* Category Filter Chips */}
             <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5" role="group" aria-label="Filter by category">
-              <FilterChip label={`All (${styles.length})`} active={!category} onClick={() => onCategory(null)} />
+              <FilterChip label="All" active={!category} onClick={() => onCategory(null)} />
               {categories.map((c) => (
                 <FilterChip
                   key={c.name}
-                  label={`${c.name} (${c.count})`}
+                  label={c.name}
                   active={category === c.name}
                   onClick={() => onCategory(c.name)}
                 />
@@ -476,10 +476,11 @@ function CatalogUI({
 
       <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
         <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#111110]/50 dark:text-white/50" role="status" aria-live="polite">
-          {results.length === styles.length && vibeActiveCount === 0
-            ? `Showing all ${styles.length} styles`
-            : `${results.length} of ${styles.length} styles${query ? ` for “${query}”` : ""}${category ? ` in ${category}` : ""}${vibeActiveCount > 0 ? ` · ${vibeActiveCount} vibe filter${vibeActiveCount > 1 ? "s" : ""}` : ""}`}
-          {results.length > visible.length ? ` · showing ${visible.length}` : ""}
+          {results.length === 0
+            ? `No styles found${query ? ` for “${query}”` : ""}${category ? ` in ${category}` : ""}`
+            : results.length === styles.length && vibeActiveCount === 0
+            ? "Showing all styles"
+            : `Showing styles${query ? ` for “${query}”` : ""}${category ? ` in ${category}` : ""}${vibeActiveCount > 0 ? ` · ${vibeActiveCount} vibe filter${vibeActiveCount > 1 ? "s" : ""}` : ""}`}
         </p>
         {results.length === 0 ? (
           <div className="mt-6 border border-dashed border-[#111110]/30 dark:border-white/30 p-10 text-center">
@@ -516,7 +517,7 @@ function CatalogUI({
                   onClick={onLoadMore}
                   className="border border-[#111110] bg-transparent px-6 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] hover:bg-[#111110] hover:text-white dark:border-white/30 dark:text-white dark:hover:bg-white dark:hover:text-[#0c0c0e] cursor-pointer transition-colors"
                 >
-                  Load more ({results.length - visible.length} left)
+                  Load more styles
                 </button>
               </div>
             )}

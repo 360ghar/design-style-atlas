@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { GITHUB_URL } from "../lib/site";
-import { getStyleCount } from "../lib/styles";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
@@ -10,9 +9,6 @@ export function Header() {
         <Link href="/" className="flex items-baseline gap-2">
           <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em]">
             Design&nbsp;Styles
-          </span>
-          <span className="hidden font-mono text-[11px] text-[#111110]/50 dark:text-white/50 sm:inline">
-            / {getStyleCount()}
           </span>
         </Link>
         <div className="flex items-center gap-2 sm:gap-3">

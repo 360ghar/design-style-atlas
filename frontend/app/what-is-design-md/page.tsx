@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllStyles } from "../lib/styles";
 import { abs, breadcrumbJsonLd, faqJsonLd } from "../lib/seo";
 
 export const dynamic = "force-static";
@@ -8,12 +7,11 @@ export const dynamic = "force-static";
 const URL = "/what-is-design-md";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const count = getAllStyles().length;
   const url = abs(URL);
   const title = "What Is DESIGN.md? The AI Agent Design File, Explained";
   return {
     title,
-    description: `DESIGN.md is a Markdown design-system spec AI coding agents read before generating UI: tokens, typography, spacing, components. Browse ${count} free examples.`,
+    description: "DESIGN.md is a Markdown design-system spec AI coding agents read before generating UI: tokens, typography, spacing, components. Browse free examples.",
     keywords: [
       "what is DESIGN.md",
       "DESIGN.md file",
@@ -39,7 +37,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function WhatIsDesignMd() {
-  const count = getAllStyles().length;
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Index", path: "/" },
@@ -64,7 +61,7 @@ export default function WhatIsDesignMd() {
       },
       {
         q: "Where do I get a DESIGN.md?",
-        a: `Pick one of the ${count} free styles in this archive, copy its DESIGN.md, and paste it into your project. Each ships the same 20-section spec.`,
+        a: "Pick any of the free styles in this archive, copy its DESIGN.md, and paste it into your project. Each ships the same 20-section spec.",
       },
     ]),
   ];
@@ -145,7 +142,7 @@ export default function WhatIsDesignMd() {
                 Get one free
               </h2>
               <p className="mt-2 text-[#111110]/75 dark:text-white/75">
-                This archive ships {count} MIT-licensed specs. Start here:
+                This archive ships MIT-licensed specs. Start here:
               </p>
               <ul className="mt-3 space-y-2">
                 <li>

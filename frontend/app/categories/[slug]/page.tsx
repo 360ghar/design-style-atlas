@@ -31,7 +31,7 @@ export async function generateMetadata({
   const title = `${cat.name} DESIGN.md Styles for AI Agents`;
   return {
     title,
-    description: `${cat.count} ${cat.name} DESIGN.md files for Codex, Claude Code, Cursor & Windsurf. Compare ${cat.name.toLowerCase()} styles, preview tokens, copy the spec.`,
+    description: `${cat.name} DESIGN.md files for Codex, Claude Code, Cursor & Windsurf. Compare ${cat.name.toLowerCase()} styles, preview tokens, copy the spec.`,
     keywords: [
       `${cat.name} DESIGN.md`,
       `${cat.name} design style`,
@@ -41,14 +41,14 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       title: `${title} — Design Styles`,
-      description: `Browse ${cat.count} ${cat.name} styles. Copy any DESIGN.md into your AI coding agent.`,
+      description: `Browse ${cat.name} styles. Copy any DESIGN.md into your AI coding agent.`,
       url,
       images: [{ url: "/og.png", width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
-      description: `${cat.count} ${cat.name} DESIGN.md files for AI coding agents.`,
+      description: `${cat.name} DESIGN.md files for AI coding agents.`,
       images: ["/og.png"],
     },
   };
@@ -110,7 +110,7 @@ export default async function CategoryPage({
             {cat!.name} DESIGN.md styles for AI agents
           </h1>
           <p className="mt-4 max-w-2xl font-serif text-[18px] italic leading-relaxed text-[#111110]/70 dark:text-white/70">
-            {members.length} {cat!.name.toLowerCase()} styles with copy-paste
+            {cat!.name} styles with copy-paste
             DESIGN.md specs. Pick one, preview its colors and type, hand it to
             Codex, Claude Code, Cursor, or Windsurf.
           </p>
@@ -148,7 +148,7 @@ export default async function CategoryPage({
                     href={`/categories/${categorySlug(c.name)}`}
                     className="inline-block border border-[#111110]/20 dark:border-white/20 px-2.5 py-1 font-mono text-[11px] hover:underline hover:underline-offset-4"
                   >
-                    {c.name} ({c.count})
+                    {c.name}
                   </Link>
                 </li>
               ))}

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { GITHUB_URL } from "../lib/site";
-import { getStyleCount } from "../lib/styles";
 
 export function Footer() {
   return (
@@ -11,7 +10,7 @@ export function Footer() {
             Design Styles
           </p>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-[#111110]/70 dark:text-white/70">
-            {getStyleCount()} design styles for AI coding agents. Each style ships a
+            Design styles for AI coding agents. Each style ships a
             copy-paste-ready{" "}
             <code className="font-mono text-[12px] bg-black/5 dark:bg-white/10 px-1 py-0.5 rounded">
               DESIGN.md
