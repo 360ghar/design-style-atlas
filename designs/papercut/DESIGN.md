@@ -9,7 +9,7 @@ preview:
   bg: "#F7F3EB"
   surface: "#FFFFFF"
   ink: "#2D2823"
-  muted: "#7A7067"
+  muted: "#766D64"
   accent: "#D96B43"
   accent2: "#4E6E58"
   display: "Recoleta, Playfair Display, serif"
@@ -45,7 +45,7 @@ Papercut transforms web layouts into tactile layered paper dioramas. Clean silho
 | Background | `#F7F3EB` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, containers |
 | Ink | `#2D2823` | Headlines, primary text |
-| Muted | `#7A7067` | Secondary copy, metadata, borders |
+| Muted | `#766D64` | Secondary copy, metadata, borders |
 | Accent | `#D96B43` | Primary action, key highlights |
 | Accent 2 | `#4E6E58` | Secondary moments, glows, tags |
 
@@ -105,7 +105,7 @@ Gentle physical parallax: background paper sheets drift slower than foreground; 
 
 - Hover: predictable state changes honoring the design's physical metaphor.
 - Active / Pressed: tactile feedback (recoil or depression).
-- Focus: clear visible focus ring with 2px offset, using Ink when accent is under 3:1 on the adjacent ground.
+- Focus: clear visible focus ring with 2px offset, using a ring that clears 3:1 on the adjacent ground — Ink when it clears, otherwise Background.
 - Loading: skeletons or spinners matching the style's texture.
 
 ## 17. Responsive behavior
@@ -138,7 +138,7 @@ Gentle physical parallax: background paper sheets drift slower than foreground; 
   --bg: #F7F3EB;
   --surface: #FFFFFF;
   --ink: #2D2823;
-  --muted: #7A7067;
+  --muted: #766D64;
   --accent: #D96B43;
   --accent-2: #4E6E58;
   --font-display: Recoleta, Playfair Display, serif;

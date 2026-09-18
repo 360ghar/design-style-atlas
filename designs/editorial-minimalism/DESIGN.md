@@ -9,7 +9,7 @@ preview:
   bg: "#FBFAF7"
   surface: "#FFFFFF"
   ink: "#1C1B1A"
-  muted: "#7A7671"
+  muted: "#76726E"
   accent: "#8C2F1B"
   accent2: "#1C1B1A"
   display: "Georgia, Playfair Display, Times New Roman, serif"
@@ -45,7 +45,7 @@ A literary journal rendered as a website: serif display type, kickers, bylines, 
 | Background | `#FBFAF7` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#1C1B1A` | Headlines, body text |
-| Muted | `#7A7671` | Captions, meta, secondary text |
+| Muted | `#76726E` | Captions, meta, secondary text |
 | Accent | `#8C2F1B` | Primary actions, highlights |
 | Accent 2 | `#1C1B1A` | Same as Ink — no second hue; reuse Ink for rules and emphasis |
 
@@ -77,7 +77,7 @@ None — print has no shadows
 
 Understated: small-caps tracked text links in accent, or 1px ink-bordered rectangles. No fills except a black subscribe button.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 150–250ms, standard 300–500ms page-soft fades. Easings: eas
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: micro 150–250ms, standard 300–500ms page-soft fades. Easings: eas
   --bg: #FBFAF7;
   --surface: #FFFFFF;
   --ink: #1C1B1A;
-  --muted: #7A7671;
+  --muted: #76726E;
   --accent: #8C2F1B;
   --accent-2: #1C1B1A;
   --font-display: Georgia, Playfair Display, Times New Roman, serif;

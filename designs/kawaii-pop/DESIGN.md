@@ -9,7 +9,7 @@ preview:
   bg: "#FFF5FA"
   surface: "#FFFFFF"
   ink: "#5C2D52"
-  muted: "#9A658C"
+  muted: "#946186"
   accent: "#DF006C"
   accent2: "#7ED6FF"
   display: "Baloo 2, Quicksand, Helvetica Neue, sans-serif"
@@ -45,7 +45,7 @@ Harajuku sticker-book design: pastel panels, chunky rounded type, smiling mascot
 | Background | `#FFF5FA` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#5C2D52` | Headlines, body text |
-| Muted | `#9A658C` | Captions, meta, secondary text |
+| Muted | `#946186` | Captions, meta, secondary text |
 | Accent | `#DF006C` | Primary actions, highlights |
 | Accent 2 | `#7ED6FF` | Secondary emphasis, badges, special states |
 
@@ -77,7 +77,7 @@ Soft puffy: 0 10px 28px rgba(255,111,181,0.28); sticker die-cut white rim + lift
 
 Chunky pastel pills, 48–56px, bold rounded text; hover squish (scale 1.04); active squish (0.95); white sticker rim.
 
-All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: 150–300ms springs; 2s idle loops. Easings: ease-out for UI, springs
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: 150–300ms springs; 2s idle loops. Easings: ease-out for UI, springs
   --bg: #FFF5FA;
   --surface: #FFFFFF;
   --ink: #5C2D52;
-  --muted: #9A658C;
+  --muted: #946186;
   --accent: #DF006C;
   --accent-2: #7ED6FF;
   --font-display: Baloo 2, Quicksand, Helvetica Neue, sans-serif;

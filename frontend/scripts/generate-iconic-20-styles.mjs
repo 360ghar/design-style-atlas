@@ -1,6 +1,6 @@
 // Generates the 20 iconic / famous / premium DESIGN.md files (the 120 -> 140 batch).
 // Run: node scripts/generate-iconic-20-styles.mjs
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -938,7 +938,7 @@ ${s.motion}
 
 - Hover: predictable state changes honoring the design's physical metaphor.
 - Active / Pressed: tactile feedback (recoil or depression).
-- Focus: clear visible focus ring with 2px offset, using Ink when accent is under 3:1 on the adjacent ground.
+- Focus: clear visible focus ring with 2px offset, using a ring that clears 3:1 on the adjacent ground — Ink when it clears, otherwise Background.
 - Loading: skeletons or spinners matching the style's texture.
 
 ## 17. Responsive behavior
@@ -995,11 +995,24 @@ ${s.motion}
 `;
 }
 
+// Specs are hand-curated after generation, so regenerating one silently reverts
+// accessibility fixes (see scripts/check-contrast.mjs). Never clobber an
+// existing DESIGN.md unless --force is passed explicitly.
+const FORCE = process.argv.includes("--force");
 let count = 0;
+let skipped = 0;
 for (const s of STYLES) {
   const dir = join(root, s.slug);
+  const file = join(dir, "DESIGN.md");
+  if (existsSync(file) && !FORCE) {
+    skipped++;
+    continue;
+  }
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, "DESIGN.md"), buildFile(s), "utf8");
+  writeFileSync(file, buildFile(s), "utf8");
   count++;
 }
-console.log(`[generate-iconic-20-styles] successfully wrote ${count} DESIGN.md files into ${root}`);
+console.log(
+  `[generate-iconic-20-styles] successfully wrote ${count} DESIGN.md files into ${root}` +
+    (skipped ? ` (skipped ${skipped} existing — pass --force to overwrite)` : "")
+);

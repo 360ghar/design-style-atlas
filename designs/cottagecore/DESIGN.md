@@ -9,7 +9,7 @@ preview:
   bg: "#FAF6EE"
   surface: "#FFFFFF"
   ink: "#3E3A2E"
-  muted: "#7C7466"
+  muted: "#776F62"
   accent: "#AA5A3A"
   accent2: "#5D7852"
   display: "Cormorant Garamond, Georgia, serif"
@@ -45,7 +45,7 @@ Cottagecore is a slow Sunday rendered as UI: gingham and calico, pressed wildflo
 | Background | `#FAF6EE` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#3E3A2E` | Headlines, body text |
-| Muted | `#7C7466` | Captions, meta, secondary text |
+| Muted | `#776F62` | Captions, meta, secondary text |
 | Accent | `#AA5A3A` | Primary actions, highlights |
 | Accent 2 | `#5D7852` | Secondary emphasis, badges, special states |
 
@@ -77,7 +77,7 @@ Arches for windows/hero images; 12–20px cards; scallops and circles for sticke
 
 Terracotta 999px or stitched rectangles, 48px; hover darkens + tiny flower sprout; secondary sage outline.
 
-All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: 200–350ms UI; 8–12s ambient drifts. Easings: ease-out for UI, spr
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: 200–350ms UI; 8–12s ambient drifts. Easings: ease-out for UI, spr
   --bg: #FAF6EE;
   --surface: #FFFFFF;
   --ink: #3E3A2E;
-  --muted: #7C7466;
+  --muted: #776F62;
   --accent: #AA5A3A;
   --accent-2: #5D7852;
   --font-display: Cormorant Garamond, Georgia, serif;

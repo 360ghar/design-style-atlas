@@ -9,7 +9,7 @@ preview:
   bg: "#FFF9F0"
   surface: "#FFFFFF"
   ink: "#222222"
-  muted: "#7A736A"
+  muted: "#797269"
   accent: "#008080"
   accent2: "#FF4FA3"
   display: "Archivo Black, Poppins, sans-serif"
@@ -45,7 +45,7 @@ Milan 1981, digitized: terrazzo confetti, squiggle lines, pastel cones and torus
 | Background | `#FFF9F0` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#222222` | Headlines, body text |
-| Muted | `#7A736A` | Captions, meta, secondary text |
+| Muted | `#797269` | Captions, meta, secondary text |
 | Accent | `#008080` | Primary actions, highlights |
 | Accent 2 | `#FF4FA3` | Secondary moments, shapes, badges |
 
@@ -77,7 +77,7 @@ Playful mix: circles, squiggles, rounded blobs + sharp triangles
 
 Bold geometric buttons in teal/pink/yellow, each with a contrast-tested label: white on teal `#008080` (4.8:1), Ink `#222222` on pink `#FF4FA3` (6.1:1) — the reverse pairings fail. Pastel hard shadows; hover swaps shape color.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 150–250ms, standard 350–500ms shape-dance entrances. Easing
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: micro 150–250ms, standard 350–500ms shape-dance entrances. Easing
   --bg: #FFF9F0;
   --surface: #FFFFFF;
   --ink: #222222;
-  --muted: #7A736A;
+  --muted: #797269;
   --accent: #008080;
   --accent-2: #FF4FA3;
   --font-display: Archivo Black, Poppins, sans-serif;

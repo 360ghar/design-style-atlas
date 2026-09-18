@@ -9,7 +9,7 @@ preview:
   bg: "#FFD802"
   surface: "#FFFFFF"
   ink: "#161616"
-  muted: "#6B6257"
+  muted: "#675E54"
   accent: "#FF2E88"
   accent2: "#2B4EFF"
   display: "Archivo Black, Inter Tight, sans-serif"
@@ -45,7 +45,7 @@ Dopamine dressing for interfaces: every section a saturated field — taxi yello
 | Background | `#FFD802` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#161616` | Headlines, body text |
-| Muted | `#6B6257` | Captions, meta, secondary text |
+| Muted | `#675E54` | Captions, meta, secondary text |
 | Accent | `#FF2E88` | Primary actions, highlights |
 | Accent 2 | `#2B4EFF` | Secondary moments, gradients, glows |
 
@@ -79,7 +79,7 @@ Saturated color shadows: 8px 8px 0 rgba(22,22,22,1) on cards; colored glows matc
 
 Ink-black buttons on color grounds (white text), or white buttons with ink text on dark grounds. Hover inverts with a pop.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -110,7 +110,7 @@ Durations: micro 150–250ms, standard 350–500ms saturated panel swaps, ceremo
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -144,7 +144,7 @@ Durations: micro 150–250ms, standard 350–500ms saturated panel swaps, ceremo
   --bg: #FFD802;
   --surface: #FFFFFF;
   --ink: #161616;
-  --muted: #6B6257;
+  --muted: #675E54;
   --accent: #FF2E88;
   --accent-2: #2B4EFF;
   --font-display: Archivo Black, Inter Tight, sans-serif;

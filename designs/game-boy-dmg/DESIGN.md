@@ -9,7 +9,7 @@ preview:
   bg: "#8BAC0F"
   surface: "#9BBC0F"
   ink: "#0F380F"
-  muted: "#1E471E"
+  muted: "#1B3F1B"
   accent: "#0F380F"
   accent2: "#306230"
   display: "Press Start 2P, Courier, monospace"
@@ -22,7 +22,7 @@ preview:
 
 ## 1. Overall aesthetic
 
-Game Boy DMG is the authentic nostalgia of Nintendo's 1989 handheld masterpiece. Built entirely upon the legendary 4-shade monochromatic pea-soup olive-green LCD palette (#0F380F, #306230, #8BAC0F, #9BBC0F), dot-matrix pixel grid overlays, authentic LCD pixel response ghosting, chunky beveled gray plastic framing, and magenta B/A action buttons.
+Game Boy DMG is the authentic nostalgia of Nintendo's 1989 handheld masterpiece. Built entirely upon the legendary 4-shade monochromatic pea-soup olive-green LCD palette (#0F380F, #306230, #8BAC0F, #9BBC0F) for every screen, panel, and text surface, dot-matrix pixel grid overlays, authentic LCD pixel response ghosting. The console shell is the one palette exception: beveled gray plastic framing with magenta B/A action buttons and black pixel keylines, matching real DMG hardware.
 
 **Three principles:**
 
@@ -45,7 +45,7 @@ Game Boy DMG is the authentic nostalgia of Nintendo's 1989 handheld masterpiece.
 | Background | `#8BAC0F` | Page ground |
 | Surface | `#9BBC0F` | Cards, panels, containers |
 | Ink | `#0F380F` | Headlines, primary text |
-| Muted | `#1E471E` | Secondary copy, metadata, borders |
+| Muted | `#1B3F1B` | Secondary copy, metadata, borders |
 | Accent | `#0F380F` | Primary action, key highlights |
 | Accent 2 | `#306230` | Secondary moments, glows, tags |
 
@@ -105,7 +105,7 @@ Step-based 8-frame animations; LCD pixel ghosting trail on rapid scrolling; scre
 
 - Hover: predictable state changes honoring the design's physical metaphor.
 - Active / Pressed: tactile feedback (recoil or depression).
-- Focus: clear visible focus ring with 2px offset, using Ink when accent is under 3:1 on the adjacent ground.
+- Focus: clear visible focus ring with 2px offset, using a ring that clears 3:1 on the adjacent ground — Ink when it clears, otherwise Background.
 - Loading: skeletons or spinners matching the style's texture.
 
 ## 17. Responsive behavior
@@ -138,7 +138,7 @@ Step-based 8-frame animations; LCD pixel ghosting trail on rapid scrolling; scre
   --bg: #8BAC0F;
   --surface: #9BBC0F;
   --ink: #0F380F;
-  --muted: #1E471E;
+  --muted: #1B3F1B;
   --accent: #0F380F;
   --accent-2: #306230;
   --font-display: Press Start 2P, Courier, monospace;

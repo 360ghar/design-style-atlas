@@ -9,7 +9,7 @@ preview:
   bg: "#FFF6E5"
   surface: "#FFFFFF"
   ink: "#222222"
-  muted: "#7A736A"
+  muted: "#767067"
   accent: "#704DFF"
   accent2: "#007B7B"
   display: "Archivo Black, Shrikhand, sans-serif"
@@ -45,7 +45,7 @@ preview:
 | Background | `#FFF6E5` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#222222` | Headlines, body text |
-| Muted | `#7A736A` | Captions, meta, secondary text |
+| Muted | `#767067` | Captions, meta, secondary text |
 | Accent | `#704DFF` | Primary actions, highlights |
 | Accent 2 | `#007B7B` | Secondary moments, gradients, glows |
 
@@ -77,7 +77,7 @@ Bold geo: triangles, zigzags, circles; 12–20px cards
 
 Geo blocks: purple/teal fills, white bold labels, hard shadows; hover pops.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 150–250ms sticker slaps, standard 350–500ms. Easings: sprin
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -143,7 +143,7 @@ Durations: micro 150–250ms sticker slaps, standard 350–500ms. Easings: sprin
   --bg: #FFF6E5;
   --surface: #FFFFFF;
   --ink: #222222;
-  --muted: #7A736A;
+  --muted: #767067;
   --accent: #704DFF;
   --accent-2: #007B7B;
   --font-display: Archivo Black, Shrikhand, sans-serif;

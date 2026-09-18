@@ -9,7 +9,7 @@ preview:
   bg: "#C0C0C0"
   surface: "#FFFFFF"
   ink: "#000000"
-  muted: "#555555"
+  muted: "#4F4F4F"
   accent: "#0000EE"
   accent2: "#008080"
   display: "Times New Roman, serif"
@@ -46,7 +46,7 @@ The browser AS the aesthetic: fake window chrome, tiling image layouts, blue hyp
 | Background | `#C0C0C0` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#000000` | Headlines, body text |
-| Muted | `#555555` | Captions, meta, secondary text |
+| Muted | `#4F4F4F` | Captions, meta, secondary text |
 | Accent | `#0000EE` | Primary actions, highlights |
 | Accent 2 | `#008080` | Desktop-teal alternate ground, status accents |
 
@@ -78,7 +78,7 @@ Window-manager shadows: 4px 4px 0 rgba(0,0,0,0.35) under draggable-feeling windo
 
 Raised gray buttons with 2px outset borders; default-button bold outline; hover presses inset.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -109,7 +109,7 @@ Durations: instant–200ms window pops. Easings: none or steps(2); smooth premiu
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -143,7 +143,7 @@ Durations: instant–200ms window pops. Easings: none or steps(2); smooth premiu
   --bg: #C0C0C0;
   --surface: #FFFFFF;
   --ink: #000000;
-  --muted: #555555;
+  --muted: #4F4F4F;
   --accent: #0000EE;
   --accent-2: #008080;
   --font-display: Times New Roman, serif;

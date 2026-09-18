@@ -105,7 +105,7 @@ Punchy kinetic hover reveals: color inversion crossfades (180ms), scale lift (1.
 
 - Hover: predictable state changes honoring the design's physical metaphor.
 - Active / Pressed: tactile feedback (recoil or depression).
-- Focus: clear visible focus ring with 2px offset, using Ink when accent is under 3:1 on the adjacent ground.
+- Focus: clear visible focus ring with 2px offset, using a ring that clears 3:1 on the adjacent ground — Ink when it clears, otherwise Background.
 - Loading: skeletons or spinners matching the style's texture.
 
 ## 17. Responsive behavior

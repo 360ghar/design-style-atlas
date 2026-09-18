@@ -1,6 +1,6 @@
 // One-shot scaffolding: generated 20 DESIGN.md files (the 100 -> 120 batch).
 // Run: node scripts/generate-new-styles.mjs
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -634,7 +634,7 @@ ${s.radius}
 
 ${s.buttons}
 
-All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -665,7 +665,7 @@ Durations: ${s.durations} Easings: ease-out for UI, springs for playful emphasis
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -723,11 +723,24 @@ Durations: ${s.durations} Easings: ease-out for UI, springs for playful emphasis
 `;
 }
 
+// Specs are hand-curated after generation, so regenerating one silently reverts
+// accessibility fixes (see scripts/check-contrast.mjs). Never clobber an
+// existing DESIGN.md unless --force is passed explicitly.
+const FORCE = process.argv.includes("--force");
 let n = 0;
+let skipped = 0;
 for (const s of STYLES) {
   const dir = join(root, s.slug);
+  const file = join(dir, "DESIGN.md");
+  if (existsSync(file) && !FORCE) {
+    skipped++;
+    continue;
+  }
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, "DESIGN.md"), buildFile(s), "utf8");
+  writeFileSync(file, buildFile(s), "utf8");
   n++;
 }
-console.log(`[generate-new-styles] wrote ${n} styles into ${root}`);
+console.log(
+  `[generate-new-styles] wrote ${n} styles into ${root}` +
+    (skipped ? ` (skipped ${skipped} existing — pass --force to overwrite)` : "")
+);

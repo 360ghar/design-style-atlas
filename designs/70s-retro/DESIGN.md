@@ -9,7 +9,7 @@ preview:
   bg: "#F3E9D2"
   surface: "#FFF8EA"
   ink: "#3B2E23"
-  muted: "#7E705D"
+  muted: "#746756"
   accent: "#A4501D"
   accent2: "#7A8450"
   display: "Cooper Black, Shrikhand, serif"
@@ -45,7 +45,7 @@ A fondue night in pixels: burnt orange + harvest gold + avocado, Cooper Black he
 | Background | `#F3E9D2` | Page ground |
 | Surface | `#FFF8EA` | Cards, panels, wells |
 | Ink | `#3B2E23` | Headlines, body text |
-| Muted | `#7E705D` | Captions, meta, secondary text |
+| Muted | `#746756` | Captions, meta, secondary text |
 | Accent | `#A4501D` | Primary actions, highlights |
 | Accent 2 | `#7A8450` | Secondary moments, gradients, glows |
 
@@ -81,7 +81,7 @@ Mushroom curves: 20px+ blobs, rainbow-arch dividers, flower-power rounds
 
 Groovy pills: orange fills, cream Cooper labels; hover melts (scale + warm).
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -112,7 +112,7 @@ Durations: micro 150–250ms, standard 400–600ms wavy groove loops. Easings: l
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -146,7 +146,7 @@ Durations: micro 150–250ms, standard 400–600ms wavy groove loops. Easings: l
   --bg: #F3E9D2;
   --surface: #FFF8EA;
   --ink: #3B2E23;
-  --muted: #7E705D;
+  --muted: #746756;
   --accent: #A4501D;
   --accent-2: #7A8450;
   --font-display: Cooper Black, Shrikhand, serif;

@@ -46,7 +46,11 @@ export function Frame({
       }}
       data-large={large ? "true" : "false"}
       data-viewport={viewport || "responsive"}
-      aria-hidden="true"
+      // Catalog cards render the preview as decoration and StyleCard wraps it in
+      // `inert`. Studio and fullscreen previews are real UI with focusable
+      // buttons and inputs, so hiding the subtree here would strip controls that
+      // keyboard and screen-reader users can still reach.
+      aria-hidden={large ? undefined : "true"}
     >
       {children}
     </div>

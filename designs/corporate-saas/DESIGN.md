@@ -67,7 +67,7 @@ Funnel stack: nav → hero (copy left, dashboard right) → logos → metrics �
 
 ## 7. Shadows
 
-Polished B2B: hero dashboard 0 24px 80px rgba(37,99,235,0.18); cards 0 2px 12px slate/8
+Polished B2B: hero dashboard 0 24px 80px rgba(37,99,235,0.18); cards 0 2px 12px rgba(100,116,139,0.08)
 
 ## 8. Radius
 
@@ -77,7 +77,7 @@ Polished B2B: hero dashboard 0 24px 80px rgba(37,99,235,0.18); cards 0 2px 12px 
 
 Blue primary pills/8px, 16px semibold, arrow affordance; secondary demo-link; sticky mobile CTA.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 100–200ms, standard 250–350ms confident reveals. Easings: c
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 

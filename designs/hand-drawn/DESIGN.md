@@ -9,7 +9,7 @@ preview:
   bg: "#FFFDF5"
   surface: "#FFFFFF"
   ink: "#2E2A26"
-  muted: "#7D746C"
+  muted: "#7C736B"
   accent: "#E4572E"
   accent2: "#2E86AB"
   display: "Caveat, Kalam, Comic Sans MS, sans-serif"
@@ -45,7 +45,7 @@ A whiteboard that shipped: wobbly dividers, hand-circled prices, arrow doodles p
 | Background | `#FFFDF5` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#2E2A26` | Headlines, body text |
-| Muted | `#7D746C` | Captions, meta, secondary text |
+| Muted | `#7C736B` | Captions, meta, secondary text |
 | Accent | `#E4572E` | Primary actions, highlights |
 | Accent 2 | `#2E86AB` | Secondary links, stamps, diagram ink |
 
@@ -77,7 +77,7 @@ Wobbly: border-radius with uneven values (e.g. 12px 14px 11px 15px); circled hig
 
 Hand-framed buttons: wobbly borders, marker-fill hovers, arrow doodle into primary. Big and friendly.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 150–250ms, standard 400–600ms draw-on strokes. Easings: han
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: micro 150–250ms, standard 400–600ms draw-on strokes. Easings: han
   --bg: #FFFDF5;
   --surface: #FFFFFF;
   --ink: #2E2A26;
-  --muted: #7D746C;
+  --muted: #7C736B;
   --accent: #E4572E;
   --accent-2: #2E86AB;
   --font-display: Caveat, Kalam, Comic Sans MS, sans-serif;

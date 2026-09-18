@@ -9,7 +9,7 @@ preview:
   bg: "#F7F7F7"
   surface: "#FFFFFF"
   ink: "#111111"
-  muted: "#747474"
+  muted: "#717171"
   accent: "#E52521"
   accent2: "#0045A5"
   display: "Futura, Trebuchet MS, sans-serif"
@@ -45,7 +45,7 @@ De Stijl (The Style), pioneered by Piet Mondrian and Gerrit Rietveld in 1917, is
 | Background | `#F7F7F7` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, containers |
 | Ink | `#111111` | Headlines, primary text |
-| Muted | `#747474` | Secondary copy, metadata, borders |
+| Muted | `#717171` | Secondary copy, metadata, borders |
 | Accent | `#E52521` | Primary action, key highlights |
 | Accent 2 | `#0045A5` | Secondary moments, glows, tags |
 
@@ -105,7 +105,7 @@ Instantaneous or mechanical sliding along orthogonal axes; no rotation, no easin
 
 - Hover: predictable state changes honoring the design's physical metaphor.
 - Active / Pressed: tactile feedback (recoil or depression).
-- Focus: clear visible focus ring with 2px offset, using Ink when accent is under 3:1 on the adjacent ground.
+- Focus: clear visible focus ring with 2px offset, using a ring that clears 3:1 on the adjacent ground — Ink when it clears, otherwise Background.
 - Loading: skeletons or spinners matching the style's texture.
 
 ## 17. Responsive behavior
@@ -138,7 +138,7 @@ Instantaneous or mechanical sliding along orthogonal axes; no rotation, no easin
   --bg: #F7F7F7;
   --surface: #FFFFFF;
   --ink: #111111;
-  --muted: #747474;
+  --muted: #717171;
   --accent: #E52521;
   --accent-2: #0045A5;
   --font-display: Futura, Trebuchet MS, sans-serif;

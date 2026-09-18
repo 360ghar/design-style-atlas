@@ -6,8 +6,8 @@ category: Soft & Dimensional
 tags: [glass, blur, translucent]
 related: [neumorphism, claymorphism, skeuomorphism]
 preview:
-  bg: "#6C5CE7"
-  surface: "#8B7CF0"
+  bg: "#6350DE"
+  surface: "#4A3AC8"
   ink: "#FFFFFF"
   muted: "#F5F2FD"
   accent: "#FFFFFF"
@@ -42,14 +42,14 @@ Frosted control-center panels floating over aurora gradients: backdrop-blur 20px
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| Background | `#6C5CE7` | Page ground |
-| Surface | `#8B7CF0` | Solid fallback under glass; visible cards use white 15–20% + blur 14–24px over Background |
+| Background | `#6350DE` | Page ground |
+| Surface | `#4A3AC8` | Solid fallback under glass; visible cards use white 15–20% + blur 14–24px over Background |
 | Ink | `#FFFFFF` | Headlines, body text |
 | Muted | `#F5F2FD` | Captions, meta, secondary text |
 | Accent | `#FFFFFF` | Primary actions, highlights |
 | Accent 2 | `#00E5FF` | Secondary moments, gradients, glows |
 
-Keep contrast at 4.5:1 minimum for body text. White (`#FFFFFF`) on Background/Surface alone does not pass — put body text on a scrim (darken field 20–30% behind glass) or use text-shadow/solid fallback. Muted (`#F5F2FD`) holds 3:1 on purple fields and surfaces; still never small body. Accent is for action and emphasis, never for long paragraphs.
+Keep contrast at 4.5:1 minimum for body text. White (`#FFFFFF`) clears 4.5:1 on the Background and on the Surface fallback (5.6:1 and 7.7:1), and Muted (`#F5F2FD`) clears it on both — but a 15–20% white glass fill lightens the composite, so body text still needs a 20–30% dark scrim behind the glass or the solid Surface fallback. Accent is for action and emphasis, never for long paragraphs.
 
 ## 4. Spacing
 
@@ -121,7 +121,7 @@ Durations: micro 150–250ms, standard 250–350ms; ambient blob morphs up to 20
 
 ## 18. Accessibility
 
-- Contrast: body text 4.5:1 minimum, large display 3:1 minimum, verified against the actual glass stack (text + translucent fill + field behind, not the flat tokens). White/muted on `#6C5CE7`/`#8B7CF0` alone fail — add a 20–30% dark scrim or solid fallback to pass.
+- Contrast: body text 4.5:1 minimum, large display 3:1 minimum, verified against the actual glass stack (text + translucent fill + field behind, not the flat tokens). White on `#6350DE` (5.6:1) and on the `#4A3AC8` fallback (7.7:1) passes; the 15–20% white glass fill does not, so pair glass text with a 20–30% dark scrim or the solid fallback.
 - Focus: always visible, never removed; skip-link to main content.
 - Motion: honor `prefers-reduced-motion` — replace loops, parallax, and scrubs with static final states plus manual steppers.
 - Touch: 44px targets, 8px gaps between adjacent targets.
@@ -139,8 +139,8 @@ Durations: micro 150–250ms, standard 250–350ms; ambient blob morphs up to 20
 
 ```css
 :root {
-  --bg: #6C5CE7;
-  --surface: #8B7CF0;
+  --bg: #6350DE;
+  --surface: #4A3AC8;
   --ink: #FFFFFF;
   --muted: #F5F2FD;
   --accent: #FFFFFF;

@@ -9,7 +9,7 @@ preview:
   bg: "#E8E4D8"
   surface: "#F2EEE2"
   ink: "#3B3830"
-  muted: "#6E695E"
+  muted: "#6A655A"
   accent: "#5B8DD9"
   accent2: "#E8A0BF"
   display: "Georgia, Times New Roman, serif"
@@ -45,7 +45,7 @@ A half-remembered afternoon: empty playgrounds, mall corridors, birthday-party p
 | Background | `#E8E4D8` | Page ground |
 | Surface | `#F2EEE2` | Cards, panels, wells |
 | Ink | `#3B3830` | Headlines, body text |
-| Muted | `#6E695E` | Captions, meta, secondary text |
+| Muted | `#6A655A` | Captions, meta, secondary text |
 | Accent | `#5B8DD9` | Primary actions, highlights |
 | Accent 2 | `#E8A0BF` | Secondary moments, gradients, glows |
 
@@ -81,7 +81,7 @@ Soft memory: 12px rounded photos, hazy vignettes
 
 Keepsake buttons: soft fills, timestamp labels; hover sharpens (memory focuses).
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -112,7 +112,7 @@ Durations: micro 250–400ms, standard 600–1000ms slow loops. Easings: sleepy 
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -146,7 +146,7 @@ Durations: micro 250–400ms, standard 600–1000ms slow loops. Easings: sleepy 
   --bg: #E8E4D8;
   --surface: #F2EEE2;
   --ink: #3B3830;
-  --muted: #6E695E;
+  --muted: #6A655A;
   --accent: #5B8DD9;
   --accent-2: #E8A0BF;
   --font-display: Georgia, Times New Roman, serif;

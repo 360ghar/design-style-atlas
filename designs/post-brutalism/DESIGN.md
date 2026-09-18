@@ -9,7 +9,7 @@ preview:
   bg: "#F5F3EF"
   surface: "#FFFFFF"
   ink: "#1B1B1B"
-  muted: "#75716A"
+  muted: "#736F68"
   accent: "#2B4EFF"
   accent2: "#FF5C00"
   display: "Neue Haas Grotesk, Inter Tight, Helvetica Neue, sans-serif"
@@ -45,7 +45,7 @@ What brutalism becomes after design school: the grid and honesty remain, but typ
 | Background | `#F5F3EF` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#1B1B1B` | Headlines, body text |
-| Muted | `#75716A` | Captions, meta, secondary text |
+| Muted | `#736F68` | Captions, meta, secondary text |
 | Accent | `#2B4EFF` | Primary actions, highlights |
 | Accent 2 | `#FF5C00` | Emergency-only marker (spec tick, single label); max once per viewport, never gradients/glows |
 
@@ -77,7 +77,7 @@ Small hard offsets (3px 3px 0 ink) used sparingly on key actions only
 
 2px-bordered rectangles, 4px radius, with 3px 3px 0 ink hard shadows in blue or black; labels medium 14px. Hover translates -2px with shadow growing to 5px 5px 0 ink. Restrained but physical.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 100–200ms, standard 250ms. Easing: ease-out (sharp, confident
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: micro 100–200ms, standard 250ms. Easing: ease-out (sharp, confident
   --bg: #F5F3EF;
   --surface: #FFFFFF;
   --ink: #1B1B1B;
-  --muted: #75716A;
+  --muted: #736F68;
   --accent: #2B4EFF;
   --accent-2: #FF5C00;
   --font-display: Neue Haas Grotesk, Inter Tight, Helvetica Neue, sans-serif;

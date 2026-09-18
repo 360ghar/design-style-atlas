@@ -22,7 +22,7 @@ preview:
 
 ## 1. Overall aesthetic
 
-Anti-design weaponizes ugliness: Times body copy, misaligned blocks, clashing link blue on gray, autoplay-era chaos — deployed with total control. It signals insider credibility to designers and developers by refusing every trend. The wrongness must look intentional, never accidental.
+Anti-design weaponizes ugliness: Arial body copy, misaligned blocks, clashing link blue on gray, autoplay-era chaos — deployed with total control. It signals insider credibility to designers and developers by refusing every trend. The wrongness must look intentional, never accidental.
 
 **Three principles:**
 
@@ -34,7 +34,7 @@ Anti-design weaponizes ugliness: Times body copy, misaligned blocks, clashing li
 
 - **Display:** Times New Roman, serif
 - **Body:** Arial, Helvetica, sans-serif
-- **Scale:** hero deliberately clashing sizes, H2 oversized default Times, H3 20–24px, body 16px default serif, meta/labels unstyled browser defaults.
+- **Scale:** hero deliberately clashing sizes, H2 oversized default Times, H3 20–24px, body 16px Arial default, meta/labels unstyled browser defaults.
 - **Weights:** whatever the browser gives; display unstyled Times bold; body 400; never refined tracking.
 - **Rules:** no alignment system — clash left, center, and justified on purpose; symmetry is the enemy; Comic Sans moments allowed.
 
@@ -77,7 +77,7 @@ Browser-default or none; deliberate flatness except accidental bevels
 
 Default gray beveled buttons, or blue underlined text links. Hover states may do nothing — or something alarming (invert, jump 2px, swap to red).
 
-All buttons: keep browser-default size (no 44px normalization — friction is branding); keyboard focus stays visible (2px outline); disabled is grayed + `not-allowed`.
+All buttons: keep browser-default visual size (44px minimum hit area via padding or a transparent overlay — friction is branding, not an accessibility defect); keyboard focus stays visible (2px outline); disabled is grayed + `not-allowed`.
 
 ## 10. Cards
 

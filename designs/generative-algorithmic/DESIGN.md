@@ -77,7 +77,7 @@ Data glow: 0 0 30px rgba(214,255,63,0.15); canvas bloom on dark
 
 Lab controls: regenerate (dice), slider decks, seed chips, export PNG. Primary: #D6FF3F bg, #0A0A0B text.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -101,14 +101,14 @@ Canvas grain, plotter lines, halftone-from-code. Generated, never pasted.
 
 ## 15. Motion
 
-Living canvases (rAF, paused offscreen + reduced-motion stills); parameter morphs 400ms; seed transitions.
+Living canvases (rAF) ship a visible pause/play control, plus paused-offscreen and reduced-motion stills; parameter morphs 400ms; seed transitions.
 
 Durations: micro 100–200ms, standard 400–700ms seeded redraws. Easings: linear and steps() for plotter logic; bouncy springs forbidden.
 
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 

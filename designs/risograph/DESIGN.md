@@ -9,7 +9,7 @@ preview:
   bg: "#F4F1EA"
   surface: "#FFFFFF"
   ink: "#232323"
-  muted: "#7A766E"
+  muted: "#716E66"
   accent: "#FF6655"
   accent2: "#0078BF"
   display: "Archivo Black, Space Grotesk, sans-serif"
@@ -45,7 +45,7 @@ A riso print run, interactive: fluorescent pink + teal + black layers, visible m
 | Background | `#F4F1EA` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#232323` | Headlines, body text |
-| Muted | `#7A766E` | Captions, meta, secondary text |
+| Muted | `#716E66` | Captions, meta, secondary text |
 | Accent | `#FF6655` | Primary actions, highlights |
 | Accent 2 | `#0078BF` | Secondary moments, overprints, edition stamps |
 
@@ -77,7 +77,7 @@ Print depth: multiply-layer offsets (red/blue split 3px) instead of shadows
 
 Spot-ink blocks with misregistered echo on hover; edition-style numbered CTAs.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 150–250ms, standard 350–550ms grain-settle prints. Easings:
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: micro 150–250ms, standard 350–550ms grain-settle prints. Easings:
   --bg: #F4F1EA;
   --surface: #FFFFFF;
   --ink: #232323;
-  --muted: #7A766E;
+  --muted: #716E66;
   --accent: #FF6655;
   --accent-2: #0078BF;
   --font-display: Archivo Black, Space Grotesk, sans-serif;

@@ -9,7 +9,7 @@ preview:
   bg: "#FAFAF8"
   surface: "#FFFFFF"
   ink: "#101010"
-  muted: "#747470"
+  muted: "#73736F"
   accent: "#101010"
   accent2: "#4D4DFF"
   display: "Helvetica Neue, Inter, Arial, sans-serif"
@@ -45,7 +45,7 @@ A white cube with a backbone: vast empty rooms, single black-framed statements, 
 | Background | `#FAFAF8` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#101010` | Headlines, body text |
-| Muted | `#747470` | Captions, meta, secondary text |
+| Muted | `#73736F` | Captions, meta, secondary text |
 | Accent | `#101010` | Primary actions, highlights |
 | Accent 2 | `#4D4DFF` | Single spare blue for one link, selection, or focus mark per viewport — flat only, never gradients, glows, or fills |
 
@@ -77,7 +77,7 @@ None at all — presence comes from scale and isolation
 
 Text-scale actions: 2px-bordered rectangles, uppercase 12px tracked labels, generous padding. Hover fills black with white text instantly.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: hovers instant–150ms; scroll fades 500ms max. Easings: linear only;
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: hovers instant–150ms; scroll fades 500ms max. Easings: linear only;
   --bg: #FAFAF8;
   --surface: #FFFFFF;
   --ink: #101010;
-  --muted: #747470;
+  --muted: #73736F;
   --accent: #101010;
   --accent-2: #4D4DFF;
   --font-display: Helvetica Neue, Inter, Arial, sans-serif;

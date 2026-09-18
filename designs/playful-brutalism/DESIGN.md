@@ -9,7 +9,7 @@ preview:
   bg: "#FFF9F0"
   surface: "#FFFFFF"
   ink: "#222222"
-  muted: "#7A736A"
+  muted: "#797269"
   accent: "#FF4FA3"
   accent2: "#00B3FF"
   display: "Baloo 2, Fredoka, Arial Rounded MT Bold, sans-serif"
@@ -45,7 +45,7 @@ A toy box with rules: rounded candy forms outlined in thick ink, pastel-meets-ne
 | Background | `#FFF9F0` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#222222` | Headlines, body text |
-| Muted | `#7A736A` | Captions, meta, secondary text |
+| Muted | `#797269` | Captions, meta, secondary text |
 | Accent | `#FF4FA3` | Primary actions, highlights |
 | Accent 2 | `#00B3FF` | Secondary moments, gradients, glows |
 
@@ -77,7 +77,7 @@ Hard but sweet: 5px 5px 0 #222222; hover squishes to 2px with a boing
 
 Pill buttons, 3px ink border, candy fill, bold rounded labels; hard 5px shadow. Hover wobbles (rotate ±2deg); press squishes flat with a 150ms spring.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: 150–350ms sticker pops. Easings: snappy cubic-bezier(0.34,1.56,0.64
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: 150–350ms sticker pops. Easings: snappy cubic-bezier(0.34,1.56,0.64
   --bg: #FFF9F0;
   --surface: #FFFFFF;
   --ink: #222222;
-  --muted: #7A736A;
+  --muted: #797269;
   --accent: #FF4FA3;
   --accent-2: #00B3FF;
   --font-display: Baloo 2, Fredoka, Arial Rounded MT Bold, sans-serif;

@@ -1,9 +1,13 @@
 import type { StyleMeta } from "../../../lib/styles";
+import { readableTextColor } from "../../../lib/preview-theme";
 import { Frame, Meta } from "../frame";
 
 export function DuotonePreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
   const p = meta.preview;
   const s = large ? 1.6 : 1;
+  // Never hardcode white here: the preview theme can flip this style to a light
+  // canvas, where a white headline and white waveform bars disappear.
+  const onAccent = readableTextColor(p.accent);
 
   return (
     <Frame meta={meta} large={large}>
@@ -77,7 +81,7 @@ export function DuotonePreview({ meta, large }: { meta: StyleMeta; large?: boole
                 fontSize: 22 * s,
                 fontWeight: 900,
                 lineHeight: 1.0,
-                color: "#FFFFFF",
+                color: p.ink,
                 letterSpacing: "-0.03em",
                 textTransform: "uppercase",
                 marginTop: 2 * s,
@@ -97,7 +101,7 @@ export function DuotonePreview({ meta, large }: { meta: StyleMeta; large?: boole
               height: 48 * s,
               borderRadius: "50%",
               background: p.accent,
-              color: "#FFFFFF",
+              color: onAccent,
               fontSize: 16 * s,
               boxShadow: `0 0 24px ${p.accent}88`,
             }}
@@ -113,7 +117,7 @@ export function DuotonePreview({ meta, large }: { meta: StyleMeta; large?: boole
             height: 24 * s,
             gap: 3 * s,
             padding: `${4 * s}px 0`,
-            borderTop: "1px solid rgba(255, 255, 255, 0.15)",
+            borderTop: `1px solid ${p.ink}22`,
           }}
         >
           {[20, 45, 80, 60, 30, 90, 100, 75, 50, 85, 40, 70, 95, 60, 35, 75, 90, 50, 30, 65].map((h, i) => (
@@ -122,7 +126,7 @@ export function DuotonePreview({ meta, large }: { meta: StyleMeta; large?: boole
               style={{
                 flex: 1,
                 height: `${h}%`,
-                background: i % 2 === 0 ? p.accent : "#FFFFFF",
+                background: i % 2 === 0 ? p.accent : p.ink,
                 borderRadius: 1,
                 opacity: 0.9,
               }}

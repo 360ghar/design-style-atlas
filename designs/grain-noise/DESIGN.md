@@ -75,9 +75,9 @@ Analog depth: 0 1px 0 rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.45) + grain over
 
 ## 9. Buttons
 
-Clean pills/bars with filmic hover (grain intensifies + lift). Lime accent for conversion.
+Clean pills/bars with filmic hover (grain intensifies + lift). Lime accent `#E8FF47` for conversion with Background `#131311` labels and focus rings (16.7:1) — Ink `#EDEAE2` is 1.1:1 on lime.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 150–250ms, standard 400–600ms grain-drift loops. Easings: c
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 

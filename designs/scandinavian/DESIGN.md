@@ -9,7 +9,7 @@ preview:
   bg: "#F9F7F3"
   surface: "#FFFFFF"
   ink: "#2E2C29"
-  muted: "#7A756D"
+  muted: "#76716A"
   accent: "#A35E33"
   accent2: "#577866"
   display: "Inter, Avenir, Nunito Sans, sans-serif"
@@ -45,7 +45,7 @@ Scandi design pairs minimalism with warmth: pale oak tones, clay and sage accent
 | Background | `#F9F7F3` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#2E2C29` | Headlines, body text |
-| Muted | `#7A756D` | Captions, meta, secondary text |
+| Muted | `#76716A` | Captions, meta, secondary text |
 | Accent | `#A35E33` | Primary actions, highlights |
 | Accent 2 | `#577866` | Secondary moments, gradients, glows |
 
@@ -77,7 +77,7 @@ Soft and warm: 0 8px 30px rgba(46,44,41,0.08). Diffuse like daylight, never hard
 
 Pill or 12px-radius buttons in warm clay or deep forest; white 15px labels. Hover lifts 2px with softened shadow. Large touch targets (44px minimum).
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 150–250ms, standard 200–300ms gentle fades. Easings: soft e
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: micro 150–250ms, standard 200–300ms gentle fades. Easings: soft e
   --bg: #F9F7F3;
   --surface: #FFFFFF;
   --ink: #2E2C29;
-  --muted: #7A756D;
+  --muted: #76716A;
   --accent: #A35E33;
   --accent-2: #577866;
   --font-display: Inter, Avenir, Nunito Sans, sans-serif;

@@ -9,9 +9,9 @@ preview:
   bg: "#F5F1E8"
   surface: "#FFFFFF"
   ink: "#2B2B2B"
-  muted: "#7A766E"
+  muted: "#716E66"
   accent: "#C5401A"
-  accent2: "#2E86AB"
+  accent2: "#287696"
   display: "Futura, Century Gothic, sans-serif"
   body: "Helvetica Neue, Inter, sans-serif"
 ---
@@ -45,9 +45,9 @@ A 1958 Herman Miller showroom: teak and mustard, starburst clocks (CSS!), tapere
 | Background | `#F5F1E8` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#2B2B2B` | Headlines, body text |
-| Muted | `#7A766E` | Captions, meta, secondary text |
+| Muted | `#716E66` | Captions, meta, secondary text |
 | Accent | `#C5401A` | Primary actions, highlights |
-| Accent 2 | `#2E86AB` | Secondary moments, gradients, glows |
+| Accent 2 | `#287696` | Secondary moments, gradients, glows |
 
 Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs. Supporting tint: mustard `#D9A441` for starburst/badge bars only (as in preview), never body text.
 
@@ -77,7 +77,7 @@ Boomerang curves and tapered forms; 8–16px friendly panels
 
 Tapered buttons: rust/teal fills, cream labels, 10px radius. Hover warms + lifts.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 150–250ms, standard 350–550ms starburst pops. Easings: cris
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,9 +142,9 @@ Durations: micro 150–250ms, standard 350–550ms starburst pops. Easings: cris
   --bg: #F5F1E8;
   --surface: #FFFFFF;
   --ink: #2B2B2B;
-  --muted: #7A766E;
+  --muted: #716E66;
   --accent: #C5401A;
-  --accent-2: #2E86AB;
+  --accent-2: #287696;
   --font-display: Futura, Century Gothic, sans-serif;
   --font-body: Helvetica Neue, Inter, sans-serif;
 }

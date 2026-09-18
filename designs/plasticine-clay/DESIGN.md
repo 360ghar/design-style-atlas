@@ -9,7 +9,7 @@ preview:
   bg: "#F3EFE6"
   surface: "#FFFFFF"
   ink: "#2D2B28"
-  muted: "#7A756D"
+  muted: "#706C64"
   accent: "#FF5E3A"
   accent2: "#38B6FF"
   display: "Fredoka, Nunito, -apple-system, sans-serif"
@@ -45,7 +45,7 @@ Plasticine Clay channels the tactile handmade charm of Aardman claymation and ph
 | Background | `#F3EFE6` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, containers |
 | Ink | `#2D2B28` | Headlines, primary text |
-| Muted | `#7A756D` | Secondary copy, metadata, borders |
+| Muted | `#706C64` | Secondary copy, metadata, borders |
 | Accent | `#FF5E3A` | Primary action, key highlights |
 | Accent 2 | `#38B6FF` | Secondary moments, glows, tags |
 
@@ -105,7 +105,7 @@ Squishy clay physics: springy overshoot on hover (scale 1.05); tactile squash-an
 
 - Hover: predictable state changes honoring the design's physical metaphor.
 - Active / Pressed: tactile feedback (recoil or depression).
-- Focus: clear visible focus ring with 2px offset, using Ink when accent is under 3:1 on the adjacent ground.
+- Focus: clear visible focus ring with 2px offset, using a ring that clears 3:1 on the adjacent ground — Ink when it clears, otherwise Background.
 - Loading: skeletons or spinners matching the style's texture.
 
 ## 17. Responsive behavior
@@ -138,7 +138,7 @@ Squishy clay physics: springy overshoot on hover (scale 1.05); tactile squash-an
   --bg: #F3EFE6;
   --surface: #FFFFFF;
   --ink: #2D2B28;
-  --muted: #7A756D;
+  --muted: #706C64;
   --accent: #FF5E3A;
   --accent-2: #38B6FF;
   --font-display: Fredoka, Nunito, -apple-system, sans-serif;

@@ -1,7 +1,21 @@
 import { readdirSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import matter from "gray-matter";
+
+// Resolved at call time: the root `npm run build:api` wrapper runs this file
+// without installing the frontend workspace, and a bare static import dies with
+// ERR_MODULE_NOT_FOUND before any work happens. Fail with the actual fix instead.
+let matter;
+try {
+  ({ default: matter } = await import("gray-matter"));
+} catch {
+  console.error(
+    "[build-api] missing frontend dependencies (gray-matter).\n" +
+      "  cd frontend && npm install   # then re-run\n" +
+      "  (or run `npm run build:api` from inside frontend/ once deps are installed)"
+  );
+  process.exit(1);
+}
 
 const here = dirname(fileURLToPath(import.meta.url));
 const frontendDir = join(here, "..");

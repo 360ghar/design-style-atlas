@@ -429,7 +429,9 @@ function lengthTokens(decl) {
 }
 
 function checkRadius(contract) {
-  const { max, pill } = contract.radius ?? {};
+  const { min, max, pill } = contract.radius ?? {};
+  const floor = min !== undefined && min > 0 ? min : null;
+  const range = `${floor !== null ? `≥ ${floor}px, ` : ""}≤ ${max}px${pill ? " (999px pill allowed)" : ""}`;
   return (source) => {
     const violations = [];
     for (const d of declarations(source, ["border-radius", "borderRadius"])) {
@@ -440,8 +442,19 @@ function checkRadius(contract) {
           violations.push({
             line: lineOf(source, d.index),
             found: `border-radius: ${d.value}`,
-            expected: `≤ ${max}px${pill ? " (999px pill allowed)" : ""}`,
+            expected: range,
             hint: `Soften to the style's radius range or use a pill (${pill ?? "none"}).`,
+          });
+          break;
+        }
+        // The floor is part of the contract too: a sharp 0px corner reads as a
+        // different style entirely, so `border-radius: 0` cannot pass a rounded one.
+        if (floor !== null && px < floor) {
+          violations.push({
+            line: lineOf(source, d.index),
+            found: `border-radius: ${d.value}`,
+            expected: range,
+            hint: `Round to at least ${floor}px${pill ? `, or use a pill (${pill}px)` : ""}.`,
           });
           break;
         }
@@ -455,8 +468,15 @@ function checkRadius(contract) {
         violations.push({
           line: lineOf(source, index),
           found: token,
-          expected: `≤ ${max}px${pill ? " (999px pill allowed)" : ""}`,
+          expected: range,
           hint: `Swap to a smaller radius utility (e.g. rounded-md) or arbitrary rounded-[${max}px].`,
+        });
+      } else if (floor !== null && px < floor) {
+        violations.push({
+          line: lineOf(source, index),
+          found: token,
+          expected: range,
+          hint: `Swap to a larger radius utility (e.g. rounded-[${floor}px]) or a pill.`,
         });
       }
     }
@@ -504,25 +524,38 @@ function checkBorderWidth(contract) {
   const [min] = contract.border?.width ?? [];
   return (source) => {
     const violations = [];
-    const patterns = [
-      // Allow a leading quote so CSS-in-JS `border: "1px solid #222"` is seen.
-      /(?:^|[\s;{(])border\s*:\s*["'`]?([+-]?\d*\.?\d+(?:px|rem|em))\b/gi,
-      /(?:^|[\s;{(])border-(?:width|top|right|bottom|left)\s*:\s*["'`]?([+-]?\d*\.?\d+(?:px|rem|em)?)\b/gi,
-      /(?:^|[\s{(])border(?:Top|Right|Bottom|Left)?Width\s*:\s*["'`]?([+-]?\d*\.?\d+(?:px|rem|em)?)/g,
-    ];
-    for (const re of patterns) {
-      let m;
-      while ((m = re.exec(source))) {
-        const px = toPx(m[1]);
-        if (px === null || px === 0 || px >= min) continue;
-        violations.push({
-          line: lineOf(source, m.index),
-          found: m[0].trim(),
-          expected: `≥ ${min}px borders`,
-          hint: "Thicken borders to the style's range — hairlines are off-style.",
-        });
-      }
+    const report = (index, found) =>
+      violations.push({
+        line: lineOf(source, index),
+        found,
+        expected: `≥ ${min}px borders`,
+        hint: "Thicken borders to the style's range — hairlines are off-style.",
+      });
+
+    // Shorthand: the width is the first length, e.g. `border: "1px solid #222"`.
+    // The optional quote keeps CSS-in-JS visible.
+    const shorthand = /(?:^|[\s;{(])border\s*:\s*["'`]?([+-]?\d*\.?\d+(?:px|rem|em))\b/gi;
+    let m;
+    while ((m = shorthand.exec(source))) {
+      const px = toPx(m[1]);
+      if (px === null || px === 0 || px >= min) continue;
+      report(m.index, m[0].trim());
     }
+
+    // Width declarations come in kebab-case (`border-top-width`), camelCase
+    // (`borderTopWidth`) and side shorthands (`border-left`), and a single value
+    // can carry up to four side widths — `border-width: 2px 1px` hides a 1px
+    // side behind a passing first token, so every length in the value is checked.
+    const widthDecl =
+      /(?:^|[\s;{(])(?:border-(?:(?:top|right|bottom|left)-)?width|border-(?:top|right|bottom|left)|border(?:Top|Right|Bottom|Left)?Width|border(?:Top|Right|Bottom|Left))\s*:\s*["'`]?([^;"'`}\n]+)/g;
+    while ((m = widthDecl.exec(source))) {
+      const tooThin = m[1]
+        .split(/\s+/)
+        .map((t) => toPx(t))
+        .some((px) => px !== null && px !== 0 && px < min);
+      if (tooThin) report(m.index, m[0].trim());
+    }
+
     if (min !== undefined) {
       for (const { token, index } of tailwindTokens(source)) {
         const px = borderWidthTokenToPx(baseToken(token));

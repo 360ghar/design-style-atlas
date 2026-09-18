@@ -9,7 +9,7 @@ preview:
   bg: "#F7F4EE"
   surface: "#FFFDF8"
   ink: "#2B2B28"
-  muted: "#78746B"
+  muted: "#736F67"
   accent: "#9C2B2E"
   accent2: "#4A5D4E"
   display: "Hiragino Mincho ProN, Yu Mincho, Georgia, serif"
@@ -45,7 +45,7 @@ Inspired by ma — the pregnant emptiness between things — and wabi-sabi imper
 | Background | `#F7F4EE` | Page ground |
 | Surface | `#FFFDF8` | Cards, panels, wells |
 | Ink | `#2B2B28` | Headlines, body text |
-| Muted | `#78746B` | Large meta / decorative only — body text stays Ink |
+| Muted | `#736F67` | Large meta / decorative only — body text stays Ink |
 | Accent | `#9C2B2E` | Primary actions, highlights |
 | Accent 2 | `#4A5D4E` | Secondary moments, gradients, glows |
 
@@ -77,7 +77,7 @@ A single whisper: 0 1px 3px rgba(43,43,40,0.05). Ink-inspired, never lifted
 
 Quiet rectangles with 1px warm-gray borders and dark text; primary fills deep ink (#2B2B28). Hover deepens color slowly (300ms). Wide letter-spacing on labels.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 200–300ms, standard 400–600ms slow fades with long stillnes
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: micro 200–300ms, standard 400–600ms slow fades with long stillnes
   --bg: #F7F4EE;
   --surface: #FFFDF8;
   --ink: #2B2B28;
-  --muted: #78746B;
+  --muted: #736F67;
   --accent: #9C2B2E;
   --accent-2: #4A5D4E;
   --font-display: Hiragino Mincho ProN, Yu Mincho, Georgia, serif;

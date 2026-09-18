@@ -9,7 +9,7 @@ preview:
   bg: "#D8D5CC"
   surface: "#E4E1D8"
   ink: "#2B2B2B"
-  muted: "#66625A"
+  muted: "#605C55"
   accent: "#C81E1E"
   accent2: "#0F4C81"
   display: "Arial, Helvetica, sans-serif"
@@ -45,7 +45,7 @@ Backrooms-adjacent: empty offices, pools at night, playgrounds fogged, low-fi ov
 | Background | `#D8D5CC` | Page ground |
 | Surface | `#E4E1D8` | Cards, panels, wells |
 | Ink | `#2B2B2B` | Headlines, body text |
-| Muted | `#66625A` | Captions, meta, secondary text |
+| Muted | `#605C55` | Captions, meta, secondary text |
 | Accent | `#C81E1E` | Primary actions, highlights |
 | Accent 2 | `#0F4C81` | Secondary moments, gradients, glows |
 
@@ -77,7 +77,7 @@ Fluorescent flat: even shadowless light + vignette unease on imagery
 
 Institutional plates: beige fills, black labels, exit-red for the one true CTA.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 200–400ms fluorescent hum flickers, standard 600ms. Easings: 
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: micro 200–400ms fluorescent hum flickers, standard 600ms. Easings: 
   --bg: #D8D5CC;
   --surface: #E4E1D8;
   --ink: #2B2B2B;
-  --muted: #66625A;
+  --muted: #605C55;
   --accent: #C81E1E;
   --accent-2: #0F4C81;
   --font-display: Arial, Helvetica, sans-serif;

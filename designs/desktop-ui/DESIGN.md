@@ -9,7 +9,7 @@ preview:
   bg: "#0A8F8F"
   surface: "#C0C0C0"
   ink: "#111111"
-  muted: "#1F2E2E"
+  muted: "#111919"
   accent: "#000080"
   accent2: "#1084D0"
   display: "Tahoma, Verdana, sans-serif"
@@ -45,7 +45,7 @@ A beloved 1998 desktop, lovingly functional: teal wallpaper, bordered windows wi
 | Background | `#0A8F8F` | Page ground |
 | Surface | `#C0C0C0` | Cards, panels, wells |
 | Ink | `#111111` | Headlines, body text |
-| Muted | `#1F2E2E` | Captions, meta, secondary text |
+| Muted | `#111919` | Captions, meta, secondary text |
 | Accent | `#000080` | Primary actions, highlights |
 | Accent 2 | `#1084D0` | Title-bar gradient end-stop, secondary highlights |
 
@@ -77,7 +77,7 @@ OS shadows: 5px 5px 0 rgba(0,0,0,0.3) under windows (4–6px range); bevel highl
 
 Raised outset buttons; bold-outlined default; disabled = gray etched text. Press insets with 100ms clunk.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: instant–150ms window snaps. Easings: none or linear; springs and fl
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -121,7 +121,7 @@ Durations: instant–150ms window snaps. Easings: none or linear; springs and fl
 
 ## 18. Accessibility
 
-- Contrast: body text 4.5:1 minimum, large display 3:1 minimum, with each pairing verified against the ground it actually sits on. Ink `#111111` passes on both Background (4.8:1) and Surface (10.4:1). Muted `#1F2E2E` is for captions and meta on Surface only (7.8:1) — never body text on the teal ground (3.6:1).
+- Contrast: body text 4.5:1 minimum, large display 3:1 minimum, with each pairing verified against the ground it actually sits on. Ink `#111111` passes on both Background (4.8:1) and Surface (10.4:1). Muted `#111919` is for captions and meta on Surface only (7.8:1) — never body text on the teal ground (3.6:1).
 - Focus: always visible, never removed; skip-link to main content.
 - Motion: honor `prefers-reduced-motion` — replace loops, parallax, and scrubs with static final states plus manual steppers.
 - Touch: 44px targets, 8px gaps between adjacent targets.
@@ -142,7 +142,7 @@ Durations: instant–150ms window snaps. Easings: none or linear; springs and fl
   --bg: #0A8F8F;
   --surface: #C0C0C0;
   --ink: #111111;
-  --muted: #1F2E2E;
+  --muted: #111919;
   --accent: #000080;
   --accent-2: #1084D0;
   --font-display: Tahoma, Verdana, sans-serif;

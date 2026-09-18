@@ -9,7 +9,7 @@ preview:
   bg: "#EDE6D8"
   surface: "#F7F2E7"
   ink: "#2B2620"
-  muted: "#726C61"
+  muted: "#6C675C"
   accent: "#0F4C81"
   accent2: "#C81E1E"
   display: "Cormorant Garamond, Georgia, serif"
@@ -45,7 +45,7 @@ Dalí's waiting room: melting clocks optional (one, earned), floating staircases
 | Background | `#EDE6D8` | Page ground |
 | Surface | `#F7F2E7` | Cards, panels, wells |
 | Ink | `#2B2620` | Headlines, body text |
-| Muted | `#726C61` | Captions, meta, secondary text |
+| Muted | `#6C675C` | Captions, meta, secondary text |
 | Accent | `#0F4C81` | Primary actions, highlights |
 | Accent 2 | `#C81E1E` | Secondary moments, gradients, glows |
 
@@ -77,7 +77,7 @@ Oval cameos 50% elliptical, arch portals 999px top / 16px bottom, cloud blobs 32
 
 Portal buttons: oval/arch outlines, serif labels; hover levitates. Few and ceremonial.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 200–300ms, standard 500–900ms slow levitation loops. Easing
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: micro 200–300ms, standard 500–900ms slow levitation loops. Easing
   --bg: #EDE6D8;
   --surface: #F7F2E7;
   --ink: #2B2620;
-  --muted: #726C61;
+  --muted: #6C675C;
   --accent: #0F4C81;
   --accent-2: #C81E1E;
   --font-display: Cormorant Garamond, Georgia, serif;

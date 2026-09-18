@@ -9,7 +9,7 @@ preview:
   bg: "#F0303A"
   surface: "#FFFFFF"
   ink: "#111111"
-  muted: "#241F1C"
+  muted: "#181412"
   accent: "#111111"
   accent2: "#FFD802"
   display: "Anton, Archivo Black, Impact, sans-serif"
@@ -45,11 +45,11 @@ Every page a one-sheet: a single enormous message, flat spot colors, and a stric
 | Background | `#F0303A` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#111111` | Headlines, body text |
-| Muted | `#241F1C` | Captions, meta, secondary text |
+| Muted | `#181412` | Captions, meta, secondary text |
 | Accent | `#111111` | Primary actions, highlights |
 | Accent 2 | `#FFD802` | Secondary moments, price bursts, starburst badges |
 
-Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs. Muted `#241F1C` is for text on Surface (16.3:1); on the red ground use white or Ink `#111111` (4.7:1 against the ground).
+Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs. Muted `#181412` is for text on Surface (16.3:1); on the red ground use Ink `#111111` only (4.7:1) — white is 4.1:1 and fails.
 
 ## 4. Spacing
 
@@ -77,7 +77,7 @@ Print-flat; hard offsets only on pasted sticker elements
 
 Ticket-block buttons: ink bars with condensed caps; hover floods accent. Big, full-width on mobile.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 150–250ms, standard 350–550ms print-slam reveals. Easings: 
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: micro 150–250ms, standard 350–550ms print-slam reveals. Easings: 
   --bg: #F0303A;
   --surface: #FFFFFF;
   --ink: #111111;
-  --muted: #241F1C;
+  --muted: #181412;
   --accent: #111111;
   --accent-2: #FFD802;
   --font-display: Anton, Archivo Black, Impact, sans-serif;

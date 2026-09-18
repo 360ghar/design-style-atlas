@@ -102,7 +102,31 @@ if (quoted) {
   check("quoted CSS-in-JS total violations = 3", quoted.summary?.count === 3, `got ${quoted.summary?.count}`);
 }
 
-// 7. An unreadable directory must not be reported as a clean audit. Built in a
+// 7. Contract floors: a declared radius minimum and multi-value/side border
+//    widths must be enforced, not just the maxima and the first token.
+const floorDir = join(here, "fixtures", "radius-floor");
+const floorContract = join(floorDir, "contract.json");
+const floorJson = run([floorDir, "--contract", floorContract, "--format", "json"]);
+let floor = null;
+try {
+  floor = JSON.parse(floorJson.out);
+} catch {
+  check("radius-floor valid JSON output", false, floorJson.out.slice(0, 300));
+}
+if (floor) {
+  const byFloor = {};
+  for (const v of floor.violations) byFloor[v.check] = (byFloor[v.check] ?? 0) + 1;
+  const found = floor.violations.map((v) => String(v.found));
+  check("radius floor flags border-radius: 0", byFloor.radius === 2 && found.includes("border-radius: 0"), JSON.stringify(byFloor));
+  check("radius floor flags rounded-none", found.includes("rounded-none"), JSON.stringify(found));
+  check("border-width flags kebab-case border-top-width", found.includes("border-top-width: 1px"), JSON.stringify(found));
+  check("border-width flags every value in a multi-value shorthand", found.includes("border-width: 2px 1px"), JSON.stringify(found));
+  check("border-width flags border-left-width", found.includes("border-left-width: 1px"), JSON.stringify(found));
+  check("compliant radius and widths are not flagged", !found.some((f) => f.includes("12px") || f.includes("2px 2px") || f.includes("border-2")), JSON.stringify(found));
+  check("radius-floor total violations = 5", floor.summary?.count === 5, `got ${floor.summary?.count}`);
+}
+
+// 8. An unreadable directory must not be reported as a clean audit. Built in a
 //    temp dir because git does not preserve directory modes.
 const lockedDir = mkdtempSync(join(tmpdir(), "dsa-locked-"));
 writeFileSync(join(lockedDir, "DESIGN.lock"), '{ "style": "neo-brutalism", "version": "1.0.0" }\n');

@@ -2,6 +2,7 @@ import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
+import { checkDesigns } from "./check-contrast.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..", "..", "designs");
@@ -91,6 +92,20 @@ for (const slug of slugs) {
   if (data.preview?.muted && data.preview?.bg) {
     const r = contrast(data.preview.muted, data.preview.bg);
     if (r < 3.0) warnings.push(`${slug}: muted/bg contrast ${r.toFixed(2)}:1 < 3:1`);
+  }
+}
+
+// ---------- contrast gate ----------
+// The warning above only covered ink/bg and muted/bg. Every spec also claims
+// "verified against both Background and Surface" and assigns accent fills text,
+// so those pairings are enforced as failures (see scripts/check-contrast.mjs).
+{
+  const gate = checkDesigns(root);
+  for (const { slug, problems } of gate.failures) {
+    for (const problem of problems) {
+      console.error(`${slug}: ${problem}`);
+      failures++;
+    }
   }
 }
 

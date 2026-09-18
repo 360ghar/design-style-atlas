@@ -9,7 +9,7 @@ preview:
   bg: "#FFE8F0"
   surface: "#FFF5F8"
   ink: "#4A3F55"
-  muted: "#776B86"
+  muted: "#726781"
   accent: "#FF6B9D"
   accent2: "#7C5CFF"
   display: "Nunito, Quicksand, Baloo 2, sans-serif"
@@ -45,7 +45,7 @@ Fresh modeling clay: inflated pastel blobs, chunky inner highlights, soft spring
 | Background | `#FFE8F0` | Page ground |
 | Surface | `#FFF5F8` | Cards, panels, wells |
 | Ink | `#4A3F55` | Headlines, body text |
-| Muted | `#776B86` | Captions, meta, secondary text |
+| Muted | `#726781` | Captions, meta, secondary text |
 | Accent | `#FF6B9D` | Primary actions, highlights |
 | Accent 2 | `#7C5CFF` | Secondary moments, gradients, glows |
 
@@ -75,9 +75,9 @@ Clay stack: inset 2px 2px 4px white/80 + inset -2px -2px 6px color/20 + 8px 8px 
 
 ## 9. Buttons
 
-Puffy pills with clay shadow stack; hover inflates (scale 1.03); press deflates to inset. Bold rounded labels.
+Puffy pills with clay shadow stack; hover inflates (scale 1.03); press deflates to inset. Accent `#FF6B9D` fills take dark `#3A3242` labels (4.6:1) — white is 2.7:1 and never ships.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Easings: soft spring cubic-bezier(0.34,1.56,0.64,1) for clay wobble; harsh linea
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Easings: soft spring cubic-bezier(0.34,1.56,0.64,1) for clay wobble; harsh linea
   --bg: #FFE8F0;
   --surface: #FFF5F8;
   --ink: #4A3F55;
-  --muted: #776B86;
+  --muted: #726781;
   --accent: #FF6B9D;
   --accent-2: #7C5CFF;
   --font-display: Nunito, Quicksand, Baloo 2, sans-serif;
@@ -151,7 +151,7 @@ Easings: soft spring cubic-bezier(0.34,1.56,0.64,1) for clay wobble; harsh linea
 .ds-btn {
   display: inline-block;
   background: var(--accent);
-  color: #fff;
+  color: #3A3242;
   font: 700 15px var(--font-display);
   padding: 14px 28px;
   border: none;

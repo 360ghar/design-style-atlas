@@ -75,9 +75,9 @@ Tonal elevation: level-1 0 1px 3px rgba(0,0,0,0.12); FAB level-3 with colored ti
 
 ## 9. Buttons
 
-Pill buttons, 40–56px tall; filled tonal primary; hover adds 8% overlay + emphasis scale 1.02; ripple on press.
+Pill buttons, 44–56px tall; filled tonal primary; hover adds 8% overlay + emphasis scale 1.02; ripple on press.
 
-All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: 200–500ms expressive springs; exiting 150ms. Easings: ease-out for 
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 

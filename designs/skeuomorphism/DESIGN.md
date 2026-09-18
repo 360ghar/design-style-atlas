@@ -9,7 +9,7 @@ preview:
   bg: "#E8E4DC"
   surface: "#F5F1E8"
   ink: "#2B2B2B"
-  muted: "#6F6C64"
+  muted: "#68665E"
   accent: "#0B5FFF"
   accent2: "#C8A951"
   display: "Helvetica Neue, Georgia, serif"
@@ -45,7 +45,7 @@ The 2012 camera roll come back as craft: brushed aluminum, stitched leather, gre
 | Background | `#E8E4DC` | Page ground |
 | Surface | `#F5F1E8` | Cards, panels, wells |
 | Ink | `#2B2B2B` | Headlines, body text |
-| Muted | `#6F6C64` | Captions, meta, secondary text |
+| Muted | `#68665E` | Captions, meta, secondary text |
 | Accent | `#0B5FFF` | Primary actions, highlights |
 | Accent 2 | `#C8A951` | Secondary moments, gradients, glows |
 
@@ -77,7 +77,7 @@ Real-world: stitched 8px leather panels, round metal dials, glossy buttons
 
 Machined metal or glossy candy buttons with travel (press sinks 2px + shadow collapses); toggle switches with physics.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 150–250ms switch flicks, standard 350ms dial turns. Easings: 
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: micro 150–250ms switch flicks, standard 350ms dial turns. Easings: 
   --bg: #E8E4DC;
   --surface: #F5F1E8;
   --ink: #2B2B2B;
-  --muted: #6F6C64;
+  --muted: #68665E;
   --accent: #0B5FFF;
   --accent-2: #C8A951;
   --font-display: Helvetica Neue, Georgia, serif;

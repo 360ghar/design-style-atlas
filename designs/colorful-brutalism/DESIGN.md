@@ -9,7 +9,7 @@ preview:
   bg: "#7C5CFF"
   surface: "#FFFFFF"
   ink: "#000000"
-  muted: "#26232E"
+  muted: "#0C0B0F"
   accent: "#FFD802"
   accent2: "#FF4FA3"
   display: "Archivo Black, Arial Black, sans-serif"
@@ -45,13 +45,13 @@ Every section a different saturated ground — violet, yellow, pink, cyan — st
 | Background | `#7C5CFF` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#000000` | Headlines, body text |
-| Muted | `#26232E` | Captions, meta, secondary text |
+| Muted | `#0C0B0F` | Captions, meta, secondary text |
 | Accent | `#FFD802` | Primary actions, highlights |
 | Accent 2 | `#FF4FA3` | Secondary stickers, badges, alternating chapters |
 
 Extended chapters (use sparingly, flat only): cyan `#00E5FF`, violet `#7C5CFF` (= Background). Never gradient, never glow — flat fills + black structure only.
 
-Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs. Muted `#26232E` is for text on the white Surface (15.4:1); on the saturated ground use Ink `#000000` (4.8:1 against the violet ground).
+Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs. Muted `#0C0B0F` is for text on the white Surface (15.4:1); on the saturated ground use Ink `#000000` (4.8:1 against the violet ground).
 
 ## 4. Spacing
 
@@ -79,7 +79,7 @@ Hard 6px 6px 0 #111111; stacked double shadows (white + black) on heroes
 
 Black- or white-bordered 3px buttons with hard shadows on color grounds; labels always uppercase Ink `#000000` — Ink clears 4.5:1 on yellow `#FFD802` (15.1:1), violet `#7C5CFF` (4.8:1), and pink `#FF4FA3` (6.9:1), while white fails on all three. Hover swaps fill color with a 150ms pop.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -110,7 +110,7 @@ Durations: instant–150ms flat color swaps with shadow pops. Easings: none or s
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -144,7 +144,7 @@ Durations: instant–150ms flat color swaps with shadow pops. Easings: none or s
   --bg: #7C5CFF;
   --surface: #FFFFFF;
   --ink: #000000;
-  --muted: #26232E;
+  --muted: #0C0B0F;
   --accent: #FFD802;
   --accent-2: #FF4FA3;
   --font-display: Archivo Black, Arial Black, sans-serif;

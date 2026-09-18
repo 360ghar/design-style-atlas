@@ -9,7 +9,7 @@ preview:
   bg: "#F1F5F9"
   surface: "#FFFFFF"
   ink: "#0F172A"
-  muted: "#64748B"
+  muted: "#617187"
   accent: "#2563EB"
   accent2: "#7C3AED"
   display: "Inter, system-ui, sans-serif"
@@ -45,7 +45,7 @@ The Pinterest-to-dashboard continuum: self-contained content units with media, t
 | Background | `#F1F5F9` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#0F172A` | Headlines, body text |
-| Muted | `#64748B` | Captions, meta, secondary text |
+| Muted | `#617187` | Captions, meta, secondary text |
 | Accent | `#2563EB` | Primary actions, highlights |
 | Accent 2 | `#7C3AED` | Secondary moments, gradients, glows |
 
@@ -77,7 +77,7 @@ Feed-calm: 0 1px 3px rgba(15,23,42,0.08); hover 0 8px 24px rgba(15,23,42,0.12)
 
 Card actions: save/bookmark icon buttons, primary pills for conversion; hover-reveal secondary row.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 100–200ms card lifts, standard 300ms. Easings: crisp ease-out
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: micro 100–200ms card lifts, standard 300ms. Easings: crisp ease-out
   --bg: #F1F5F9;
   --surface: #FFFFFF;
   --ink: #0F172A;
-  --muted: #64748B;
+  --muted: #617187;
   --accent: #2563EB;
   --accent-2: #7C3AED;
   --font-display: Inter, system-ui, sans-serif;

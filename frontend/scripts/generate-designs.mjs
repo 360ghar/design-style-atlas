@@ -4,7 +4,7 @@ import { stylesC } from "./style-data-3.mjs";
 import { stylesD } from "./style-data-4.mjs";
 import { stylesE } from "./style-data-5.mjs";
 import { stylesF } from "./style-data-6.mjs";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -812,7 +812,7 @@ ${s.radius}
 
 ${s.buttons}
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -843,7 +843,7 @@ ${durationsOverride[s.slug] ?? "Durations: micro 100–200ms, standard 250–350
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -901,12 +901,25 @@ ${durationsOverride[s.slug] ?? "Durations: micro 100–200ms, standard 250–350
 `;
 }
 
+// Specs are hand-curated after generation, so regenerating one silently reverts
+// accessibility fixes (see scripts/check-contrast.mjs). Never clobber an
+// existing DESIGN.md unless --force is passed explicitly.
+const FORCE = process.argv.includes("--force");
 let count = 0;
+let skipped = 0;
 for (const s of all) {
   const dir = join(root, "designs", s.slug);
+  const file = join(dir, "DESIGN.md");
+  if (existsSync(file) && !FORCE) {
+    skipped++;
+    continue;
+  }
   mkdirSync(dir, { recursive: true });
   const rel = relatedFor(s, all);
-  writeFileSync(join(dir, "DESIGN.md"), md(s, rel));
+  writeFileSync(file, md(s, rel));
   count++;
 }
-console.log(`Wrote ${count} DESIGN.md files.`);
+console.log(
+  `Wrote ${count} DESIGN.md files.` +
+    (skipped ? ` Skipped ${skipped} existing spec(s) — pass --force to overwrite.` : "")
+);

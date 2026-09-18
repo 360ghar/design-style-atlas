@@ -9,7 +9,7 @@ preview:
   bg: "#0A8F8F"
   surface: "#C3C7CB"
   ink: "#000000"
-  muted: "#1F2E2E"
+  muted: "#111919"
   accent: "#000080"
   accent2: "#FF0000"
   display: "Pixelated MS Sans Serif, Tahoma, sans-serif"
@@ -45,7 +45,7 @@ Chicago-era pixel truth: #C3C7CB faces, navy title gradients, dotted focus recta
 | Background | `#0A8F8F` | Page ground |
 | Surface | `#C3C7CB` | Cards, panels, wells |
 | Ink | `#000000` | Headlines, body text |
-| Muted | `#1F2E2E` | Captions, meta, secondary text |
+| Muted | `#111919` | Captions, meta, secondary text |
 | Accent | `#000080` | Primary actions, highlights |
 | Accent 2 | `#FF0000` | Close glyphs, errors, destructive confirms only |
 
@@ -108,7 +108,7 @@ Durations: instant–150ms bevel-pressed snaps. Easings: none (steps welcome); s
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: segmented navy block progress bar (like the preview's 42% bar) plus hourglass cursor; no skeleton shimmer, no spinner.
 
@@ -121,7 +121,7 @@ Durations: instant–150ms bevel-pressed snaps. Easings: none (steps welcome); s
 
 ## 18. Accessibility
 
-- Contrast: body text 4.5:1 minimum on Surface `#C3C7CB` (Ink `#000000` passes; Muted `#1F2E2E` is chrome-meta only — use Ink for body/small text). Teal Background `#0A8F8F` is a desktop field, not a text ground: only white bold title/task text with shadow sits on it. Never place Muted/Accent body copy on teal.
+- Contrast: body text 4.5:1 minimum on Surface `#C3C7CB` (Ink `#000000` passes; Muted `#111919` is chrome-meta only — use Ink for body/small text). Teal Background `#0A8F8F` is a desktop field, not a text ground: only white bold title/task text with shadow sits on it. Never place Muted/Accent body copy on teal.
 - Focus: always visible, never removed; skip-link to main content.
 - Motion: honor `prefers-reduced-motion` — replace loops, parallax, and scrubs with static final states plus manual steppers.
 - Touch: period chrome stays 23px+ with 8px gaps; 44px targets apply only under `(pointer: coarse)`.
@@ -142,7 +142,7 @@ Durations: instant–150ms bevel-pressed snaps. Easings: none (steps welcome); s
   --bg: #0A8F8F;
   --surface: #C3C7CB;
   --ink: #000000;
-  --muted: #1F2E2E;
+  --muted: #111919;
   --accent: #000080;
   --accent-2: #FF0000;
   --font-display: Pixelated MS Sans Serif, Tahoma, sans-serif;

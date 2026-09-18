@@ -77,7 +77,7 @@ Subtle product elevation: 0 1px 2px rgba(35,39,47,0.05), popovers 0 8px 24px rgb
 
 36px blue primary (6px radius, 14px medium); ghost and outline secondaries; full keyboard focus rings (2px blue offset). Sizes xs/sm/md for density.
 
-All buttons: 36px visual height on desktop, expanding to 44px minimum touch target on touch via padding; visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 36px visual height on desktop, expanding to 44px minimum touch target on touch via padding; visible focus ring (2px accent offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 100–150ms, standard 150–200ms crisp fades. Easings: ease-ou
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 

@@ -9,7 +9,7 @@ preview:
   bg: "#FFF0F6"
   surface: "#FFFFFF"
   ink: "#57102E"
-  muted: "#A05C7E"
+  muted: "#9D5A7B"
   accent: "#DB006A"
   accent2: "#FFD700"
   display: "Didot, Bodoni MT, Playfair Display, Georgia, serif"
@@ -45,7 +45,7 @@ McBling is Y2K's rich older sister: hot pink velour, rhinestone crusts, gold cha
 | Background | `#FFF0F6` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#57102E` | Headlines, body text |
-| Muted | `#A05C7E` | Captions, meta, secondary text |
+| Muted | `#9D5A7B` | Captions, meta, secondary text |
 | Accent | `#DB006A` | Primary actions, highlights |
 | Accent 2 | `#FFD700` | Secondary emphasis, badges, special states |
 
@@ -77,7 +77,7 @@ Pink glows 0 0 24px rgba(255,46,147,0.35); soft 0 12px 32px rgba(87,16,46,0.18);
 
 Hot-pink pills with white bold text + gold 2px ring; hover glow intensifies; 48–56px tall.
 
-All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or a ring that clears 3:1 on the button ground — Ink when it clears, otherwise Background), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: 200–400ms pops; 1–3s sparkle loops. Easings: ease-out for UI, spr
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use a ring that clears 3:1 against that ground — Ink when it clears, otherwise Background — so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -142,7 +142,7 @@ Durations: 200–400ms pops; 1–3s sparkle loops. Easings: ease-out for UI, spr
   --bg: #FFF0F6;
   --surface: #FFFFFF;
   --ink: #57102E;
-  --muted: #A05C7E;
+  --muted: #9D5A7B;
   --accent: #DB006A;
   --accent-2: #FFD700;
   --font-display: Didot, Bodoni MT, Playfair Display, Georgia, serif;
