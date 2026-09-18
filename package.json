@@ -1,0 +1,16 @@
+{
+  "name": "design-style-atlas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Copy-paste visual directions for AI coding agents, plus an audit CLI that enforces them.",
+  "type": "module",
+  "scripts": {
+    "audit": "node cli/audit.mjs",
+    "test:cli": "node cli/test/run.mjs",
+    "mcp": "node mcp/server.mjs",
+    "build:api": "cd frontend && node scripts/build-api.mjs"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

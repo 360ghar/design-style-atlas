@@ -1,0 +1,21 @@
+// batch8-new-styles — re-export shim. Source lives in ./styles/<slug>.tsx (one file per style).
+export { AfrofuturismPreview } from "./styles/afrofuturism";
+export { ConversationalAIPreview } from "./styles/ai-conversational";
+export { AppleLiquidGlassPreview } from "./styles/apple-liquid-glass";
+export { CarbonEnterprisePreview } from "./styles/carbon-enterprise";
+export { CottagecorePreview } from "./styles/cottagecore";
+export { DarkAcademiaPreview } from "./styles/dark-academia";
+export { DatavizTerminalPreview } from "./styles/dataviz-terminal";
+export { EInkPaperPreview } from "./styles/e-ink-paper";
+export { FintechNeobankPreview } from "./styles/fintech-neobank";
+export { FlatDesignPreview } from "./styles/flat-design";
+export { FluentDesignPreview } from "./styles/fluent-design";
+export { FrutigerAeroPreview } from "./styles/frutiger-aero";
+export { GeistMinimalPreview } from "./styles/geist-minimal";
+export { GothicVictorianPreview } from "./styles/gothic-victorian";
+export { KawaiiPopPreview } from "./styles/kawaii-pop";
+export { MaterialExpressivePreview } from "./styles/material-expressive";
+export { McBlingPreview } from "./styles/mcbling";
+export { PolarisCommercePreview } from "./styles/polaris-commerce";
+export { SolarpunkPreview } from "./styles/solarpunk";
+export { Web3CryptoPreview } from "./styles/web3-crypto";

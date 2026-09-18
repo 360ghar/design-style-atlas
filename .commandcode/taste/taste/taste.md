@@ -1,0 +1,7 @@
+# Taste
+- Prefers restrained Swiss Editorial / Design Archive aesthetic for content sites: white/off-white ground, black typography, strong grid, thin borders, minimal rounding, editorial type + monospace metadata, very little decoration, fast interactions. Avoids generic SaaS gradients, excessive glass cards, huge rounded containers, and unnecessary animations. Confidence: 0.9
+- Prefers markdown files as canonical source of truth with frontend auto-reading/indexing rather than duplicating content manually. Confidence: 0.85
+- Prefers AI-agent handoff via complete, concrete copy/downloadable spec files covering typography, colors, spacing, layout/grid, components, effects, motion, principles, and what to avoid, usable with Codex, Claude Code, Cursor, and Windsurf. Confidence: 0.85
+- Prefers HTML/CSS-generated visual specimens over static images for previews, while keeping parent site chrome neutral so previews provide the visual variety. Confidence: 0.8
+- Prefers Next.js + TypeScript + Tailwind CSS with static generation, instant client-side search, responsive grid, SEO metadata, and polished README with usage snippet for open-source catalog sites. Confidence: 0.75
+- Prefers orchestrated review/QA workflow with parallel subagents: detailed per-agent tasks, forced iteration until done, in-depth reports with evidence, plus active analysis, feedback, and continuous follow-up tasks. Confidence: 0.8

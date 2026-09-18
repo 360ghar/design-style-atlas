@@ -1,0 +1,7 @@
+{
+  "slug": "neo-brutalism",
+  "version": "1.0.0",
+  "checks": ["radius", "border-width"],
+  "radius": { "min": 8, "max": 24, "pill": 999 },
+  "border": { "style": "solid", "width": [2, 3], "color": "#111111" }
+}

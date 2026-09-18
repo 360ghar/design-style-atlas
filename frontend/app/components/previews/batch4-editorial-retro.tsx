@@ -1,0 +1,19 @@
+// batch4-editorial-retro — re-export shim. Source lives in ./styles/<slug>.tsx (one file per style).
+export { EditorialMagazinePreview } from "./styles/editorial-magazine";
+export { NewspaperPreview } from "./styles/newspaper";
+export { FashionEditorialPreview } from "./styles/fashion-editorial";
+export { PosterInspiredPreview } from "./styles/poster-inspired";
+export { SwissPosterPreview } from "./styles/swiss-poster";
+export { BauhausPreview } from "./styles/bauhaus";
+export { MemphisPreview } from "./styles/memphis";
+export { Y2KPreview } from "./styles/y2k";
+export { RetroInternetPreview } from "./styles/retro-internet";
+export { WebcorePreview } from "./styles/webcore";
+export { DesktopUIPreview } from "./styles/desktop-ui";
+export { Windows95Preview } from "./styles/windows-95";
+export { MacOSPreview } from "./styles/mac-os";
+export { TerminalPreview } from "./styles/terminal";
+export { HackerAestheticPreview } from "./styles/hacker-aesthetic";
+export { CyberpunkPreview } from "./styles/cyberpunk";
+export { FuturismPreview } from "./styles/futurism";
+export { SciFiUIPreview } from "./styles/sci-fi-ui";

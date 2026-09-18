@@ -1,0 +1,204 @@
+import type { StyleMeta } from "../../../lib/styles";
+import { Frame, Meta } from "../frame";
+
+export function AuroraGlowPreview({ meta, large }: { meta: StyleMeta; large?: boolean }) {
+  const p = meta.preview;
+  const pad = large ? 14 : 8;
+  return (
+    <Frame meta={meta} large={large}>
+      <div
+        className="flex h-full flex-col overflow-hidden"
+        style={{ background: p.bg, color: p.ink, fontFamily: p.body }}
+      >
+        {/* dark nav */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            padding: `${large ? 10 : 6}px ${pad}px`,
+            borderBottom: "1px solid ${p.accent}59",
+            background: p.bg,
+          }}
+        >
+          <div className="flex items-center" style={{ gap: 6 }}>
+            <span
+              style={{
+                width: large ? 10 : 7,
+                height: large ? 10 : 7,
+                borderRadius: 99,
+                background: p.accent,
+                boxShadow: "0 0 40px rgba(0,229,160,0.25), 0 0 100px rgba(124,92,255,0.20)",
+              }}
+            />
+            <span
+              style={{
+                fontFamily: p.display,
+                fontWeight: 700,
+                fontSize: large ? 11 : 7.5,
+                letterSpacing: "0.08em",
+              }}
+            >
+              AURORA
+            </span>
+          </div>
+          <div className="flex items-center" style={{ gap: 6 }}>
+            <span style={{ fontSize: large ? 8 : 5.5, letterSpacing: "0.18em", fontWeight: 600, color: p.muted }}>
+              ● KP 5 LIVE
+            </span>
+            <span
+              style={{
+                fontSize: large ? 8 : 5.5,
+                fontWeight: 700,
+                color: p.bg,
+                background: p.accent,
+                borderRadius: 99,
+                padding: large ? "4px 10px" : "2px 7px",
+                boxShadow: "0 0 40px rgba(0,229,160,0.25), 0 0 100px rgba(124,92,255,0.20)",
+              }}
+            >
+              Watch
+            </span>
+          </div>
+        </div>
+
+        {/* aurora ribbon hero + glass card */}
+        <div className="relative flex-1" style={{ padding: `${large ? 16 : 9}px ${pad}px`, overflow: "hidden" }}>
+          <svg
+            viewBox="0 0 200 70"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", filter: "blur(1.5px)" }}
+          >
+            <path
+              className="pv-drift"
+              d="M-10 42 Q 40 6, 100 30 T 210 18"
+              fill="none"
+              stroke={p.accent}
+              strokeWidth="7"
+              opacity="0.5"
+              strokeLinecap="round"
+            />
+            <path
+              d="M-10 52 Q 50 20, 110 40 T 210 30"
+              fill="none"
+              stroke={p.accent2}
+              strokeWidth="5"
+              opacity="0.55"
+              strokeLinecap="round"
+            />
+          </svg>
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: "radial-gradient(${p.ink} 1px, transparent 1px)",
+              backgroundSize: "16px 16px",
+              opacity: 0.18,
+            }}
+          />
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              left: "10%",
+              right: "10%",
+              top: "30%",
+              height: 40,
+              background: "rgba(0,229,160,0.12)",
+              filter: "blur(18px)",
+            }}
+          />
+          <div style={{ position: "relative" }}>
+            <div
+              style={{
+                fontSize: large ? 8 : 5.5,
+                fontWeight: 600,
+                letterSpacing: "0.18em",
+                color: p.accent,
+                textShadow: "0 0 12px rgba(0,229,160,0.6)",
+              }}
+            >
+              POLAR NIGHT · 69°N
+            </div>
+            <div
+              style={{
+                fontFamily: p.display,
+                fontWeight: 700,
+                fontSize: large ? 24 : 14,
+                lineHeight: 1.05,
+                marginTop: 2,
+              }}
+            >
+              Tonight over
+              <br />
+              Tromsø
+            </div>
+            {/* glass card */}
+            <div
+              style={{
+                marginTop: large ? 10 : 6,
+                border: "1px solid ${p.accent}59",
+                borderTop: `2px solid ${p.accent}`,
+                borderRadius: 16,
+                background: p.surface,
+                opacity: 0.96,
+                padding: large ? "9px 12px" : "6px 9px",
+                boxShadow: "0 0 40px rgba(0,229,160,0.25), 0 0 100px rgba(124,92,255,0.20)",
+                backdropFilter: "blur(8px)",
+              }}
+            >
+              <div className="flex items-center justify-between">
+                <span style={{ fontSize: large ? 8 : 5.5, letterSpacing: "0.16em", fontWeight: 600, color: p.muted }}>
+                  ● OBSERVATORY LIVE
+                </span>
+                <span style={{ fontSize: large ? 8 : 5.5, fontWeight: 700, color: p.accent2 }}>22:14</span>
+              </div>
+              <div style={{ display: "flex", gap: large ? 10 : 7, marginTop: 5 }}>
+                {[
+                  ["KP", "5.3"],
+                  ["-14°", "CLEAR"],
+                  ["94%", "GLOW"],
+                ].map(([v, l]) => (
+                  <div key={l}>
+                    <div style={{ fontFamily: p.display, fontWeight: 700, fontSize: large ? 13 : 8 }}>
+                      {v}
+                    </div>
+                    <div style={{ fontSize: large ? 7 : 5, letterSpacing: "0.14em", color: p.muted, fontWeight: 600 }}>
+                      {l}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* glow CTA footer */}
+        <div
+          className="flex items-center justify-between"
+          style={{
+            padding: `${large ? 9 : 6}px ${pad}px`,
+            background: p.surface,
+            borderTop: "1px solid ${p.accent}59",
+          }}
+        >
+          <span style={{ fontSize: large ? 8 : 5.5, color: p.muted, fontWeight: 500 }}>Peak at midnight · still sky</span>
+          <span
+            style={{
+              fontSize: large ? 8.5 : 6,
+              fontWeight: 700,
+              color: p.bg,
+              background: p.accent,
+              borderRadius: 99,
+              padding: large ? "5px 12px" : "3px 9px",
+              boxShadow: "0 0 40px rgba(0,229,160,0.25), 0 0 100px rgba(124,92,255,0.20)",
+            }}
+          >
+            Get sky alert
+          </span>
+        </div>
+      </div>
+      <Meta meta={meta} large={large} />
+    </Frame>
+  );
+}

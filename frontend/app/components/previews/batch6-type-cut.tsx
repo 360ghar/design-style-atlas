@@ -1,0 +1,21 @@
+// batch6-type-cut — re-export shim. Source lives in ./styles/<slug>.tsx (one file per style).
+export { KineticTypographyPreview } from "./styles/kinetic-typography";
+export { TypographyFirstPreview } from "./styles/typography-first";
+export { VariableFontsPreview } from "./styles/variable-fonts";
+export { OversizedTypographyPreview } from "./styles/oversized-typography";
+export { CollagePreview } from "./styles/collage";
+export { ScrapbookPreview } from "./styles/scrapbook";
+export { ZinePunkPreview } from "./styles/zine-punk";
+export { RisographPreview } from "./styles/risograph";
+export { HalftonePreview } from "./styles/halftone";
+export { GrainNoisePreview } from "./styles/grain-noise";
+export { HandDrawnPreview } from "./styles/hand-drawn";
+export { IllustrationLedPreview } from "./styles/illustration-led";
+export { CorporateMemphisPreview } from "./styles/corporate-memphis";
+export { OrganicBiophilicPreview } from "./styles/organic-biophilic";
+export { EcoSustainablePreview } from "./styles/eco-sustainable";
+export { JapandiPreview } from "./styles/japandi";
+export { WabiSabiPreview } from "./styles/wabi-sabi";
+export { ArtDecoPreview } from "./styles/art-deco";
+export { ArtNouveauPreview } from "./styles/art-nouveau";
+export { MidCenturyModernPreview } from "./styles/mid-century-modern";

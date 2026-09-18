@@ -1,0 +1,10 @@
+/* Radius floor and border-width coverage: a contract can declare a minimum
+   radius and a minimum border width, and both must be enforced. */
+.panel { border-radius: 0; border-top-width: 1px; }
+.mixed { border-width: 2px 1px; }
+.kebab { border-left-width: 1px; }
+.ok {
+  border-radius: 12px;
+  border-width: 2px 2px;
+  border-top-width: 2px;
+}

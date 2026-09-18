@@ -1,0 +1,19 @@
+// batch5-soft-product — re-export shim. Source lives in ./styles/<slug>.tsx (one file per style).
+export { GlassmorphismPreview } from "./styles/glassmorphism";
+export { NeumorphismPreview } from "./styles/neumorphism";
+export { ClaymorphismPreview } from "./styles/claymorphism";
+export { SkeuomorphismPreview } from "./styles/skeuomorphism";
+export { BentoGridPreview } from "./styles/bento-grid";
+export { CardBasedUIPreview } from "./styles/card-based-ui";
+export { CorporateSaaSPreview } from "./styles/corporate-saas";
+export { StripeInspiredPreview } from "./styles/stripe-inspired";
+export { LinearInspiredPreview } from "./styles/linear-inspired";
+export { NotionInspiredPreview } from "./styles/notion-inspired";
+export { GradientDesignPreview } from "./styles/gradient-design";
+export { AuroraGlowPreview } from "./styles/aurora-glow";
+export { HolographicPreview } from "./styles/holographic";
+export { LiquidChromePreview } from "./styles/liquid-chrome";
+export { ThreeDWebDesignPreview } from "./styles/3d-web-design";
+export { ImmersivePreview } from "./styles/immersive";
+export { ScrollytellingPreview } from "./styles/scrollytelling";
+export { ParallaxPreview } from "./styles/parallax";

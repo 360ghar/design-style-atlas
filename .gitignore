@@ -1,0 +1,10 @@
+node_modules/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/public/designs/
+frontend/public/api/
+frontend/public/llms.txt
+frontend/public/llms-full.txt
+.DS_Store
+*.tsbuildinfo
