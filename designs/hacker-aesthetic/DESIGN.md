@@ -9,7 +9,7 @@ preview:
   bg: "#050505"
   surface: "#0D0F0D"
   ink: "#00FF41"
-  muted: "#3D6B4F"
+  muted: "#4E8865"
   accent: "#00FF41"
   accent2: "#FF003C"
   display: "Share Tech Mono, JetBrains Mono, monospace"
@@ -45,7 +45,7 @@ Hollywood terminal meets real opsec: cascading data rain (canvas, subtle), glitc
 | Background | `#050505` | Page ground |
 | Surface | `#0D0F0D` | Cards, panels, wells |
 | Ink | `#00FF41` | Headlines, body text |
-| Muted | `#3D6B4F` | Captions, meta, secondary text |
+| Muted | `#4E8865` | Captions, meta, secondary text |
 | Accent | `#00FF41` | Primary actions, highlights |
 | Accent 2 | `#FF003C` | Alarms, destructive actions, threat pills only — never body text |
 
@@ -77,7 +77,7 @@ Phosphor bloom: 0 0 12px rgba(0,255,65,0.25); red alert glow 0 0 12px rgba(255,0
 
 Terminal confirms: [ INITIATE ] bordered, hover floods green with black text; destructive floods red.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro instant–150ms, standard 200ms log-stream ticks. Easings: line
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -116,7 +116,7 @@ Durations: micro instant–150ms, standard 200ms log-stream ticks. Easings: line
 
 - Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
@@ -142,7 +142,7 @@ Durations: micro instant–150ms, standard 200ms log-stream ticks. Easings: line
   --bg: #050505;
   --surface: #0D0F0D;
   --ink: #00FF41;
-  --muted: #3D6B4F;
+  --muted: #4E8865;
   --accent: #00FF41;
   --accent-2: #FF003C;
   --font-display: Share Tech Mono, JetBrains Mono, monospace;

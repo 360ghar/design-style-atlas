@@ -9,7 +9,7 @@ preview:
   bg: "#FFFFFF"
   surface: "#F4F4F5"
   ink: "#18181B"
-  muted: "#71717A"
+  muted: "#6F6F77"
   accent: "#2563EB"
   accent2: "#059669"
   display: "system-ui, -apple-system, Segoe UI, sans-serif"
@@ -45,7 +45,7 @@ The aesthetic of infrastructure: system fonts, visible tables, explicit labels, 
 | Background | `#FFFFFF` | Page ground |
 | Surface | `#F4F4F5` | Cards, panels, wells |
 | Ink | `#18181B` | Headlines, body text |
-| Muted | `#71717A` | Captions, meta, secondary text |
+| Muted | `#6F6F77` | Captions, meta, secondary text |
 | Accent | `#2563EB` | Primary actions, highlights |
 | Accent 2 | `#059669` | Success status, passed states only |
 
@@ -77,7 +77,7 @@ None on content; dialogs get standard system elevation only
 
 Native-looking controls: bordered buttons with 32–36px visual height, blue primary, destructive red reserved for danger. Disabled states always visible, never hidden actions.
 
-All buttons: 32–36px visual height with hit area expanded to 44px minimum, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 32–36px visual height with hit area expanded to 44px minimum, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 100ms, standard 150ms max. Easings: linear or ease-out; no spri
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -116,7 +116,7 @@ Durations: micro 100ms, standard 150ms max. Easings: linear or ease-out; no spri
 
 - Mobile (360–768px): single column, 16–20px page margins, 44px tap targets, sticky action bar only for the primary task action.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
@@ -142,7 +142,7 @@ Durations: micro 100ms, standard 150ms max. Easings: linear or ease-out; no spri
   --bg: #FFFFFF;
   --surface: #F4F4F5;
   --ink: #18181B;
-  --muted: #71717A;
+  --muted: #6F6F77;
   --accent: #2563EB;
   --accent-2: #059669;
   --font-display: system-ui, -apple-system, Segoe UI, sans-serif;

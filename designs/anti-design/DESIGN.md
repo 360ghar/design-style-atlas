@@ -114,10 +114,10 @@ Durations: none or jarring instant swaps; marquees and blinks encouraged. Easing
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column that still misbehaves — edge-to-edge text, overlapping blocks, table layouts that force horizontal scroll. No sticky CTA.
+- Mobile (360–768px): single column that still misbehaves — edge-to-edge text, overlapping blocks, abrupt type shifts. Keep primary content and controls reachable at 360px: allow horizontal overflow only where the content intrinsically needs it, and never on nav or actions.
 - Tablet (768–1100px): colliding columns persist; nav stays a raw link list, never condensed into a tidy hamburger.
 - Desktop (1100px+): full collision — footers mid-page, absolutely-positioned overlaps, marquee traps. No max-width container.
-- Touch: default browser control sizes win over 44px norms; never hide the guestbook or hit counter — they are the conversion.
+- Touch: visual styling stays defiant, but every control keeps a 44px hit area (padding or a transparent overlay) so targets remain tappable; never hide the guestbook or hit counter — they are the conversion.
 
 ## 18. Accessibility
 

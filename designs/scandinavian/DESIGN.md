@@ -9,9 +9,9 @@ preview:
   bg: "#F9F7F3"
   surface: "#FFFFFF"
   ink: "#2E2C29"
-  muted: "#8C877E"
-  accent: "#C2703D"
-  accent2: "#5B7E6B"
+  muted: "#7A756D"
+  accent: "#A35E33"
+  accent2: "#577866"
   display: "Inter, Avenir, Nunito Sans, sans-serif"
   body: "Inter, Avenir, Nunito Sans, sans-serif"
 ---
@@ -45,9 +45,9 @@ Scandi design pairs minimalism with warmth: pale oak tones, clay and sage accent
 | Background | `#F9F7F3` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#2E2C29` | Headlines, body text |
-| Muted | `#8C877E` | Captions, meta, secondary text |
-| Accent | `#C2703D` | Primary actions, highlights |
-| Accent 2 | `#5B7E6B` | Secondary moments, gradients, glows |
+| Muted | `#7A756D` | Captions, meta, secondary text |
+| Accent | `#A35E33` | Primary actions, highlights |
+| Accent 2 | `#577866` | Secondary moments, gradients, glows |
 
 Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
 
@@ -77,7 +77,7 @@ Soft and warm: 0 8px 30px rgba(46,44,41,0.08). Diffuse like daylight, never hard
 
 Pill or 12px-radius buttons in warm clay or deep forest; white 15px labels. Hover lifts 2px with softened shadow. Large touch targets (44px minimum).
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,7 +108,7 @@ Durations: micro 150–250ms, standard 200–300ms gentle fades. Easings: soft e
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
@@ -116,7 +116,7 @@ Durations: micro 150–250ms, standard 200–300ms gentle fades. Easings: soft e
 
 - Mobile (360–768px): single column, 16–20px page margins, 44px minimum tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
@@ -142,9 +142,9 @@ Durations: micro 150–250ms, standard 200–300ms gentle fades. Easings: soft e
   --bg: #F9F7F3;
   --surface: #FFFFFF;
   --ink: #2E2C29;
-  --muted: #8C877E;
-  --accent: #C2703D;
-  --accent-2: #5B7E6B;
+  --muted: #7A756D;
+  --accent: #A35E33;
+  --accent-2: #577866;
   --font-display: Inter, Avenir, Nunito Sans, sans-serif;
   --font-body: Inter, Avenir, Nunito Sans, sans-serif;
 }

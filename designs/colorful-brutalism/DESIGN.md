@@ -51,7 +51,7 @@ Every section a different saturated ground — violet, yellow, pink, cyan — st
 
 Extended chapters (use sparingly, flat only): cyan `#00E5FF`, violet `#7C5CFF` (= Background). Never gradient, never glow — flat fills + black structure only.
 
-Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
+Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs. Muted `#26232E` is for text on the white Surface (15.4:1); on the saturated ground use Ink `#000000` (4.8:1 against the violet ground).
 
 ## 4. Spacing
 
@@ -77,9 +77,9 @@ Hard 6px 6px 0 #111111; stacked double shadows (white + black) on heroes
 
 ## 9. Buttons
 
-Black or white 3px-bordered buttons with hard shadows on color grounds; labels uppercase black or white. Hover swaps fill color with a 150ms pop.
+Black- or white-bordered 3px buttons with hard shadows on color grounds; labels always uppercase Ink `#000000` — Ink clears 4.5:1 on yellow `#FFD802` (15.1:1), violet `#7C5CFF` (4.8:1), and pink `#FF4FA3` (6.9:1), while white fails on all three. Hover swaps fill color with a 150ms pop.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -110,15 +110,15 @@ Durations: instant–150ms flat color swaps with shadow pops. Easings: none or s
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility

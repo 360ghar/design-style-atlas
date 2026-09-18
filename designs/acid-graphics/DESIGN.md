@@ -99,20 +99,20 @@ Subtle digital CRT scanlines, metallic noise, iridescent gradient sheens.
 
 ## 15. Motion
 
-Hyper-kinetic micro-interactions: rapid strobe hover pulses, liquid distortion wave filters, glitch jitter on click.
+Hyper-kinetic micro-interactions: fast glow pulses, liquid distortion wave filters, glitch jitter on click. No strobing — keep flashes under 3 per second, never flash a full-screen area, and replace every pulse with a static state under `prefers-reduced-motion`.
 
 ## 16. Interactions
 
 - Hover: predictable state changes honoring the design's physical metaphor.
 - Active / Pressed: tactile feedback (recoil or depression).
-- Focus: clear visible focus ring with 2px offset.
+- Focus: clear visible focus ring with 2px offset, using Ink when accent is under 3:1 on the adjacent ground.
 - Loading: skeletons or spinners matching the style's texture.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, preserved visual essence.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
 - Tablet (768–1100px): 2-column layouts, condensed navigation, proportional display type.
-- Desktop (1100px+): full grid expression, max-width per layout section, oversized hero type.
+- Desktop (1100px+): full grid expression, max-width per layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility

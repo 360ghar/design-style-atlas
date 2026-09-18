@@ -9,7 +9,7 @@ preview:
   bg: "#FFFFFF"
   surface: "#F5F5F5"
   ink: "#0A0A0A"
-  muted: "#737373"
+  muted: "#707070"
   accent: "#0A0A0A"
   accent2: "#525252"
   display: "Inter, Helvetica Neue, Arial, sans-serif"
@@ -45,7 +45,7 @@ One hue, infinite control. Monochrome interfaces prove that value contrast alone
 | Background | `#FFFFFF` | Page ground |
 | Surface | `#F5F5F5` | Cards, panels, wells |
 | Ink | `#0A0A0A` | Headlines, body text |
-| Muted | `#737373` | Captions, meta, secondary text |
+| Muted | `#707070` | Captions, meta, secondary text |
 | Accent | `#0A0A0A` | Primary actions, highlights |
 | Accent 2 | `#525252` | Secondary text, borders on dark, subtle tonal steps |
 
@@ -77,7 +77,7 @@ Grayscale only: 0 2px 12px rgba(0,0,0,0.08). No colored shadows ever
 
 Black fill / white text primary; 1px black outline secondary. On black sections, invert to white fill. Hover shifts to #525252 (or #E5E5E5 inverted).
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,15 +108,15 @@ Durations: micro 150–250ms, standard 300–450ms tonal fades. Easings: ease-ou
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
@@ -142,7 +142,7 @@ Durations: micro 150–250ms, standard 300–450ms tonal fades. Easings: ease-ou
   --bg: #FFFFFF;
   --surface: #F5F5F5;
   --ink: #0A0A0A;
-  --muted: #737373;
+  --muted: #707070;
   --accent: #0A0A0A;
   --accent-2: #525252;
   --font-display: Inter, Helvetica Neue, Arial, sans-serif;

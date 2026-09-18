@@ -10,7 +10,7 @@ preview:
   surface: "#FFFFFF"
   ink: "#1C1917"
   muted: "#78716C"
-  accent: "#4D7CFE"
+  accent: "#2962FE"
   accent2: "#FF6B9D"
   display: "Inter, SF Pro Display, sans-serif"
   body: "Inter, SF Pro Text, sans-serif"
@@ -46,7 +46,7 @@ The Apple-keynote grid as a layout system: a 4–6 column board of mismatched ti
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#1C1917` | Headlines, body text |
 | Muted | `#78716C` | Captions, meta, secondary text |
-| Accent | `#4D7CFE` | Primary actions, highlights |
+| Accent | `#2962FE` | Primary actions, highlights |
 | Accent 2 | `#FF6B9D` | Secondary moments, gradients, glows |
 
 Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
@@ -77,7 +77,7 @@ Soft tile lift: 0 2px 12px rgba(28,25,23,0.06); hover 0 12px 32px rgba(28,25,23,
 
 Tile CTAs: small pills bottom-left of feature tiles; section CTA below the board. 14px medium labels.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,15 +108,15 @@ Durations: micro 100–200ms tile hovers, standard 300ms tile lifts. Easings: cr
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
@@ -143,7 +143,7 @@ Durations: micro 100–200ms tile hovers, standard 300ms tile lifts. Easings: cr
   --surface: #FFFFFF;
   --ink: #1C1917;
   --muted: #78716C;
-  --accent: #4D7CFE;
+  --accent: #2962FE;
   --accent-2: #FF6B9D;
   --font-display: Inter, SF Pro Display, sans-serif;
   --font-body: Inter, SF Pro Text, sans-serif;

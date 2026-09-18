@@ -63,11 +63,11 @@ Mac desktop: menu bar top (Apple + app menus + clock), window stack with striped
 
 ## 6. Borders
 
-Platinum 1–2px frames; Aqua gel outlines; pinstripe rules in classic zones
+One era at a time. Pick System 7, Platinum, or Aqua and use only that era's chrome, borders, shadows, and texture — never mix Platinum frames with Aqua gel and pinstripes in one build.
 
 ## 7. Shadows
 
-Soft Platinum drop (0 4px 16px rgba(0,0,0,0.18)); Aqua glow on default buttons
+Per chosen era only: Platinum soft drop (0 4px 16px rgba(0,0,0,0.18)); Aqua outer glow with an inner highlight on default buttons; System 7 flat 1px hard offset with no blur. Do not combine eras.
 
 ## 8. Radius
 
@@ -77,7 +77,7 @@ Soft Platinum drop (0 4px 16px rgba(0,0,0,0.18)); Aqua glow on default buttons
 
 Aqua gel pills (glossy highlight, blue fill) for defaults; platinum rounded rects otherwise. Pulsing default glow (gentle).
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,15 +108,15 @@ Durations: instant–200ms with happy-mac playfulness. Easings: none or gentle e
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility

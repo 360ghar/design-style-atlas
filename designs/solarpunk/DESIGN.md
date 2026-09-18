@@ -10,7 +10,7 @@ preview:
   surface: "#FFFFFF"
   ink: "#1E3A24"
   muted: "#5A7261"
-  accent: "#3E9B4F"
+  accent: "#327E40"
   accent2: "#F2B705"
   display: "Fraunces, Georgia, serif"
   body: "Inter, Helvetica Neue, Arial, sans-serif"
@@ -46,10 +46,10 @@ Solarpunk is the optimistic future: greenhouse glass, solar geometry, mural gree
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#1E3A24` | Headlines, body text |
 | Muted | `#5A7261` | Captions, meta, secondary text |
-| Accent | `#3E9B4F` | Primary actions, highlights |
+| Accent | `#327E40` | Primary actions, highlights |
 | Accent 2 | `#F2B705` | Secondary emphasis, badges, special states |
 
-Keep contrast at 4.5:1 minimum for body text. Leaf green #3E9B4F primary; sun gold #F2B705 for highlights, badges, solar marks.
+Keep contrast at 4.5:1 minimum for body text. Leaf green #327E40 primary; sun gold #F2B705 for highlights, badges, solar marks.
 
 ## 4. Spacing
 
@@ -77,7 +77,7 @@ Arches (top 160–999px) for heroes and images; 16–24px cards; pills for tags.
 
 Leaf-green pills with cream text, gold hover ring; secondary outlined green; 48–52px.
 
-All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,15 +108,15 @@ Durations: 200–400ms UI; 6–10s ambient nature loops. Easings: ease-out for U
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
@@ -143,7 +143,7 @@ Durations: 200–400ms UI; 6–10s ambient nature loops. Easings: ease-out for U
   --surface: #FFFFFF;
   --ink: #1E3A24;
   --muted: #5A7261;
-  --accent: #3E9B4F;
+  --accent: #327E40;
   --accent-2: #F2B705;
   --font-display: Fraunces, Georgia, serif;
   --font-body: Inter, Helvetica Neue, Arial, sans-serif;

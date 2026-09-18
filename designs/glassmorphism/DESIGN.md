@@ -75,9 +75,9 @@ Soft depth: 0 8px 32px rgba(0,0,0,0.18); colored ambient from the field behind
 
 ## 9. Buttons
 
-Frosted pills: white/20 blur fills with white labels; primary solid white with colored text. Hover brightens fill 10%.
+Frosted pills: white/20 blur fills with ink labels, or a 20–30% dark scrim behind white labels so the pair clears 4.5:1 across the whole glass stack; primary solid white with colored text. Hover brightens fill 10%.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent-2 `#00E5FF` offset — accent is white and invisible on glass), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, pointer cursor, and a disabled state that is visibly disabled. Focus ring: 2px accent-2 `#00E5FF` plus a 1px Ink outer outline — cyan alone is under 3:1 on the pale glass fills, so never ship it as the only ring.
 
 ## 10. Cards
 
@@ -114,9 +114,9 @@ Durations: micro 150–250ms, standard 250–350ms; ambient blob morphs up to 20
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility

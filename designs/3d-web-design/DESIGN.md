@@ -10,7 +10,7 @@ preview:
   surface: "#14141D"
   ink: "#F2F0FF"
   muted: "#8E8AB0"
-  accent: "#7C5CFF"
+  accent: "#8466FF"
   accent2: "#00E5FF"
   display: "Space Grotesk, Sora, sans-serif"
   body: "Inter, Space Grotesk, sans-serif"
@@ -46,7 +46,7 @@ Product as cinema: real-time or rendered 3D scenes (product floats, explodes, co
 | Surface | `#14141D` | Cards, panels, wells |
 | Ink | `#F2F0FF` | Headlines, body text |
 | Muted | `#8E8AB0` | Captions, meta, secondary text |
-| Accent | `#7C5CFF` | Primary actions, highlights |
+| Accent | `#8466FF` | Primary actions, highlights |
 | Accent 2 | `#00E5FF` | Secondary moments, gradients, glows |
 
 Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
@@ -63,11 +63,11 @@ Stage + script: sticky 3D viewport chapters with scroll-driven camera, spec band
 
 ## 6. Borders
 
-Scene frames: 1px solid #7C5CFF40 keylines; depth-cue vignettes; floor-grid overlays at 22px
+Scene frames: 1px solid #8466FF40 keylines; depth-cue vignettes; floor-grid overlays at 22px
 
 ## 7. Shadows
 
-Cinematic: 0 30px 100px rgba(0,0,0,0.6) under scenes; rim-light glows 0 0 40px #7C5CFF80 + 0 0 24px #00E5FF66
+Cinematic: 0 30px 100px rgba(0,0,0,0.6) under scenes; rim-light glows 0 0 40px #8466FF80 + 0 0 24px #00E5FF66
 
 ## 8. Radius
 
@@ -75,9 +75,9 @@ Cinematic: 0 30px 100px rgba(0,0,0,0.6) under scenes; rim-light glows 0 0 40px #
 
 ## 9. Buttons
 
-Cinematic pills with glow; scene controls (rotate/explode) as icon HUD; configurator swatches large.
+Cinematic pills with glow; accent-filled pills carry near-black `#0B0B12` labels (5.0:1 on `#8466FF` — white labels fail at 3.9:1); scene controls (rotate/explode) as icon HUD; configurator swatches large.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,15 +108,15 @@ Durations: micro 150–250ms, standard 400–700ms parallax orbits, ceremonial 1
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
@@ -143,7 +143,7 @@ Durations: micro 150–250ms, standard 400–700ms parallax orbits, ceremonial 1
   --surface: #14141D;
   --ink: #F2F0FF;
   --muted: #8E8AB0;
-  --accent: #7C5CFF;
+  --accent: #8466FF;
   --accent-2: #00E5FF;
   --font-display: Space Grotesk, Sora, sans-serif;
   --font-body: Inter, Space Grotesk, sans-serif;

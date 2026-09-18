@@ -11,7 +11,7 @@ preview:
   ink: "#1A1A1A"
   muted: "#737373"
   accent: "#1A1A1A"
-  accent2: "#4D7CFE"
+  accent2: "#2F66FE"
   display: "Inter, Helvetica Neue, Arial, sans-serif"
   body: "Inter, Helvetica Neue, Arial, sans-serif"
 ---
@@ -47,7 +47,7 @@ Minimalism removes everything that does not earn its place. One typeface, near-m
 | Ink | `#1A1A1A` | Headlines, body text |
 | Muted | `#737373` | Captions, meta, secondary text |
 | Accent | `#1A1A1A` | Primary actions, highlights |
-| Accent 2 | `#4D7CFE` | Links, focus rings, and rare functional highlights only — never fills, gradients, or glows; at most once per view to stay near-monochrome |
+| Accent 2 | `#2F66FE` | Links, focus rings, and rare functional highlights only — never fills, gradients, or glows; at most once per view to stay near-monochrome |
 
 Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
 
@@ -75,9 +75,9 @@ Almost none: 0 1px 2px rgba(0,0,0,0.04) on cards; no shadows on text or buttons
 
 ## 9. Buttons
 
-Solid black 44px buttons with 6px radius and white labels; secondary is 1px-bordered transparent. Hover darkens to #333 with a 150ms ease; no shadows, no gradients.
+Solid black 44px buttons with 6px radius and white labels; secondary is 1px-bordered transparent. Hover darkens to #000 with a 150ms ease; no shadows, no gradients.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,15 +108,15 @@ Durations: micro 150–200ms, page reveals up to 250ms. Easings: ease-out only; 
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
@@ -144,7 +144,7 @@ Durations: micro 150–200ms, page reveals up to 250ms. Easings: ease-out only; 
   --ink: #1A1A1A;
   --muted: #737373;
   --accent: #1A1A1A;
-  --accent-2: #4D7CFE;
+  --accent-2: #2F66FE;
   --font-display: Inter, Helvetica Neue, Arial, sans-serif;
   --font-body: Inter, Helvetica Neue, Arial, sans-serif;
 }

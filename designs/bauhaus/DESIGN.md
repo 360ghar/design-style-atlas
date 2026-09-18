@@ -77,9 +77,9 @@ Full circles (999px) and semicircles as shapes; 0px on all text containers inclu
 
 ## 9. Buttons
 
-Primary-color blocks (red `#E30613` / blue `#0B3D91` / yellow `#E8B90F`) with black or white geometric labels; black hover frames. Shapes: sharp rectangles (0px); circles/pills only for non-text dots and badges, never text buttons.
+Primary-color blocks (red `#E30613` / blue `#0B3D91` / yellow `#E8B90F`) each with a contrast-tested label color: white on red `#E30613` (4.9:1) and blue `#0B3D91` (10:1), black on yellow `#E8B90F` (11.4:1) — never white on yellow. Black hover frames. Shapes: sharp rectangles (0px); circles/pills only for non-text dots and badges, never text buttons.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -110,15 +110,15 @@ Durations: micro 150–250ms, standard 300–450ms geometric slides. Easings: cr
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility

@@ -77,7 +77,7 @@ OS shadows: 5px 5px 0 rgba(0,0,0,0.3) under windows (4–6px range); bevel highl
 
 Raised outset buttons; bold-outlined default; disabled = gray etched text. Press insets with 100ms clunk.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,20 +108,20 @@ Durations: instant–150ms window snaps. Easings: none or linear; springs and fl
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
 
-- Contrast: body text 4.5:1 minimum, large display 3:1 minimum, verified against both Background and Surface.
+- Contrast: body text 4.5:1 minimum, large display 3:1 minimum, with each pairing verified against the ground it actually sits on. Ink `#111111` passes on both Background (4.8:1) and Surface (10.4:1). Muted `#1F2E2E` is for captions and meta on Surface only (7.8:1) — never body text on the teal ground (3.6:1).
 - Focus: always visible, never removed; skip-link to main content.
 - Motion: honor `prefers-reduced-motion` — replace loops, parallax, and scrubs with static final states plus manual steppers.
 - Touch: 44px targets, 8px gaps between adjacent targets.

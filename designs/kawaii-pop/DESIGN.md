@@ -9,8 +9,8 @@ preview:
   bg: "#FFF5FA"
   surface: "#FFFFFF"
   ink: "#5C2D52"
-  muted: "#A87B9C"
-  accent: "#FF6FB5"
+  muted: "#9A658C"
+  accent: "#DF006C"
   accent2: "#7ED6FF"
   display: "Baloo 2, Quicksand, Helvetica Neue, sans-serif"
   body: "Quicksand, Helvetica Neue, Arial, sans-serif"
@@ -45,11 +45,11 @@ Harajuku sticker-book design: pastel panels, chunky rounded type, smiling mascot
 | Background | `#FFF5FA` | Page ground |
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#5C2D52` | Headlines, body text |
-| Muted | `#A87B9C` | Captions, meta, secondary text |
-| Accent | `#FF6FB5` | Primary actions, highlights |
+| Muted | `#9A658C` | Captions, meta, secondary text |
+| Accent | `#DF006C` | Primary actions, highlights |
 | Accent 2 | `#7ED6FF` | Secondary emphasis, badges, special states |
 
-Keep contrast at 4.5:1 minimum for body text. Bubblegum #FF6FB5 primary; sky #7ED6FF secondary; mint and lavender supporting pastels.
+Keep contrast at 4.5:1 minimum for body text. Deep bubblegum #DF006C primary (white labels clear 4.8:1 on it); sky #7ED6FF secondary for fills and decoration only; mint and lavender supporting pastels.
 
 ## 4. Spacing
 
@@ -77,7 +77,7 @@ Soft puffy: 0 10px 28px rgba(255,111,181,0.28); sticker die-cut white rim + lift
 
 Chunky pastel pills, 48–56px, bold rounded text; hover squish (scale 1.04); active squish (0.95); white sticker rim.
 
-All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,15 +108,15 @@ Durations: 150–300ms springs; 2s idle loops. Easings: ease-out for UI, springs
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
@@ -142,8 +142,8 @@ Durations: 150–300ms springs; 2s idle loops. Easings: ease-out for UI, springs
   --bg: #FFF5FA;
   --surface: #FFFFFF;
   --ink: #5C2D52;
-  --muted: #A87B9C;
-  --accent: #FF6FB5;
+  --muted: #9A658C;
+  --accent: #DF006C;
   --accent-2: #7ED6FF;
   --font-display: Baloo 2, Quicksand, Helvetica Neue, sans-serif;
   --font-body: Quicksand, Helvetica Neue, Arial, sans-serif;

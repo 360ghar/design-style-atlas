@@ -49,7 +49,7 @@ Every page a one-sheet: a single enormous message, flat spot colors, and a stric
 | Accent | `#111111` | Primary actions, highlights |
 | Accent 2 | `#FFD802` | Secondary moments, price bursts, starburst badges |
 
-Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
+Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs. Muted `#241F1C` is for text on Surface (16.3:1); on the red ground use white or Ink `#111111` (4.7:1 against the ground).
 
 ## 4. Spacing
 
@@ -77,7 +77,7 @@ Print-flat; hard offsets only on pasted sticker elements
 
 Ticket-block buttons: ink bars with condensed caps; hover floods accent. Big, full-width on mobile.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,15 +108,15 @@ Durations: micro 150–250ms, standard 350–550ms print-slam reveals. Easings: 
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility

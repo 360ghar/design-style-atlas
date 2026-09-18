@@ -9,8 +9,8 @@ preview:
   bg: "#F5EFE2"
   surface: "#FFFDF6"
   ink: "#3B3128"
-  muted: "#8A7F70"
-  accent: "#7A8450"
+  muted: "#7C7265"
+  accent: "#687144"
   accent2: "#B3541E"
   display: "Cormorant Garamond, Playfair Display, serif"
   body: "EB Garamond, Georgia, serif"
@@ -45,8 +45,8 @@ Mucha posters and Métro entrances: whiplash vines, haloed maidens (illustrated,
 | Background | `#F5EFE2` | Page ground |
 | Surface | `#FFFDF6` | Cards, panels, wells |
 | Ink | `#3B3128` | Headlines, body text |
-| Muted | `#8A7F70` | Captions, meta, secondary text |
-| Accent | `#7A8450` | Primary actions, highlights |
+| Muted | `#7C7265` | Captions, meta, secondary text |
+| Accent | `#687144` | Primary actions, highlights |
 | Accent 2 | `#B3541E` | Secondary moments, gradients, glows |
 
 Keep contrast at 4.5:1 minimum for body text. Accent is for action and emphasis, never for long paragraphs.
@@ -77,7 +77,7 @@ Arch windows `50% 50% 8px 8px`, oval cameos / pills 999px, small accents 8–12p
 
 Cameo buttons: arched/oval, olive fills, cream serif labels; hover glows amber.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,15 +108,15 @@ Durations: micro 200–300ms, standard 500–750ms vine-unfurl reveals. Easings:
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
@@ -142,8 +142,8 @@ Durations: micro 200–300ms, standard 500–750ms vine-unfurl reveals. Easings:
   --bg: #F5EFE2;
   --surface: #FFFDF6;
   --ink: #3B3128;
-  --muted: #8A7F70;
-  --accent: #7A8450;
+  --muted: #7C7265;
+  --accent: #687144;
   --accent-2: #B3541E;
   --font-display: Cormorant Garamond, Playfair Display, serif;
   --font-body: EB Garamond, Georgia, serif;

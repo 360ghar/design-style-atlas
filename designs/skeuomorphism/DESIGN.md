@@ -9,7 +9,7 @@ preview:
   bg: "#E8E4DC"
   surface: "#F5F1E8"
   ink: "#2B2B2B"
-  muted: "#7A766E"
+  muted: "#6F6C64"
   accent: "#0B5FFF"
   accent2: "#C8A951"
   display: "Helvetica Neue, Georgia, serif"
@@ -45,7 +45,7 @@ The 2012 camera roll come back as craft: brushed aluminum, stitched leather, gre
 | Background | `#E8E4DC` | Page ground |
 | Surface | `#F5F1E8` | Cards, panels, wells |
 | Ink | `#2B2B2B` | Headlines, body text |
-| Muted | `#7A766E` | Captions, meta, secondary text |
+| Muted | `#6F6C64` | Captions, meta, secondary text |
 | Accent | `#0B5FFF` | Primary actions, highlights |
 | Accent 2 | `#C8A951` | Secondary moments, gradients, glows |
 
@@ -77,7 +77,7 @@ Real-world: stitched 8px leather panels, round metal dials, glossy buttons
 
 Machined metal or glossy candy buttons with travel (press sinks 2px + shadow collapses); toggle switches with physics.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,15 +108,15 @@ Durations: micro 150–250ms switch flicks, standard 350ms dial turns. Easings: 
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
@@ -139,10 +139,10 @@ Durations: micro 150–250ms switch flicks, standard 350ms dial turns. Easings: 
 
 ```css
 :root {
-  --bg: #2B2B2B;
+  --bg: #E8E4DC;
   --surface: #F5F1E8;
   --ink: #2B2B2B;
-  --muted: #7A766E;
+  --muted: #6F6C64;
   --accent: #0B5FFF;
   --accent-2: #C8A951;
   --font-display: Helvetica Neue, Georgia, serif;

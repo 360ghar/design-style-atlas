@@ -10,7 +10,7 @@ preview:
   surface: "#14294E"
   ink: "#FFFFFF"
   muted: "#A5B8D8"
-  accent: "#FF4071"
+  accent: "#FF4F7C"
   accent2: "#00F5D4"
   display: "Montserrat, Syne, -apple-system, sans-serif"
   body: "Inter, Helvetica Neue, sans-serif"
@@ -22,7 +22,7 @@ preview:
 
 ## 1. Overall aesthetic
 
-Duotone is the high-energy branding phenomenon made iconic by Spotify and modern festival identities: extreme two-color photographic posterization. Deep midnight cobalt blue (#0C1B33) is mapped to shadows while scorching neon coral (#FF4071) or cyan floods the highlights. Massive geometric sans typography cuts across bold color fields with unmistakable visual punch.
+Duotone is the high-energy branding phenomenon made iconic by Spotify and modern festival identities: extreme two-color photographic posterization. Deep midnight cobalt blue (#0C1B33) is mapped to shadows while scorching neon coral (#FF4F7C) or cyan floods the highlights. Massive geometric sans typography cuts across bold color fields with unmistakable visual punch.
 
 **Three principles:**
 
@@ -46,10 +46,10 @@ Duotone is the high-energy branding phenomenon made iconic by Spotify and modern
 | Surface | `#14294E` | Cards, panels, containers |
 | Ink | `#FFFFFF` | Headlines, primary text |
 | Muted | `#A5B8D8` | Secondary copy, metadata, borders |
-| Accent | `#FF4071` | Primary action, key highlights |
+| Accent | `#FF4F7C` | Primary action, key highlights |
 | Accent 2 | `#00F5D4` | Secondary moments, glows, tags |
 
-Keep contrast at 4.5:1 minimum for body text against both Background and Surface. Hot Neon Coral (#FF4071) for key calls-to-action, play buttons, and highlight overlays.
+Keep contrast at 4.5:1 minimum for body text against both Background and Surface. Hot Neon Coral (#FF4F7C) for key calls-to-action, play buttons, and highlight overlays.
 
 ## 4. Spacing
 
@@ -63,7 +63,7 @@ Editorial poster grid: full-bleed duotone imagery with bold overlapping typograp
 
 ## 6. Borders
 
-2px solid #FF4071 on featured cards; clean 1px white/20% dividers; zero fussy ornamentation.
+2px solid #FF4F7C on featured cards; clean 1px white/20% dividers; zero fussy ornamentation.
 
 ## 7. Shadows
 
@@ -75,7 +75,7 @@ Punchy colored glow: 0 12px 32px rgba(255,64,113,0.35); crisp dark drop on text 
 
 ## 9. Buttons
 
-Solid neon coral pill or rounded rect; high-contrast white text; hover expands with colored bloom.
+Solid neon coral pill or rounded rect; deep navy Background `#0C1B33` labels (5.5:1 on the coral — white would be 3.4:1); hover expands with colored bloom.
 
 ## 10. Cards
 
@@ -105,14 +105,14 @@ Punchy kinetic hover reveals: color inversion crossfades (180ms), scale lift (1.
 
 - Hover: predictable state changes honoring the design's physical metaphor.
 - Active / Pressed: tactile feedback (recoil or depression).
-- Focus: clear visible focus ring with 2px offset.
+- Focus: clear visible focus ring with 2px offset, using Ink when accent is under 3:1 on the adjacent ground.
 - Loading: skeletons or spinners matching the style's texture.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, preserved visual essence.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
 - Tablet (768–1100px): 2-column layouts, condensed navigation, proportional display type.
-- Desktop (1100px+): full grid expression, max-width per layout section, oversized hero type.
+- Desktop (1100px+): full grid expression, max-width per layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
@@ -139,7 +139,7 @@ Punchy kinetic hover reveals: color inversion crossfades (180ms), scale lift (1.
   --surface: #14294E;
   --ink: #FFFFFF;
   --muted: #A5B8D8;
-  --accent: #FF4071;
+  --accent: #FF4F7C;
   --accent-2: #00F5D4;
   --font-display: Montserrat, Syne, -apple-system, sans-serif;
   --font-body: Inter, Helvetica Neue, sans-serif;

@@ -75,7 +75,7 @@ Radiant photon emission glows: 0 0 32px rgba(0,245,212,0.35), 0 0 64px rgba(168,
 
 ## 9. Buttons
 
-Luminous cyan filled or translucent glowing pill; radial glow bloom on hover; white/deep teal text.
+Luminous cyan filled or translucent glowing pill; radial glow bloom on hover; deep teal `#030712` labels on the cyan fill (14.4:1 — white is 1.4:1), ink on translucent pills.
 
 ## 10. Cards
 
@@ -105,14 +105,14 @@ Slow undulating breathing pulses: 3s to 5s infinite gentle breathing animations;
 
 - Hover: predictable state changes honoring the design's physical metaphor.
 - Active / Pressed: tactile feedback (recoil or depression).
-- Focus: clear visible focus ring with 2px offset.
+- Focus: clear visible focus ring with 2px offset, using Ink when accent is under 3:1 on the adjacent ground.
 - Loading: skeletons or spinners matching the style's texture.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, preserved visual essence.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, preserved visual essence.
 - Tablet (768–1100px): 2-column layouts, condensed navigation, proportional display type.
-- Desktop (1100px+): full grid expression, max-width per layout section, oversized hero type.
+- Desktop (1100px+): full grid expression, max-width per layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility

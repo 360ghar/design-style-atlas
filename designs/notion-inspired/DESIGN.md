@@ -9,7 +9,7 @@ preview:
   bg: "#FFFFFF"
   surface: "#F7F7F5"
   ink: "#37352F"
-  muted: "#787672"
+  muted: "#73716D"
   accent: "#2383E2"
   accent2: "#D9730D"
   display: "Georgia, Lyon Text, serif"
@@ -45,7 +45,7 @@ A warm document that became software: serif page titles with emoji icons, toggle
 | Background | `#FFFFFF` | Page ground |
 | Surface | `#F7F7F5` | Cards, panels, wells |
 | Ink | `#37352F` | Headlines, body text |
-| Muted | `#787672` | Captions, meta, secondary text |
+| Muted | `#73716D` | Captions, meta, secondary text |
 | Accent | `#2383E2` | Primary actions, highlights |
 | Accent 2 | `#D9730D` | Orange callouts, warnings, secondary highlights |
 
@@ -77,7 +77,7 @@ Almost none: page shadows off; menus 0 4px 20px rgba(55,53,47,0.12); drag-ghost 
 
 Quiet 32px gray-hover buttons; blue text links; database Add buttons full-width dashed. Hover-grays, never loud fills.
 
-All buttons: 32px height (40px+ hit area on touch), visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 32px height (40px+ hit area on touch), visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,13 +108,13 @@ Durations: micro 100–200ms toggle opens, standard 250ms. Easings: plain ease-o
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets; sidebar becomes drawer, no sticky CTA.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets; sidebar becomes drawer, no sticky CTA.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
 - Desktop (1100px+): sidebar + 708px doc measure, boards full-bleed where needed; titles stay 28–36px, never oversized.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
@@ -142,7 +142,7 @@ Durations: micro 100–200ms toggle opens, standard 250ms. Easings: plain ease-o
   --bg: #FFFFFF;
   --surface: #F7F7F5;
   --ink: #37352F;
-  --muted: #787672;
+  --muted: #73716D;
   --accent: #2383E2;
   --accent-2: #D9730D;
   --font-display: Georgia, Lyon Text, serif;

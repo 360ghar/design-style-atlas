@@ -10,7 +10,7 @@ preview:
   surface: "#FFFFFF"
   ink: "#57102E"
   muted: "#A05C7E"
-  accent: "#FF2E93"
+  accent: "#DB006A"
   accent2: "#FFD700"
   display: "Didot, Bodoni MT, Playfair Display, Georgia, serif"
   body: "Helvetica Neue, Arial, sans-serif"
@@ -46,10 +46,10 @@ McBling is Y2K's rich older sister: hot pink velour, rhinestone crusts, gold cha
 | Surface | `#FFFFFF` | Cards, panels, wells |
 | Ink | `#57102E` | Headlines, body text |
 | Muted | `#A05C7E` | Captions, meta, secondary text |
-| Accent | `#FF2E93` | Primary actions, highlights |
+| Accent | `#DB006A` | Primary actions, highlights |
 | Accent 2 | `#FFD700` | Secondary emphasis, badges, special states |
 
-Keep contrast at 4.5:1 minimum for body text. Hot pink #FF2E93 for CTAs and headlines; gold #FFD700 for borders, stars, premium marks.
+Keep contrast at 4.5:1 minimum for body text. Hot pink #DB006A for CTAs and headlines; gold #FFD700 for borders, stars, premium marks.
 
 ## 4. Spacing
 
@@ -77,7 +77,7 @@ Pink glows 0 0 24px rgba(255,46,147,0.35); soft 0 12px 32px rgba(87,16,46,0.18);
 
 Hot-pink pills with white bold text + gold 2px ring; hover glow intensifies; 48–56px tall.
 
-All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px solid accent, 2px offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -108,15 +108,15 @@ Durations: 200–400ms pops; 1–3s sparkle loops. Easings: ease-out for UI, spr
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
@@ -143,7 +143,7 @@ Durations: 200–400ms pops; 1–3s sparkle loops. Easings: ease-out for UI, spr
   --surface: #FFFFFF;
   --ink: #57102E;
   --muted: #A05C7E;
-  --accent: #FF2E93;
+  --accent: #DB006A;
   --accent-2: #FFD700;
   --font-display: Didot, Bodoni MT, Playfair Display, Georgia, serif;
   --font-body: Helvetica Neue, Arial, sans-serif;

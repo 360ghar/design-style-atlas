@@ -108,7 +108,7 @@ Durations: instant–150ms bevel-pressed snaps. Easings: none (steps welcome); s
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: segmented navy block progress bar (like the preview's 42% bar) plus hourglass cursor; no skeleton shimmer, no spinner.
 

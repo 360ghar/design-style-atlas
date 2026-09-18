@@ -9,7 +9,7 @@ preview:
   bg: "#04070D"
   surface: "#0A1220"
   ink: "#D7E6FF"
-  muted: "#5B7290"
+  muted: "#667F9E"
   accent: "#4DD8FF"
   accent2: "#FFB300"
   display: "Michroma, Orbitron, sans-serif"
@@ -46,7 +46,7 @@ A believable starship bridge: dark navy void, cyan holographic frames, telemetry
 | Background | `#04070D` | Page ground |
 | Surface | `#0A1220` | Cards, panels, wells |
 | Ink | `#D7E6FF` | Headlines, body text |
-| Muted | `#5B7290` | Captions, meta, secondary text |
+| Muted | `#667F9E` | Captions, meta, secondary text |
 | Accent | `#4DD8FF` | Primary actions, highlights |
 | Accent 2 | `#FFB300` | Caution states, warnings, secondary glows |
 | Nominal | `#7CFF6B` | Nominal/OK status only — matches preview HULL readout |
@@ -80,7 +80,7 @@ Hologram glow: 0 0 20px cyan/20; scanline sweeps; soft blue ambient
 
 Console keys: bordered rectangles with corner ticks, cyan labels; engage actions solid cyan with black text. Two-step arm+confirm for destructive.
 
-All buttons: 44px minimum touch target, visible focus ring (2px accent offset), pointer cursor, and a disabled state that is visibly disabled.
+All buttons: 44px minimum touch target, visible focus ring (2px accent offset, or Ink when accent is under 3:1 on the button ground), pointer cursor, and a disabled state that is visibly disabled.
 
 ## 10. Cards
 
@@ -111,15 +111,15 @@ Durations: micro 100–200ms HUD blips, standard 300ms scans. Easings: linear an
 ## 16. Interactions
 
 - Hover states must be visible within 100ms on every clickable element.
-- Focus-visible rings on all interactive elements (2px accent, 2px offset).
+- Focus-visible rings on all interactive elements (2px accent, 2px offset; if accent is under 3:1 on a ground, use Ink for the ring so focus stays visible).
 - Active/pressed states compress or invert (translate 1–2px, shadow collapse, or fill swap).
 - Loading: skeletons matching the surface style; spinners only for indeterminate waits under 3s.
 
 ## 17. Responsive behavior
 
-- Mobile (360–768px): single column, 16–20px page margins, 40px+ tap targets, sticky bottom CTA where conversion matters.
+- Mobile (360–768px): single column, 16–20px page margins, 44px+ tap targets, sticky bottom CTA where conversion matters.
 - Tablet (768–1100px): 2-column grids, condensed nav, preserved section order.
-- Desktop (1100px+): full grid expression, max-width per Layout section, oversized display type.
+- Desktop (1100px+): full grid expression, max-width per Layout section; type scale per §2 Typography.
 - Never hide critical actions behind hover on touch devices. Test at 360px first.
 
 ## 18. Accessibility
@@ -145,7 +145,7 @@ Durations: micro 100–200ms HUD blips, standard 300ms scans. Easings: linear an
   --bg: #04070D;
   --surface: #0A1220;
   --ink: #D7E6FF;
-  --muted: #5B7290;
+  --muted: #667F9E;
   --accent: #4DD8FF;
   --accent-2: #FFB300;
   --nominal: #7CFF6B;
